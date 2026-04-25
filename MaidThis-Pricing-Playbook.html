@@ -1,0 +1,2952 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MaidThis Northwest San Antonio. Pricing Playbook</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --teal: #5AB3C9;
+    --teal-light: #A7DBE7;
+    --teal-bg: #E6F1F4;
+    --blue: #0C85C2;
+    --navy: #2C3E50;
+    --navy-soft: #475971;
+    --navy-muted: #7A8A9E;
+    --gold: #FFB600;
+    --green: #7CCA5B;
+    --white: #FFFFFF;
+    --off: #F7FAFB;
+    --border: #D9E6EA;
+    --border-soft: #EAF2F4;
+    --shadow: 0 4px 20px rgba(44, 62, 80, 0.07);
+    --shadow-lg: 0 24px 60px rgba(44, 62, 80, 0.14);
+    --shadow-xl: 0 30px 80px rgba(44, 62, 80, 0.18);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+  body {
+    font-family: 'Montserrat', sans-serif;
+    background: var(--white);
+    color: var(--navy);
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    font-weight: 400;
+  }
+
+  h1, h2, h3, h4 { font-family: 'Montserrat', sans-serif; font-weight: 700; letter-spacing: -0.01em; }
+
+  /* NAV */
+  .nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(255, 255, 255, 0.96);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-inner {
+    max-width: 1320px; margin: 0 auto;
+    padding: 14px 32px;
+    display: flex; align-items: center; justify-content: space-between; gap: 24px;
+  }
+  .nav-logo img { height: 38px; display: block; }
+  .nav-links { display: flex; gap: 26px; font-size: 13px; }
+  .nav-links a {
+    color: var(--navy-soft); text-decoration: none;
+    font-weight: 600; transition: color 0.2s;
+    letter-spacing: 0.01em;
+  }
+  .nav-links a:hover { color: var(--teal); }
+  @media (max-width: 900px) { .nav-links { display: none; } }
+
+  .wrap { max-width: 1320px; margin: 0 auto; padding: 0 32px; }
+  section { padding: 72px 0; }
+  section.alt { background: var(--teal-bg); }
+
+  /* KICKERS AND HEADS */
+  .kicker {
+    font-size: 11px; font-weight: 700;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--teal); margin-bottom: 14px;
+  }
+  .kicker.gold { color: var(--gold); }
+  .kicker.green { color: var(--green); }
+  .kicker.blue { color: var(--blue); }
+  .kicker.navy { color: var(--navy); }
+
+  h2.section-h {
+    font-size: clamp(32px, 4.5vw, 48px);
+    color: var(--navy); line-height: 1.08;
+    margin-bottom: 16px; font-weight: 800;
+  }
+  .section-sub {
+    font-size: 16px; color: var(--navy-soft);
+    max-width: 680px; line-height: 1.6;
+  }
+  .section-head { margin-bottom: 40px; }
+
+  /* HERO */
+  .hero { padding: 70px 0 48px; }
+  .hero h1 {
+    font-size: clamp(40px, 6vw, 68px);
+    line-height: 1.04; margin-bottom: 22px;
+    color: var(--navy); font-weight: 800;
+  }
+  .hero h1 span.accent { color: var(--teal); }
+  .hero p { font-size: 18px; color: var(--navy-soft); max-width: 620px; line-height: 1.6; }
+
+  /* CALCULATOR */
+  .calc {
+    margin-top: 42px; background: var(--white);
+    border-radius: 26px; padding: 44px;
+    box-shadow: var(--shadow-lg);
+    border: 1px solid var(--border);
+    position: relative; overflow: hidden;
+  }
+  .calc::before {
+    content: ''; position: absolute; top: 0; right: 0;
+    width: 340px; height: 340px;
+    background: radial-gradient(circle at top right, rgba(90, 179, 201, 0.14), transparent 65%);
+    pointer-events: none;
+  }
+
+  .calc-grid {
+    display: grid; grid-template-columns: 1fr 1.15fr;
+    gap: 40px; align-items: stretch; position: relative;
+  }
+  @media (max-width: 900px) { .calc-grid { grid-template-columns: 1fr; gap: 28px; } .calc { padding: 26px; } }
+
+  .calc-inputs { display: flex; flex-direction: column; gap: 26px; }
+  .field-label {
+    font-size: 11px; font-weight: 700;
+    letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--navy-muted); margin-bottom: 10px; display: block;
+  }
+
+  .select-wrap { position: relative; }
+  .select-wrap::after {
+    content: ''; position: absolute; right: 18px; top: 50%;
+    width: 8px; height: 8px;
+    border-right: 2px solid var(--teal);
+    border-bottom: 2px solid var(--teal);
+    transform: translateY(-75%) rotate(45deg);
+    pointer-events: none;
+  }
+  select {
+    width: 100%; padding: 16px 44px 16px 20px;
+    border: 1.5px solid var(--border); border-radius: 18px;
+    font-family: 'Montserrat', sans-serif; font-size: 15px;
+    font-weight: 500; color: var(--navy);
+    background: var(--white); appearance: none; cursor: pointer;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  select:focus { outline: none; border-color: var(--teal); box-shadow: 0 0 0 4px rgba(90, 179, 201, 0.14); }
+
+  .freq-pills { display: grid; grid-template-columns: repeat(6, 1fr); gap: 8px; }
+  @media (max-width: 820px) { .freq-pills { grid-template-columns: repeat(3, 1fr); } }
+  @media (max-width: 420px) { .freq-pills { grid-template-columns: repeat(2, 1fr); } }
+  .freq-pill {
+    padding: 12px 4px; border: 1.5px solid var(--border);
+    border-radius: 18px; background: var(--white);
+    cursor: pointer; text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    transition: all 0.2s ease;
+  }
+  .freq-pill:hover { border-color: var(--teal); background: var(--teal-bg); }
+  .freq-pill.active {
+    background: var(--teal); border-color: var(--teal); color: var(--white);
+  }
+  .freq-pill-name { display: block; font-size: 13px; font-weight: 700; margin-bottom: 3px; }
+  .freq-pill-disc {
+    display: block; font-size: 9.5px; letter-spacing: 0.08em;
+    text-transform: uppercase; opacity: 0.75; font-weight: 600;
+  }
+
+  /* ADDON CHECKBOXES IN CALCULATOR */
+  .addon-checklist {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+    gap: 8px;
+  }
+  .addon-box {
+    background: var(--white); border: 1.5px solid var(--border);
+    border-radius: 16px; padding: 12px 14px;
+    cursor: pointer; transition: all 0.2s;
+    display: flex; align-items: center; gap: 10px;
+    user-select: none;
+  }
+  .addon-box:hover { border-color: var(--teal); background: var(--teal-bg); }
+  .addon-box.checked { background: var(--teal-bg); border-color: var(--teal); }
+  .addon-box-check {
+    width: 18px; height: 18px;
+    border: 1.8px solid var(--border);
+    border-radius: 7px; flex-shrink: 0;
+    background: var(--white); position: relative;
+    transition: all 0.15s;
+  }
+  .addon-box.checked .addon-box-check {
+    background: var(--teal); border-color: var(--teal);
+  }
+  .addon-box.checked .addon-box-check::after {
+    content: ''; position: absolute;
+    left: 4px; top: 1px;
+    width: 6px; height: 10px;
+    border-right: 2px solid white;
+    border-bottom: 2px solid white;
+    transform: rotate(45deg);
+  }
+  .addon-box-info { flex: 1; min-width: 0; }
+  .addon-box-name {
+    font-size: 12.5px; font-weight: 600; color: var(--navy);
+    line-height: 1.2;
+  }
+  .addon-box-price {
+    font-size: 10.5px; color: var(--navy-muted);
+    font-weight: 600; margin-top: 3px;
+    letter-spacing: 0.02em;
+  }
+  .addon-box.checked .addon-box-price { color: var(--blue); }
+  .addon-box-price s { color: var(--navy-muted); opacity: 0.6; margin-right: 4px; font-weight: 500; }
+
+  .price-row.addon-row {
+    border-top: 1px solid rgba(255, 182, 0, 0.25);
+    margin-top: 4px; padding-top: 16px;
+  }
+  .addon-breakdown-list {
+    font-size: 11.5px; color: rgba(255, 255, 255, 0.55);
+    line-height: 1.5; margin-top: 4px;
+    font-weight: 500;
+  }
+  .price-row.grand-total {
+    border-top: 2px solid var(--gold);
+    margin-top: 6px; padding-top: 18px;
+  }
+  .price-row.grand-total .price-row-label {
+    color: var(--gold); font-weight: 800; font-size: 13px;
+  }
+
+  /* LEAD PLATFORM SELECTOR */
+  .lead-platforms {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+  }
+  @media (max-width: 700px) {
+    .lead-platforms { grid-template-columns: repeat(3, 1fr); }
+  }
+  @media (max-width: 420px) {
+    .lead-platforms { grid-template-columns: repeat(2, 1fr); }
+  }
+  .lead-platform {
+    padding: 14px 8px 12px; border: 1.5px solid var(--border);
+    border-radius: 18px; background: var(--white);
+    cursor: pointer; text-align: center;
+    transition: all 0.2s ease;
+    display: flex; flex-direction: column; align-items: center; gap: 8px;
+    position: relative;
+  }
+  .lead-platform:hover { border-color: var(--teal); background: var(--teal-bg); }
+  .lead-platform.active {
+    background: var(--navy); border-color: var(--navy); color: var(--white);
+    box-shadow: 0 6px 18px rgba(44, 62, 80, 0.2);
+  }
+  .lead-platform.active[data-platform="thumbtack"] {
+    background: #0C85C2; border-color: #0C85C2;
+    box-shadow: 0 6px 18px rgba(12, 133, 194, 0.3);
+  }
+  .lead-platform.disabled {
+    opacity: 0.45; cursor: not-allowed;
+    background: var(--off);
+  }
+  .lead-platform.disabled:hover {
+    border-color: var(--border); background: var(--off);
+  }
+  .lead-platform-logo {
+    width: 32px; height: 32px; border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden; background: var(--white);
+    padding: 2px; flex-shrink: 0;
+  }
+  .lead-platform-logo img { width: 100%; height: 100%; object-fit: contain; }
+  .lead-platform-logo svg { width: 100%; height: 100%; }
+  .lead-platform-name {
+    font-size: 11.5px; font-weight: 700; line-height: 1.1;
+    letter-spacing: 0.02em;
+  }
+  .lead-platform-disabled-tag {
+    position: absolute; top: 6px; right: 6px;
+    font-size: 8px; font-weight: 700; letter-spacing: 0.1em;
+    padding: 2px 6px; border-radius: 8px;
+    background: var(--navy-muted); color: var(--white);
+    text-transform: uppercase;
+  }
+
+  /* FACEBOOK MODE TOGGLE */
+  .fb-mode-wrap {
+    display: none;
+    margin-top: 4px;
+    padding: 16px;
+    background: linear-gradient(135deg, rgba(24, 119, 242, 0.06), rgba(24, 119, 242, 0.02));
+    border: 1.5px solid rgba(24, 119, 242, 0.2);
+    border-radius: 18px;
+    animation: fadeUp 0.3s ease-out;
+  }
+  .fb-mode-wrap.visible { display: block; }
+  .fb-mode-label {
+    font-size: 10.5px; font-weight: 700;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    color: #1877F2; margin-bottom: 10px; display: block;
+  }
+  .fb-mode-tabs {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 8px;
+  }
+  .fb-mode-tab {
+    padding: 12px 14px; border: 1.5px solid var(--border);
+    border-radius: 16px; background: var(--white);
+    cursor: pointer; text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12.5px; font-weight: 700; color: var(--navy-soft);
+    transition: all 0.2s ease;
+  }
+  .fb-mode-tab:hover { border-color: #1877F2; color: var(--navy); }
+  .fb-mode-tab.active {
+    background: #1877F2; border-color: #1877F2; color: var(--white);
+    box-shadow: 0 6px 16px rgba(24, 119, 242, 0.25);
+  }
+  .fb-mode-tab small {
+    display: block; font-size: 9.5px; margin-top: 3px;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    opacity: 0.75; font-weight: 600;
+  }
+
+  /* FACEBOOK PROMOTION SELECTOR */
+  .fb-promo-wrap { display: none; }
+  .fb-promo-wrap.visible { display: block; animation: fadeUp 0.3s ease-out; }
+  .fb-promo-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
+  }
+  @media (max-width: 520px) { .fb-promo-grid { grid-template-columns: 1fr; } }
+  .fb-promo-card {
+    padding: 18px 16px; border: 2px solid var(--border);
+    border-radius: 20px; background: var(--white);
+    cursor: pointer; text-align: left;
+    font-family: 'Montserrat', sans-serif;
+    transition: all 0.22s ease;
+    position: relative;
+  }
+  .fb-promo-card:hover {
+    border-color: #1877F2; transform: translateY(-2px);
+    box-shadow: 0 8px 22px rgba(24, 119, 242, 0.14);
+  }
+  .fb-promo-card.active {
+    border-color: var(--gold); background: linear-gradient(135deg, #fffaeb, #fff);
+    box-shadow: 0 10px 28px rgba(255, 182, 0, 0.22);
+  }
+  .fb-promo-card .promo-tag {
+    position: absolute; top: 10px; right: 10px;
+    font-size: 9px; font-weight: 800;
+    letter-spacing: 0.16em; text-transform: uppercase;
+    padding: 4px 10px; border-radius: 100px;
+    background: rgba(24, 119, 242, 0.12); color: #1877F2;
+  }
+  .fb-promo-card.active .promo-tag {
+    background: var(--gold); color: var(--navy);
+  }
+  .fb-promo-price {
+    font-size: 28px; font-weight: 800; color: var(--navy);
+    line-height: 1; margin-bottom: 4px;
+  }
+  .fb-promo-card.active .fb-promo-price { color: var(--gold); }
+  .fb-promo-name {
+    font-size: 13px; font-weight: 700; color: var(--navy);
+    margin-bottom: 6px;
+  }
+  .fb-promo-sub {
+    font-size: 11px; color: var(--navy-muted);
+    line-height: 1.4; font-weight: 500;
+  }
+
+  /* HOUR COUNTER */
+  .hour-counter-card {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(124, 202, 91, 0.35);
+    border-radius: 18px; padding: 16px 18px;
+    margin-top: 14px; position: relative; z-index: 2;
+  }
+  .hour-counter-label {
+    font-size: 10.5px; font-weight: 700;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--green); margin-bottom: 4px; display: block;
+  }
+  .hour-counter-hint {
+    font-size: 12px; color: rgba(255, 255, 255, 0.7);
+    line-height: 1.5; margin-bottom: 12px;
+  }
+  .hour-counter-row {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 12px;
+  }
+  .hour-counter-controls {
+    display: flex; align-items: center; gap: 12px;
+  }
+  .hour-counter-btn {
+    width: 40px; height: 40px; border-radius: 50%;
+    border: 1.5px solid rgba(255, 255, 255, 0.25);
+    background: rgba(255, 255, 255, 0.08); color: var(--white);
+    font-size: 22px; font-weight: 700; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    transition: all 0.18s;
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1;
+  }
+  .hour-counter-btn:hover {
+    background: var(--green); border-color: var(--green);
+  }
+  .hour-counter-btn:disabled {
+    opacity: 0.35; cursor: not-allowed;
+  }
+  .hour-counter-btn:disabled:hover {
+    background: rgba(255, 255, 255, 0.08); border-color: rgba(255, 255, 255, 0.25);
+  }
+  .hour-counter-value {
+    font-size: 32px; font-weight: 800; color: var(--white);
+    min-width: 50px; text-align: center; line-height: 1;
+  }
+  .hour-counter-rate {
+    font-size: 11px; color: var(--green);
+    font-weight: 700; letter-spacing: 0.12em;
+    text-transform: uppercase; text-align: right;
+  }
+  .hour-counter-rate small {
+    display: block; font-size: 10px; color: rgba(255, 255, 255, 0.55);
+    font-weight: 500; letter-spacing: 0.04em;
+    text-transform: none; margin-top: 3px;
+  }
+
+  /* PROMO INCLUDES BOX (in dark quote panel) */
+  .promo-includes-box {
+    background: rgba(255, 255, 255, 0.05);
+    border-left: 3px solid var(--gold);
+    border-radius: 0 14px 14px 0;
+    padding: 12px 16px; margin: 14px 0 4px;
+    font-size: 12.5px; line-height: 1.55;
+    color: rgba(255, 255, 255, 0.82);
+    position: relative; z-index: 2;
+  }
+  .promo-includes-box strong {
+    display: block; color: var(--gold);
+    font-size: 10.5px; font-weight: 700;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    margin-bottom: 5px;
+  }
+
+  /* CAUTION SIGN STYLE GOLDEN RULE (for Facebook) */
+  .rule-banner.caution {
+    background: repeating-linear-gradient(
+      45deg,
+      #FFB600,
+      #FFB600 22px,
+      #1a1a1a 22px,
+      #1a1a1a 30px
+    );
+    padding: 6px;
+    border-radius: 24px;
+    box-shadow: 0 12px 32px rgba(255, 182, 0, 0.32);
+    overflow: hidden;
+  }
+  .rule-banner.caution .caution-inner {
+    background: #FFB600;
+    border-radius: 18px;
+    padding: 22px 26px;
+    display: flex; align-items: flex-start; gap: 18px;
+    color: #1a1a1a;
+  }
+  .rule-banner.caution .caution-icon {
+    flex-shrink: 0;
+    width: 60px; height: 60px;
+    display: flex; align-items: center; justify-content: center;
+    position: relative;
+  }
+  .rule-banner.caution .caution-icon svg {
+    width: 100%; height: 100%;
+  }
+  .rule-banner.caution .caution-text {
+    flex: 1; font-size: 14px; font-weight: 600;
+    line-height: 1.5; color: #1a1a1a;
+  }
+  .rule-banner.caution .caution-text .caution-title {
+    display: block; font-size: 13px; font-weight: 800;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    margin-bottom: 6px; color: #1a1a1a;
+  }
+  .rule-banner.caution .caution-text strong {
+    font-weight: 800; color: #0a0a0a;
+  }
+  .rule-banner.caution .caution-script {
+    background: rgba(26, 26, 26, 0.08);
+    border-left: 3px solid #1a1a1a;
+    border-radius: 0 14px 14px 0;
+    padding: 12px 16px; margin-top: 12px;
+    font-style: italic; font-size: 13.5px;
+    color: #1a1a1a; font-weight: 500;
+  }
+  .rule-banner.caution .caution-link {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: #1a1a1a; color: var(--gold);
+    padding: 9px 16px; border-radius: 100px;
+    font-size: 12px; font-weight: 700;
+    letter-spacing: 0.08em; text-decoration: none;
+    margin-top: 12px; transition: all 0.2s;
+    border: 2px solid #1a1a1a;
+  }
+  .rule-banner.caution .caution-link:hover {
+    background: var(--gold); color: #1a1a1a;
+  }
+  .rule-banner.caution .caution-trust-row {
+    display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px;
+  }
+  .rule-banner.caution .caution-trust-pill {
+    background: rgba(26, 26, 26, 0.1);
+    border: 1.5px solid rgba(26, 26, 26, 0.2);
+    padding: 6px 12px; border-radius: 100px;
+    font-size: 11px; font-weight: 700;
+    color: #1a1a1a;
+    display: inline-flex; align-items: center; gap: 6px;
+  }
+  @media (max-width: 640px) {
+    .rule-banner.caution .caution-inner {
+      flex-direction: column; text-align: left; gap: 12px;
+    }
+    .rule-banner.caution .caution-icon { width: 56px; height: 56px; }
+  }
+
+  /* STRIKETHROUGH PRICING */
+  .price-row-amount .strike {
+    text-decoration: line-through;
+    text-decoration-color: rgba(255, 100, 100, 0.7);
+    text-decoration-thickness: 2px;
+    opacity: 0.55;
+    font-size: 0.55em;
+    margin-right: 10px;
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: 500;
+  }
+  .discount-banner {
+    background: linear-gradient(90deg, var(--gold), #FFCC3D);
+    color: var(--navy);
+    padding: 10px 16px;
+    border-radius: 14px;
+    margin-top: 14px;
+    font-size: 12px; font-weight: 700;
+    letter-spacing: 0.04em;
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 10px; position: relative; z-index: 2;
+    box-shadow: 0 4px 14px rgba(255, 182, 0, 0.3);
+  }
+  .discount-banner-label {
+    font-size: 10px; letter-spacing: 0.16em;
+    text-transform: uppercase; opacity: 0.75;
+    display: block; margin-bottom: 2px;
+  }
+  .discount-banner-amount {
+    font-size: 18px; font-weight: 800;
+  }
+
+  /* RESULT CARD */
+  .calc-result {
+    background: linear-gradient(160deg, var(--navy) 0%, #1d2b3a 100%);
+    border-radius: 22px; padding: 34px;
+    color: var(--white); position: relative; overflow: hidden;
+    display: flex; flex-direction: column;
+  }
+  .calc-result::before {
+    content: ''; position: absolute; top: -80px; right: -80px;
+    width: 260px; height: 260px;
+    background: radial-gradient(circle, rgba(255, 182, 0, 0.22), transparent 65%);
+  }
+  .calc-result::after {
+    content: ''; position: absolute; bottom: -60px; left: -60px;
+    width: 200px; height: 200px;
+    background: radial-gradient(circle, rgba(90, 179, 201, 0.18), transparent 60%);
+  }
+  .result-label {
+    font-size: 11px; font-weight: 700;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 12px; position: relative; z-index: 2;
+  }
+  .result-service {
+    font-size: 20px; font-weight: 700; margin-bottom: 6px;
+    position: relative; z-index: 2; color: var(--white);
+  }
+  .result-details {
+    font-size: 13px; color: rgba(255, 255, 255, 0.72);
+    margin-bottom: 22px; position: relative; z-index: 2;
+  }
+
+  .price-block { position: relative; z-index: 2; }
+  .price-row {
+    display: flex; align-items: baseline; justify-content: space-between;
+    padding: 12px 0; border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+  .price-row:last-child { border-bottom: none; }
+  .price-row-label {
+    font-size: 12px; font-weight: 600;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.82);
+  }
+  .price-row-label small {
+    display: block; font-size: 10px;
+    letter-spacing: 0.04em; text-transform: none;
+    color: rgba(255, 255, 255, 0.5); font-weight: 500;
+    margin-top: 3px;
+  }
+  .price-row-amount {
+    font-size: 24px; font-weight: 700;
+    color: var(--white); letter-spacing: -0.01em;
+  }
+  .price-row-amount.big { font-size: 36px; }
+  .price-row-amount.gold { color: var(--gold); }
+
+  .result-hours {
+    font-size: 13px; color: rgba(255, 255, 255, 0.68);
+    margin-top: 14px; position: relative; z-index: 2;
+  }
+  .result-upsell {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 182, 0, 0.3);
+    border-radius: 18px; padding: 16px 18px;
+    font-size: 13px; line-height: 1.55; margin-top: 18px;
+    position: relative; z-index: 2;
+  }
+  .result-upsell strong {
+    color: var(--gold); font-weight: 700;
+    display: block; font-size: 10.5px;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    margin-bottom: 5px;
+  }
+
+  /* GOLDEN RULE BANNER */
+  .rule-banner {
+    background: var(--gold); color: var(--navy);
+    border-radius: 20px; padding: 24px 32px;
+    margin-top: 36px;
+    display: flex; align-items: center; gap: 22px;
+    box-shadow: 0 8px 28px rgba(255, 182, 0, 0.18);
+  }
+  .rule-banner-num {
+    width: 52px; height: 52px; border-radius: 50%;
+    background: var(--navy); color: var(--gold);
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 800; font-size: 20px; flex-shrink: 0;
+  }
+  .rule-banner-text { font-size: 15px; font-weight: 600; line-height: 1.4; }
+  .rule-banner-text span {
+    display: block; font-size: 10px; font-weight: 700;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    opacity: 0.7; margin-bottom: 4px;
+  }
+  @media (max-width: 640px) { .rule-banner { flex-direction: column; text-align: center; } }
+
+  /* PRICING TABLE */
+  .pricing-table-wrap {
+    background: var(--white); border-radius: 24px;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-lg); overflow: hidden;
+  }
+  .pricing-table-inner { overflow-x: auto; padding: 8px; }
+  table.pricing {
+    width: 100%; border-collapse: separate; border-spacing: 0;
+    min-width: 900px;
+  }
+  table.pricing thead th {
+    background: transparent; color: var(--navy-muted);
+    text-align: left; padding: 18px 18px 16px;
+    font-size: 10.5px; font-weight: 700;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    border-bottom: 1px solid var(--border-soft); white-space: nowrap;
+  }
+  table.pricing thead th.highlight {
+    background: rgba(90, 179, 201, 0.09);
+    color: var(--blue); position: relative;
+    border-top-left-radius: 18px; border-top-right-radius: 18px;
+  }
+  table.pricing thead th.highlight::after {
+    content: 'BEST'; position: absolute; top: 8px; right: 12px;
+    font-size: 9px; background: var(--gold); color: var(--navy);
+    padding: 3px 8px; border-radius: 10px; letter-spacing: 0.1em;
+    font-weight: 700;
+  }
+  table.pricing tbody td {
+    padding: 20px 18px; font-size: 14px;
+    border: none; color: var(--navy);
+    transition: background 0.15s;
+  }
+  table.pricing tbody td.highlight {
+    background: rgba(90, 179, 201, 0.07);
+  }
+  table.pricing tbody tr:nth-child(even) td { background: var(--off); }
+  table.pricing tbody tr:nth-child(even) td.highlight { background: rgba(90, 179, 201, 0.1); }
+  table.pricing tbody tr:hover td { background: var(--teal-bg); }
+  table.pricing tbody tr:hover td.highlight { background: rgba(90, 179, 201, 0.18); }
+  table.pricing tbody tr.nearest td {
+    background: rgba(255, 182, 0, 0.1) !important;
+    box-shadow: inset 3px 0 0 var(--gold);
+  }
+  table.pricing tbody tr:last-child td.highlight {
+    border-bottom-left-radius: 18px; border-bottom-right-radius: 18px;
+  }
+  table.pricing td.sqft {
+    font-size: 16px; font-weight: 700; color: var(--navy); white-space: nowrap;
+  }
+  table.pricing td.bedbath { color: var(--navy-muted); font-size: 13px; }
+  table.pricing td.price {
+    font-weight: 600; text-align: right; white-space: nowrap;
+  }
+  table.pricing td.price-best {
+    font-size: 17px; font-weight: 800; color: var(--blue);
+    text-align: right; white-space: nowrap;
+  }
+  table.pricing td.hours {
+    text-align: center; color: var(--navy-muted); font-size: 13px;
+    font-weight: 600;
+  }
+
+  .table-search {
+    padding: 22px 26px; border-bottom: 1px solid var(--border);
+    background: var(--white); display: flex; gap: 14px;
+    align-items: center; flex-wrap: wrap;
+  }
+  .search-result-msg {
+    padding: 12px 26px; background: rgba(255, 182, 0, 0.1);
+    border-bottom: 1px solid var(--border);
+    font-size: 13px; color: var(--navy); font-weight: 600;
+    display: none;
+  }
+  .search-result-msg.visible { display: block; }
+  .search-result-msg strong { color: var(--gold); font-weight: 800; }
+
+  .table-search input {
+    flex: 1; min-width: 200px; padding: 13px 18px;
+    border: 1.5px solid var(--border); border-radius: 16px;
+    font-family: 'Montserrat', sans-serif; font-size: 14px;
+    font-weight: 500;
+    background: var(--white); transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  .table-search input:focus { outline: none; border-color: var(--teal); box-shadow: 0 0 0 4px rgba(90, 179, 201, 0.14); }
+  .table-search .search-hint { font-size: 12.5px; color: var(--navy-muted); font-weight: 500; }
+
+  /* ADD ON CARDS */
+  .addon-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 16px;
+  }
+  .addon-card {
+    background: var(--white); border: 1px solid var(--border);
+    border-radius: 20px; padding: 26px;
+    transition: transform 0.22s, box-shadow 0.22s, border-color 0.22s;
+    position: relative;
+  }
+  .addon-card:hover {
+    transform: translateY(-4px); box-shadow: var(--shadow-lg);
+    border-color: var(--teal);
+  }
+  .addon-card.highlight {
+    background: linear-gradient(160deg, var(--blue), var(--teal));
+    color: var(--white); border-color: var(--blue);
+    box-shadow: 0 12px 32px rgba(12, 133, 194, 0.22);
+  }
+  .addon-name {
+    font-size: 17px; font-weight: 700; color: var(--navy);
+    margin-bottom: 12px; line-height: 1.25;
+  }
+  .addon-card.highlight .addon-name { color: var(--white); }
+  .addon-price {
+    font-size: 30px; font-weight: 800; color: var(--blue);
+    line-height: 1; margin-bottom: 4px;
+  }
+  .addon-card.highlight .addon-price { color: var(--gold); }
+  .addon-meta {
+    display: flex; gap: 16px; font-size: 12px; color: var(--navy-muted);
+    margin: 12px 0; padding-bottom: 12px;
+    border-bottom: 1px solid var(--border-soft); flex-wrap: wrap;
+  }
+  .addon-card.highlight .addon-meta {
+    color: rgba(255, 255, 255, 0.7);
+    border-color: rgba(255, 255, 255, 0.15);
+  }
+  .addon-meta span { display: flex; align-items: center; gap: 4px; }
+  .addon-meta strong {
+    font-weight: 700; color: var(--navy);
+    text-transform: uppercase; letter-spacing: 0.08em; font-size: 10px;
+  }
+  .addon-card.highlight .addon-meta strong { color: var(--gold); }
+  .addon-note { font-size: 13px; color: var(--navy-soft); line-height: 1.5; }
+  .addon-card.highlight .addon-note { color: rgba(255, 255, 255, 0.85); }
+  .addon-flag {
+    display: inline-block; font-size: 9.5px; font-weight: 700;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    padding: 5px 10px; border-radius: 12px;
+    background: var(--gold); color: var(--navy); margin-bottom: 12px;
+  }
+  .addon-flag.unavailable { background: var(--navy-muted); color: var(--white); }
+
+  /* HOURLY */
+  .hourly-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+  @media (max-width: 960px) { .hourly-layout { grid-template-columns: 1fr; } }
+  .hourly-card {
+    background: var(--white); border: 1px solid var(--border);
+    border-radius: 22px; padding: 32px; box-shadow: var(--shadow);
+  }
+  .hourly-card h3 {
+    font-size: 22px; color: var(--navy); margin-bottom: 6px; font-weight: 700;
+  }
+  .hourly-card .subtitle { color: var(--navy-muted); font-size: 13px; margin-bottom: 22px; font-weight: 500; }
+
+  .hourly-row {
+    display: grid; grid-template-columns: 70px 80px 1fr;
+    gap: 14px; padding: 13px 0;
+    border-bottom: 1px solid var(--border-soft); align-items: start;
+  }
+  .hourly-row:last-child { border-bottom: none; }
+  .hourly-row .hr-hours {
+    font-size: 20px; font-weight: 800; color: var(--navy);
+  }
+  .hourly-row .hr-hours small {
+    font-size: 10px; color: var(--navy-muted); display: block;
+    text-transform: uppercase; letter-spacing: 0.1em;
+    margin-top: 1px; font-weight: 600;
+  }
+  .hourly-row .hr-price {
+    font-size: 20px; font-weight: 800; color: var(--teal);
+  }
+  .hourly-row .hr-desc { font-size: 13px; color: var(--navy-soft); line-height: 1.5; }
+  .hourly-row .hr-desc strong {
+    display: block; color: var(--navy); font-weight: 700;
+    margin-bottom: 2px; font-size: 13.5px;
+  }
+
+  .scenario-card {
+    background: var(--white); border: 1px solid var(--border);
+    border-radius: 18px; padding: 20px 24px; margin-bottom: 12px;
+    display: grid; grid-template-columns: 1fr auto; gap: 18px;
+    align-items: center; transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+  }
+  .scenario-card:hover { border-color: var(--teal); transform: translateX(3px); box-shadow: var(--shadow); }
+  .scenario-body h4 {
+    font-size: 15px; font-weight: 700; color: var(--navy);
+    margin-bottom: 3px;
+  }
+  .scenario-body p { font-size: 12.5px; color: var(--navy-muted); line-height: 1.5; }
+  .scenario-meta { text-align: right; white-space: nowrap; }
+  .scenario-meta .hrs {
+    display: block; font-size: 11px; color: var(--navy-muted);
+    font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+  }
+  .scenario-meta .price {
+    font-size: 22px; font-weight: 800; color: var(--teal);
+    line-height: 1; margin-top: 3px;
+  }
+
+  /* ============ CHECKLISTS ============ */
+  .checklist-tabs {
+    display: flex; gap: 8px; margin-bottom: 28px;
+    flex-wrap: wrap; padding: 8px;
+    background: var(--white); border-radius: 18px;
+    border: 1px solid var(--border); box-shadow: var(--shadow);
+  }
+  .checklist-tab {
+    flex: 1; min-width: 120px; padding: 14px 14px;
+    border: none; border-radius: 16px;
+    background: transparent; color: var(--navy-soft);
+    font-family: 'Montserrat', sans-serif; font-weight: 700;
+    font-size: 13px; cursor: pointer;
+    transition: all 0.22s; text-align: center;
+    display: flex; flex-direction: column; align-items: center; gap: 5px;
+  }
+  .checklist-tab:hover { background: var(--teal-bg); color: var(--navy); }
+  .checklist-tab.active { background: var(--navy); color: var(--white); }
+  .checklist-tab.active[data-color="teal"] { background: var(--teal); }
+  .checklist-tab.active[data-color="blue"] { background: var(--blue); }
+  .checklist-tab.active[data-color="navy"] { background: var(--navy); }
+  .checklist-tab.active[data-color="gold"] { background: var(--gold); color: var(--navy); }
+  .checklist-tab.active[data-color="green"] { background: var(--green); }
+  .tab-dot {
+    width: 8px; height: 8px; border-radius: 50%; display: inline-block;
+  }
+  .checklist-tab[data-color="teal"] .tab-dot { background: var(--teal); }
+  .checklist-tab[data-color="blue"] .tab-dot { background: var(--blue); }
+  .checklist-tab[data-color="navy"] .tab-dot { background: var(--navy); }
+  .checklist-tab[data-color="gold"] .tab-dot { background: var(--gold); }
+  .checklist-tab[data-color="green"] .tab-dot { background: var(--green); }
+  .checklist-tab.active .tab-dot { background: var(--white); }
+  .checklist-tab.active[data-color="gold"] .tab-dot { background: var(--navy); }
+
+  .checklist-panel {
+    display: none;
+    background: var(--white); border: 1px solid var(--border);
+    border-radius: 24px; padding: 48px; box-shadow: var(--shadow);
+    animation: fadeUp 0.4s ease-out;
+  }
+  .checklist-panel.active { display: block; }
+  @media (max-width: 700px) { .checklist-panel { padding: 28px; border-radius: 20px; } }
+
+  .cl-kicker {
+    font-size: 11px; font-weight: 700;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .cl-title {
+    font-size: clamp(30px, 4vw, 40px);
+    font-weight: 800; color: var(--navy);
+    margin-bottom: 12px; line-height: 1.1;
+  }
+  .cl-sub {
+    font-size: 15.5px; color: var(--navy-soft);
+    line-height: 1.55; margin-bottom: 22px; max-width: 720px;
+  }
+  .cl-meta-row {
+    display: flex; gap: 16px; flex-wrap: wrap;
+    align-items: center; margin-bottom: 10px;
+  }
+  .cl-pill {
+    background: var(--teal-bg); color: var(--navy);
+    padding: 9px 16px; border-radius: 100px;
+    font-size: 11px; font-weight: 700;
+    letter-spacing: 0.12em; text-transform: uppercase;
+  }
+  .cl-note {
+    font-size: 13.5px; color: var(--navy-muted);
+    font-style: italic; font-weight: 500;
+  }
+  .cl-rule {
+    border: none; border-top: 3px solid var(--teal);
+    margin: 20px 0 32px; opacity: 1;
+  }
+  .cl-rule.blue { border-top-color: var(--blue); }
+  .cl-rule.navy { border-top-color: var(--navy); }
+  .cl-rule.gold { border-top-color: var(--gold); }
+  .cl-rule.green { border-top-color: var(--green); }
+
+  .cl-includes {
+    background: var(--teal-bg); border-radius: 18px;
+    padding: 16px 22px; margin-bottom: 30px;
+    display: flex; align-items: center; gap: 14px;
+    flex-wrap: wrap;
+  }
+  .cl-includes-label {
+    font-size: 10.5px; font-weight: 700;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--navy-muted);
+  }
+  .cl-includes-chip {
+    background: var(--white); padding: 6px 14px;
+    border-radius: 100px; font-size: 12px;
+    font-weight: 600; color: var(--navy);
+  }
+  .cl-includes-chip::before {
+    content: '¹3'; color: var(--green);
+    font-weight: 800; margin-right: 6px;
+  }
+
+  .cl-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 38px 40px; margin-bottom: 36px;
+  }
+  .cl-col h4 {
+    font-size: 12px; font-weight: 700;
+    letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--navy); margin-bottom: 16px;
+    padding-bottom: 10px;
+    border-bottom: 1.5px solid var(--border);
+  }
+  .cl-item {
+    display: flex; align-items: flex-start; gap: 12px;
+    padding: 7px 0; font-size: 13.5px;
+    color: var(--navy); line-height: 1.5;
+  }
+  .cl-check {
+    flex-shrink: 0; width: 15px; height: 15px;
+    border: 1.5px solid var(--teal);
+    border-radius: 7px; margin-top: 3px;
+  }
+  .cl-check.blue { border-color: var(--blue); }
+  .cl-check.navy { border-color: var(--navy); }
+  .cl-check.gold { border-color: var(--gold); }
+  .cl-check.green { border-color: var(--green); }
+
+  .cl-addons {
+    background: var(--off); border: 1.5px dashed var(--border);
+    border-radius: 18px; padding: 24px 28px;
+  }
+  .cl-addons-head {
+    display: flex; justify-content: space-between;
+    align-items: baseline; margin-bottom: 16px; flex-wrap: wrap; gap: 8px;
+  }
+  .cl-addons-title {
+    font-size: 11.5px; font-weight: 700;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--navy);
+  }
+  .cl-addons-cta {
+    font-size: 12.5px; color: var(--navy-muted);
+    font-style: italic; font-weight: 500;
+  }
+  .cl-addons-pills {
+    display: flex; flex-wrap: wrap; gap: 8px;
+  }
+  .cl-addons-pills span {
+    background: var(--white); border: 1px solid var(--border);
+    padding: 8px 14px; border-radius: 100px;
+    font-size: 12px; font-weight: 500; color: var(--navy);
+  }
+
+  .cl-footer-card {
+    margin-top: 30px; padding: 22px 26px;
+    display: flex; align-items: center; gap: 20px;
+    border-top: 1px solid var(--border); padding-top: 26px;
+  }
+  .cl-badge {
+    width: 64px; height: 64px; border-radius: 50%;
+    background: var(--gold); color: var(--navy);
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 800; font-size: 15px; flex-shrink: 0;
+    box-shadow: 0 6px 18px rgba(255, 182, 0, 0.28);
+  }
+  .cl-footer-text strong {
+    display: block; font-size: 14px; font-weight: 700;
+    color: var(--navy); margin-bottom: 3px;
+  }
+  .cl-footer-text p { font-size: 12.5px; color: var(--navy-muted); line-height: 1.5; }
+  .cl-footer-contact {
+    margin-left: auto; text-align: right; font-size: 12px; color: var(--navy-muted);
+  }
+  .cl-footer-contact strong { color: var(--navy); font-weight: 700; display: block; margin-bottom: 2px; }
+  @media (max-width: 700px) {
+    .cl-footer-card { flex-direction: column; text-align: center; }
+    .cl-footer-contact { margin: 0; text-align: center; }
+  }
+
+  /* RULES */
+  .rules-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px;
+  }
+  .rule-card {
+    background: var(--white); border: 1px solid var(--border);
+    border-radius: 20px; padding: 28px;
+    border-left: 4px solid var(--teal);
+    transition: transform 0.22s, box-shadow 0.22s;
+  }
+  .rule-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); }
+  .rule-card.gold { border-left-color: var(--gold); }
+  .rule-card.green { border-left-color: var(--green); }
+  .rule-card.blue { border-left-color: var(--blue); }
+  .rule-card.navy { border-left-color: var(--navy); }
+  .rule-num {
+    font-size: 11px; font-weight: 700;
+    color: var(--teal); letter-spacing: 0.15em;
+    text-transform: uppercase; margin-bottom: 10px;
+  }
+  .rule-card.gold .rule-num { color: var(--gold); }
+  .rule-card.green .rule-num { color: var(--green); }
+  .rule-card.blue .rule-num { color: var(--blue); }
+  .rule-card.navy .rule-num { color: var(--navy); }
+  .rule-card h4 {
+    font-size: 17px; font-weight: 700; color: var(--navy);
+    margin-bottom: 10px; line-height: 1.25;
+  }
+  .rule-card p { font-size: 13.5px; color: var(--navy-soft); line-height: 1.55; }
+
+  /* REBUTTAL CARDS */
+  .rebuttal-grid {
+    display: flex; flex-direction: column; gap: 20px;
+  }
+  .rebuttal-card {
+    background: var(--white); border: 1px solid var(--border);
+    border-radius: 20px; overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: box-shadow 0.22s;
+  }
+  .rebuttal-card:hover { box-shadow: var(--shadow-lg); }
+  .rebuttal-trigger {
+    display: flex; align-items: center; gap: 18px;
+    padding: 22px 28px; cursor: pointer;
+    user-select: none;
+    background: var(--white);
+    transition: background 0.2s;
+  }
+  .rebuttal-trigger:hover { background: var(--teal-bg); }
+  .rebuttal-trigger.open { background: var(--navy); color: var(--white); }
+  .rebuttal-objection-badge {
+    flex-shrink: 0; font-size: 10px; font-weight: 700;
+    letter-spacing: 0.16em; text-transform: uppercase;
+    padding: 6px 12px; border-radius: 14px;
+    background: rgba(90, 179, 201, 0.15); color: var(--teal);
+    white-space: nowrap;
+  }
+  .rebuttal-trigger.open .rebuttal-objection-badge {
+    background: rgba(255, 182, 0, 0.2); color: var(--gold);
+  }
+  .rebuttal-trigger-text { flex: 1; }
+  .rebuttal-objection-label {
+    font-size: 11px; font-weight: 600; color: var(--navy-muted);
+    letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 5px;
+  }
+  .rebuttal-trigger.open .rebuttal-objection-label { color: rgba(255,255,255,0.6); }
+  .rebuttal-objection-quote {
+    font-size: 16px; font-weight: 700; color: var(--navy);
+    line-height: 1.3;
+  }
+  .rebuttal-trigger.open .rebuttal-objection-quote { color: var(--white); }
+  .rebuttal-chevron {
+    flex-shrink: 0; width: 28px; height: 28px;
+    border-radius: 50%; background: var(--teal-bg);
+    display: flex; align-items: center; justify-content: center;
+    transition: transform 0.25s, background 0.2s;
+    color: var(--teal);
+    font-size: 14px; font-weight: 800;
+  }
+  .rebuttal-trigger.open .rebuttal-chevron {
+    transform: rotate(180deg);
+    background: rgba(255,255,255,0.12); color: var(--white);
+  }
+  .rebuttal-body {
+    display: none; padding: 0 28px 28px;
+    border-top: 1px solid var(--border);
+  }
+  .rebuttal-body.open { display: block; }
+  .rebuttal-step {
+    display: flex; gap: 18px; padding: 22px 0;
+    border-bottom: 1px solid var(--border-soft);
+  }
+  .rebuttal-step:last-child { border-bottom: none; padding-bottom: 4px; }
+  .rebuttal-step-num {
+    flex-shrink: 0; width: 30px; height: 30px;
+    background: var(--navy); color: var(--white);
+    border-radius: 50%; display: flex; align-items: center;
+    justify-content: center; font-size: 12px; font-weight: 800;
+    margin-top: 2px;
+  }
+  .rebuttal-step-num.teal { background: var(--teal); }
+  .rebuttal-step-num.gold { background: var(--gold); color: var(--navy); }
+  .rebuttal-step-num.green { background: var(--green); color: var(--navy); }
+  .rebuttal-step-num.blue { background: var(--blue); }
+  .rebuttal-step-content h4 {
+    font-size: 13px; font-weight: 700; color: var(--navy-muted);
+    letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 8px;
+  }
+  .rebuttal-step-content p {
+    font-size: 14.5px; color: var(--navy); line-height: 1.55; margin-bottom: 10px;
+  }
+  .rebuttal-step-content p:last-child { margin-bottom: 0; }
+  .rebuttal-script {
+    background: var(--teal-bg); border-left: 3px solid var(--teal);
+    border-radius: 0 14px 14px 0; padding: 14px 18px;
+    font-size: 14px; color: var(--navy); line-height: 1.6;
+    font-style: italic; margin-top: 10px;
+  }
+  .rebuttal-script.gold { background: rgba(255,182,0,0.1); border-color: var(--gold); }
+  .rebuttal-script.green { background: rgba(124,202,91,0.1); border-color: var(--green); }
+  .rebuttal-script strong { font-style: normal; color: var(--blue); font-weight: 700; }
+  .rebuttal-warning {
+    background: rgba(206, 106, 75, 0.08); border: 1px solid rgba(206, 106, 75, 0.25);
+    border-radius: 16px; padding: 14px 18px; margin-top: 10px;
+    font-size: 13px; color: var(--navy); line-height: 1.55;
+  }
+  .rebuttal-warning strong {
+    color: #CE6A4B; font-weight: 700;
+    font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase;
+    display: block; margin-bottom: 4px;
+  }
+
+  .closing-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px; margin-top: 32px;
+  }
+  @media (max-width: 1100px) {
+    .closing-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 560px) {
+    .closing-grid { grid-template-columns: 1fr; }
+  }
+  .closing-card {
+    background: var(--white); border: 1px solid var(--border);
+    border-radius: 22px; padding: 24px;
+    border-top: 3px solid var(--teal);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .closing-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); }
+  .closing-card.gold { border-top-color: var(--gold); }
+  .closing-card.green { border-top-color: var(--green); }
+  .closing-card.blue { border-top-color: var(--blue); }
+  .closing-card.navy { border-top-color: var(--navy); }
+  .closing-card-icon { font-size: 26px; margin-bottom: 12px; }
+  .closing-card h4 {
+    font-size: 15px; font-weight: 700; color: var(--navy);
+    margin-bottom: 8px; line-height: 1.25;
+  }
+  .closing-card p { font-size: 13px; color: var(--navy-soft); line-height: 1.55; }
+
+  /* FOOTER */
+  footer {
+    background: var(--navy); color: rgba(255, 255, 255, 0.7);
+    padding: 44px 0; text-align: center; font-size: 13px;
+  }
+  footer .footer-logo {
+    background: var(--white); display: inline-block;
+    padding: 14px 22px; border-radius: 22px; margin-bottom: 16px;
+  }
+  footer .footer-logo img { height: 34px; display: block; }
+  footer p { margin-top: 6px; }
+  footer strong { color: var(--white); font-weight: 700; }
+  footer a { color: var(--teal); text-decoration: none; }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(14px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .animate { animation: fadeUp 0.6s ease-out backwards; }
+  .animate.d1 { animation-delay: 0.07s; }
+  .animate.d2 { animation-delay: 0.14s; }
+  .animate.d3 { animation-delay: 0.21s; }
+
+  @media print {
+    .nav { display: none; }
+    section { page-break-inside: avoid; padding: 28px 0; }
+    .calc-result { background: var(--white) !important; color: var(--navy) !important; border: 2px solid var(--navy); }
+    .result-service, .result-label, .price-row-amount, .price-row-label { color: var(--navy) !important; }
+    .checklist-panel { display: block !important; page-break-before: always; }
+    .checklist-tabs { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="nav-logo"><img src="data:image/jpeg;base64,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" alt="MaidThis Northwest San Antonio"></div>
+    <div class="nav-links">
+      <a href="#calculator">Calculator</a>
+      <a href="#residential">Pricing</a>
+      <a href="#addons">Add-Ons</a>
+      <a href="#hourly">Hourly</a>
+      <a href="#checklists">Checklists</a>
+      <a href="#rules">Rebuttals</a>
+    </div>
+  </div>
+</nav>
+
+<div class="wrap">
+  <section class="hero" id="calculator">
+    <div class="animate">
+      <div class="kicker">Your Pricing Playbook</div>
+      <h1>Quote fast. <span class="accent">Sell smarter.</span></h1>
+      <p>Everything you need mid-call, one tap away. Pull up a quote, walk a client through a checklist, handle the tough objection. This is the stuff the best closers lean on every day.</p>
+    </div>
+
+    <div class="calc animate d2">
+      <div class="kicker">Pricing Calculator</div>
+      <h2 style="font-size: 28px; font-weight: 800; color: var(--navy); margin-bottom: 28px;">Get a quote in two clicks</h2>
+
+      <div class="calc-grid">
+        <div class="calc-inputs">
+          <div>
+            <label class="field-label">Lead Platform</label>
+            <div class="lead-platforms" id="leadPlatforms">
+              <div class="lead-platform" data-platform="thumbtack">
+                <div class="lead-platform-logo">
+                  <img src="data:image/jpeg;base64,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" alt="Thumbtack">
+                </div>
+                <span class="lead-platform-name">Thumbtack</span>
+              </div>
+              <div class="lead-platform" data-platform="facebook">
+                <div class="lead-platform-logo">
+                  <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><circle cx="16" cy="16" r="16" fill="#1877F2"/><path d="M21.5 16.5h-3.3v10h-4v-10h-2.3v-3.4h2.3v-2.3c0-2.5 1.5-4 3.9-4 1.1 0 2.3.2 2.3.2v3.2h-1.3c-1.3 0-1.6.8-1.6 1.6v1.9h3l-.5 3.4z" fill="#fff"/></svg>
+                </div>
+                <span class="lead-platform-name">Facebook</span>
+              </div>
+              <div class="lead-platform" data-platform="googlelsa">
+                <div class="lead-platform-logo">
+                  <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><path d="M31.3 16.4c0-1.1-.1-2.1-.3-3.1H16v5.9h8.6c-.4 2-1.5 3.6-3.2 4.8v4h5.2c3.1-2.8 4.7-7 4.7-11.6z" fill="#4285F4"/><path d="M16 32c4.3 0 8-1.4 10.6-3.9l-5.2-4c-1.4.9-3.2 1.5-5.4 1.5-4.2 0-7.7-2.8-9-6.6H1.7v4.1C4.3 28.4 9.7 32 16 32z" fill="#34A853"/><path d="M7 19c-.3-1-.5-2-.5-3s.2-2 .5-3V8.9H1.7C.6 10.9 0 13.4 0 16s.6 5.1 1.7 7.1L7 19z" fill="#FBBC05"/><path d="M16 6.4c2.4 0 4.5.8 6.2 2.4l4.6-4.6C24 1.6 20.3 0 16 0 9.7 0 4.3 3.6 1.7 8.9L7 13c1.3-3.8 4.8-6.6 9-6.6z" fill="#EA4335"/></svg>
+                </div>
+                <span class="lead-platform-name">Google LSA</span>
+              </div>
+              <div class="lead-platform" data-platform="phonetext">
+                <div class="lead-platform-logo">
+                  <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><rect width="32" height="32" rx="8" fill="#7CCA5B"/><path d="M22 18.5c-.9 0-1.8-.1-2.6-.4-.3-.1-.6 0-.8.2l-1.6 1.6c-2.1-1.1-3.9-2.8-5-5l1.6-1.6c.2-.2.3-.5.2-.8-.3-.8-.4-1.7-.4-2.6 0-.4-.3-.7-.7-.7H10c-.4 0-.9.2-.9.7 0 7.1 5.8 12.9 12.9 12.9.5 0 .7-.5.7-.9v-2.7c0-.4-.3-.7-.7-.7z" fill="#fff"/></svg>
+                </div>
+                <span class="lead-platform-name">Phone / Text</span>
+              </div>
+              <div class="lead-platform" data-platform="website">
+                <div class="lead-platform-logo" style="background: var(--white); padding: 3px;">
+                  <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAQDAwMDAgQDAwMEBAQFBgoGBgUFBgwICQcKDgwPDg4MDQ0PERYTDxAVEQ0NExoTFRcYGRkZDxIbHRsYHRYYGRj/2wBDAQQEBAYFBgsGBgsYEA0QGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBj/wAARCABUAGQDASIAAhEBAxEB/8QAHAABAAMBAQADAAAAAAAAAAAAAAYHCAUCAwQJ/8QARBAAAQMDAgMEAwsICwAAAAAAAQIDBAAFBgcRCBIhEyIxQVFhcRQjMjY4QnJ0dYGyFUNSYoKRs7QWJDNTVZOhotHS4f/EABkBAQADAQEAAAAAAAAAAAAAAAACAwQBBf/EAC0RAAIBAgQDBwQDAAAAAAAAAAABAgMRBBIhQRMxYQUiMlFx4fA0gZHBFHLR/9oADAMBAAIRAxEAPwDf1KUoBSlRy2ZnarpnFxxmOr3+GkEL36OkfDA+idh+/wBFSjByTaXIrnVhBpSdr6I85fmlrxG2h+StD0lS0pRFQsc6gT1Vt5ADc/6V27fcYN1gNzbdKaksODdK21bj/wAPqqL5vp9bctih5ttqLcwtH9bCeqkA7FKtvHpvtv5gVILJYbTjttEG0Q24zXirlHeWdvhKPiTVklS4atfNuZ6bxH8iSmlw7K3n89up0qUpVJsFKUoBSlKAUpSgFKUoCLZvbsuuNl7PFbq1Dc2PaNkcq3PUlz5v7vvFZ+sNqyaTmqYFmD7N4acVzL5+RTRB2UVK9Hp9O/nvWqqj0xnFsReu+Z3OTFtiHG0qmTZLgbbQlI8dz4b9PaQK3YbGOjCULXv81PG7Q7JWKqwqZmrPXXbp5M+/YWL1GsbLV/mx5k4DvusN8iT/AMn17D2VWGsnEXhGkUZVvecN6yVwAMWWEsFzc+BdUN+zT7d1HyBqqco1/wBQ9Z8lfwLhxtMhuIk9nNyuSgtJaSfEoJHvY8diQVn5qR41YujvDLiOmUgZJfHjlGXuHtXbvOHMGlnqS0lW+x3+ed1H0jwqhxUXmqfj5yPVjolGOxXUTIeN7MIIyS0WTHcdhOjtI9slttodWnyBDhUoHb9Ip+6uzgXFa9Ayo4Hr3jysMyFCggTi2pMV3yBUCTyA+SwVIPpFXsdStOkqKTn2MAg7EG6sdP8AfXGyzDtLNcsSdt9zNpyGK0ooRNt8lDjsRZG/cdQSUK2IO3gem4Ipni9JR06HbPZk9YfYlRW5MV5t5l1IW262oKStJ6ggjoR66+SsYPWHXHhPlrnYw+9nemqVFb0F0Euw0b9TsNy0f10boPipIrRWlWtmB6v2T3Xi9zCJzaAqTapJCJMf2p37yf1k7j7+lQlTaWZao6pX0ZYtKUqskKUpQClKiOqlyn2bQ/Lrta5TkWbFtEp5h9s7KbWlpRSoesHrXUruwInrDxCYPpBDMSc8btkTqR7mskJQLqifAuHr2aT6T1PkDVNWjSPVriNvcbLdc7hJx3FUK7WDi0Mlpak+RUk/A3HzlbrPkEjaqH4XsnhWrikstyzKG3cfy6XIzNxuKe1W3KUruPJWrfvFaeQq8e/X6b1oqLg6R5+ZXHv6s4+MYrjuGY1HsGLWeLa7cwNkR46OUb+ZJ8VKPmTuTXWWnmaUkeYIr1VRcSWqL2lWhE+8WyUli+TVpg21RAUUuq6lzY9DyoCldRtuB6aoScnbdk27IzI/wFZ67LddGa4yAtalAFp7pud/0a0hw3aMXnRTBbvY71drfcXZ0/3WhyElaUpT2aUbHmA67pNUjwz6r6y6iZtluPZBlUiZKi2cvRWpLDTXYv8AbNp3PKgddiR19NXz+R9bv8aj/wCY3/0rdKE5pxnNIwVsVwZLLTlL0V/2W6QCCCNwfI1nDVXhVtl6vf8ATnSW5HC8wYWX0GIotR5Dnjvsnq0o+lPQ+aT41LJUHWmFAfmP3tjsmW1Or2W2Tskbn5nqrm45O1aym1ruFpvqFMocLR7UtoPMAD4cvrFIYVxWeNSNvX2M0u1lmVN0Z3e1l/pCcD4n79h+To074jbK7YLw3shq+BrZh8b7BTgT3dj/AHiN0+kJ61qWJLiz4LU2DJZkxnkBbTzKwtDiT4FKh0I9Yqhcy0qzzUGyJtOZsWq8RUL520vqQFNq9KFpSFJ9exG9SnRXTW5aZwZ9qUgRrW4ErYiImLfbbXueYpSonk36b7eNQrUIKOZSV/JF9DHTqTUHSkr7te5a9KUrEekKg+s3yds4+w5f8FVTioPrN8nbOPsOX/BVUo+JHGYHgYE/euAeJqFaEqRdsWyKQ6XWx3xHWGeY7/qLCF+oc1b40gz1jUvRawZg2pPbyowTLQn83IR3XU+rvAkeoiqW4NLTBv3B9c7Jc2Q9CnXKbGfbPgpC220qH7iajvChdJ2m2tmbaAZA+rmYkLmW4r6doUbBRT9NotufsqrTV7+ZbplcdLdTYdYv1TWrXvjvsGmMdRexzFiXblynuKUnlW/v7dmmfaTWodUc4iacaRX3MpfKTAjKUy2o/wBq8ruto+9ZSPZvVFcFmDy4mA3nVO/BTt3ymUtTb7nwiwlZJV+24Vn2JTVdLuxc/siUtWkRbhpCU8d2rqUJCUgzAEgbAD3cnoK2bWM+Gr5eGr30pv8APJrZlMR4vshDkc3Ivifdfqb34DUF0P8AiBK+uq/Aip1kXxPuv1N78BqC6H/ECV9dV+BFW0/pp+qPNrfX0v6y/RZlKUrGeqKUpQCoPrN8nbOPsOX/AAVVOKieqFpuF90Vyyy2mMqTPm2mTHjsJIBccU2oJTuSANyR41KPNBlMcDvyX3PtqT+FuolxZWifp5q9hPEBjzB7SHJbh3EI6dpy7lHN9Nsutn2JqzeE/B8q0+0CXYMxtDlruJuj74juLQs8ikoAVugkddj5+VWFqpgsXUnR+/YbJCQqdGUI7ivzb6e80v7lhP3b1c5pVW9iFrxsZh4n8xVq7mmnujeEzO3ZvamLpIdbO4CXU+9FXqS2XHCPo1r6wWS341i1ux61MhmDb4zcVhA8kISEj7+lZP4TNAcywzUK55tqRZXIEyJFTCtbT7yHT3hstYKVHYBKQgepRrYNcrNK0I8kIX5sxnw1fLw1e+lN/nk1syswaF6Y53inF3qTl2QY89Cst2MowZanW1B7nlhadglRI3SN+oFafrldpy06HYcjm5F8T7r9Te/Aaguh/wAQJX11X4EVPr0w7Kxq4xmEFbrsVxCEjzUUEAVEtKLFdsfw6RDvENUV9UpTgQpQO6eVI36E+g1ZCSWHkr63R59aEnjqcktFGWv4J3SlKynpClKUApSlAKUpQClKUApSlAKUpQClKUApSlAf/9k=" alt="Website">
+                </div>
+                <span class="lead-platform-name">Website</span>
+              </div>
+            </div>
+
+            <div class="fb-mode-wrap" id="fbModeWrap">
+              <span class="fb-mode-label">Facebook Lead Type</span>
+              <div class="fb-mode-tabs" id="fbModeTabs">
+                <button class="fb-mode-tab active" data-fbmode="promo">
+                  Meta Ad Promotion
+                  <small>$199 / $159 Specials</small>
+                </button>
+                <button class="fb-mode-tab" data-fbmode="other">
+                  Other Clean
+                  <small>Standard quote flow</small>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div id="fbPromoWrap" class="fb-promo-wrap">
+            <label class="field-label">Promotion</label>
+            <div class="fb-promo-grid" id="fbPromoGrid">
+              <button class="fb-promo-card active" data-promo="4hr">
+                <span class="promo-tag">Top Deal</span>
+                <div class="fb-promo-price">$199</div>
+                <div class="fb-promo-name">4 Hour Special</div>
+                <div class="fb-promo-sub">Kitchen, living area, full bath. Or client picks the focus.</div>
+              </button>
+              <button class="fb-promo-card" data-promo="3hr">
+                <span class="promo-tag">Budget Pick</span>
+                <div class="fb-promo-price">$159</div>
+                <div class="fb-promo-name">3 Hour Special</div>
+                <div class="fb-promo-sub">Best entry for price-conscious clients. Same flat rate, less time.</div>
+              </button>
+            </div>
+          </div>
+
+          <div id="standardInputsWrap">
+          <div>
+            <label class="field-label" for="sqft">Home Size</label>
+            <div class="select-wrap">
+              <select id="sqft">
+                <option value="0">800 sq ft. Studio or compact 1BR/1BA</option>
+                <option value="1">1000 sq ft. 1BR to small 2BR / 1 to 1.5BA</option>
+                <option value="2">1250 sq ft. 2BR / 1 to 2BA townhome or condo</option>
+                <option value="3" selected>1500 sq ft. 3BR / 2BA small single-family</option>
+                <option value="4">1750 sq ft. 3BR / 2BA standard single-family</option>
+                <option value="5">2000 sq ft. 3 to 4BR / 2 to 2.5BA single-family</option>
+                <option value="6">2250 sq ft. 4BR / 2 to 2.5BA single-family</option>
+                <option value="7">2500 sq ft. 4BR / 2.5 to 3BA plus loft or office</option>
+                <option value="8">2750 sq ft. 4 to 5BR / 3BA two-story</option>
+                <option value="9">3000 sq ft. 5BR / 3 to 3.5BA two-story</option>
+                <option value="10">3250 sq ft. 5BR / 3.5BA plus game room</option>
+                <option value="11">3500 sq ft. 5 to 6BR / 3.5 to 4BA</option>
+                <option value="12">3750 sq ft. 5 to 6BR / 4 to 4.5BA</option>
+                <option value="13">4000 sq ft. 6BR+ / 4.5 to 5BA custom</option>
+              </select>
+            </div>
+          </div>
+
+          <div>
+            <label class="field-label">Service Type</label>
+            <div class="freq-pills" id="freqPills">
+              <button class="freq-pill active" data-freq="deep">
+                <span class="freq-pill-name">Deep</span>
+                <span class="freq-pill-disc">First Time</span>
+              </button>
+              <button class="freq-pill" data-freq="weekly">
+                <span class="freq-pill-name">Weekly</span>
+                <span class="freq-pill-disc">40% off</span>
+              </button>
+              <button class="freq-pill" data-freq="biweekly">
+                <span class="freq-pill-name">Bi-Weekly</span>
+                <span class="freq-pill-disc">30% off</span>
+              </button>
+              <button class="freq-pill" data-freq="monthly">
+                <span class="freq-pill-name">Monthly</span>
+                <span class="freq-pill-disc">20% off</span>
+              </button>
+              <button class="freq-pill" data-freq="onetime">
+                <span class="freq-pill-name">One Time</span>
+                <span class="freq-pill-disc">Standard</span>
+              </button>
+              <button class="freq-pill" data-freq="moveinout">
+                <span class="freq-pill-name">Move In/Out</span>
+                <span class="freq-pill-disc">Deep +$100</span>
+              </button>
+            </div>
+          </div>
+
+          <div id="addonSection">
+            <label class="field-label" id="addonSectionLabel">Add-Ons (Tap to Add)</label>
+            <div class="addon-checklist" id="addonChecklist"></div>
+          </div>
+          </div>
+        </div>
+
+        <div class="calc-result">
+          <div class="result-label">Quote</div>
+          <div class="result-service" id="resultService">First-Time Deep Clean</div>
+          <div class="result-details" id="resultDetails">1500 sq ft. 3BR / 2BA small single-family</div>
+          <div class="price-block" id="priceBlock"></div>
+          <div class="result-hours" id="resultHours">Estimated 3.5 hours on site</div>
+          <div class="result-upsell" id="resultUpsell"></div>
+        </div>
+      </div>
+
+      <div class="rule-banner">
+        <div class="rule-banner-num">1</div>
+        <div class="rule-banner-text">
+          <span>Golden Rule</span>
+          Always pitch Deep Clean plus Recurring. Standard one-time pricing is only for clients who already had a recent deep clean.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="residential" class="alt">
+    <div class="section-head animate">
+      <div class="kicker">Residential Pricing</div>
+      <h2 class="section-h">The full pricing grid</h2>
+      <p class="section-sub">Every home size, every service type, side by side. The Weekly column is your recommended sell. Search by sq ft or bed/bath to jump straight to your client's home.</p>
+    </div>
+
+    <div class="pricing-table-wrap animate d1">
+      <div class="table-search">
+        <input type="text" id="tableSearch" placeholder="Search by square footage or bed/bath...">
+        <span class="search-hint">Try "2000" or "4BR" or "1945"</span>
+      </div>
+      <div class="search-result-msg" id="searchResultMsg"></div>
+      <div class="pricing-table-inner">
+        <table class="pricing" id="pricingTable">
+          <thead>
+            <tr>
+              <th>Home Size</th>
+              <th>Est. Bed/Bath</th>
+              <th style="text-align: center;">Hrs</th>
+              <th style="text-align: right;">First-Time Deep</th>
+              <th style="text-align: right;">Monthly (20% off)</th>
+              <th style="text-align: right;">Bi-Weekly (30% off)</th>
+              <th class="highlight" style="text-align: right;">Weekly (40% off)</th>
+              <th style="text-align: right;">Standard One Time</th>
+            </tr>
+          </thead>
+          <tbody id="pricingTbody"></tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section id="addons">
+    <div class="section-head animate">
+      <div class="kicker">Add-Ons</div>
+      <h2 class="section-h">Boost the ticket with extras</h2>
+      <p class="section-sub">Recurring clients get their frequency discount on add-ons too. When a weekly client asks about interior windows, remember they pay 40% less than sticker. Lead with that.</p>
+    </div>
+    <div class="addon-grid" id="addonGrid"></div>
+  </section>
+
+  <section id="hourly" class="alt">
+    <div class="section-head animate">
+      <div class="kicker">Hourly Service</div>
+      <h2 class="section-h">When a full clean isn't the fit</h2>
+      <p class="section-sub">Flat $50 per hour. Reach for this when a client wants a focused ask, a targeted zone, or when they're trying to control scope. Know these numbers cold and you'll quote on the fly.</p>
+    </div>
+    <div class="hourly-layout">
+      <div class="hourly-card animate d1">
+        <h3>Hour Tiers</h3>
+        <p class="subtitle">Pick a tier based on home size and scope</p>
+        <div id="hourlyTiers"></div>
+      </div>
+      <div class="hourly-card animate d2">
+        <h3>Common Scenarios</h3>
+        <p class="subtitle">Real client asks mapped to suggested hours</p>
+        <div id="scenarioList"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="checklists">
+    <div class="section-head animate">
+      <div class="kicker">Service Checklists</div>
+      <h2 class="section-h">Exactly what's included, every time</h2>
+      <p class="section-sub">When a client asks "what do I actually get?" pull up the right tab and walk them through it. Every detail that's included in a service, laid out clean. Use these to handle scope questions in real time.</p>
+    </div>
+
+    <div class="checklist-tabs" id="clTabs">
+      <button class="checklist-tab active" data-panel="cl-standard" data-color="teal">
+        <span class="tab-dot"></span>Standard
+      </button>
+      <button class="checklist-tab" data-panel="cl-deep" data-color="blue">
+        <span class="tab-dot"></span>Deep Clean
+      </button>
+      <button class="checklist-tab" data-panel="cl-moveinout" data-color="navy">
+        <span class="tab-dot"></span>Move In/Out
+      </button>
+      <button class="checklist-tab" data-panel="cl-postcon" data-color="gold">
+        <span class="tab-dot"></span>Post-Construction
+      </button>
+      <button class="checklist-tab" data-panel="cl-airbnb" data-color="green">
+        <span class="tab-dot"></span>Airbnb Turnover
+      </button>
+    </div>
+
+    <div id="clPanels">
+
+      <div class="checklist-panel active" id="cl-standard">
+        <div class="cl-kicker" style="color: var(--teal);">Cleaning Checklist</div>
+        <h2 class="cl-title">Standard Recurring Clean</h2>
+        <p class="cl-sub">The weekly, bi-weekly, or monthly reset that keeps your home effortlessly fresh.</p>
+        <div class="cl-meta-row">
+          <span class="cl-pill">Weekly &middot; Bi-Weekly &middot; Monthly</span>
+          <span class="cl-note">Best for maintained homes on a recurring schedule</span>
+        </div>
+        <hr class="cl-rule">
+
+        <div class="cl-grid">
+          <div class="cl-col">
+            <h4>Every Room</h4>
+            <div class="cl-item"><span class="cl-check"></span>Dust all reachable surfaces, shelves, and d&eacute;cor</div>
+            <div class="cl-item"><span class="cl-check"></span>Dust windowsills, ledges, and door frames</div>
+            <div class="cl-item"><span class="cl-check"></span>Remove reachable cobwebs from corners and ceilings</div>
+            <div class="cl-item"><span class="cl-check"></span>Wipe light switches, outlet plates, and doorknobs</div>
+            <div class="cl-item"><span class="cl-check"></span>Vacuum carpets, rugs, and upholstered furniture</div>
+            <div class="cl-item"><span class="cl-check"></span>Sweep and mop hard floors</div>
+            <div class="cl-item"><span class="cl-check"></span>Empty trash bins and replace liners</div>
+            <div class="cl-item"><span class="cl-check"></span>Make beds (unless instructed otherwise)</div>
+            <div class="cl-item"><span class="cl-check"></span>Tidy common areas for a polished finish</div>
+          </div>
+          <div class="cl-col">
+            <h4>Kitchen</h4>
+            <div class="cl-item"><span class="cl-check"></span>Wipe countertops, tables, and backsplash</div>
+            <div class="cl-item"><span class="cl-check"></span>Clean and degrease stovetop and control knobs</div>
+            <div class="cl-item"><span class="cl-check"></span>Wipe exterior of cabinets, drawers, and handles</div>
+            <div class="cl-item"><span class="cl-check"></span>Wipe exterior of all appliances (fridge, dishwasher, oven)</div>
+            <div class="cl-item"><span class="cl-check"></span>Clean inside and outside of microwave</div>
+            <div class="cl-item"><span class="cl-check"></span>Clean and disinfect sink and faucet</div>
+            <div class="cl-item"><span class="cl-check"></span>Wipe toaster exterior and empty crumb tray</div>
+            <div class="cl-item"><span class="cl-check"></span>Shine stainless steel surfaces</div>
+            <div class="cl-item"><span class="cl-check"></span>Sweep and mop kitchen floor</div>
+          </div>
+          <div class="cl-col">
+            <h4>Bathrooms</h4>
+            <div class="cl-item"><span class="cl-check"></span>Scrub and disinfect sinks and countertops</div>
+            <div class="cl-item"><span class="cl-check"></span>Scrub and disinfect toilets (base, bowl, behind lid)</div>
+            <div class="cl-item"><span class="cl-check"></span>Clean tub, shower walls, and fixtures</div>
+            <div class="cl-item"><span class="cl-check"></span>Clean and polish mirrors and glass</div>
+            <div class="cl-item"><span class="cl-check"></span>Wipe exterior of cabinets and drawers</div>
+            <div class="cl-item"><span class="cl-check"></span>Empty trash, replace liner</div>
+            <div class="cl-item"><span class="cl-check"></span>Sweep or vacuum and mop floors</div>
+          </div>
+          <div class="cl-col">
+            <h4>Bedrooms &amp; Living Areas</h4>
+            <div class="cl-item"><span class="cl-check"></span>Make bed and straighten linens</div>
+            <div class="cl-item"><span class="cl-check"></span>Dust furniture, nightstands, and d&eacute;cor</div>
+            <div class="cl-item"><span class="cl-check"></span>Dust window frames and blinds (light pass)</div>
+            <div class="cl-item"><span class="cl-check"></span>Polish mirrors and glass surfaces</div>
+            <div class="cl-item"><span class="cl-check"></span>Empty trash and replace liner</div>
+            <div class="cl-item"><span class="cl-check"></span>Dust ceiling fan (reachable)</div>
+            <div class="cl-item"><span class="cl-check"></span>Vacuum or sweep and mop floors</div>
+            <div class="cl-item"><span class="cl-check"></span>Dust shelves, picture frames, and d&eacute;cor</div>
+            <div class="cl-item"><span class="cl-check"></span>Dust light fixtures and ceiling fans (reachable)</div>
+            <div class="cl-item"><span class="cl-check"></span>Straighten pillows, blankets, and common areas</div>
+          </div>
+        </div>
+
+        <div class="cl-addons">
+          <div class="cl-addons-head">
+            <span class="cl-addons-title">Popular Add-Ons</span>
+            <span class="cl-addons-cta">Just call or text to add anything</span>
+          </div>
+          <div class="cl-addons-pills">
+            <span>Deep cleaning added to standard</span>
+            <span>Inside fridge</span>
+            <span>Inside oven</span>
+            <span>Interior windows (standard count for home size)</span>
+            <span>Dishwashing (approx. 30 minutes)</span>
+            <span>Homes with pets</span>
+            <span>Baseboards (detail clean)</span>
+            <span>Move-In / Move-Out upgrade</span>
+            <span>Inside cabinets</span>
+            <span>Custom organizing</span>
+            <span>Organizing referral</span>
+          </div>
+        </div>
+
+        <div class="cl-footer-card">
+          <div class="cl-badge">24h</div>
+          <div class="cl-footer-text">
+            <strong>The MaidThis Happiness Guarantee</strong>
+            <p>Not 100% happy? Let us know within 24 hours and we'll make it right at no extra charge.</p>
+          </div>
+          <div class="cl-footer-contact">
+            <strong>MaidThis Cleaning of Northwest San Antonio</strong>
+            (210) 880-9541 &middot; nwsanantonio@maidthis.com
+          </div>
+        </div>
+      </div>
+
+      <div class="checklist-panel" id="cl-deep">
+        <div class="cl-kicker" style="color: var(--blue);">Cleaning Checklist</div>
+        <h2 class="cl-title">Deep Clean</h2>
+        <p class="cl-sub">Everything in a Standard Clean, plus hands-on detail work that hasn't been touched in months.</p>
+        <div class="cl-meta-row">
+          <span class="cl-pill">Recommended every 3 to 6 months &middot; First-time clients</span>
+          <span class="cl-note">Includes all Standard Clean tasks plus deep detail below</span>
+        </div>
+        <hr class="cl-rule blue">
+
+        <div class="cl-includes">
+          <span class="cl-includes-label">Includes</span>
+          <span class="cl-includes-chip">All Standard Clean tasks</span>
+        </div>
+
+        <div class="cl-grid">
+          <div class="cl-col">
+            <h4>Every Room Deep Detail</h4>
+            <div class="cl-item"><span class="cl-check blue"></span>Clean all baseboards and door frames</div>
+            <div class="cl-item"><span class="cl-check blue"></span>Detailed dusting of vents, registers, and fan blades</div>
+            <div class="cl-item"><span class="cl-check blue"></span>Wet-wipe blinds to remove dust buildup</div>
+            <div class="cl-item"><span class="cl-check blue"></span>Clean interior windows, frames, sills, and tracks</div>
+            <div class="cl-item"><span class="cl-check blue"></span>Detail-clean trim, woodwork, and window frames</div>
+            <div class="cl-item"><span class="cl-check blue"></span>Disinfect light switches, knobs, and high-touch points</div>
+            <div class="cl-item"><span class="cl-check blue"></span>Vacuum corners, edges, and under reachable furniture</div>
+            <div class="cl-item"><span class="cl-check blue"></span>Spot-clean walls, doors, and fingerprints</div>
+          </div>
+          <div class="cl-col">
+            <h4>Kitchen Deep Detail</h4>
+            <div class="cl-item"><span class="cl-check blue"></span>Degrease range hood exterior and filter face</div>
+            <div class="cl-item"><span class="cl-check blue"></span>Remove grease buildup from cabinet exteriors</div>
+            <div class="cl-item"><span class="cl-check blue"></span>Scrub and degrease stove grates and drip pans</div>
+            <div class="cl-item"><span class="cl-check blue"></span>Scrub grease buildup from stove, knobs, and hood</div>
+            <div class="cl-item"><span class="cl-check blue"></span>Clean exterior and top of refrigerator</div>
+            <div class="cl-item"><span class="cl-check blue"></span>Wipe inside toaster crumb tray and coffee maker exterior</div>
+            <div class="cl-item"><span class="cl-check blue"></span>Clean baseboards and detail corners</div>
+            <div class="cl-item"><span class="cl-check blue"></span>Scrub and disinfect backsplash thoroughly</div>
+            <div class="cl-item"><span class="cl-check blue"></span>Detail-wipe cabinet handles and pulls</div>
+          </div>
+          <div class="cl-col">
+            <h4>Bathrooms Deep Detail</h4>
+            <div class="cl-item"><span class="cl-check blue"></span>Remove vent covers and wipe dust from cover</div>
+            <div class="cl-item"><span class="cl-check blue"></span>Hand-wipe light fixtures to remove dust buildup</div>
+            <div class="cl-item"><span class="cl-check blue"></span>Treat mold and mildew from tub, tile, and shower</div>
+            <div class="cl-item"><span class="cl-check blue"></span>Check drains for hair buildup and clear</div>
+            <div class="cl-item"><span class="cl-check blue"></span>Remove hard-water stains, limescale, rust, and soap scum</div>
+            <div class="cl-item"><span class="cl-check blue"></span>Remove limescale from toilet bowl and fixtures</div>
+            <div class="cl-item"><span class="cl-check blue"></span>Clean baseboards and floor edges</div>
+            <div class="cl-item"><span class="cl-check blue"></span>Detail-clean shower door tracks and hinges</div>
+            <div class="cl-item"><span class="cl-check blue"></span>Polish chrome fixtures and handles</div>
+          </div>
+          <div class="cl-col">
+            <h4>Bedrooms Deep Detail</h4>
+            <div class="cl-item"><span class="cl-check blue"></span>Clean baseboards and floor edges</div>
+            <div class="cl-item"><span class="cl-check blue"></span>Wet-wipe ceiling fan blades and light fixtures</div>
+            <div class="cl-item"><span class="cl-check blue"></span>Wet-wipe blinds to remove dust and stains</div>
+            <div class="cl-item"><span class="cl-check blue"></span>Clean interior windows, frames, sills, and tracks</div>
+            <div class="cl-item"><span class="cl-check blue"></span>Vacuum corners, edges, and under the bed</div>
+            <div class="cl-item"><span class="cl-check blue"></span>Detail-dust headboard, frame, and closet doors</div>
+            <div class="cl-item"><span class="cl-check blue"></span>Disinfect light switches and door handles</div>
+            <div class="cl-item"><span class="cl-check blue"></span>Remove and replace bedding (if linens provided)</div>
+          </div>
+        </div>
+
+        <div class="cl-addons">
+          <div class="cl-addons-head">
+            <span class="cl-addons-title">Popular Add-Ons</span>
+            <span class="cl-addons-cta">Just call or text to add anything</span>
+          </div>
+          <div class="cl-addons-pills">
+            <span>Inside fridge</span>
+            <span>Inside oven</span>
+            <span>Interior windows (standard count for home size)</span>
+            <span>Dishwashing (approx. 30 minutes)</span>
+            <span>Homes with pets</span>
+            <span>Inside cabinets</span>
+            <span>Custom organizing</span>
+            <span>Organizing referral</span>
+          </div>
+        </div>
+
+        <div class="cl-footer-card">
+          <div class="cl-badge">24h</div>
+          <div class="cl-footer-text">
+            <strong>The MaidThis Happiness Guarantee</strong>
+            <p>Not 100% happy? Let us know within 24 hours and we'll make it right at no extra charge.</p>
+          </div>
+          <div class="cl-footer-contact">
+            <strong>MaidThis Cleaning of Northwest San Antonio</strong>
+            (210) 880-9541 &middot; nwsanantonio@maidthis.com
+          </div>
+        </div>
+      </div>
+
+      <div class="checklist-panel" id="cl-moveinout">
+        <div class="cl-kicker" style="color: var(--navy);">Cleaning Checklist</div>
+        <h2 class="cl-title">Move-In / Move-Out Clean</h2>
+        <p class="cl-sub">A top-to-bottom reset for empty homes, ready for keys, inspections, or your new chapter.</p>
+        <div class="cl-meta-row">
+          <span class="cl-pill">One-time &middot; Schedule 1 to 2 weeks ahead</span>
+          <span class="cl-note">Home must be empty of all furniture and boxes. Includes Standard plus Deep tasks</span>
+        </div>
+        <hr class="cl-rule navy">
+
+        <div class="cl-includes">
+          <span class="cl-includes-label">Includes</span>
+          <span class="cl-includes-chip">All Standard Clean tasks</span>
+          <span class="cl-includes-chip">All Deep Clean tasks</span>
+        </div>
+
+        <div class="cl-grid">
+          <div class="cl-col">
+            <h4>Kitchen Move-Specific</h4>
+            <div class="cl-item"><span class="cl-check navy"></span>Clean inside the oven (test chemicals in hidden spot first)</div>
+            <div class="cl-item"><span class="cl-check navy"></span>Clean inside the refrigerator and freezer</div>
+            <div class="cl-item"><span class="cl-check navy"></span>Clean inside the dishwasher</div>
+            <div class="cl-item"><span class="cl-check navy"></span>Clean inside and outside all cabinets and drawers</div>
+            <div class="cl-item"><span class="cl-check navy"></span>Clean inside and behind appliances (where reachable)</div>
+            <div class="cl-item"><span class="cl-check navy"></span>Detail-clean pantry shelves and interior</div>
+            <div class="cl-item"><span class="cl-check navy"></span>Scrub sink, faucet, and disposal area</div>
+          </div>
+          <div class="cl-col">
+            <h4>Bathrooms Move-Specific</h4>
+            <div class="cl-item"><span class="cl-check navy"></span>Detail-clean inside all cabinets, drawers, and vanities</div>
+            <div class="cl-item"><span class="cl-check navy"></span>Scrub grout lines on tile walls and floors</div>
+            <div class="cl-item"><span class="cl-check navy"></span>Remove soap scum, hard-water stains, and mildew</div>
+            <div class="cl-item"><span class="cl-check navy"></span>Disinfect toilet inside, outside, base, and behind</div>
+            <div class="cl-item"><span class="cl-check navy"></span>Clean exhaust fans and vent covers</div>
+          </div>
+          <div class="cl-col">
+            <h4>Whole Home Move-Specific</h4>
+            <div class="cl-item"><span class="cl-check navy"></span>Hand-wipe all baseboards, door frames, and trim</div>
+            <div class="cl-item"><span class="cl-check navy"></span>Clean interior of all accessible windows, sills, and tracks</div>
+            <div class="cl-item"><span class="cl-check navy"></span>Wipe inside all closets, shelves, and storage</div>
+            <div class="cl-item"><span class="cl-check navy"></span>Dust and wipe all fan blades, vents, and light fixtures</div>
+            <div class="cl-item"><span class="cl-check navy"></span>Spot-clean walls, doors, and light scuffs</div>
+            <div class="cl-item"><span class="cl-check navy"></span>Clean interior laundry room (washer/dryer exterior, shelves)</div>
+            <div class="cl-item"><span class="cl-check navy"></span>Wipe inside drawers and cabinet shelves throughout</div>
+            <div class="cl-item"><span class="cl-check navy"></span>Sweep garage floor and patio/balcony (if accessible)</div>
+          </div>
+        </div>
+
+        <div class="cl-addons">
+          <div class="cl-addons-head">
+            <span class="cl-addons-title">Popular Add-Ons</span>
+            <span class="cl-addons-cta">Just call or text to add anything</span>
+          </div>
+          <div class="cl-addons-pills">
+            <span>Interior windows beyond standard count</span>
+            <span>Wall washing (case-by-case)</span>
+            <span>Carpet shampoo referral</span>
+            <span>Organizing referral</span>
+            <span>Patio / balcony deep tidy</span>
+            <span>Garage sweep and tidy</span>
+          </div>
+        </div>
+
+        <div class="cl-footer-card">
+          <div class="cl-badge">24h</div>
+          <div class="cl-footer-text">
+            <strong>The MaidThis Happiness Guarantee</strong>
+            <p>Not 100% happy? Let us know within 24 hours and we'll make it right at no extra charge.</p>
+          </div>
+          <div class="cl-footer-contact">
+            <strong>MaidThis Cleaning of Northwest San Antonio</strong>
+            (210) 880-9541 &middot; nwsanantonio@maidthis.com
+          </div>
+        </div>
+      </div>
+
+      <div class="checklist-panel" id="cl-postcon">
+        <div class="cl-kicker" style="color: var(--gold);">Cleaning Checklist</div>
+        <h2 class="cl-title">Post-Construction Clean</h2>
+        <p class="cl-sub">Removing construction dust and residue so your new space is move-in ready.</p>
+        <div class="cl-meta-row">
+          <span class="cl-pill">One-time &middot; Schedule after all trades are finished</span>
+          <span class="cl-note">All construction debris must be removed and all trades finished before we arrive</span>
+        </div>
+        <hr class="cl-rule gold">
+
+        <div class="cl-grid">
+          <div class="cl-col">
+            <h4>Dust &amp; Residue Removal</h4>
+            <div class="cl-item"><span class="cl-check gold"></span>Dust all surfaces from ceiling down to floor</div>
+            <div class="cl-item"><span class="cl-check gold"></span>Dust and wipe walls to remove construction dust</div>
+            <div class="cl-item"><span class="cl-check gold"></span>Vacuum all floors, corners, and edges</div>
+            <div class="cl-item"><span class="cl-check gold"></span>Clean all vents, registers, and return-air covers</div>
+            <div class="cl-item"><span class="cl-check gold"></span>Wipe ceiling fans, light fixtures, and bulbs</div>
+            <div class="cl-item"><span class="cl-check gold"></span>Remove stickers, labels, and protective films from new fixtures</div>
+            <div class="cl-item"><span class="cl-check gold"></span>Wipe interior of closets, shelves, and built-ins</div>
+          </div>
+          <div class="cl-col">
+            <h4>Kitchen &amp; Bathrooms</h4>
+            <div class="cl-item"><span class="cl-check gold"></span>Clean inside and outside all new cabinets and drawers</div>
+            <div class="cl-item"><span class="cl-check gold"></span>Polish new countertops, backsplash, and fixtures</div>
+            <div class="cl-item"><span class="cl-check gold"></span>Clean inside new appliances (oven, fridge, dishwasher)</div>
+            <div class="cl-item"><span class="cl-check gold"></span>Scrub and polish new sinks, tubs, showers, and toilets</div>
+            <div class="cl-item"><span class="cl-check gold"></span>Remove grout haze and construction residue from tile</div>
+            <div class="cl-item"><span class="cl-check gold"></span>Polish mirrors, glass, and shower doors</div>
+          </div>
+          <div class="cl-col">
+            <h4>Windows, Floors &amp; Finish</h4>
+            <div class="cl-item"><span class="cl-check gold"></span>Clean interior windows, frames, sills, and tracks</div>
+            <div class="cl-item"><span class="cl-check gold"></span>Remove paint splatter and caulk drips from glass and floors</div>
+            <div class="cl-item"><span class="cl-check gold"></span>Hand-wipe all baseboards, crown molding, and trim</div>
+            <div class="cl-item"><span class="cl-check gold"></span>Clean doors, door frames, and hardware</div>
+            <div class="cl-item"><span class="cl-check gold"></span>Final mop and polish of all hard floors</div>
+            <div class="cl-item"><span class="cl-check gold"></span>Detail vacuum of all carpet and rugs</div>
+            <div class="cl-item"><span class="cl-check gold"></span>Final walk-through and touch-up inspection</div>
+          </div>
+        </div>
+
+        <div class="cl-addons">
+          <div class="cl-addons-head">
+            <span class="cl-addons-title">Popular Add-Ons</span>
+            <span class="cl-addons-cta">Just call or text to add anything</span>
+          </div>
+          <div class="cl-addons-pills">
+            <span>Exterior window cleaning referral</span>
+            <span>Organizing referral</span>
+            <span>Second-visit detailing after move-in</span>
+          </div>
+        </div>
+
+        <div class="cl-footer-card">
+          <div class="cl-badge">24h</div>
+          <div class="cl-footer-text">
+            <strong>The MaidThis Happiness Guarantee</strong>
+            <p>Not 100% happy? Let us know within 24 hours and we'll make it right at no extra charge.</p>
+          </div>
+          <div class="cl-footer-contact">
+            <strong>MaidThis Cleaning of Northwest San Antonio</strong>
+            (210) 880-9541 &middot; nwsanantonio@maidthis.com
+          </div>
+        </div>
+      </div>
+
+      <div class="checklist-panel" id="cl-airbnb">
+        <div class="cl-kicker" style="color: var(--green);">Cleaning Checklist</div>
+        <h2 class="cl-title">Airbnb / Vacation Rental Turnover</h2>
+        <p class="cl-sub">Guest-ready turnovers with presentation, restocking, laundry, and reporting included on every single visit.</p>
+        <div class="cl-meta-row">
+          <span class="cl-pill">Every turnover &middot; Same-day emergency service available for an added cost</span>
+          <span class="cl-note">Laundry, closet restocks, and photo reports included on every clean</span>
+        </div>
+        <hr class="cl-rule green">
+
+        <div class="cl-grid">
+          <div class="cl-col">
+            <h4>Kitchen Turnover</h4>
+            <div class="cl-item"><span class="cl-check green"></span>Wash all dirty dishes or run dishwasher cycle</div>
+            <div class="cl-item"><span class="cl-check green"></span>Empty and put away clean dishes</div>
+            <div class="cl-item"><span class="cl-check green"></span>Wipe inside oven, microwave, and fridge</div>
+            <div class="cl-item"><span class="cl-check green"></span>Empty fridge of opened or expired food (condiments stay)</div>
+            <div class="cl-item"><span class="cl-check green"></span>Sanitize sinks, countertops, and backsplash</div>
+            <div class="cl-item"><span class="cl-check green"></span>Wipe all appliances including toaster tray and coffee maker</div>
+            <div class="cl-item"><span class="cl-check green"></span>Refill paper towels, dish soap, coffee, tea</div>
+            <div class="cl-item"><span class="cl-check green"></span>Refill ice trays and place in freezer</div>
+            <div class="cl-item"><span class="cl-check green"></span>Set out fresh, folded dish towel</div>
+            <div class="cl-item"><span class="cl-check green"></span>Verify dishes and silverware are clean and staged correctly</div>
+          </div>
+          <div class="cl-col">
+            <h4>Bathrooms Turnover</h4>
+            <div class="cl-item"><span class="cl-check green"></span>Remove all items from sink, tub, and shelves</div>
+            <div class="cl-item"><span class="cl-check green"></span>Disinfect all surfaces, toilet (base and behind lid), tub</div>
+            <div class="cl-item"><span class="cl-check green"></span>Clean mirrors and glass with streak-free finish</div>
+            <div class="cl-item"><span class="cl-check green"></span>Sweep and mop floors</div>
+            <div class="cl-item"><span class="cl-check green"></span>Crease toilet paper for guest-ready presentation</div>
+            <div class="cl-item"><span class="cl-check green"></span>Refill toilet paper, hand soap, shampoo, conditioner, body wash, tissues</div>
+            <div class="cl-item"><span class="cl-check green"></span>Stage fresh towels (bath, hand, and washcloth)</div>
+          </div>
+          <div class="cl-col">
+            <h4>Living &amp; Bedrooms</h4>
+            <div class="cl-item"><span class="cl-check green"></span>Strip and remake beds with fresh linens</div>
+            <div class="cl-item"><span class="cl-check green"></span>Stage pillows, blankets, and throws</div>
+            <div class="cl-item"><span class="cl-check green"></span>Wipe all surfaces including high shelving</div>
+            <div class="cl-item"><span class="cl-check green"></span>Vacuum and mop all floors</div>
+            <div class="cl-item"><span class="cl-check green"></span>Open blinds to maximize natural light for listing</div>
+            <div class="cl-item"><span class="cl-check green"></span>Arrange patio furniture and tidy outdoor space</div>
+          </div>
+          <div class="cl-col">
+            <h4>Included Every Turnover</h4>
+            <div class="cl-item"><span class="cl-check green"></span>Laundry of linens and towels (wash, dry, fold)</div>
+            <div class="cl-item"><span class="cl-check green"></span>Restock from on-site supply closet</div>
+            <div class="cl-item"><span class="cl-check green"></span>Photo report of every finished room</div>
+            <div class="cl-item"><span class="cl-check green"></span>Damage, missing-item, and low-stock reports</div>
+            <div class="cl-item"><span class="cl-check green"></span>AC/Heat set to owner preference, stove off, doors locked</div>
+            <div class="cl-item"><span class="cl-check green"></span>Light bulbs checked, any out are reported</div>
+            <div class="cl-item"><span class="cl-check green"></span>Final walk-through for guest-ready presentation</div>
+          </div>
+        </div>
+
+        <div class="cl-addons">
+          <div class="cl-addons-head">
+            <span class="cl-addons-title">Popular Add-Ons</span>
+            <span class="cl-addons-cta">Just call or text to add anything</span>
+          </div>
+          <div class="cl-addons-pills">
+            <span>Same-day emergency turnover (added cost, based on availability)</span>
+            <span>Mid-stay refresh clean</span>
+            <span>Deep clean between long stays</span>
+            <span>Organizing referral</span>
+          </div>
+        </div>
+
+        <div class="cl-footer-card">
+          <div class="cl-badge" style="background: var(--green);">&#128077;</div>
+          <div class="cl-footer-text">
+            <strong>Never a No-Show. Guaranteed.</strong>
+            <p>When you book a turnover with us, we show up, no matter what. Rentals depend on reliability and we treat every booking like our own.</p>
+          </div>
+          <div class="cl-footer-contact">
+            <strong>MaidThis Cleaning of Northwest San Antonio</strong>
+            (210) 880-9541 &middot; nwsanantonio@maidthis.com
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="rules" class="alt">
+    <div class="section-head animate">
+      <div class="kicker">Objection Playbook</div>
+      <h2 class="section-h">When they push back</h2>
+      <p class="section-sub">Every objection has a path through it. Follow the steps in order and don't skip ahead. The script lines are a starting point, not a word-for-word script. Make it sound like you.</p>
+    </div>
+
+    <div class="rebuttal-grid">
+
+      <!-- OBJECTION 1: TOO EXPENSIVE -->
+      <div class="rebuttal-card animate d1">
+        <div class="rebuttal-trigger" onclick="toggleRebuttal(this)">
+          <div class="rebuttal-objection-badge">Price</div>
+          <div class="rebuttal-trigger-text">
+            <div class="rebuttal-objection-label">They say</div>
+            <div class="rebuttal-objection-quote">"That's too expensive" or "That's more than I expected"</div>
+          </div>
+          <div class="rebuttal-chevron">&#8964;</div>
+        </div>
+        <div class="rebuttal-body">
+          <div class="rebuttal-step">
+            <div class="rebuttal-step-num teal">1</div>
+            <div class="rebuttal-step-content">
+              <h4>Don't drop the price first. Acknowledge and anchor value.</h4>
+              <p>Before you touch the number, make sure they feel heard. Then remind them what they're actually getting. Insured, background-checked cleaners who show up every time and back it with a 24-hour happiness guarantee. That's not a commodity.</p>
+              <div class="rebuttal-script">"I totally get it, it's a real commitment. I want to make sure you know what's included before we look at anything else. We're fully insured, all our cleaners are background-checked, and if anything's not right we'll fix it within 24 hours, no charge. A lot of clients tell us they tried cheaper options first and ended up calling us anyway."</div>
+            </div>
+          </div>
+          <div class="rebuttal-step">
+            <div class="rebuttal-step-num teal">2</div>
+            <div class="rebuttal-step-content">
+              <h4>Offer the one-time new client discount: $15 off.</h4>
+              <p>Only pull this out after you've defended value. Don't lead with it or it trains them to always push back on price. Frame it as something you're doing for them specifically, not a standard promo.</p>
+              <div class="rebuttal-script">"What I can do for a first-time client is take $15 off the first clean. That brings you to <strong>[adjusted price]</strong> to see how it goes. If you love it, we set you up on a recurring plan at the discounted rate going forward."</div>
+            </div>
+          </div>
+          <div class="rebuttal-step">
+            <div class="rebuttal-step-num gold">3</div>
+            <div class="rebuttal-step-content">
+              <h4>Still no? Offer to right-size the scope with hourly.</h4>
+              <p>If the full-home price isn't landing, shift to hourly and let them control the budget. Pick the zones they care most about and build a custom clean from there. Gets them in the door and builds trust.</p>
+              <div class="rebuttal-script">"Another option is we can do this by the hour at $50 per hour. You tell me what you want focused on, kitchen and bathrooms, main living areas, whatever matters most. We can cover a lot in 3 or 4 hours for around $150 to $200. A lot of clients start that way and then move to a full clean once they see the quality."</div>
+            </div>
+          </div>
+          <div class="rebuttal-step">
+            <div class="rebuttal-step-num gold">4</div>
+            <div class="rebuttal-step-content">
+              <h4>Last move: smaller recurring frequency.</h4>
+              <p>If budget is genuinely tight, drop the frequency, not the deep clean. Monthly recurring is your lowest price tier and still locks them in. Never just give up the sale.</p>
+              <div class="rebuttal-script">"If the weekly or bi-weekly schedule feels like a lot right now, we can start you monthly. That's our most flexible plan and it locks in the lower recurring rate. You can always upgrade later."</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- OBJECTION 2: NEED TO THINK ABOUT IT -->
+      <div class="rebuttal-card animate d2">
+        <div class="rebuttal-trigger" onclick="toggleRebuttal(this)">
+          <div class="rebuttal-objection-badge">Stall</div>
+          <div class="rebuttal-trigger-text">
+            <div class="rebuttal-objection-label">They say</div>
+            <div class="rebuttal-objection-quote">"I need to think about it" or "Let me look around first"</div>
+          </div>
+          <div class="rebuttal-chevron">&#8964;</div>
+        </div>
+        <div class="rebuttal-body">
+          <div class="rebuttal-step">
+            <div class="rebuttal-step-num blue">1</div>
+            <div class="rebuttal-step-content">
+              <h4>Find out what's actually behind it.</h4>
+              <p>"Need to think about it" almost always means something specific. Price, timing, trust, or they want to check one other company. Ask directly and you'll get a real answer 80% of the time.</p>
+              <div class="rebuttal-script">"Of course, I want you to feel good about it. Can I ask, is there a specific part you're unsure about? Sometimes I can clear something up right now and save you the back and forth."</div>
+            </div>
+          </div>
+          <div class="rebuttal-step">
+            <div class="rebuttal-step-num blue">2</div>
+            <div class="rebuttal-step-content">
+              <h4>Create a light sense of urgency without being pushy.</h4>
+              <p>Our schedule fills up fast, especially on weekday mornings. You can use that truthfully. Don't invent fake scarcity, but if there's a real window, use it.</p>
+              <div class="rebuttal-script">"I get it, no rush. The only thing I'll mention is our schedule fills up pretty quickly for the slots people usually want, mornings and early afternoons. I can hold a spot for you for 24 hours if you want to think it over and come back to me tomorrow. After that it usually gets taken."</div>
+            </div>
+          </div>
+          <div class="rebuttal-step">
+            <div class="rebuttal-step-num blue">3</div>
+            <div class="rebuttal-step-content">
+              <h4>Reduce the risk so there's nothing to think about.</h4>
+              <p>The happiness guarantee is your strongest closing tool for hesitant clients. If they can get a full clean and flag anything wrong within 24 hours, there's basically no risk in trying.</p>
+              <div class="rebuttal-script">"Here's the thing, there's really nothing to lose. We back every clean with a 24-hour happiness guarantee. If anything's not right, we come back and fix it at no charge. You can try one clean and see for yourself before committing to anything recurring."</div>
+            </div>
+          </div>
+          <div class="rebuttal-step">
+            <div class="rebuttal-step-num blue">4</div>
+            <div class="rebuttal-step-content">
+              <h4>Set a clear follow-up before you hang up.</h4>
+              <p>Never end a call with "feel free to reach back out." You lose control of the sale. Lock in a specific time to follow up before you get off the phone.</p>
+              <div class="rebuttal-script">"No problem at all. What if I check back in with you tomorrow afternoon, say around 2? That gives you time to think it over and I can answer any questions you have then."</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- OBJECTION 3: NEED TO ASK SPOUSE -->
+      <div class="rebuttal-card animate d3">
+        <div class="rebuttal-trigger" onclick="toggleRebuttal(this)">
+          <div class="rebuttal-objection-badge">Third Party</div>
+          <div class="rebuttal-trigger-text">
+            <div class="rebuttal-objection-label">They say</div>
+            <div class="rebuttal-objection-quote">"I need to run it by my husband / wife first"</div>
+          </div>
+          <div class="rebuttal-chevron">&#8964;</div>
+        </div>
+        <div class="rebuttal-body">
+          <div class="rebuttal-step">
+            <div class="rebuttal-step-num green">1</div>
+            <div class="rebuttal-step-content">
+              <h4>Validate it, then find out if there's a real blocker underneath.</h4>
+              <p>Sometimes this is genuine. Sometimes it's a polite way to say no without confrontation. A quick question tells you which one it is.</p>
+              <div class="rebuttal-script">"That makes total sense. Quick question though, is there anything about the service itself you're unsure of, or is it mainly just a heads up to them before booking? I want to make sure you have everything you need to have that conversation."</div>
+            </div>
+          </div>
+          <div class="rebuttal-step">
+            <div class="rebuttal-step-num green">2</div>
+            <div class="rebuttal-step-content">
+              <h4>Give them the tools to sell it internally.</h4>
+              <p>They're going to have to sell it to their spouse for you. Make that easy. Summarize the key points in one or two sentences they can repeat: insured, guaranteed, saves them real hours every week.</p>
+              <div class="rebuttal-script">"Totally fine. Here's the short version you can share with them. We're a local insured service, background-checked cleaners, and if anything's off we fix it within 24 hours at no cost. For a <strong>[home size]</strong> home it's <strong>[price]</strong> per visit on a recurring plan. A lot of families find it actually saves more than it costs when you factor in the time."</div>
+            </div>
+          </div>
+          <div class="rebuttal-step">
+            <div class="rebuttal-step-num green">3</div>
+            <div class="rebuttal-step-content">
+              <h4>Try to get both decision-makers on the call now.</h4>
+              <p>If you can, get the spouse on the phone in the moment. You lose a lot of deals in the handoff between spouses because the excitement doesn't transfer. This is a soft ask, not pressure.</p>
+              <div class="rebuttal-script">"If your husband/wife is around right now, would it be easier to just loop them in real quick so I can answer both of your questions at once? Takes two minutes and then you've got everything you need to decide together."</div>
+            </div>
+          </div>
+          <div class="rebuttal-step">
+            <div class="rebuttal-step-num green">4</div>
+            <div class="rebuttal-step-content">
+              <h4>Lock a specific follow-up time. Don't leave it open-ended.</h4>
+              <div class="rebuttal-script">"No worries at all, take your time. When do you think you'll have a chance to talk with them? I can follow up right after that so the timing works for everyone."</div>
+              <div class="rebuttal-warning">
+                <strong>Watch for this</strong>
+                If they say "I'll call you when we decide" without agreeing to a time, that's usually a dead end. Politely push for a window: "Sounds good, just so I can plan, would that be in the next day or two, or more like next week?"
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- OBJECTION 4: ALREADY HAVE SOMEONE -->
+      <div class="rebuttal-card animate d1">
+        <div class="rebuttal-trigger" onclick="toggleRebuttal(this)">
+          <div class="rebuttal-objection-badge">Competitor</div>
+          <div class="rebuttal-trigger-text">
+            <div class="rebuttal-objection-label">They say</div>
+            <div class="rebuttal-objection-quote">"I already have someone who cleans for me"</div>
+          </div>
+          <div class="rebuttal-chevron">&#8964;</div>
+        </div>
+        <div class="rebuttal-body">
+          <div class="rebuttal-step">
+            <div class="rebuttal-step-num navy">1</div>
+            <div class="rebuttal-step-content">
+              <h4>Respect it, then ask what they have.</h4>
+              <p>Don't go negative on whoever they're using. Ask what they're getting and let the comparison happen naturally. Most people with informal cleaners don't have a guarantee, insurance, or consistency.</p>
+              <div class="rebuttal-script">"That's great, happy to hear you're already taken care of. Can I ask, is it a company or an individual? Just curious what setup you have."</div>
+            </div>
+          </div>
+          <div class="rebuttal-step">
+            <div class="rebuttal-step-num navy">2</div>
+            <div class="rebuttal-step-content">
+              <h4>Highlight what they probably don't have.</h4>
+              <p>Individual cleaners are rarely insured or bonded. There's no backup if they cancel or stop showing up. That's your edge. Don't be aggressive, just factual.</p>
+              <div class="rebuttal-script">"The main difference with us is we're fully insured and bonded, which protects you if anything ever gets damaged. And if your person ever can't make it, there's no gap, we always send someone. A lot of our clients came to us after their individual cleaner stopped showing up or raised their rate without warning."</div>
+            </div>
+          </div>
+          <div class="rebuttal-step">
+            <div class="rebuttal-step-num navy">3</div>
+            <div class="rebuttal-step-content">
+              <h4>Plant a seed for when things change.</h4>
+              <p>Not every competitor situation is closeable right now. That's fine. Leave a good impression and a door open. They'll call you when their current cleaner flakes.</p>
+              <div class="rebuttal-script">"Totally understood. I'll send you our info just so you have it. If anything ever changes with your current situation, we'd love to be the first call you make."</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- CLOSING TIPS -->
+    <div style="margin-top: 52px;">
+      <div class="kicker" style="margin-bottom: 14px;">Closing Tips</div>
+      <h3 style="font-size: clamp(22px, 3vw, 32px); font-weight: 800; color: var(--navy); margin-bottom: 10px;">Habits that help you close</h3>
+      <p class="section-sub" style="margin-bottom: 0;">Small things that separate reps who consistently close from the ones who always seem to just miss.</p>
+    </div>
+    <div class="closing-grid">
+      <div class="closing-card animate d1">
+        <div class="closing-card-icon">&#128222;</div>
+        <h4>Always ask for the booking before you hang up</h4>
+        <p>Even if you've handled every objection, you still have to ask. "Do you want to go ahead and get that first clean on the calendar?" is your job on every call. Don't assume a warm conversation is a yes.</p>
+      </div>
+      <div class="closing-card gold animate d2">
+        <div class="closing-card-icon">&#128513;</div>
+        <h4>Let them hear a smile through the phone</h4>
+        <p>Nobody wants a call center robot cleaning their home. Smile before you pick up, use their name, sound like a neighbor. Warmth closes more deals than polish. If you sound like a script, they'll treat you like one.</p>
+      </div>
+      <div class="closing-card green animate d3">
+        <div class="closing-card-icon">&#128336;</div>
+        <h4>Talk about time, not just money</h4>
+        <p>A lot of clients don't buy cleaning, they buy back their weekends. "A lot of our clients say the biggest thing isn't the clean, it's not having to think about it" hits differently than leading with the price.</p>
+      </div>
+      <div class="closing-card blue animate d1">
+        <div class="closing-card-icon">&#128176;</div>
+        <h4>Lead with the recurring rate, not the deep clean price</h4>
+        <p>When you open with the recurring rate as the value, price feels lower. "Your ongoing visits would be $165" sounds better than "$275 for the first clean, then $165 after." Frame the value first.</p>
+      </div>
+      <div class="closing-card navy animate d2">
+        <div class="closing-card-icon">&#128736;</div>
+        <h4>Never negotiate against yourself</h4>
+        <p>Don't volunteer a discount before they ask. Give the real price with confidence. If they push back, that's when you move through the steps. A lot of reps drop price before the client even flinches.</p>
+      </div>
+      <div class="closing-card animate d3">
+        <div class="closing-card-icon">&#9989;</div>
+        <h4>The 24-hour guarantee is your best closing tool</h4>
+        <p>When someone is on the fence, the guarantee removes their risk. "If anything's not right, we fix it within 24 hours, no questions" gives them permission to say yes without feeling locked in forever.</p>
+      </div>
+      <div class="closing-card gold animate d1">
+        <div class="closing-card-icon">&#128172;</div>
+        <h4>Ask questions, don't just answer them</h4>
+        <p>Good reps listen more than they pitch. "What's the biggest thing you're hoping a cleaning service takes off your plate?" tells you exactly what to sell. Use their answer in your close. A quote lands harder when it's built around what they actually said.</p>
+      </div>
+      <div class="closing-card green animate d2">
+        <div class="closing-card-icon">&#128241;</div>
+        <h4>Book the spot, don't suggest a spot</h4>
+        <p>"I've got Tuesday at 10 or Thursday at 1, which works better?" beats "when would you like to schedule?" Giving two good options feels easier to say yes to than an open-ended question. Assume the close and offer the choice.</p>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+
+  <div class="footer-logo"><img src="data:image/jpeg;base64,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" alt="MaidThis Northwest San Antonio"></div>
+  <p><strong>MaidThis Cleaning of Northwest San Antonio</strong></p>
+  <p>(210) 880-9541 &middot; <a href="mailto:nwsanantonio@maidthis.com">nwsanantonio@maidthis.com</a></p>
+  <p style="margin-top: 14px; font-size: 12px; opacity: 0.7;">Northwest San Antonio &middot; Helotes &middot; Castroville &middot; Stone Oak &middot; Live Oak</p>
+  <p style="margin-top: 14px; font-size: 12px; opacity: 0.6;">Your field reference. Keep it close, lean on it often. Prices effective 2026.</p>
+</footer>
+
+<script>
+  const pricing = [
+    { sqft: 800, bedbath: 'Studio or compact 1BR/1BA (condo/apt)', hours: 2.0, deep: 180, monthly: 144, biweekly: 126, weekly: 97, onetime: 160 },
+    { sqft: 1000, bedbath: '1BR to small 2BR / 1 to 1.5BA (starter)', hours: 2.5, deep: 207, monthly: 166, biweekly: 145, weekly: 124, onetime: 180 },
+    { sqft: 1250, bedbath: '2BR / 1 to 2BA (townhome/condo)', hours: 3.0, deep: 241, monthly: 193, biweekly: 169, weekly: 145, onetime: 210 },
+    { sqft: 1500, bedbath: '3BR / 2BA small single-family', hours: 3.5, deep: 275, monthly: 220, biweekly: 192, weekly: 165, onetime: 250 },
+    { sqft: 1750, bedbath: '3BR / 2BA standard single-family', hours: 4.0, deep: 300, monthly: 240, biweekly: 210, weekly: 180, onetime: 280 },
+    { sqft: 2000, bedbath: '3 to 4BR / 2 to 2.5BA single-family', hours: 4.5, deep: 325, monthly: 260, biweekly: 227, weekly: 195, onetime: 290 },
+    { sqft: 2250, bedbath: '4BR / 2 to 2.5BA single-family', hours: 5.0, deep: 350, monthly: 280, biweekly: 245, weekly: 210, onetime: 300 },
+    { sqft: 2500, bedbath: '4BR / 2.5 to 3BA plus loft or office', hours: 5.5, deep: 367, monthly: 294, biweekly: 257, weekly: 220, onetime: 320 },
+    { sqft: 2750, bedbath: '4 to 5BR / 3BA two-story', hours: 6.0, deep: 383, monthly: 306, biweekly: 268, weekly: 230, onetime: 340 },
+    { sqft: 3000, bedbath: '5BR / 3 to 3.5BA two-story', hours: 6.5, deep: 400, monthly: 320, biweekly: 280, weekly: 240, onetime: 350 },
+    { sqft: 3250, bedbath: '5BR / 3.5BA plus game room', hours: 7.0, deep: 417, monthly: 334, biweekly: 292, weekly: 250, onetime: 370 },
+    { sqft: 3500, bedbath: '5 to 6BR / 3.5 to 4BA', hours: 7.5, deep: 433, monthly: 346, biweekly: 303, weekly: 260, onetime: 380 },
+    { sqft: 3750, bedbath: '5 to 6BR / 4 to 4.5BA', hours: 8.0, deep: 450, monthly: 360, biweekly: 315, weekly: 270, onetime: 390 },
+    { sqft: 4000, bedbath: '6BR+ / 4.5 to 5BA (custom, inspect first)', hours: 8.5, deep: 467, monthly: 374, biweekly: 327, weekly: 280, onetime: 400 }
+  ];
+
+  const addons = [
+    { name: 'Deep Cleaning Extra', price: 100, hours: 2.0, recurringDiscount: true, note: 'Periodic refresh deep work added onto a recurring plan.', flag: 'TOP UPSELL' },
+    { name: 'Move In / Move Out', price: 100, hours: 3.0, recurringDiscount: false, note: 'Includes everything in a deep clean plus windows, oven, fridge, and inside cabinets.', flag: 'BUNDLE' },
+    { name: 'Inside Fridge', price: 30, hours: 0.5, recurringDiscount: true, note: 'Remove items, wipe shelves and doors, replace items.' },
+    { name: 'Inside Oven', price: 35, hours: 0.5, recurringDiscount: true, note: 'Standard baked-on grime. Self-clean cycle excluded.' },
+    { name: 'Clean Interior Windows', price: 45, hours: 1.0, recurringDiscount: true, note: 'Reachable interiors only. Screens and tracks on request.' },
+    { name: 'Dish Washing', price: 25, hours: 0.5, recurringDiscount: true, note: 'Hand wash, load, unload as needed. Up to 30 minutes, light loads.' },
+    { name: 'Baseboards (Standard Cleans)', price: 55, hours: 0.5, recurringDiscount: true, note: 'All baseboards. Already included in deep cleans and move-outs.' },
+    { name: 'Inside Cabinet Cleaning', price: 30, hours: 0.5, recurringDiscount: true, note: 'Cleaners wipe inside. Cabinets should be empty. Cleaners will not move items out.' },
+    { name: 'Less Than 2 Pets', price: 15, hours: 0.5, recurringDiscount: false, note: '1 to 2 pets max in the home.' },
+    { name: 'More Than 2 Pets', price: 25, hours: 1.0, recurringDiscount: false, note: '3 or more pets in the home.' },
+    { name: 'One Load of Laundry', price: null, hours: null, recurringDiscount: false, note: 'Residential laundry is not offered. Airbnb clients only, routed to dedicated Airbnb cleaners.', flag: 'NOT OFFERED' }
+  ];
+
+  const hourlyTiers = [
+    { hours: 3, price: 150, size: 'Studio/1BR under 700 sq ft', desc: 'Kitchen plus 1 bath plus quick floors' },
+    { hours: 4, price: 200, size: '1BR or small 2BR under 1,000 sq ft', desc: 'Kitchen plus 2 baths OR kitchen plus common areas' },
+    { hours: 5, price: 250, size: '2BR targeted focus under 1,300 sq ft', desc: 'Kitchen plus 2 baths plus quick dust and floors' },
+    { hours: 6, price: 300, size: '2 to 3BR light refresh under 1,700 sq ft', desc: 'Kitchen plus 2 baths plus living areas tidy' },
+    { hours: 7, price: 350, size: '3BR targeted focus under 2,000 sq ft', desc: 'Kitchen plus 3 baths OR add master focus' },
+    { hours: 8, price: 400, size: '3BR or small 4BR under 2,300 sq ft', desc: 'Add bedrooms or deeper kitchen and bath detail' },
+    { hours: 9, price: 450, size: '3 to 4BR targeted focus under 2,700 sq ft', desc: 'Most high-traffic areas plus extra detailing' },
+    { hours: 10, price: 500, size: '4BR light refresh under 3,000 sq ft', desc: 'Whole-home light refresh, no baseboards' },
+    { hours: 11, price: 550, size: 'Large 4BR under 3,300 sq ft', desc: 'Whole-home light refresh plus extra bath focus' },
+    { hours: 12, price: 600, size: 'Up to 4BR focused zones under 3,700 sq ft', desc: 'Whole-home zones. Owners choose priorities' }
+  ];
+
+  const scenarios = [
+    { name: 'Kitchen-heavy focus', hours: 3, price: 150, note: 'Appliances, counters, floors. Great for frequent cooks. Inside oven or fridge.' },
+    { name: 'Bathrooms only (2 to 3 baths)', hours: 3, price: 150, note: 'Vanities, showers and tubs, toilets, mirrors, floors.' },
+    { name: 'Floors only (tile or wood)', hours: 3, price: 150, note: 'Vacuum and mop all accessible areas.' },
+    { name: 'Move-in touch-up (vacant 1 to 2BR)', hours: 4, price: 200, note: 'Surfaces, baths, kitchen wipe-down. No deep detail.' },
+    { name: 'Guest-ready', hours: 4, price: 200, note: 'Kitchen, living room, 1 guest bath, fresh beds. Perfect before weekend company.' },
+    { name: 'Pet reset (fur and odor)', hours: 4, price: 200, note: 'Floors, base of furniture, lint-roll detail. Deodorize if supplies provided.' },
+    { name: 'Post-event tidy', hours: 5, price: 250, note: 'Trash, dishes, surfaces, floors. Dish washing add-on may be needed.' },
+    { name: 'Bathrooms plus kitchen detail', hours: 5, price: 250, note: '2 baths plus full kitchen. Most common targeted deep choice.' },
+    { name: 'Three bathrooms plus common areas', hours: 5, price: 250, note: 'Good for 3BR homes between deep cleans.' },
+    { name: 'Whole-home light refresh (3BR)', hours: 6, price: 300, note: 'Dust, wipe, baths, kitchen surfaces, floors. No baseboards.' }
+  ];
+
+  // Build pricing table
+  const tbody = document.getElementById('pricingTbody');
+  pricing.forEach((row) => {
+    const tr = document.createElement('tr');
+    tr.dataset.search = (row.sqft + ' ' + row.bedbath).toLowerCase();
+    tr.dataset.sqft = row.sqft;
+    tr.innerHTML =
+      '<td class="sqft">' + row.sqft.toLocaleString() + ' sq ft</td>' +
+      '<td class="bedbath">' + row.bedbath + '</td>' +
+      '<td class="hours">' + row.hours + '</td>' +
+      '<td class="price">$' + row.deep + '</td>' +
+      '<td class="price">$' + row.monthly + '</td>' +
+      '<td class="price">$' + row.biweekly + '</td>' +
+      '<td class="price-best highlight">$' + row.weekly + '</td>' +
+      '<td class="price">$' + row.onetime + '</td>';
+    tbody.appendChild(tr);
+  });
+
+  // Smart search - numeric input finds nearest sqft, text input does substring match
+  document.getElementById('tableSearch').addEventListener('input', (e) => {
+    const raw = e.target.value.trim();
+    const q = raw.toLowerCase();
+    const resultMsg = document.getElementById('searchResultMsg');
+    const rows = document.querySelectorAll('#pricingTbody tr');
+    rows.forEach(r => r.classList.remove('nearest'));
+
+    if (!q) {
+      rows.forEach(tr => { tr.style.display = ''; });
+      resultMsg.classList.remove('visible');
+      return;
+    }
+
+    // Detect numeric (square footage) input
+    const isNumeric = /^[0-9][0-9,\s]*$/.test(raw);
+    if (isNumeric) {
+      const num = parseInt(raw.replace(/[^0-9]/g, ''));
+      if (num > 0) {
+        // Find nearest sqft
+        let nearest = pricing[0];
+        let minDiff = Math.abs(pricing[0].sqft - num);
+        pricing.forEach(p => {
+          const diff = Math.abs(p.sqft - num);
+          if (diff < minDiff) { minDiff = diff; nearest = p; }
+        });
+        rows.forEach(tr => {
+          const match = parseInt(tr.dataset.sqft) === nearest.sqft;
+          tr.style.display = match ? '' : 'none';
+          if (match) tr.classList.add('nearest');
+        });
+        if (num === nearest.sqft) {
+          resultMsg.innerHTML = 'Exact match for <strong>' + num.toLocaleString() + ' sq ft</strong>';
+        } else {
+          resultMsg.innerHTML = 'Closest match for ' + num.toLocaleString() + ' sq ft is <strong>' + nearest.sqft.toLocaleString() + ' sq ft</strong>. Quote from that row.';
+        }
+        resultMsg.classList.add('visible');
+        return;
+      }
+    }
+
+    // Text search fallback
+    let matchCount = 0;
+    rows.forEach(tr => {
+      const match = tr.dataset.search.includes(q);
+      tr.style.display = match ? '' : 'none';
+      if (match) matchCount++;
+    });
+    if (matchCount === 0) {
+      resultMsg.innerHTML = 'No matches for <strong>' + raw + '</strong>. Try a square footage number or a bed count.';
+      resultMsg.classList.add('visible');
+    } else {
+      resultMsg.classList.remove('visible');
+    }
+  });
+
+  // Calculator addons - curated for live quoting
+  const calcAddons = [
+    { id: 'fridge', name: 'Inside Fridge', price: 30, discount: true },
+    { id: 'oven', name: 'Inside Oven', price: 35, discount: true },
+    { id: 'windows', name: 'Interior Windows', price: 45, discount: true },
+    { id: 'dishes', name: 'Dish Washing', price: 25, discount: true },
+    { id: 'cabinets', name: 'Inside Cabinets', price: 30, discount: true },
+    { id: 'baseboards', name: 'Baseboards', price: 55, discount: true, hideOnDeep: true },
+    { id: 'deepextra', name: 'Deep Clean Refresh', price: 100, discount: true, recurringOnly: true },
+    { id: 'pets1', name: 'Under 2 Pets', price: 15, discount: false },
+    { id: 'pets2', name: '3+ Pets', price: 25, discount: false }
+  ];
+
+  const selectedAddons = new Set();
+  let currentPlatform = null;
+  let currentFbMode = 'promo';
+  let currentPromo = '4hr';
+  let extraHours = 0;
+
+  // Facebook promo configuration
+  const fbPromos = {
+    '4hr': {
+      name: '4 Hour Special',
+      basePrice: 199,
+      hours: 4,
+      includes: 'Kitchen, living area, and one full bathroom for a standard clean. Or the client can choose what they want us focused on for 4 hours. After 4 hours we wrap up and head out.'
+    },
+    '3hr': {
+      name: '3 Hour Special',
+      basePrice: 159,
+      hours: 3,
+      includes: 'Designed for the price-conscious client. 3 hours of focused work on the spaces that matter most. Client picks the priority zones, our team works through the list.'
+    }
+  };
+
+  const TAX_RATE = 0.0825;
+  const EXTRA_HOUR_RATE = 40;
+
+  // Toggle visibility of input sections based on platform and FB mode
+  function applyInputVisibility() {
+    const fbWrap = document.getElementById('fbModeWrap');
+    const fbPromoWrap = document.getElementById('fbPromoWrap');
+    const standardWrap = document.getElementById('standardInputsWrap');
+
+    if (currentPlatform === 'facebook') {
+      fbWrap.classList.add('visible');
+      if (currentFbMode === 'promo') {
+        fbPromoWrap.classList.add('visible');
+        standardWrap.style.display = 'none';
+      } else {
+        fbPromoWrap.classList.remove('visible');
+        standardWrap.style.display = '';
+      }
+    } else {
+      fbWrap.classList.remove('visible');
+      fbPromoWrap.classList.remove('visible');
+      standardWrap.style.display = '';
+    }
+  }
+
+  function getDiscountFactor(freq) {
+    if (freq === 'weekly') return 0.6;
+    if (freq === 'biweekly') return 0.7;
+    if (freq === 'monthly') return 0.8;
+    return 1.0;
+  }
+
+  function getAddonPrice(addon, freq) {
+    if (!addon.discount) return addon.price;
+    return Math.round(addon.price * getDiscountFactor(freq));
+  }
+
+  // Move In/Out only allows pet add-ons (everything else is already included)
+  function isAddonAllowed(addon, freq) {
+    if (freq === 'moveinout') {
+      return addon.id === 'pets1' || addon.id === 'pets2';
+    }
+    if (addon.hideOnDeep && freq === 'deep') return false;
+    const isRecurring = (freq === 'weekly' || freq === 'biweekly' || freq === 'monthly');
+    if (addon.recurringOnly && !isRecurring) return false;
+    return true;
+  }
+
+  // Build addon checkboxes
+  const addonChecklistEl = document.getElementById('addonChecklist');
+  const addonSectionLabel = document.getElementById('addonSectionLabel');
+
+  function renderAddonBoxes() {
+    addonChecklistEl.innerHTML = '';
+
+    // Update section label based on service
+    if (currentFreq === 'moveinout') {
+      addonSectionLabel.textContent = 'Add-Ons (Pets Only. Everything else is included.)';
+    } else {
+      addonSectionLabel.textContent = 'Add-Ons (Tap to Add)';
+    }
+
+    calcAddons.forEach(a => {
+      if (!isAddonAllowed(a, currentFreq)) return;
+      const box = document.createElement('div');
+      const checked = selectedAddons.has(a.id);
+      box.className = 'addon-box' + (checked ? ' checked' : '');
+      box.dataset.id = a.id;
+      const final = getAddonPrice(a, currentFreq);
+      const discounted = final !== a.price;
+      const priceHtml = discounted
+        ? '<s>$' + a.price + '</s>$' + final
+        : '$' + a.price;
+      box.innerHTML =
+        '<div class="addon-box-check"></div>' +
+        '<div class="addon-box-info">' +
+          '<div class="addon-box-name">' + a.name + '</div>' +
+          '<div class="addon-box-price">' + priceHtml + '</div>' +
+        '</div>';
+      box.addEventListener('click', () => {
+        if (selectedAddons.has(a.id)) selectedAddons.delete(a.id);
+        else selectedAddons.add(a.id);
+        renderAddonBoxes();
+        updateCalc();
+      });
+      addonChecklistEl.appendChild(box);
+    });
+  }
+
+  // Thumbtack discount calculator
+  function getThumbtackDiscount(serviceBase, numAddons, addonSubtotal, fullTotal) {
+    // Base discount tier based on service base price
+    let baseDisc = 0;
+    if (serviceBase < 200) baseDisc = 15;
+    else if (serviceBase < 300) baseDisc = 25;
+    else if (serviceBase < 400) baseDisc = 35;
+    else baseDisc = 40;
+
+    // Addon discount based on number of addons
+    let addonDisc = 0;
+    if (numAddons === 1) addonDisc = 5;
+    else if (numAddons === 2) addonDisc = 10;
+    else if (numAddons >= 3) addonDisc = Math.min(15, Math.round(addonSubtotal * 0.10));
+
+    let total = baseDisc + addonDisc;
+
+    // Cap at 10% of full total
+    const tenPctCap = Math.floor(fullTotal * 0.10);
+    if (total > tenPctCap) total = tenPctCap;
+
+    // Hard cap at $50
+    if (total > 50) total = 50;
+
+    return total;
+  }
+
+  // Build addons reference grid (display elsewhere)
+  const addonGrid = document.getElementById('addonGrid');
+  addons.forEach(a => {
+    const card = document.createElement('div');
+    const isHighlight = a.flag === 'TOP UPSELL' || a.flag === 'BUNDLE';
+    const unavailable = a.flag === 'NOT OFFERED';
+    card.className = 'addon-card' + (isHighlight ? ' highlight' : '');
+    const flagHtml = a.flag ? '<span class="addon-flag' + (unavailable ? ' unavailable' : '') + '">' + a.flag + '</span>' : '';
+    const priceHtml = a.price !== null ? '$' + a.price : 'N/A';
+    const hoursHtml = a.hours !== null ? a.hours + ' hr' : 'N/A';
+    const discHtml = a.price !== null ? (a.recurringDiscount ? 'Yes' : 'No') : 'N/A';
+    card.innerHTML =
+      flagHtml +
+      '<div class="addon-name">' + a.name + '</div>' +
+      '<div class="addon-price">' + priceHtml + '</div>' +
+      '<div class="addon-meta">' +
+        '<span><strong>Time</strong> ' + hoursHtml + '</span>' +
+        '<span><strong>Recurring Disc.</strong> ' + discHtml + '</span>' +
+      '</div>' +
+      '<div class="addon-note">' + a.note + '</div>';
+    addonGrid.appendChild(card);
+  });
+
+  // Build hourly
+  const hourlyEl = document.getElementById('hourlyTiers');
+  hourlyTiers.forEach(t => {
+    const row = document.createElement('div');
+    row.className = 'hourly-row';
+    row.innerHTML =
+      '<div class="hr-hours">' + t.hours + '<small>hrs</small></div>' +
+      '<div class="hr-price">$' + t.price + '</div>' +
+      '<div class="hr-desc"><strong>' + t.size + '</strong>' + t.desc + '</div>';
+    hourlyEl.appendChild(row);
+  });
+
+  const scenarioEl = document.getElementById('scenarioList');
+  scenarios.forEach(s => {
+    const card = document.createElement('div');
+    card.className = 'scenario-card';
+    card.innerHTML =
+      '<div class="scenario-body">' +
+        '<h4>' + s.name + '</h4>' +
+        '<p>' + s.note + '</p>' +
+      '</div>' +
+      '<div class="scenario-meta">' +
+        '<span class="hrs">' + s.hours + ' hrs</span>' +
+        '<span class="price">$' + s.price + '</span>' +
+      '</div>';
+    scenarioEl.appendChild(card);
+  });
+
+  // Calculator state
+  const sqftSelect = document.getElementById('sqft');
+  const pills = document.querySelectorAll('.freq-pill');
+  let currentFreq = 'deep';
+
+  const freqMeta = {
+    deep: { label: 'First-Time Deep Clean' },
+    weekly: { label: 'Weekly Recurring Plan' },
+    biweekly: { label: 'Bi-Weekly Recurring Plan' },
+    monthly: { label: 'Monthly Recurring Plan' },
+    onetime: { label: 'Standard One-Time Clean' },
+    moveinout: { label: 'Move In / Move Out Clean' }
+  };
+
+  // Get service base price (respecting move-in/out surcharge)
+  function getServiceBase(row, freq) {
+    if (freq === 'moveinout') return row.deep + 100;
+    return row[freq];
+  }
+
+  function updateCalc() {
+    // Facebook Meta Ad Promo mode has its own render path
+    if (currentPlatform === 'facebook' && currentFbMode === 'promo') {
+      renderFbPromoQuote();
+      updateGoldenRule();
+      return;
+    }
+
+    const row = pricing[parseInt(sqftSelect.value)];
+    const meta = freqMeta[currentFreq];
+
+    document.getElementById('resultService').textContent = meta.label;
+    document.getElementById('resultDetails').textContent = row.sqft.toLocaleString() + ' sq ft. ' + row.bedbath;
+
+    const priceBlock = document.getElementById('priceBlock');
+    const isRecurring = (currentFreq === 'weekly' || currentFreq === 'biweekly' || currentFreq === 'monthly');
+    const serviceBase = getServiceBase(row, currentFreq);
+
+    // Calculate addon totals
+    let addonTotal = 0;
+    const addonNames = [];
+    let numAddons = 0;
+    selectedAddons.forEach(id => {
+      const a = calcAddons.find(x => x.id === id);
+      if (!a) return;
+      if (!isAddonAllowed(a, currentFreq)) return;
+      addonTotal += getAddonPrice(a, currentFreq);
+      addonNames.push(a.name);
+      numAddons++;
+    });
+
+    // Figure out the "quoted total" for discount purposes
+    // For recurring: the first visit total (Deep + addons) is what rep is trying to close
+    // For everything else: service base + addons
+    const quoteTotal = isRecurring
+      ? (row.deep + addonTotal)
+      : (serviceBase + addonTotal);
+
+    // Thumbtack discount calculation
+    let tbDiscount = 0;
+    if (currentPlatform === 'thumbtack') {
+      tbDiscount = getThumbtackDiscount(
+        isRecurring ? row.deep : serviceBase,
+        numAddons,
+        addonTotal,
+        quoteTotal
+      );
+    }
+
+    const finalQuote = quoteTotal - tbDiscount;
+
+    let html = '';
+
+    if (isRecurring) {
+      const freqLabel = currentFreq === 'weekly' ? 'Weekly' : currentFreq === 'biweekly' ? 'Bi-Weekly' : 'Monthly';
+      const firstVisitOriginal = row.deep + addonTotal;
+      const firstVisitFinal = firstVisitOriginal - tbDiscount;
+      const firstVisitAmountHtml = tbDiscount > 0
+        ? '<span class="strike">$' + firstVisitOriginal + '</span>$' + firstVisitFinal
+        : '$' + firstVisitOriginal;
+
+      html +=
+        '<div class="price-row">' +
+          '<div class="price-row-label">First Visit<small>Deep Clean' + (addonTotal > 0 ? ' + Add-Ons' : '') + '</small></div>' +
+          '<div class="price-row-amount big gold">' + firstVisitAmountHtml + '</div>' +
+        '</div>' +
+        '<div class="price-row">' +
+          '<div class="price-row-label">Then Ongoing<small>' + freqLabel + ' recurring rate' + (addonTotal > 0 ? ' + add-ons' : '') + '</small></div>' +
+          '<div class="price-row-amount big">$' + (row[currentFreq] + addonTotal) + '</div>' +
+        '</div>';
+    } else {
+      // Deep, One-Time, or Move-In-Out
+      let baseLabel;
+      if (currentFreq === 'deep') baseLabel = 'First-Time Deep';
+      else if (currentFreq === 'moveinout') baseLabel = 'Deep + $100 move surcharge';
+      else baseLabel = 'One-time visit';
+
+      const showBaseStrike = tbDiscount > 0 && addonTotal === 0;
+      const baseAmountHtml = showBaseStrike
+        ? '<span class="strike">$' + serviceBase + '</span>$' + (serviceBase - tbDiscount)
+        : '$' + serviceBase;
+
+      html +=
+        '<div class="price-row">' +
+          '<div class="price-row-label">Base<small>' + baseLabel + '</small></div>' +
+          '<div class="price-row-amount big' + (addonTotal === 0 && tbDiscount === 0 ? ' gold' : (showBaseStrike ? ' gold' : '')) + '">' + baseAmountHtml + '</div>' +
+        '</div>';
+
+      if (addonTotal > 0) {
+        html +=
+          '<div class="price-row addon-row">' +
+            '<div class="price-row-label">Add-Ons<small>' + addonNames.join(', ') + '</small></div>' +
+            '<div class="price-row-amount">+$' + addonTotal + '</div>' +
+          '</div>';
+        const totalLabel = 'Grand Total';
+        const totalSub = 'Everything in';
+        const totalHtml = tbDiscount > 0
+          ? '<span class="strike">$' + quoteTotal + '</span>$' + finalQuote
+          : '$' + quoteTotal;
+        html +=
+          '<div class="price-row grand-total">' +
+            '<div class="price-row-label">' + totalLabel + '<small>' + totalSub + '</small></div>' +
+            '<div class="price-row-amount big gold">' + totalHtml + '</div>' +
+          '</div>';
+      }
+    }
+
+    // Thumbtack discount banner
+    if (tbDiscount > 0) {
+      html +=
+        '<div class="discount-banner">' +
+          '<div>' +
+            '<span class="discount-banner-label">Thumbtack Win Discount</span>' +
+            'You saved them $' + tbDiscount +
+          '</div>' +
+          '<div class="discount-banner-amount">-$' + tbDiscount + '</div>' +
+        '</div>';
+    }
+
+    priceBlock.innerHTML = html;
+
+    document.getElementById('resultHours').textContent = 'Estimated ' + row.hours + ' hours on site';
+
+    const upsellEl = document.getElementById('resultUpsell');
+    let tip = '';
+
+    // Thumbtack tip overrides everything
+    if (currentPlatform === 'thumbtack') {
+      if (tbDiscount > 0) {
+        tip = '<strong>Thumbtack Close</strong>Tell them the normal rate is $' + quoteTotal + ' but you can take $' + tbDiscount + ' off to bring it to $' + finalQuote + '. Frame it as a new-client welcome, not a general promo. Book it today or the hold releases.';
+      } else {
+        tip = '<strong>Thumbtack Close</strong>No discount triggered for this quote yet. Add-ons or a higher service base unlock the discount tiers. Right now, sell on value. Insured, background-checked, 24-hour guarantee.';
+      }
+    } else if (currentFreq === 'moveinout') {
+      tip = '<strong>Rep Tip</strong>Move In/Out is Deep Clean plus $100 because every add-on is included. Oven, fridge, windows, inside cabinets, baseboards. Sell the bundle. If you priced each add-on separately it would be $150 plus. Just add pets if they have any.';
+    } else if (currentFreq === 'deep') {
+      const savings = row.deep - row.weekly;
+      tip = '<strong>Rep Tip</strong>Pitch this as the entry point, then lock them into weekly at $' + row.weekly + ' per visit. That\'s $' + savings + ' less per clean going forward.';
+    } else if (currentFreq === 'onetime') {
+      tip = '<strong>Rep Tip</strong>Only quote Standard One-Time if they already had a deep clean recently. Otherwise, pitch First-Time Deep at $' + row.deep + ' plus recurring.';
+    } else if (currentFreq === 'monthly') {
+      tip = '<strong>Rep Tip</strong>Locked in. Try to move them to bi-weekly at $' + row.biweekly + ' or weekly at $' + row.weekly + ' for max value.';
+    } else if (currentFreq === 'biweekly') {
+      tip = '<strong>Rep Tip</strong>Solid middle ground. Offer weekly at $' + row.weekly + ' if they have kids, pets, or want max value.';
+    } else if (currentFreq === 'weekly') {
+      tip = '<strong>Rep Tip</strong>Best recurring value. Remind them add-ons also get 40% off on their plan.';
+    }
+
+    if (row.sqft === 4000) {
+      tip += '<br><br><span style="color: var(--gold); font-weight: 700; font-size: 10.5px; letter-spacing: 0.2em; text-transform: uppercase;">Note</span><br>4000+ sq ft requires on-site inspection before final quote.';
+    }
+    upsellEl.innerHTML = tip;
+
+    // Update the golden rule banner
+    updateGoldenRule();
+  }
+
+  // Facebook Promo quote renderer
+  function renderFbPromoQuote() {
+    const promo = fbPromos[currentPromo];
+    const subtotal = promo.basePrice + (extraHours * EXTRA_HOUR_RATE);
+    const tax = Math.round(subtotal * TAX_RATE * 100) / 100;
+    const grandTotal = subtotal + tax;
+    const totalHours = promo.hours + extraHours;
+
+    document.getElementById('resultService').textContent = 'Facebook Promo. ' + promo.name;
+    document.getElementById('resultDetails').textContent = 'Meta Ad Special. Flat rate plus optional extra hours.';
+
+    const priceBlock = document.getElementById('priceBlock');
+
+    let html = '';
+    html +=
+      '<div class="price-row">' +
+        '<div class="price-row-label">Promo Base<small>' + promo.hours + ' hours flat at $' + promo.basePrice + '</small></div>' +
+        '<div class="price-row-amount big gold">$' + promo.basePrice + '</div>' +
+      '</div>';
+
+    html +=
+      '<div class="promo-includes-box">' +
+        '<strong>What is included</strong>' +
+        promo.includes +
+      '</div>';
+
+    // Hour counter
+    const minusDisabled = extraHours <= 0 ? ' disabled' : '';
+    html +=
+      '<div class="hour-counter-card">' +
+        '<span class="hour-counter-label">Extra Hours Upsell</span>' +
+        '<div class="hour-counter-hint">Use this counter when the client wants more time. Each extra hour is $40, billed before tax. Pitch in pairs (2 extra hours for $80) so it feels like a small jump for a fully covered home.</div>' +
+        '<div class="hour-counter-row">' +
+          '<div class="hour-counter-controls">' +
+            '<button class="hour-counter-btn" id="hourMinus"' + minusDisabled + '>&minus;</button>' +
+            '<div class="hour-counter-value" id="hourValue">' + extraHours + '</div>' +
+            '<button class="hour-counter-btn" id="hourPlus">&plus;</button>' +
+          '</div>' +
+          '<div class="hour-counter-rate">' +
+            '+$' + (extraHours * EXTRA_HOUR_RATE) +
+            '<small>' + extraHours + ' extra hr at $40 each</small>' +
+          '</div>' +
+        '</div>' +
+      '</div>';
+
+    if (extraHours > 0) {
+      html +=
+        '<div class="price-row addon-row">' +
+          '<div class="price-row-label">Extra Hours<small>' + extraHours + ' hr at $' + EXTRA_HOUR_RATE + ' per hour</small></div>' +
+          '<div class="price-row-amount">+$' + (extraHours * EXTRA_HOUR_RATE) + '</div>' +
+        '</div>';
+    }
+
+    html +=
+      '<div class="price-row">' +
+        '<div class="price-row-label">Subtotal<small>Before tax</small></div>' +
+        '<div class="price-row-amount">$' + subtotal.toFixed(2) + '</div>' +
+      '</div>' +
+      '<div class="price-row">' +
+        '<div class="price-row-label">Sales Tax<small>8.25 percent</small></div>' +
+        '<div class="price-row-amount">+$' + tax.toFixed(2) + '</div>' +
+      '</div>' +
+      '<div class="price-row grand-total">' +
+        '<div class="price-row-label">Grand Total<small>What the client pays</small></div>' +
+        '<div class="price-row-amount big gold">$' + grandTotal.toFixed(2) + '</div>' +
+      '</div>';
+
+    priceBlock.innerHTML = html;
+
+    document.getElementById('resultHours').textContent = 'Estimated ' + totalHours + ' hours on site';
+
+    // Wire up hour counter buttons after they exist in the DOM
+    const minusBtn = document.getElementById('hourMinus');
+    const plusBtn = document.getElementById('hourPlus');
+    if (minusBtn) {
+      minusBtn.addEventListener('click', () => {
+        if (extraHours > 0) {
+          extraHours--;
+          updateCalc();
+        }
+      });
+    }
+    if (plusBtn) {
+      plusBtn.addEventListener('click', () => {
+        extraHours++;
+        updateCalc();
+      });
+    }
+
+    // Rep tip for the upsell area
+    const upsellEl = document.getElementById('resultUpsell');
+    let tip = '';
+    if (currentPromo === '4hr') {
+      tip = '<strong>Facebook Promo Close</strong>This is your strongest hook from Meta ads. Lock the $199 rate, then ask what they want covered. If they list more than kitchen, living, and one bath, count out loud what fits in 4 hours and offer the extra hour upsell at $40. Two extra hours for $80 is the easiest yes. Always tee up recurring after the first visit.';
+    } else {
+      tip = '<strong>Facebook Promo Close</strong>The 3 hour at $159 is for the budget-first client. Get them to commit, then ask which 3 areas matter most. Offer one extra hour at $40 to round it out. After the clean, pitch recurring at the discounted rate. Most 3-hour clients become weekly or bi-weekly.';
+    }
+    if (extraHours >= 2) {
+      tip += '<br><br><span style="color: var(--green); font-weight: 700; font-size: 10.5px; letter-spacing: 0.2em; text-transform: uppercase;">Nice Upsell</span><br>You added ' + extraHours + ' extra hours at $40. That is $' + (extraHours * EXTRA_HOUR_RATE) + ' more on top of the promo. Rep wins.';
+    }
+    upsellEl.innerHTML = tip;
+  }
+
+  // Dynamic golden rule
+  function updateGoldenRule() {
+    const banner = document.querySelector('.rule-banner');
+    if (!banner) return;
+
+    // Reset banner state every render
+    banner.classList.remove('caution');
+    banner.style.cssText = '';
+
+    // Facebook gets the caution-sign style with trust-building messaging
+    if (currentPlatform === 'facebook') {
+      banner.classList.add('caution');
+      banner.innerHTML =
+        '<div class="caution-inner">' +
+          '<div class="caution-icon">' +
+            '<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">' +
+              '<path d="M32 4 L60 56 L4 56 Z" fill="#1a1a1a" stroke="#1a1a1a" stroke-width="2" stroke-linejoin="round"/>' +
+              '<rect x="29" y="22" width="6" height="20" fill="#FFB600" rx="2"/>' +
+              '<circle cx="32" cy="49" r="3.2" fill="#FFB600"/>' +
+            '</svg>' +
+          '</div>' +
+          '<div class="caution-text">' +
+            '<span class="caution-title">Facebook Lead Caution. Lock the Card</span>' +
+            'Facebook leads convert at a lower rate and clients are more guarded with payment info. <strong>Always secure a credit or debit card on file before you end the call.</strong> No card means no booking, full stop. Reassure them up front. We do not charge a single cent until the clean is complete and they are 100 percent happy.' +
+            '<div class="caution-script">' +
+              '"I just need a card on file to lock in your spot, same way a hotel holds a reservation. We do not charge anything until after your clean is finished and you are happy with the work. We are fully insured, background-checked, and we are right here in San Antonio. You can see all our verified reviews on Google before we ever step in your home."' +
+            '</div>' +
+            '<a class="caution-link" href="https://share.google/llc6QEvcC9IfdblVw" target="_blank" rel="noopener">' +
+              '&#9733; Send them to our Google reviews' +
+            '</a>' +
+            '<div class="caution-trust-row">' +
+              '<span class="caution-trust-pill">&#128274; Card on file, charged after the clean</span>' +
+              '<span class="caution-trust-pill">&#128737; Insured and background-checked</span>' +
+              '<span class="caution-trust-pill">&#9989; 24-hour happiness guarantee</span>' +
+              '<span class="caution-trust-pill">&#128205; Local San Antonio team</span>' +
+            '</div>' +
+          '</div>' +
+        '</div>';
+      return;
+    }
+
+    // For non-Facebook platforms, ensure the standard structure exists
+    if (!banner.querySelector('.rule-banner-num')) {
+      banner.innerHTML =
+        '<div class="rule-banner-num">1</div>' +
+        '<div class="rule-banner-text"></div>';
+    }
+
+    const numEl = banner.querySelector('.rule-banner-num');
+    const textEl = banner.querySelector('.rule-banner-text');
+    if (!numEl || !textEl) return;
+
+    if (currentPlatform === 'thumbtack') {
+      banner.style.background = '#0C85C2';
+      banner.style.color = 'var(--white)';
+      banner.style.boxShadow = '0 8px 28px rgba(12, 133, 194, 0.25)';
+      numEl.style.background = 'var(--white)';
+      numEl.style.color = '#0C85C2';
+      textEl.innerHTML = '<span style="color: rgba(255,255,255,0.85);">Thumbtack Play</span>Thumbtack leads cost us real money and the homeowner also messaged competitors. Win this lead. Discount to close, not to rescue. Cap is 10 percent total or $50 max, whichever is lower. Never stack promos or hand out free add-ons.';
+    } else if (currentFreq === 'moveinout') {
+      banner.style.background = 'var(--navy)';
+      banner.style.color = 'var(--white)';
+      banner.style.boxShadow = '0 8px 28px rgba(44, 62, 80, 0.25)';
+      numEl.style.background = 'var(--gold)';
+      numEl.style.color = 'var(--navy)';
+      textEl.innerHTML = '<span style="color: var(--gold);">Move In/Out Play</span>This one costs more because it includes every add-on. Oven, fridge, interior windows, inside cabinets, baseboards. Lead with the bundle. "Priced separately these add-ons are $150 plus. Move In/Out ties them together plus deep work on an empty home for a flat $100 over the Deep Clean." Empty home means faster and more thorough work.';
+    } else {
+      banner.style.background = 'var(--gold)';
+      banner.style.color = 'var(--navy)';
+      banner.style.boxShadow = '0 8px 28px rgba(255, 182, 0, 0.18)';
+      numEl.style.background = 'var(--navy)';
+      numEl.style.color = 'var(--gold)';
+      textEl.innerHTML = '<span>Golden Rule</span>Always pitch Deep Clean plus Recurring. Standard one-time pricing is only for clients who already had a recent deep clean.';
+    }
+  }
+
+  // Lead platform selector
+  const leadPlatforms = document.querySelectorAll('.lead-platform');
+  leadPlatforms.forEach(p => {
+    p.addEventListener('click', () => {
+      if (p.classList.contains('disabled')) return;
+      const platform = p.dataset.platform;
+      const wasActive = p.classList.contains('active');
+      leadPlatforms.forEach(x => x.classList.remove('active'));
+      if (!wasActive) {
+        p.classList.add('active');
+        currentPlatform = platform;
+      } else {
+        currentPlatform = null;
+      }
+      // Reset extra hours when switching platforms
+      extraHours = 0;
+      applyInputVisibility();
+      updateCalc();
+    });
+  });
+
+  // Facebook mode tabs (Promotion vs Other Clean)
+  const fbModeTabs = document.querySelectorAll('.fb-mode-tab');
+  fbModeTabs.forEach(t => {
+    t.addEventListener('click', () => {
+      fbModeTabs.forEach(x => x.classList.remove('active'));
+      t.classList.add('active');
+      currentFbMode = t.dataset.fbmode;
+      extraHours = 0;
+      applyInputVisibility();
+      updateCalc();
+    });
+  });
+
+  // Facebook promotion cards
+  const fbPromoCards = document.querySelectorAll('.fb-promo-card');
+  fbPromoCards.forEach(c => {
+    c.addEventListener('click', () => {
+      fbPromoCards.forEach(x => x.classList.remove('active'));
+      c.classList.add('active');
+      currentPromo = c.dataset.promo;
+      extraHours = 0;
+      updateCalc();
+    });
+  });
+
+  // Service type pills
+  pills.forEach(p => {
+    p.addEventListener('click', () => {
+      pills.forEach(x => x.classList.remove('active'));
+      p.classList.add('active');
+      currentFreq = p.dataset.freq;
+      // When switching to move-in-out, clear non-pet addons
+      if (currentFreq === 'moveinout') {
+        Array.from(selectedAddons).forEach(id => {
+          if (id !== 'pets1' && id !== 'pets2') selectedAddons.delete(id);
+        });
+      }
+      renderAddonBoxes();
+      updateCalc();
+    });
+  });
+
+  sqftSelect.addEventListener('change', updateCalc);
+  renderAddonBoxes();
+  applyInputVisibility();
+  updateCalc();
+
+  // Rebuttal accordion
+  function toggleRebuttal(trigger) {
+    const card = trigger.closest('.rebuttal-card');
+    const body = card.querySelector('.rebuttal-body');
+    const isOpen = trigger.classList.contains('open');
+
+    // Close all others first
+    document.querySelectorAll('.rebuttal-trigger.open').forEach(t => {
+      t.classList.remove('open');
+      t.closest('.rebuttal-card').querySelector('.rebuttal-body').classList.remove('open');
+    });
+
+    // If wasn't open, open it
+    if (!isOpen) {
+      trigger.classList.add('open');
+      body.classList.add('open');
+      setTimeout(() => {
+        card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }, 50);
+    }
+  }
+  const clTabs = document.querySelectorAll('.checklist-tab');
+  const clPanels = document.querySelectorAll('.checklist-panel');
+  clTabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      clTabs.forEach(t => t.classList.remove('active'));
+      clPanels.forEach(p => p.classList.remove('active'));
+      tab.classList.add('active');
+      document.getElementById(tab.dataset.panel).classList.add('active');
+    });
+  });
+</script>
+</body>
+</html>
