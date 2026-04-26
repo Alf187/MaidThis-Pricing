@@ -142,7 +142,7 @@
   }
   select {
     width: 100%; padding: 16px 44px 16px 20px;
-    border: 1.5px solid var(--border); border-radius: 18px;
+    border: 1.5px solid var(--border); border-radius: 20px;
     font-family: 'Montserrat', sans-serif; font-size: 15px;
     font-weight: 500; color: var(--navy);
     background: var(--white); appearance: none; cursor: pointer;
@@ -155,7 +155,7 @@
   @media (max-width: 420px) { .freq-pills { grid-template-columns: repeat(2, 1fr); } }
   .freq-pill {
     padding: 12px 4px; border: 1.5px solid var(--border);
-    border-radius: 18px; background: var(--white);
+    border-radius: 20px; background: var(--white);
     cursor: pointer; text-align: center;
     font-family: 'Montserrat', sans-serif;
     transition: all 0.2s ease;
@@ -178,7 +178,7 @@
   }
   .addon-box {
     background: var(--white); border: 1.5px solid var(--border);
-    border-radius: 16px; padding: 12px 14px;
+    border-radius: 14px; padding: 12px 14px;
     cursor: pointer; transition: all 0.2s;
     display: flex; align-items: center; gap: 10px;
     user-select: none;
@@ -232,6 +232,26 @@
   .price-row.grand-total .price-row-label {
     color: var(--gold); font-weight: 800; font-size: 13px;
   }
+  .price-row.tax-row {
+    padding: 8px 0;
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.02);
+    margin: 0 -4px;
+    padding-left: 4px; padding-right: 4px;
+    border-radius: 6px;
+  }
+  .price-row.tax-row .price-row-label {
+    font-size: 10px; color: rgba(255, 255, 255, 0.55);
+    letter-spacing: 0.1em; font-weight: 600;
+  }
+  .price-row.tax-row .price-row-label small {
+    font-size: 10px; color: rgba(255, 255, 255, 0.4);
+    text-transform: none; letter-spacing: 0.02em;
+  }
+  .price-row-amount.tax-amount {
+    font-size: 16px; font-weight: 700;
+    color: rgba(255, 255, 255, 0.85);
+  }
 
   /* LEAD PLATFORM SELECTOR */
   .lead-platforms {
@@ -247,7 +267,7 @@
   }
   .lead-platform {
     padding: 14px 8px 12px; border: 1.5px solid var(--border);
-    border-radius: 18px; background: var(--white);
+    border-radius: 20px; background: var(--white);
     cursor: pointer; text-align: center;
     transition: all 0.2s ease;
     display: flex; flex-direction: column; align-items: center; gap: 8px;
@@ -270,7 +290,7 @@
     border-color: var(--border); background: var(--off);
   }
   .lead-platform-logo {
-    width: 32px; height: 32px; border-radius: 12px;
+    width: 32px; height: 32px; border-radius: 14px;
     display: flex; align-items: center; justify-content: center;
     overflow: hidden; background: var(--white);
     padding: 2px; flex-shrink: 0;
@@ -296,7 +316,7 @@
     padding: 16px;
     background: linear-gradient(135deg, rgba(24, 119, 242, 0.06), rgba(24, 119, 242, 0.02));
     border: 1.5px solid rgba(24, 119, 242, 0.2);
-    border-radius: 18px;
+    border-radius: 20px;
     animation: fadeUp 0.3s ease-out;
   }
   .fb-mode-wrap.visible { display: block; }
@@ -310,7 +330,7 @@
   }
   .fb-mode-tab {
     padding: 12px 14px; border: 1.5px solid var(--border);
-    border-radius: 16px; background: var(--white);
+    border-radius: 14px; background: var(--white);
     cursor: pointer; text-align: center;
     font-family: 'Montserrat', sans-serif;
     font-size: 12.5px; font-weight: 700; color: var(--navy-soft);
@@ -378,7 +398,7 @@
   .hour-counter-card {
     background: rgba(255, 255, 255, 0.06);
     border: 1px solid rgba(124, 202, 91, 0.35);
-    border-radius: 18px; padding: 16px 18px;
+    border-radius: 20px; padding: 16px 18px;
     margin-top: 14px; position: relative; z-index: 2;
   }
   .hour-counter-label {
@@ -430,6 +450,15 @@
     font-weight: 500; letter-spacing: 0.04em;
     text-transform: none; margin-top: 3px;
   }
+  .hour-counter-warn {
+    margin-top: 12px; padding: 10px 14px;
+    background: rgba(255, 182, 0, 0.12);
+    border: 1px solid rgba(255, 182, 0, 0.3);
+    border-left: 3px solid var(--gold);
+    border-radius: 0 14px 14px 0;
+    font-size: 11.5px; color: var(--gold);
+    font-weight: 600; line-height: 1.5;
+  }
 
   /* PROMO INCLUDES BOX (in dark quote panel) */
   .promo-includes-box {
@@ -453,7 +482,7 @@
     background: #FFFBEB;
     border: 1px solid rgba(255, 182, 0, 0.35);
     border-left: 4px solid var(--gold);
-    border-radius: 18px;
+    border-radius: 20px;
     box-shadow: 0 6px 20px rgba(44, 62, 80, 0.06);
     padding: 0;
     overflow: hidden;
@@ -517,7 +546,7 @@
     background: rgba(255, 255, 255, 0.7);
     border: 1px solid rgba(255, 182, 0, 0.25);
     border-left: 3px solid var(--gold);
-    border-radius: 0 12px 12px 0;
+    border-radius: 0 14px 14px 0;
     padding: 12px 16px; margin-top: 14px;
     font-style: italic; font-size: 13px;
     color: var(--navy-soft); font-weight: 500;
@@ -587,7 +616,7 @@
   /* RESULT CARD */
   .calc-result {
     background: linear-gradient(160deg, var(--navy) 0%, #1d2b3a 100%);
-    border-radius: 22px; padding: 34px;
+    border-radius: 20px; padding: 34px;
     color: var(--white); position: relative; overflow: hidden;
     display: flex; flex-direction: column;
   }
@@ -646,7 +675,7 @@
   .result-upsell {
     background: rgba(255, 255, 255, 0.06);
     border: 1px solid rgba(255, 182, 0, 0.3);
-    border-radius: 18px; padding: 16px 18px;
+    border-radius: 20px; padding: 16px 18px;
     font-size: 13px; line-height: 1.55; margin-top: 18px;
     position: relative; z-index: 2;
   }
@@ -676,6 +705,13 @@
     padding: 11px 14px; margin-bottom: 8px;
     font-size: 12.5px; line-height: 1.5;
     color: rgba(255, 255, 255, 0.88);
+  }
+  .addon-tip-card.base-tip {
+    background: rgba(255, 182, 0, 0.08);
+    border-left-width: 4px;
+  }
+  .addon-tip-card.base-tip strong {
+    color: var(--gold);
   }
   .addon-tip-card:last-child { margin-bottom: 0; }
   .addon-tip-card strong {
@@ -733,12 +769,12 @@
   table.pricing thead th.highlight {
     background: rgba(90, 179, 201, 0.09);
     color: var(--blue); position: relative;
-    border-top-left-radius: 18px; border-top-right-radius: 18px;
+    border-top-left-radius: 20px; border-top-right-radius: 20px;
   }
   table.pricing thead th.highlight::after {
     content: 'BEST'; position: absolute; top: 8px; right: 12px;
     font-size: 9px; background: var(--gold); color: var(--navy);
-    padding: 3px 8px; border-radius: 10px; letter-spacing: 0.1em;
+    padding: 3px 8px; border-radius: 8px; letter-spacing: 0.1em;
     font-weight: 700;
   }
   table.pricing tbody td {
@@ -758,7 +794,7 @@
     box-shadow: inset 3px 0 0 var(--gold);
   }
   table.pricing tbody tr:last-child td.highlight {
-    border-bottom-left-radius: 18px; border-bottom-right-radius: 18px;
+    border-bottom-left-radius: 20px; border-bottom-right-radius: 20px;
   }
   table.pricing td.sqft {
     font-size: 16px; font-weight: 700; color: var(--navy); white-space: nowrap;
@@ -803,7 +839,7 @@
 
   .table-search input {
     flex: 1; min-width: 200px; padding: 13px 18px;
-    border: 1.5px solid var(--border); border-radius: 16px;
+    border: 1.5px solid var(--border); border-radius: 14px;
     font-family: 'Montserrat', sans-serif; font-size: 14px;
     font-weight: 500;
     background: var(--white); transition: border-color 0.2s, box-shadow 0.2s;
@@ -862,7 +898,7 @@
   .addon-flag {
     display: inline-block; font-size: 9.5px; font-weight: 700;
     letter-spacing: 0.12em; text-transform: uppercase;
-    padding: 5px 10px; border-radius: 12px;
+    padding: 5px 10px; border-radius: 14px;
     background: var(--gold); color: var(--navy); margin-bottom: 12px;
   }
   .addon-flag.unavailable { background: var(--navy-muted); color: var(--white); }
@@ -872,7 +908,7 @@
   @media (max-width: 960px) { .hourly-layout { grid-template-columns: 1fr; } }
   .hourly-card {
     background: var(--white); border: 1px solid var(--border);
-    border-radius: 22px; padding: 32px; box-shadow: var(--shadow);
+    border-radius: 20px; padding: 32px; box-shadow: var(--shadow);
   }
   .hourly-card h3 {
     font-size: 22px; color: var(--navy); margin-bottom: 6px; font-weight: 700;
@@ -904,7 +940,7 @@
 
   .scenario-card {
     background: var(--white); border: 1px solid var(--border);
-    border-radius: 18px; padding: 20px 24px; margin-bottom: 12px;
+    border-radius: 20px; padding: 20px 24px; margin-bottom: 12px;
     display: grid; grid-template-columns: 1fr auto; gap: 18px;
     align-items: center; transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
   }
@@ -928,12 +964,12 @@
   .checklist-tabs {
     display: flex; gap: 8px; margin-bottom: 28px;
     flex-wrap: wrap; padding: 8px;
-    background: var(--white); border-radius: 18px;
+    background: var(--white); border-radius: 20px;
     border: 1px solid var(--border); box-shadow: var(--shadow);
   }
   .checklist-tab {
     flex: 1; min-width: 120px; padding: 14px 14px;
-    border: none; border-radius: 16px;
+    border: none; border-radius: 14px;
     background: transparent; color: var(--navy-soft);
     font-family: 'Montserrat', sans-serif; font-weight: 700;
     font-size: 13px; cursor: pointer;
@@ -1005,7 +1041,7 @@
   .cl-rule.green { border-top-color: var(--green); }
 
   .cl-includes {
-    background: var(--teal-bg); border-radius: 18px;
+    background: var(--teal-bg); border-radius: 20px;
     padding: 16px 22px; margin-bottom: 30px;
     display: flex; align-items: center; gap: 14px;
     flex-wrap: wrap;
@@ -1054,7 +1090,7 @@
 
   .cl-addons {
     background: var(--off); border: 1.5px dashed var(--border);
-    border-radius: 18px; padding: 24px 28px;
+    border-radius: 20px; padding: 24px 28px;
   }
   .cl-addons-head {
     display: flex; justify-content: space-between;
@@ -1225,9 +1261,22 @@
   .rebuttal-script.gold { background: rgba(255,182,0,0.1); border-color: var(--gold); }
   .rebuttal-script.green { background: rgba(124,202,91,0.1); border-color: var(--green); }
   .rebuttal-script strong { font-style: normal; color: var(--blue); font-weight: 700; }
+  .rebuttal-trust-action {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: var(--white); color: var(--navy);
+    padding: 8px 14px; border-radius: 100px;
+    font-size: 11.5px; font-weight: 700;
+    letter-spacing: 0.04em; text-decoration: none;
+    margin-top: 10px; transition: all 0.2s;
+    border: 1.5px solid rgba(44, 62, 80, 0.15);
+    font-style: normal;
+  }
+  .rebuttal-trust-action:hover {
+    background: var(--gold); border-color: var(--gold); color: var(--navy);
+  }
   .rebuttal-warning {
     background: rgba(206, 106, 75, 0.08); border: 1px solid rgba(206, 106, 75, 0.25);
-    border-radius: 16px; padding: 14px 18px; margin-top: 10px;
+    border-radius: 14px; padding: 14px 18px; margin-top: 10px;
     font-size: 13px; color: var(--navy); line-height: 1.55;
   }
   .rebuttal-warning strong {
@@ -1249,7 +1298,7 @@
   }
   .closing-card {
     background: var(--white); border: 1px solid var(--border);
-    border-radius: 22px; padding: 24px;
+    border-radius: 20px; padding: 24px;
     border-top: 3px solid var(--teal);
     transition: transform 0.2s, box-shadow 0.2s;
   }
@@ -1272,7 +1321,7 @@
   }
   footer .footer-logo {
     background: var(--white); display: inline-block;
-    padding: 14px 22px; border-radius: 22px; margin-bottom: 16px;
+    padding: 14px 22px; border-radius: 20px; margin-bottom: 16px;
   }
   footer .footer-logo img { height: 34px; display: block; }
   footer p { margin-top: 6px; }
@@ -1471,7 +1520,7 @@
         <div class="rule-banner-num">1</div>
         <div class="rule-banner-text">
           <span>Golden Rule</span>
-          Always pitch Deep Clean plus Recurring. Standard one-time pricing is only for clients who already had a recent deep clean.
+          Always pitch Deep Clean plus Recurring. Standard one-time pricing is only for clients who already had a recent deep clean. Try this script. "I would start you off with our first-time deep clean to get the home back to baseline, then lock you into a weekly or bi-weekly plan at 30 to 40 percent off so it stays that way. Most of our clients do it that way."
         </div>
       </div>
     </div>
@@ -2006,6 +2055,7 @@
               <h4>Don't drop the price first. Acknowledge and anchor value.</h4>
               <p>Before you touch the number, make sure they feel heard. Then remind them what they're actually getting. Insured, background-checked cleaners who show up every time and back it with a 24-hour happiness guarantee. That's not a commodity.</p>
               <div class="rebuttal-script">"I totally get it, it's a real commitment. I want to make sure you know what's included before we look at anything else. We're fully insured, all our cleaners are background-checked, and if anything's not right we'll fix it within 24 hours, no charge. A lot of clients tell us they tried cheaper options first and ended up calling us anyway."</div>
+              <a class="rebuttal-trust-action" href="https://share.google/llc6QEvcC9IfdblVw" target="_blank" rel="noopener">&#9733; Text them our Google reviews</a>
             </div>
           </div>
           <div class="rebuttal-step">
@@ -2106,6 +2156,7 @@
               <h4>Give them the tools to sell it internally.</h4>
               <p>They're going to have to sell it to their spouse for you. Make that easy. Summarize the key points in one or two sentences they can repeat: insured, guaranteed, saves them real hours every week.</p>
               <div class="rebuttal-script">"Totally fine. Here's the short version you can share with them. We're a local insured service, background-checked cleaners, and if anything's off we fix it within 24 hours at no cost. For a <strong>[home size]</strong> home it's <strong>[price]</strong> per visit on a recurring plan. A lot of families find it actually saves more than it costs when you factor in the time."</div>
+              <a class="rebuttal-trust-action" href="https://share.google/llc6QEvcC9IfdblVw" target="_blank" rel="noopener">&#9733; Text them our Google reviews</a>
             </div>
           </div>
           <div class="rebuttal-step">
@@ -2155,6 +2206,7 @@
               <h4>Highlight what they probably don't have.</h4>
               <p>Individual cleaners are rarely insured or bonded. There's no backup if they cancel or stop showing up. That's your edge. Don't be aggressive, just factual.</p>
               <div class="rebuttal-script">"The main difference with us is we're fully insured and bonded, which protects you if anything ever gets damaged. And if your person ever can't make it, there's no gap, we always send someone. A lot of our clients came to us after their individual cleaner stopped showing up or raised their rate without warning."</div>
+              <a class="rebuttal-trust-action" href="https://share.google/llc6QEvcC9IfdblVw" target="_blank" rel="noopener">&#9733; Text them our Google reviews</a>
             </div>
           </div>
           <div class="rebuttal-step">
@@ -2606,15 +2658,39 @@
   }
 
   // Render addon rep tips (must-say client expectations) inside the quote panel
+  // Base service tips - things the rep should always say about the service itself
+  const baseServiceTips = {
+    deep: {
+      name: 'First-Time Deep Clean',
+      tip: 'Set the expectation up front. Deep is hands-and-knees baseboards, inside oven and microwave, full bathroom detail including shower track and toilet base, dust on every surface they can reach, and floors top to bottom. It takes longer than a standard clean which is why first-timers always start here. Tell them this is the foundation, every recurring visit after will be a maintenance clean at a lower rate.'
+    },
+    moveinout: {
+      name: 'Move In / Move Out',
+      tip: 'CRITICAL. The home must be empty of furniture and personal items before we arrive. We do not move boxes, mattresses, or large items. If movers are still on-site we cannot start. Confirm the schedule. Movers out by morning, our team in by afternoon, or schedule next-day. We bring everything, including ladders for windows. This price already includes oven, fridge, inside cabinets, interior windows, and baseboards. No surprise fees.'
+    },
+    onetime: {
+      name: 'Standard One-Time',
+      tip: 'Only quote this if they have already had a recent deep clean. Tell them. "If your home has not been deep cleaned in the last 60 days, we recommend starting with a Deep Clean instead. A standard clean assumes baseboards, inside appliances, and detail areas are already maintained." This protects the team from showing up to a job that needs more time than they have.'
+    }
+  };
+
   function renderAddonTips() {
     const block = document.getElementById('addonTipsBlock');
     if (!block) return;
 
     const tips = [];
+
+    // Add base service tip first if applicable
+    const baseTip = baseServiceTips[currentFreq];
+    if (baseTip) {
+      tips.push({ name: baseTip.name, tip: baseTip.tip, isBase: true });
+    }
+
+    // Add addon-specific tips
     selectedAddons.forEach(id => {
       const a = calcAddons.find(x => x.id === id);
       if (a && a.repTip && isAddonAllowed(a, currentFreq)) {
-        tips.push({ name: a.name, tip: a.repTip });
+        tips.push({ name: a.name, tip: a.repTip, isBase: false });
       }
     });
 
@@ -2626,7 +2702,8 @@
 
     let html = '<div class="addon-tips-header">Must Tell the Client</div>';
     tips.forEach(t => {
-      html += '<div class="addon-tip-card"><strong>' + t.name + '</strong>' + t.tip + '</div>';
+      const cardClass = t.isBase ? 'addon-tip-card base-tip' : 'addon-tip-card';
+      html += '<div class="' + cardClass + '"><strong>' + t.name + '</strong>' + t.tip + '</div>';
     });
     block.innerHTML = html;
     block.style.display = 'block';
@@ -2693,14 +2770,26 @@
         ? '<span class="strike">' + fmtUSD(firstVisitOriginal) + '</span>' + fmtUSD(firstVisitFinal)
         : fmtUSD(firstVisitOriginal);
 
+      const ongoingTotal = row[currentFreq] + addonTotal;
+      const firstVisitWithTax = firstVisitFinal + Math.floor(firstVisitFinal * TAX_RATE);
+      const ongoingWithTax = ongoingTotal + Math.floor(ongoingTotal * TAX_RATE);
+
       html +=
         '<div class="price-row">' +
           '<div class="price-row-label">First Visit<small>Deep Clean' + (addonTotal > 0 ? ' + Add-Ons' : '') + '</small></div>' +
           '<div class="price-row-amount big gold">' + firstVisitAmountHtml + '</div>' +
         '</div>' +
+        '<div class="price-row tax-row">' +
+          '<div class="price-row-label">First Visit With Tax<small>What they pay first time</small></div>' +
+          '<div class="price-row-amount tax-amount">' + fmtUSD(firstVisitWithTax) + '</div>' +
+        '</div>' +
         '<div class="price-row">' +
           '<div class="price-row-label">Then Ongoing<small>' + freqLabel + ' recurring rate' + (addonTotal > 0 ? ' + add-ons' : '') + '</small></div>' +
-          '<div class="price-row-amount big">' + fmtUSD(row[currentFreq] + addonTotal) + '</div>' +
+          '<div class="price-row-amount big">' + fmtUSD(ongoingTotal) + '</div>' +
+        '</div>' +
+        '<div class="price-row tax-row">' +
+          '<div class="price-row-label">Ongoing With Tax<small>What they pay every visit</small></div>' +
+          '<div class="price-row-amount tax-amount">' + fmtUSD(ongoingWithTax) + '</div>' +
         '</div>';
     } else {
       // Deep, One-Time, or Move-In-Out
@@ -2737,6 +2826,15 @@
             '<div class="price-row-amount big gold">' + totalHtml + '</div>' +
           '</div>';
       }
+
+      // Tax-included total for non-recurring quotes
+      const finalForTax = finalQuote;
+      const finalWithTax = finalForTax + Math.floor(finalForTax * TAX_RATE);
+      html +=
+        '<div class="price-row tax-row">' +
+          '<div class="price-row-label">With Tax<small>What they pay total</small></div>' +
+          '<div class="price-row-amount tax-amount">' + fmtUSD(finalWithTax) + '</div>' +
+        '</div>';
     }
 
     // Thumbtack discount banner
@@ -2764,23 +2862,26 @@
     // Thumbtack tip overrides everything
     if (currentPlatform === 'thumbtack') {
       if (tbDiscount > 0) {
-        tip = '<strong>Thumbtack Close</strong>Tell them the normal rate is ' + fmtUSD(quoteTotal) + ' but you can take ' + fmtUSD(tbDiscount) + ' off to bring it to ' + fmtUSD(finalQuote) + '. Frame it as a new-client welcome, not a general promo. Book it today or the hold releases.';
+        tip = '<strong>Thumbtack Close</strong>Tell them the normal rate is ' + fmtUSD(quoteTotal) + ' but you can take ' + fmtUSD(tbDiscount) + ' off to bring it to ' + fmtUSD(finalQuote) + '. Frame it as a new-client welcome discount, not a general offer. Book it today or the hold releases.';
       } else {
         tip = '<strong>Thumbtack Close</strong>No discount triggered for this quote yet. Add-ons or a higher service base unlock the discount tiers. Right now, sell on value. Insured, background-checked, 24-hour guarantee.';
       }
     } else if (currentFreq === 'moveinout') {
       tip = '<strong>Rep Tip</strong>Move In/Out is Deep Clean plus $100 because every add-on is included. Oven, fridge, windows, inside cabinets, baseboards. Sell the bundle. If you priced each add-on separately it would be $150 plus. Just add pets if they have any.';
     } else if (currentFreq === 'deep') {
-      const savings = row.deep - row.weekly;
-      tip = '<strong>Rep Tip</strong>Pitch this as the entry point, then lock them into weekly at ' + fmtUSD(row.weekly) + ' per visit. That\'s ' + fmtUSD(savings) + ' less per clean going forward.';
+      const visitSavings = row.deep - row.weekly;
+      const visitsToBreakEven = Math.ceil(row.deep / visitSavings);
+      tip = '<strong>Rep Tip</strong>Pitch this as the entry point, then lock them into weekly at ' + fmtUSD(row.weekly) + ' per visit. The cost per visit drops from ' + fmtUSD(row.deep) + ' to ' + fmtUSD(row.weekly) + ', saving ' + fmtUSD(visitSavings) + ' every clean. After about ' + visitsToBreakEven + ' visits they have already paid for the deep clean in savings. That is the math that closes recurring.';
     } else if (currentFreq === 'onetime') {
       tip = '<strong>Rep Tip</strong>Only quote Standard One-Time if they already had a deep clean recently. Otherwise, pitch First-Time Deep at ' + fmtUSD(row.deep) + ' plus recurring.';
     } else if (currentFreq === 'monthly') {
-      tip = '<strong>Rep Tip</strong>Locked in. Try to move them to bi-weekly at ' + fmtUSD(row.biweekly) + ' or weekly at ' + fmtUSD(row.weekly) + ' for max value.';
+      const monthlyToBiweekly = row.monthly - row.biweekly;
+      tip = '<strong>Rep Tip</strong>Locked in. Try to move them up. Bi-weekly is only ' + fmtUSD(monthlyToBiweekly) + ' less per visit but doubles the visits. Weekly drops the per-visit rate to ' + fmtUSD(row.weekly) + ', the deepest discount we offer. Frame it as. "For just a little more per month you double the upkeep."';
     } else if (currentFreq === 'biweekly') {
-      tip = '<strong>Rep Tip</strong>Solid middle ground. Offer weekly at ' + fmtUSD(row.weekly) + ' if they have kids, pets, or want max value.';
+      const biweeklyToWeekly = row.biweekly - row.weekly;
+      tip = '<strong>Rep Tip</strong>Solid middle ground. Push to weekly at ' + fmtUSD(row.weekly) + ' per visit, only ' + fmtUSD(biweeklyToWeekly) + ' less but they get twice the upkeep. Use this script. "Weekly clients almost never need a deep clean again. Bi-weekly clients sometimes do, depending on pets and kids. Which one fits your home better?"';
     } else if (currentFreq === 'weekly') {
-      tip = '<strong>Rep Tip</strong>Best recurring value. Remind them add-ons also get 40% off on their plan.';
+      tip = '<strong>Rep Tip</strong>Best recurring value at 40 percent off. Remind them add-ons also get 40 percent off on this plan, which means inside fridge drops from $30 to $18, interior windows from $45 to $27, and so on. Anchor on the savings, not the percentage.';
     }
 
     if (row.sqft === 4000) {
@@ -2802,7 +2903,7 @@
     const grandTotal = subtotal + tax;
     const totalHours = promo.hours + extraHours;
 
-    document.getElementById('resultService').textContent = 'Facebook Promo. ' + promo.name;
+    document.getElementById('resultService').textContent = 'Facebook Special. ' + promo.name;
     document.getElementById('resultDetails').textContent = 'Meta Ad Special. Flat rate plus optional extra hours.';
 
     const priceBlock = document.getElementById('priceBlock');
@@ -2820,23 +2921,27 @@
         promo.includes +
       '</div>';
 
-    // Hour counter
+    // Hour counter (capped at +5 - more than that is a full second visit)
+    const MAX_EXTRA_HOURS = 5;
     const minusDisabled = extraHours <= 0 ? ' disabled' : '';
+    const plusDisabled = extraHours >= MAX_EXTRA_HOURS ? ' disabled' : '';
+    const atMax = extraHours >= MAX_EXTRA_HOURS;
     html +=
       '<div class="hour-counter-card">' +
         '<span class="hour-counter-label">Extra Hours Upsell</span>' +
-        '<div class="hour-counter-hint">Use this counter when the client wants more time. Each extra hour is $40, billed before tax. Pitch in pairs (2 extra hours for $80) so it feels like a small jump for a fully covered home.</div>' +
+        '<div class="hour-counter-hint">Use this counter when the client wants more time. Each extra hour is $40, billed before tax. Pitch in pairs (2 extra hours for $80) so it feels like a small jump for a fully covered home. Max +5 extra hours. Beyond that, schedule a separate visit.</div>' +
         '<div class="hour-counter-row">' +
           '<div class="hour-counter-controls">' +
             '<button class="hour-counter-btn" id="hourMinus"' + minusDisabled + '>&minus;</button>' +
             '<div class="hour-counter-value" id="hourValue">' + extraHours + '</div>' +
-            '<button class="hour-counter-btn" id="hourPlus">&plus;</button>' +
+            '<button class="hour-counter-btn" id="hourPlus"' + plusDisabled + '>&plus;</button>' +
           '</div>' +
           '<div class="hour-counter-rate">' +
             '+$' + (extraHours * EXTRA_HOUR_RATE) + '.00' +
             '<small>' + extraHours + ' extra hr at $40 each</small>' +
           '</div>' +
         '</div>' +
+        (atMax ? '<div class="hour-counter-warn">Max reached. If they need more time, book a second visit. Long single days burn out the team and quality drops.</div>' : '') +
       '</div>';
 
     if (extraHours > 0) {
@@ -2853,11 +2958,11 @@
         '<div class="price-row-amount">$' + subtotal + '.00</div>' +
       '</div>' +
       '<div class="price-row">' +
-        '<div class="price-row-label">Sales Tax<small>8.25 percent, rounded down</small></div>' +
+        '<div class="price-row-label">Sales Tax<small>Rounded down to keep it clean</small></div>' +
         '<div class="price-row-amount">+$' + tax + '.00</div>' +
       '</div>' +
       '<div class="price-row grand-total">' +
-        '<div class="price-row-label">Grand Total<small>What the client pays</small></div>' +
+        '<div class="price-row-label">With Tax<small>What the client pays</small></div>' +
         '<div class="price-row-amount big gold">$' + grandTotal + '.00</div>' +
       '</div>';
 
@@ -2885,8 +2990,10 @@
     }
     if (plusBtn) {
       plusBtn.addEventListener('click', () => {
-        extraHours++;
-        updateCalc();
+        if (extraHours < MAX_EXTRA_HOURS) {
+          extraHours++;
+          updateCalc();
+        }
       });
     }
 
@@ -2894,12 +3001,12 @@
     const upsellEl = document.getElementById('resultUpsell');
     let tip = '';
     if (currentPromo === '4hr') {
-      tip = '<strong>Facebook Promo Close</strong>This is your strongest hook from Meta ads. Lock the $199 rate, then ask what they want covered. If they list more than kitchen, living, and one bath, count out loud what fits in 4 hours and offer the extra hour upsell at $40. Two extra hours for $80 is the easiest yes. Always tee up recurring after the first visit.';
+      tip = '<strong>Facebook Special Close</strong>This is your strongest hook from Meta ads. Lock the $199 rate, then ask what they want covered. If they list more than kitchen, living, and one bath, count out loud what fits in 4 hours and offer the extra hour upsell at $40. Two extra hours for $80 is the easiest yes. Always tee up recurring after the first visit.<br><br><span style="color: var(--gold); font-weight: 700; font-size: 10.5px; letter-spacing: 0.2em; text-transform: uppercase;">If They Push For More Time On The Day Of</span><br>"Our team is scheduled to wrap at 4 hours, that is what the special covers. We can stay an extra hour right now at $40, or we can schedule a follow-up visit for the rest. We do not extend the special on the day of, that keeps it fair for everyone." Set this expectation on the booking call so it is never a surprise.';
     } else {
-      tip = '<strong>Facebook Promo Close</strong>The 3 hour at $159 is for the budget-first client. Get them to commit, then ask which 3 areas matter most. Offer one extra hour at $40 to round it out. After the clean, pitch recurring at the discounted rate. Most 3-hour clients become weekly or bi-weekly.';
+      tip = '<strong>Facebook Special Close</strong>The 3 hour at $159 is for the budget-first client. Get them to commit, then ask which 3 areas matter most. Offer one extra hour at $40 to round it out. After the clean, pitch recurring at the discounted rate. Most 3-hour clients become weekly or bi-weekly.<br><br><span style="color: var(--gold); font-weight: 700; font-size: 10.5px; letter-spacing: 0.2em; text-transform: uppercase;">If They Push For More Time On The Day Of</span><br>"The 3 hour special wraps at 3 hours, same as a hotel checkout time. We can add an hour right now for $40, or book a follow-up. We do not extend on the day of." Lock this in on the booking call.';
     }
     if (extraHours >= 2) {
-      tip += '<br><br><span style="color: var(--green); font-weight: 700; font-size: 10.5px; letter-spacing: 0.2em; text-transform: uppercase;">Nice Upsell</span><br>You added ' + extraHours + ' extra hours at $40. That is ' + fmtUSD(extraHours * EXTRA_HOUR_RATE) + ' more on top of the promo. Rep wins.';
+      tip += '<br><br><span style="color: var(--green); font-weight: 700; font-size: 10.5px; letter-spacing: 0.2em; text-transform: uppercase;">Nice Upsell</span><br>You added ' + extraHours + ' extra hours at $40. That is ' + fmtUSD(extraHours * EXTRA_HOUR_RATE) + ' more on top of the special. Rep wins.';
     }
     upsellEl.innerHTML = tip;
   }
@@ -2962,7 +3069,7 @@
       banner.style.boxShadow = '0 8px 28px rgba(12, 133, 194, 0.25)';
       numEl.style.background = 'var(--white)';
       numEl.style.color = '#0C85C2';
-      textEl.innerHTML = '<span style="color: rgba(255,255,255,0.85);">Thumbtack Play</span>Thumbtack leads cost us real money and the homeowner also messaged competitors. Win this lead. Discount to close, not to rescue. Cap is 10 percent total or $50 max, whichever is lower. Never stack promos or hand out free add-ons.';
+      textEl.innerHTML = '<span style="color: rgba(255,255,255,0.85);">Thumbtack Play</span>Thumbtack leads cost us real money and the homeowner also messaged competitors. Win this lead. Discount to close, not to rescue. Cap is 10 percent total or $50 max, whichever is lower. Never stack discounts or hand out free add-ons.<br><br><span style="color: var(--gold); font-weight: 700; font-size: 10.5px; letter-spacing: 0.2em; text-transform: uppercase;">Auto Discount Rules</span><br>The discount on this quote calculates automatically based on add-on count and quote size. 1 add-on = up to 5 percent off. 2 add-ons = up to 8 percent. 3+ add-ons or quotes over $400 = up to 10 percent or $50, whichever is lower. The system handles the math, you frame the close.';
     } else if (currentFreq === 'moveinout') {
       banner.style.background = 'var(--navy)';
       banner.style.color = 'var(--white)';
@@ -2976,7 +3083,7 @@
       banner.style.boxShadow = '0 8px 28px rgba(255, 182, 0, 0.18)';
       numEl.style.background = 'var(--navy)';
       numEl.style.color = 'var(--gold)';
-      textEl.innerHTML = '<span>Golden Rule</span>Always pitch Deep Clean plus Recurring. Standard one-time pricing is only for clients who already had a recent deep clean.';
+      textEl.innerHTML = '<span>Golden Rule</span>Always pitch Deep Clean plus Recurring. Standard one-time pricing is only for clients who already had a recent deep clean. Try this script. "I would start you off with our first-time deep clean to get the home back to baseline, then lock you into a weekly or bi-weekly plan at 30 to 40 percent off so it stays that way. Most of our clients do it that way."';
     }
   }
 
