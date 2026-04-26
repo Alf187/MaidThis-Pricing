@@ -69,14 +69,18 @@
 
   /* KICKERS AND HEADS */
   .kicker {
+    display: inline-block;
     font-size: 11px; font-weight: 700;
     letter-spacing: 0.22em; text-transform: uppercase;
     color: var(--teal); margin-bottom: 14px;
+    background: var(--teal-bg);
+    padding: 7px 14px;
+    border-radius: 100px;
   }
-  .kicker.gold { color: var(--gold); }
-  .kicker.green { color: var(--green); }
-  .kicker.blue { color: var(--blue); }
-  .kicker.navy { color: var(--navy); }
+  .kicker.gold { color: var(--gold); background: rgba(255, 182, 0, 0.14); }
+  .kicker.green { color: var(--green); background: rgba(124, 202, 91, 0.14); }
+  .kicker.blue { color: var(--blue); background: rgba(46, 110, 165, 0.12); }
+  .kicker.navy { color: var(--navy); background: rgba(44, 62, 80, 0.08); }
 
   h2.section-h {
     font-size: clamp(32px, 4.5vw, 48px);
@@ -446,82 +450,106 @@
 
   /* CAUTION SIGN STYLE GOLDEN RULE (for Facebook) */
   .rule-banner.caution {
-    background: repeating-linear-gradient(
-      45deg,
-      #FFB600,
-      #FFB600 22px,
-      #1a1a1a 22px,
-      #1a1a1a 30px
-    );
-    padding: 6px;
-    border-radius: 24px;
-    box-shadow: 0 12px 32px rgba(255, 182, 0, 0.32);
+    background: #FFFBEB;
+    border: 1px solid rgba(255, 182, 0, 0.35);
+    border-left: 4px solid var(--gold);
+    border-radius: 18px;
+    box-shadow: 0 6px 20px rgba(44, 62, 80, 0.06);
+    padding: 0;
     overflow: hidden;
   }
   .rule-banner.caution .caution-inner {
-    background: #FFB600;
-    border-radius: 18px;
-    padding: 22px 26px;
-    display: flex; align-items: flex-start; gap: 18px;
-    color: #1a1a1a;
+    background: transparent;
+    border-radius: 0;
+    padding: 22px 24px;
+    display: flex; align-items: flex-start; gap: 16px;
+    color: var(--navy);
   }
   .rule-banner.caution .caution-icon {
     flex-shrink: 0;
-    width: 60px; height: 60px;
+    width: 56px; height: 56px;
     display: flex; align-items: center; justify-content: center;
     position: relative;
+    background: var(--gold);
+    border-radius: 14px;
+    box-shadow: 0 4px 14px rgba(255, 182, 0, 0.4);
+    animation: cautionPulse 2.4s ease-in-out infinite;
+  }
+  .rule-banner.caution .caution-icon::before {
+    content: '';
+    position: absolute;
+    inset: -5px;
+    border-radius: 17px;
+    border: 2px solid var(--gold);
+    opacity: 0;
+    animation: cautionRipple 2.4s ease-out infinite;
+    pointer-events: none;
   }
   .rule-banner.caution .caution-icon svg {
-    width: 100%; height: 100%;
+    width: 32px; height: 32px;
+    position: relative; z-index: 1;
+  }
+  @keyframes cautionPulse {
+    0%, 100% { box-shadow: 0 4px 14px rgba(255, 182, 0, 0.4); }
+    50%      { box-shadow: 0 4px 22px rgba(255, 182, 0, 0.75); }
+  }
+  @keyframes cautionRipple {
+    0%   { opacity: 0.7; transform: scale(1); }
+    100% { opacity: 0; transform: scale(1.45); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .rule-banner.caution .caution-icon { animation: none; }
+    .rule-banner.caution .caution-icon::before { animation: none; }
   }
   .rule-banner.caution .caution-text {
-    flex: 1; font-size: 14px; font-weight: 600;
-    line-height: 1.5; color: #1a1a1a;
+    flex: 1; font-size: 14px; font-weight: 500;
+    line-height: 1.55; color: var(--navy-soft);
   }
   .rule-banner.caution .caution-text .caution-title {
-    display: block; font-size: 13px; font-weight: 800;
+    display: block; font-size: 11px; font-weight: 700;
     letter-spacing: 0.18em; text-transform: uppercase;
-    margin-bottom: 6px; color: #1a1a1a;
+    margin-bottom: 8px; color: var(--gold-dark, #B07F00);
   }
   .rule-banner.caution .caution-text strong {
-    font-weight: 800; color: #0a0a0a;
+    font-weight: 700; color: var(--navy);
   }
   .rule-banner.caution .caution-script {
-    background: rgba(26, 26, 26, 0.08);
-    border-left: 3px solid #1a1a1a;
-    border-radius: 0 14px 14px 0;
-    padding: 12px 16px; margin-top: 12px;
-    font-style: italic; font-size: 13.5px;
-    color: #1a1a1a; font-weight: 500;
+    background: rgba(255, 255, 255, 0.7);
+    border: 1px solid rgba(255, 182, 0, 0.25);
+    border-left: 3px solid var(--gold);
+    border-radius: 0 12px 12px 0;
+    padding: 12px 16px; margin-top: 14px;
+    font-style: italic; font-size: 13px;
+    color: var(--navy-soft); font-weight: 500;
+    line-height: 1.55;
   }
   .rule-banner.caution .caution-link {
-    display: inline-flex; align-items: center; gap: 8px;
-    background: #1a1a1a; color: var(--gold);
-    padding: 9px 16px; border-radius: 100px;
-    font-size: 12px; font-weight: 700;
-    letter-spacing: 0.08em; text-decoration: none;
-    margin-top: 12px; transition: all 0.2s;
-    border: 2px solid #1a1a1a;
+    display: inline-flex; align-items: center; gap: 6px;
+    background: var(--white); color: var(--navy);
+    padding: 8px 14px; border-radius: 100px;
+    font-size: 11.5px; font-weight: 700;
+    letter-spacing: 0.06em; text-decoration: none;
+    margin-top: 14px; transition: all 0.2s;
+    border: 1.5px solid rgba(44, 62, 80, 0.15);
   }
   .rule-banner.caution .caution-link:hover {
-    background: var(--gold); color: #1a1a1a;
+    background: var(--gold); border-color: var(--gold); color: var(--navy);
   }
   .rule-banner.caution .caution-trust-row {
     display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px;
   }
   .rule-banner.caution .caution-trust-pill {
-    background: rgba(26, 26, 26, 0.1);
-    border: 1.5px solid rgba(26, 26, 26, 0.2);
+    background: var(--white);
+    border: 1px solid rgba(44, 62, 80, 0.12);
     padding: 6px 12px; border-radius: 100px;
-    font-size: 11px; font-weight: 700;
-    color: #1a1a1a;
+    font-size: 11px; font-weight: 600;
+    color: var(--navy-soft);
     display: inline-flex; align-items: center; gap: 6px;
   }
   @media (max-width: 640px) {
     .rule-banner.caution .caution-inner {
       flex-direction: column; text-align: left; gap: 12px;
     }
-    .rule-banner.caution .caution-icon { width: 56px; height: 56px; }
   }
 
   /* STRIKETHROUGH PRICING */
@@ -622,6 +650,39 @@
     font-size: 13px; line-height: 1.55; margin-top: 18px;
     position: relative; z-index: 2;
   }
+
+  /* ADDON REP TIPS (in dark quote panel) */
+  .addon-tips-block {
+    margin-top: 16px; position: relative; z-index: 2;
+  }
+  .addon-tips-header {
+    font-size: 10.5px; font-weight: 700;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 8px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .addon-tips-header::before {
+    content: '!'; flex-shrink: 0;
+    width: 18px; height: 18px; border-radius: 50%;
+    background: var(--gold); color: var(--navy);
+    font-size: 11px; font-weight: 800;
+    display: flex; align-items: center; justify-content: center;
+    letter-spacing: 0;
+  }
+  .addon-tip-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-left: 3px solid var(--gold);
+    border-radius: 0 14px 14px 0;
+    padding: 11px 14px; margin-bottom: 8px;
+    font-size: 12.5px; line-height: 1.5;
+    color: rgba(255, 255, 255, 0.88);
+  }
+  .addon-tip-card:last-child { margin-bottom: 0; }
+  .addon-tip-card strong {
+    display: block; color: var(--white);
+    font-size: 11.5px; font-weight: 700;
+    letter-spacing: 0.06em; margin-bottom: 3px;
+  }
   .result-upsell strong {
     color: var(--gold); font-weight: 700;
     display: block; font-size: 10.5px;
@@ -681,7 +742,7 @@
     font-weight: 700;
   }
   table.pricing tbody td {
-    padding: 20px 18px; font-size: 14px;
+    padding: 16px 18px; font-size: 14px;
     border: none; color: var(--navy);
     transition: background 0.15s;
   }
@@ -710,6 +771,17 @@
     font-size: 17px; font-weight: 800; color: var(--blue);
     text-align: right; white-space: nowrap;
   }
+  table.pricing td.price .price-main,
+  table.pricing td.price-best .price-main {
+    display: block; line-height: 1.15;
+  }
+  table.pricing td.price .price-tax,
+  table.pricing td.price-best .price-tax {
+    display: block; font-size: 10.5px; font-weight: 600;
+    color: var(--navy-muted); margin-top: 2px;
+    letter-spacing: 0.02em;
+  }
+  table.pricing td.price-best .price-tax { color: var(--blue); opacity: 0.75; }
   table.pricing td.hours {
     text-align: center; color: var(--navy-muted); font-size: 13px;
     font-weight: 600;
@@ -1351,8 +1423,8 @@
             <label class="field-label">Service Type</label>
             <div class="freq-pills" id="freqPills">
               <button class="freq-pill active" data-freq="deep">
-                <span class="freq-pill-name">Deep</span>
-                <span class="freq-pill-disc">First Time</span>
+                <span class="freq-pill-name">Deep Clean</span>
+                <span class="freq-pill-disc">One-Time</span>
               </button>
               <button class="freq-pill" data-freq="weekly">
                 <span class="freq-pill-name">Weekly</span>
@@ -1390,6 +1462,7 @@
           <div class="result-details" id="resultDetails">1500 sq ft. 3BR / 2BA small single-family</div>
           <div class="price-block" id="priceBlock"></div>
           <div class="result-hours" id="resultHours">Estimated 3.5 hours on site</div>
+          <div class="addon-tips-block" id="addonTipsBlock" style="display:none;"></div>
           <div class="result-upsell" id="resultUpsell"></div>
         </div>
       </div>
@@ -2159,6 +2232,9 @@
 </footer>
 
 <script>
+  const TAX_RATE = 0.0825;
+  const EXTRA_HOUR_RATE = 40;
+
   const pricing = [
     { sqft: 800, bedbath: 'Studio or compact 1BR/1BA (condo/apt)', hours: 2.0, deep: 180, monthly: 144, biweekly: 126, weekly: 97, onetime: 160 },
     { sqft: 1000, bedbath: '1BR to small 2BR / 1 to 1.5BA (starter)', hours: 2.5, deep: 207, monthly: 166, biweekly: 145, weekly: 124, onetime: 180 },
@@ -2179,12 +2255,12 @@
   const addons = [
     { name: 'Deep Cleaning Extra', price: 100, hours: 2.0, recurringDiscount: true, note: 'Periodic refresh deep work added onto a recurring plan.', flag: 'TOP UPSELL' },
     { name: 'Move In / Move Out', price: 100, hours: 3.0, recurringDiscount: false, note: 'Includes everything in a deep clean plus windows, oven, fridge, and inside cabinets.', flag: 'BUNDLE' },
-    { name: 'Inside Fridge', price: 30, hours: 0.5, recurringDiscount: true, note: 'Remove items, wipe shelves and doors, replace items.' },
+    { name: 'Inside Fridge', price: 30, hours: 0.5, recurringDiscount: true, note: 'Client must empty out the fridge AND freezer before we arrive. We clean shelves, drawers, and walls.' },
     { name: 'Inside Oven', price: 35, hours: 0.5, recurringDiscount: true, note: 'Standard baked-on grime. Self-clean cycle excluded.' },
-    { name: 'Clean Interior Windows', price: 45, hours: 1.0, recurringDiscount: true, note: 'Reachable interiors only. Screens and tracks on request.' },
-    { name: 'Dish Washing', price: 25, hours: 0.5, recurringDiscount: true, note: 'Hand wash, load, unload as needed. Up to 30 minutes, light loads.' },
+    { name: 'Clean Interior Windows', price: 45, hours: 1.0, recurringDiscount: true, note: 'Inside windows ONLY. Only what we can reach with a step stool. No ladders, no exterior, no second-story.' },
+    { name: 'Dish Washing', price: 25, hours: 0.5, recurringDiscount: true, note: 'Per load. We rinse, load, and run the dishwasher. We do NOT unload it.' },
     { name: 'Baseboards (Standard Cleans)', price: 55, hours: 0.5, recurringDiscount: true, note: 'All baseboards. Already included in deep cleans and move-outs.' },
-    { name: 'Inside Cabinet Cleaning', price: 30, hours: 0.5, recurringDiscount: true, note: 'Cleaners wipe inside. Cabinets should be empty. Cleaners will not move items out.' },
+    { name: 'Inside Cabinet Cleaning', price: 30, hours: 0.5, recurringDiscount: true, note: 'Client must empty cabinets before we arrive for best results. We clean around items left inside.' },
     { name: 'Less Than 2 Pets', price: 15, hours: 0.5, recurringDiscount: false, note: '1 to 2 pets max in the home.' },
     { name: 'More Than 2 Pets', price: 25, hours: 1.0, recurringDiscount: false, note: '3 or more pets in the home.' },
     { name: 'One Load of Laundry', price: null, hours: null, recurringDiscount: false, note: 'Residential laundry is not offered. Airbnb clients only, routed to dedicated Airbnb cleaners.', flag: 'NOT OFFERED' }
@@ -2217,6 +2293,14 @@
   ];
 
   // Build pricing table
+  // Price cell shows the base price prominently with the tax-included total in small text below
+  function priceCell(amount, cls) {
+    const withTax = amount + Math.floor(amount * TAX_RATE);
+    return '<td class="' + cls + '">' +
+             '<span class="price-main">$' + amount + '</span>' +
+             '<span class="price-tax">$' + withTax + '.00 with tax</span>' +
+           '</td>';
+  }
   const tbody = document.getElementById('pricingTbody');
   pricing.forEach((row) => {
     const tr = document.createElement('tr');
@@ -2226,11 +2310,11 @@
       '<td class="sqft">' + row.sqft.toLocaleString() + ' sq ft</td>' +
       '<td class="bedbath">' + row.bedbath + '</td>' +
       '<td class="hours">' + row.hours + '</td>' +
-      '<td class="price">$' + row.deep + '</td>' +
-      '<td class="price">$' + row.monthly + '</td>' +
-      '<td class="price">$' + row.biweekly + '</td>' +
-      '<td class="price-best highlight">$' + row.weekly + '</td>' +
-      '<td class="price">$' + row.onetime + '</td>';
+      priceCell(row.deep, 'price') +
+      priceCell(row.monthly, 'price') +
+      priceCell(row.biweekly, 'price') +
+      priceCell(row.weekly, 'price-best highlight') +
+      priceCell(row.onetime, 'price');
     tbody.appendChild(tr);
   });
 
@@ -2292,11 +2376,11 @@
 
   // Calculator addons - curated for live quoting
   const calcAddons = [
-    { id: 'fridge', name: 'Inside Fridge', price: 30, discount: true },
+    { id: 'fridge', name: 'Inside Fridge', price: 30, discount: true, repTip: 'Tell the client they must empty out the fridge AND freezer before we arrive. We clean shelves, drawers, and walls. We do not bag up or move their food.' },
     { id: 'oven', name: 'Inside Oven', price: 35, discount: true },
-    { id: 'windows', name: 'Interior Windows', price: 45, discount: true },
-    { id: 'dishes', name: 'Dish Washing', price: 25, discount: true },
-    { id: 'cabinets', name: 'Inside Cabinets', price: 30, discount: true },
+    { id: 'windows', name: 'Interior Windows', price: 45, discount: true, repTip: 'Inside windows ONLY. We only clean what we can reach with a step stool. No ladders, no exterior, no second-story windows from the outside.' },
+    { id: 'dishes', name: 'Dish Washing', price: 25, discount: true, repTip: 'Price is per load. We rinse, load, and run the dishwasher. We do NOT unload it. That eats too much time and is not part of this add-on.' },
+    { id: 'cabinets', name: 'Inside Cabinets', price: 30, discount: true, repTip: 'Client must empty cabinets before we arrive for best results. We do NOT empty cabinets ourselves. If items are left inside we just clean around them.' },
     { id: 'baseboards', name: 'Baseboards', price: 55, discount: true, hideOnDeep: true },
     { id: 'deepextra', name: 'Deep Clean Refresh', price: 100, discount: true, recurringOnly: true },
     { id: 'pets1', name: 'Under 2 Pets', price: 15, discount: false },
@@ -2325,8 +2409,17 @@
     }
   };
 
-  const TAX_RATE = 0.0825;
-  const EXTRA_HOUR_RATE = 40;
+  // Format a whole-dollar amount as $XXX.00 for clean display
+  // We always round DOWN so we never overcharge (we accept losing a few cents in tax)
+  function fmtUSD(n) {
+    return '$' + Math.floor(n) + '.00';
+  }
+  function fmtUSDPlus(n) {
+    return '+$' + Math.floor(n) + '.00';
+  }
+  function fmtUSDMinus(n) {
+    return '-$' + Math.floor(n) + '.00';
+  }
 
   // Toggle visibility of input sections based on platform and FB mode
   function applyInputVisibility() {
@@ -2512,6 +2605,33 @@
     return row[freq];
   }
 
+  // Render addon rep tips (must-say client expectations) inside the quote panel
+  function renderAddonTips() {
+    const block = document.getElementById('addonTipsBlock');
+    if (!block) return;
+
+    const tips = [];
+    selectedAddons.forEach(id => {
+      const a = calcAddons.find(x => x.id === id);
+      if (a && a.repTip && isAddonAllowed(a, currentFreq)) {
+        tips.push({ name: a.name, tip: a.repTip });
+      }
+    });
+
+    if (tips.length === 0) {
+      block.style.display = 'none';
+      block.innerHTML = '';
+      return;
+    }
+
+    let html = '<div class="addon-tips-header">Must Tell the Client</div>';
+    tips.forEach(t => {
+      html += '<div class="addon-tip-card"><strong>' + t.name + '</strong>' + t.tip + '</div>';
+    });
+    block.innerHTML = html;
+    block.style.display = 'block';
+  }
+
   function updateCalc() {
     // Facebook Meta Ad Promo mode has its own render path
     if (currentPlatform === 'facebook' && currentFbMode === 'promo') {
@@ -2570,8 +2690,8 @@
       const firstVisitOriginal = row.deep + addonTotal;
       const firstVisitFinal = firstVisitOriginal - tbDiscount;
       const firstVisitAmountHtml = tbDiscount > 0
-        ? '<span class="strike">$' + firstVisitOriginal + '</span>$' + firstVisitFinal
-        : '$' + firstVisitOriginal;
+        ? '<span class="strike">' + fmtUSD(firstVisitOriginal) + '</span>' + fmtUSD(firstVisitFinal)
+        : fmtUSD(firstVisitOriginal);
 
       html +=
         '<div class="price-row">' +
@@ -2580,7 +2700,7 @@
         '</div>' +
         '<div class="price-row">' +
           '<div class="price-row-label">Then Ongoing<small>' + freqLabel + ' recurring rate' + (addonTotal > 0 ? ' + add-ons' : '') + '</small></div>' +
-          '<div class="price-row-amount big">$' + (row[currentFreq] + addonTotal) + '</div>' +
+          '<div class="price-row-amount big">' + fmtUSD(row[currentFreq] + addonTotal) + '</div>' +
         '</div>';
     } else {
       // Deep, One-Time, or Move-In-Out
@@ -2591,8 +2711,8 @@
 
       const showBaseStrike = tbDiscount > 0 && addonTotal === 0;
       const baseAmountHtml = showBaseStrike
-        ? '<span class="strike">$' + serviceBase + '</span>$' + (serviceBase - tbDiscount)
-        : '$' + serviceBase;
+        ? '<span class="strike">' + fmtUSD(serviceBase) + '</span>' + fmtUSD(serviceBase - tbDiscount)
+        : fmtUSD(serviceBase);
 
       html +=
         '<div class="price-row">' +
@@ -2604,13 +2724,13 @@
         html +=
           '<div class="price-row addon-row">' +
             '<div class="price-row-label">Add-Ons<small>' + addonNames.join(', ') + '</small></div>' +
-            '<div class="price-row-amount">+$' + addonTotal + '</div>' +
+            '<div class="price-row-amount">' + fmtUSDPlus(addonTotal) + '</div>' +
           '</div>';
         const totalLabel = 'Grand Total';
         const totalSub = 'Everything in';
         const totalHtml = tbDiscount > 0
-          ? '<span class="strike">$' + quoteTotal + '</span>$' + finalQuote
-          : '$' + quoteTotal;
+          ? '<span class="strike">' + fmtUSD(quoteTotal) + '</span>' + fmtUSD(finalQuote)
+          : fmtUSD(quoteTotal);
         html +=
           '<div class="price-row grand-total">' +
             '<div class="price-row-label">' + totalLabel + '<small>' + totalSub + '</small></div>' +
@@ -2625,9 +2745,9 @@
         '<div class="discount-banner">' +
           '<div>' +
             '<span class="discount-banner-label">Thumbtack Win Discount</span>' +
-            'You saved them $' + tbDiscount +
+            'You saved them ' + fmtUSD(tbDiscount) +
           '</div>' +
-          '<div class="discount-banner-amount">-$' + tbDiscount + '</div>' +
+          '<div class="discount-banner-amount">' + fmtUSDMinus(tbDiscount) + '</div>' +
         '</div>';
     }
 
@@ -2635,13 +2755,16 @@
 
     document.getElementById('resultHours').textContent = 'Estimated ' + row.hours + ' hours on site';
 
+    // Render addon rep tips (must-say client expectations)
+    renderAddonTips();
+
     const upsellEl = document.getElementById('resultUpsell');
     let tip = '';
 
     // Thumbtack tip overrides everything
     if (currentPlatform === 'thumbtack') {
       if (tbDiscount > 0) {
-        tip = '<strong>Thumbtack Close</strong>Tell them the normal rate is $' + quoteTotal + ' but you can take $' + tbDiscount + ' off to bring it to $' + finalQuote + '. Frame it as a new-client welcome, not a general promo. Book it today or the hold releases.';
+        tip = '<strong>Thumbtack Close</strong>Tell them the normal rate is ' + fmtUSD(quoteTotal) + ' but you can take ' + fmtUSD(tbDiscount) + ' off to bring it to ' + fmtUSD(finalQuote) + '. Frame it as a new-client welcome, not a general promo. Book it today or the hold releases.';
       } else {
         tip = '<strong>Thumbtack Close</strong>No discount triggered for this quote yet. Add-ons or a higher service base unlock the discount tiers. Right now, sell on value. Insured, background-checked, 24-hour guarantee.';
       }
@@ -2649,13 +2772,13 @@
       tip = '<strong>Rep Tip</strong>Move In/Out is Deep Clean plus $100 because every add-on is included. Oven, fridge, windows, inside cabinets, baseboards. Sell the bundle. If you priced each add-on separately it would be $150 plus. Just add pets if they have any.';
     } else if (currentFreq === 'deep') {
       const savings = row.deep - row.weekly;
-      tip = '<strong>Rep Tip</strong>Pitch this as the entry point, then lock them into weekly at $' + row.weekly + ' per visit. That\'s $' + savings + ' less per clean going forward.';
+      tip = '<strong>Rep Tip</strong>Pitch this as the entry point, then lock them into weekly at ' + fmtUSD(row.weekly) + ' per visit. That\'s ' + fmtUSD(savings) + ' less per clean going forward.';
     } else if (currentFreq === 'onetime') {
-      tip = '<strong>Rep Tip</strong>Only quote Standard One-Time if they already had a deep clean recently. Otherwise, pitch First-Time Deep at $' + row.deep + ' plus recurring.';
+      tip = '<strong>Rep Tip</strong>Only quote Standard One-Time if they already had a deep clean recently. Otherwise, pitch First-Time Deep at ' + fmtUSD(row.deep) + ' plus recurring.';
     } else if (currentFreq === 'monthly') {
-      tip = '<strong>Rep Tip</strong>Locked in. Try to move them to bi-weekly at $' + row.biweekly + ' or weekly at $' + row.weekly + ' for max value.';
+      tip = '<strong>Rep Tip</strong>Locked in. Try to move them to bi-weekly at ' + fmtUSD(row.biweekly) + ' or weekly at ' + fmtUSD(row.weekly) + ' for max value.';
     } else if (currentFreq === 'biweekly') {
-      tip = '<strong>Rep Tip</strong>Solid middle ground. Offer weekly at $' + row.weekly + ' if they have kids, pets, or want max value.';
+      tip = '<strong>Rep Tip</strong>Solid middle ground. Offer weekly at ' + fmtUSD(row.weekly) + ' if they have kids, pets, or want max value.';
     } else if (currentFreq === 'weekly') {
       tip = '<strong>Rep Tip</strong>Best recurring value. Remind them add-ons also get 40% off on their plan.';
     }
@@ -2673,7 +2796,9 @@
   function renderFbPromoQuote() {
     const promo = fbPromos[currentPromo];
     const subtotal = promo.basePrice + (extraHours * EXTRA_HOUR_RATE);
-    const tax = Math.round(subtotal * TAX_RATE * 100) / 100;
+    // Round DOWN tax to whole dollar so totals display as .00
+    // We willingly lose a few cents to keep the math clean for reps and clients
+    const tax = Math.floor(subtotal * TAX_RATE);
     const grandTotal = subtotal + tax;
     const totalHours = promo.hours + extraHours;
 
@@ -2685,8 +2810,8 @@
     let html = '';
     html +=
       '<div class="price-row">' +
-        '<div class="price-row-label">Promo Base<small>' + promo.hours + ' hours flat at $' + promo.basePrice + '</small></div>' +
-        '<div class="price-row-amount big gold">$' + promo.basePrice + '</div>' +
+        '<div class="price-row-label">Promo Base<small>' + promo.hours + ' hours flat at $' + promo.basePrice + '.00</small></div>' +
+        '<div class="price-row-amount big gold">$' + promo.basePrice + '.00</div>' +
       '</div>';
 
     html +=
@@ -2708,7 +2833,7 @@
             '<button class="hour-counter-btn" id="hourPlus">&plus;</button>' +
           '</div>' +
           '<div class="hour-counter-rate">' +
-            '+$' + (extraHours * EXTRA_HOUR_RATE) +
+            '+$' + (extraHours * EXTRA_HOUR_RATE) + '.00' +
             '<small>' + extraHours + ' extra hr at $40 each</small>' +
           '</div>' +
         '</div>' +
@@ -2717,28 +2842,35 @@
     if (extraHours > 0) {
       html +=
         '<div class="price-row addon-row">' +
-          '<div class="price-row-label">Extra Hours<small>' + extraHours + ' hr at $' + EXTRA_HOUR_RATE + ' per hour</small></div>' +
-          '<div class="price-row-amount">+$' + (extraHours * EXTRA_HOUR_RATE) + '</div>' +
+          '<div class="price-row-label">Extra Hours<small>' + extraHours + ' hr at $' + EXTRA_HOUR_RATE + '.00 per hour</small></div>' +
+          '<div class="price-row-amount">+$' + (extraHours * EXTRA_HOUR_RATE) + '.00</div>' +
         '</div>';
     }
 
     html +=
       '<div class="price-row">' +
         '<div class="price-row-label">Subtotal<small>Before tax</small></div>' +
-        '<div class="price-row-amount">$' + subtotal.toFixed(2) + '</div>' +
+        '<div class="price-row-amount">$' + subtotal + '.00</div>' +
       '</div>' +
       '<div class="price-row">' +
-        '<div class="price-row-label">Sales Tax<small>8.25 percent</small></div>' +
-        '<div class="price-row-amount">+$' + tax.toFixed(2) + '</div>' +
+        '<div class="price-row-label">Sales Tax<small>8.25 percent, rounded down</small></div>' +
+        '<div class="price-row-amount">+$' + tax + '.00</div>' +
       '</div>' +
       '<div class="price-row grand-total">' +
         '<div class="price-row-label">Grand Total<small>What the client pays</small></div>' +
-        '<div class="price-row-amount big gold">$' + grandTotal.toFixed(2) + '</div>' +
+        '<div class="price-row-amount big gold">$' + grandTotal + '.00</div>' +
       '</div>';
 
     priceBlock.innerHTML = html;
 
     document.getElementById('resultHours').textContent = 'Estimated ' + totalHours + ' hours on site';
+
+    // Hide addon tips block in promo mode (no addons here)
+    const tipsBlock = document.getElementById('addonTipsBlock');
+    if (tipsBlock) {
+      tipsBlock.style.display = 'none';
+      tipsBlock.innerHTML = '';
+    }
 
     // Wire up hour counter buttons after they exist in the DOM
     const minusBtn = document.getElementById('hourMinus');
@@ -2767,7 +2899,7 @@
       tip = '<strong>Facebook Promo Close</strong>The 3 hour at $159 is for the budget-first client. Get them to commit, then ask which 3 areas matter most. Offer one extra hour at $40 to round it out. After the clean, pitch recurring at the discounted rate. Most 3-hour clients become weekly or bi-weekly.';
     }
     if (extraHours >= 2) {
-      tip += '<br><br><span style="color: var(--green); font-weight: 700; font-size: 10.5px; letter-spacing: 0.2em; text-transform: uppercase;">Nice Upsell</span><br>You added ' + extraHours + ' extra hours at $40. That is $' + (extraHours * EXTRA_HOUR_RATE) + ' more on top of the promo. Rep wins.';
+      tip += '<br><br><span style="color: var(--green); font-weight: 700; font-size: 10.5px; letter-spacing: 0.2em; text-transform: uppercase;">Nice Upsell</span><br>You added ' + extraHours + ' extra hours at $40. That is ' + fmtUSD(extraHours * EXTRA_HOUR_RATE) + ' more on top of the promo. Rep wins.';
     }
     upsellEl.innerHTML = tip;
   }
@@ -2787,15 +2919,15 @@
       banner.innerHTML =
         '<div class="caution-inner">' +
           '<div class="caution-icon">' +
-            '<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">' +
-              '<path d="M32 4 L60 56 L4 56 Z" fill="#1a1a1a" stroke="#1a1a1a" stroke-width="2" stroke-linejoin="round"/>' +
-              '<rect x="29" y="22" width="6" height="20" fill="#FFB600" rx="2"/>' +
-              '<circle cx="32" cy="49" r="3.2" fill="#FFB600"/>' +
+            '<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">' +
+              '<path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" fill="#1a1a1a"/>' +
+              '<rect x="10.6" y="9" width="2.8" height="6" rx="1.4" fill="#FFB600"/>' +
+              '<circle cx="12" cy="17.5" r="1.5" fill="#FFB600"/>' +
             '</svg>' +
           '</div>' +
           '<div class="caution-text">' +
-            '<span class="caution-title">Facebook Lead Caution. Lock the Card</span>' +
-            'Facebook leads convert at a lower rate and clients are more guarded with payment info. <strong>Always secure a credit or debit card on file before you end the call.</strong> No card means no booking, full stop. Reassure them up front. We do not charge a single cent until the clean is complete and they are 100 percent happy.' +
+            '<span class="caution-title">Facebook Lead. Lock the Card</span>' +
+            'Facebook leads convert at a lower rate and clients are more guarded with payment info. <strong>Always secure a credit or debit card on file before you end the call.</strong> No card means no booking. Reassure them up front. We do not charge a single cent until the clean is complete and they are 100 percent happy.' +
             '<div class="caution-script">' +
               '"I just need a card on file to lock in your spot, same way a hotel holds a reservation. We do not charge anything until after your clean is finished and you are happy with the work. We are fully insured, background-checked, and we are right here in San Antonio. You can see all our verified reviews on Google before we ever step in your home."' +
             '</div>' +
