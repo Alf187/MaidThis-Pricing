@@ -1507,7 +1507,7 @@
 
         <div class="calc-result">
           <div class="result-label">Quote</div>
-          <div class="result-service" id="resultService">First-Time Deep Clean</div>
+          <div class="result-service" id="resultService">One-Time Deep Clean</div>
           <div class="result-details" id="resultDetails">1500 sq ft. 3BR / 2BA small single-family</div>
           <div class="price-block" id="priceBlock"></div>
           <div class="result-hours" id="resultHours">Estimated 3.5 hours on site</div>
@@ -1520,7 +1520,7 @@
         <div class="rule-banner-num">1</div>
         <div class="rule-banner-text">
           <span>Golden Rule</span>
-          Always pitch Deep Clean plus Recurring. Standard one-time pricing is only for clients who already had a recent deep clean. Try this script. "I would start you off with our first-time deep clean to get the home back to baseline, then lock you into a weekly or bi-weekly plan at 30 to 40 percent off so it stays that way. Most of our clients do it that way."
+          Always pitch Deep Clean plus Recurring. Standard one-time pricing is only for clients who already had a recent deep clean. Try this script. "I would start you off with our one-time deep clean to get the home back to baseline, then lock you into a weekly or bi-weekly plan at 30 to 40 percent off so it stays that way. Most of our clients do it that way."
         </div>
       </div>
     </div>
@@ -1546,7 +1546,7 @@
               <th>Home Size</th>
               <th>Est. Bed/Bath</th>
               <th style="text-align: center;">Hrs</th>
-              <th style="text-align: right;">First-Time Deep</th>
+              <th style="text-align: right;">One-Time Deep</th>
               <th style="text-align: right;">Monthly (20% off)</th>
               <th style="text-align: right;">Bi-Weekly (30% off)</th>
               <th class="highlight" style="text-align: right;">Weekly (40% off)</th>
@@ -2295,13 +2295,13 @@
     { sqft: 1750, bedbath: '3BR / 2BA standard single-family', hours: 4.0, deep: 300, monthly: 240, biweekly: 210, weekly: 180, onetime: 280 },
     { sqft: 2000, bedbath: '3 to 4BR / 2 to 2.5BA single-family', hours: 4.5, deep: 325, monthly: 260, biweekly: 227, weekly: 195, onetime: 290 },
     { sqft: 2250, bedbath: '4BR / 2 to 2.5BA single-family', hours: 5.0, deep: 350, monthly: 280, biweekly: 245, weekly: 210, onetime: 300 },
-    { sqft: 2500, bedbath: '4BR / 2.5 to 3BA plus loft or office', hours: 5.5, deep: 367, monthly: 294, biweekly: 257, weekly: 220, onetime: 320 },
-    { sqft: 2750, bedbath: '4 to 5BR / 3BA two-story', hours: 6.0, deep: 383, monthly: 306, biweekly: 268, weekly: 230, onetime: 340 },
-    { sqft: 3000, bedbath: '5BR / 3 to 3.5BA two-story', hours: 6.5, deep: 400, monthly: 320, biweekly: 280, weekly: 240, onetime: 350 },
-    { sqft: 3250, bedbath: '5BR / 3.5BA plus game room', hours: 7.0, deep: 417, monthly: 334, biweekly: 292, weekly: 250, onetime: 370 },
-    { sqft: 3500, bedbath: '5 to 6BR / 3.5 to 4BA', hours: 7.5, deep: 433, monthly: 346, biweekly: 303, weekly: 260, onetime: 380 },
-    { sqft: 3750, bedbath: '5 to 6BR / 4 to 4.5BA', hours: 8.0, deep: 450, monthly: 360, biweekly: 315, weekly: 270, onetime: 390 },
-    { sqft: 4000, bedbath: '6BR+ / 4.5 to 5BA (custom, inspect first)', hours: 8.5, deep: 467, monthly: 374, biweekly: 327, weekly: 280, onetime: 400 }
+    { sqft: 2500, bedbath: '4BR / 2.5 to 3BA plus loft or office', hours: 5.5, deep: 349, monthly: 279, biweekly: 244, weekly: 209, onetime: 304 },
+    { sqft: 2750, bedbath: '4 to 5BR / 3BA two-story', hours: 6.0, deep: 364, monthly: 291, biweekly: 255, weekly: 218, onetime: 323 },
+    { sqft: 3000, bedbath: '5BR / 3 to 3.5BA two-story', hours: 6.5, deep: 380, monthly: 304, biweekly: 266, weekly: 228, onetime: 332 },
+    { sqft: 3250, bedbath: '5BR / 3.5BA plus game room', hours: 7.0, deep: 396, monthly: 317, biweekly: 277, weekly: 238, onetime: 352 },
+    { sqft: 3500, bedbath: '5 to 6BR / 3.5 to 4BA', hours: 7.5, deep: 411, monthly: 329, biweekly: 288, weekly: 247, onetime: 361 },
+    { sqft: 3750, bedbath: '5 to 6BR / 4 to 4.5BA', hours: 8.0, deep: 428, monthly: 342, biweekly: 299, weekly: 256, onetime: 370 },
+    { sqft: 4000, bedbath: '6BR+ / 4.5 to 5BA (custom, inspect first)', hours: 8.5, deep: 444, monthly: 355, biweekly: 311, weekly: 266, onetime: 380 }
   ];
 
   const addons = [
@@ -2643,7 +2643,7 @@
   let currentFreq = 'deep';
 
   const freqMeta = {
-    deep: { label: 'First-Time Deep Clean' },
+    deep: { label: 'One-Time Deep Clean' },
     weekly: { label: 'Weekly Recurring Plan' },
     biweekly: { label: 'Bi-Weekly Recurring Plan' },
     monthly: { label: 'Monthly Recurring Plan' },
@@ -2661,8 +2661,8 @@
   // Base service tips - things the rep should always say about the service itself
   const baseServiceTips = {
     deep: {
-      name: 'First-Time Deep Clean',
-      tip: 'Set the expectation up front. Deep is hands-and-knees baseboards, inside oven and microwave, full bathroom detail including shower track and toilet base, dust on every surface they can reach, and floors top to bottom. It takes longer than a standard clean which is why first-timers always start here. Tell them this is the foundation, every recurring visit after will be a maintenance clean at a lower rate.'
+      name: 'One-Time Deep Clean',
+      tip: 'Set the expectation up front. A one-time deep clean is detailed cleaning of baseboards, inside the oven and microwave, full bathroom detail including shower track and toilet base, dust on every surface they can reach, and floors top to bottom. It takes longer than a standard clean which is why first-timers always start here. Now is the moment to push for recurring. "This is the perfect launch into a weekly or bi-weekly plan at 30 to 40 percent off. Lock it in today and your next clean drops from this rate down to a maintenance rate." Always close on the recurring conversation, not the deep clean alone.'
     },
     moveinout: {
       name: 'Move In / Move Out',
@@ -2794,7 +2794,7 @@
     } else {
       // Deep, One-Time, or Move-In-Out
       let baseLabel;
-      if (currentFreq === 'deep') baseLabel = 'First-Time Deep';
+      if (currentFreq === 'deep') baseLabel = 'One-Time Deep Clean';
       else if (currentFreq === 'moveinout') baseLabel = 'Deep + $100 move surcharge';
       else baseLabel = 'One-time visit';
 
@@ -2851,7 +2851,15 @@
 
     priceBlock.innerHTML = html;
 
-    document.getElementById('resultHours').textContent = 'Estimated ' + row.hours + ' hours on site';
+    // Deep Clean adds 2 hours of detail work to the standard estimate
+    // Move In/Out adds 3 hours since it includes Deep plus full move-out detail
+    let displayHours = row.hours;
+    if (currentFreq === 'deep') {
+      displayHours = row.hours + 2;
+    } else if (currentFreq === 'moveinout') {
+      displayHours = row.hours + 3;
+    }
+    document.getElementById('resultHours').textContent = 'Estimated ' + displayHours + ' hours on site';
 
     // Render addon rep tips (must-say client expectations)
     renderAddonTips();
@@ -2873,7 +2881,7 @@
       const visitsToBreakEven = Math.ceil(row.deep / visitSavings);
       tip = '<strong>Rep Tip</strong>Pitch this as the entry point, then lock them into weekly at ' + fmtUSD(row.weekly) + ' per visit. The cost per visit drops from ' + fmtUSD(row.deep) + ' to ' + fmtUSD(row.weekly) + ', saving ' + fmtUSD(visitSavings) + ' every clean. After about ' + visitsToBreakEven + ' visits they have already paid for the deep clean in savings. That is the math that closes recurring.';
     } else if (currentFreq === 'onetime') {
-      tip = '<strong>Rep Tip</strong>Only quote Standard One-Time if they already had a deep clean recently. Otherwise, pitch First-Time Deep at ' + fmtUSD(row.deep) + ' plus recurring.';
+      tip = '<strong>Rep Tip</strong>Only quote Standard One-Time if they already had a deep clean recently. Otherwise, pitch One-Time Deep Clean at ' + fmtUSD(row.deep) + ' plus recurring.';
     } else if (currentFreq === 'monthly') {
       const monthlyToBiweekly = row.monthly - row.biweekly;
       tip = '<strong>Rep Tip</strong>Locked in. Try to move them up. Bi-weekly is only ' + fmtUSD(monthlyToBiweekly) + ' less per visit but doubles the visits. Weekly drops the per-visit rate to ' + fmtUSD(row.weekly) + ', the deepest discount we offer. Frame it as. "For just a little more per month you double the upkeep."';
@@ -3083,7 +3091,7 @@
       banner.style.boxShadow = '0 8px 28px rgba(255, 182, 0, 0.18)';
       numEl.style.background = 'var(--navy)';
       numEl.style.color = 'var(--gold)';
-      textEl.innerHTML = '<span>Golden Rule</span>Always pitch Deep Clean plus Recurring. Standard one-time pricing is only for clients who already had a recent deep clean. Try this script. "I would start you off with our first-time deep clean to get the home back to baseline, then lock you into a weekly or bi-weekly plan at 30 to 40 percent off so it stays that way. Most of our clients do it that way."';
+      textEl.innerHTML = '<span>Golden Rule</span>Always pitch Deep Clean plus Recurring. Standard one-time pricing is only for clients who already had a recent deep clean. Try this script. "I would start you off with our one-time deep clean to get the home back to baseline, then lock you into a weekly or bi-weekly plan at 30 to 40 percent off so it stays that way. Most of our clients do it that way."';
     }
   }
 
