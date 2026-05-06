@@ -54,13 +54,27 @@
     display: flex; align-items: center; justify-content: space-between; gap: 24px;
   }
   .nav-logo img { height: 38px; display: block; }
-  .nav-links { display: flex; gap: 26px; font-size: 13px; }
+  .nav-links { display: flex; gap: 26px; font-size: 13px; align-items: center; }
   .nav-links a {
     color: var(--navy-soft); text-decoration: none;
     font-weight: 600; transition: color 0.2s;
     letter-spacing: 0.01em;
   }
   .nav-links a:hover { color: var(--teal); }
+  .nav-links a.nav-link-external {
+    display: inline-flex; align-items: center; gap: 5px;
+    background: var(--teal-bg); color: var(--teal);
+    padding: 7px 14px; border-radius: 100px;
+    font-weight: 700;
+    transition: all 0.2s;
+  }
+  .nav-links a.nav-link-external:hover {
+    background: var(--teal); color: var(--white);
+  }
+  .nav-links a.nav-link-external .ext-icon {
+    font-size: 14px; line-height: 1;
+    display: inline-block;
+  }
   @media (max-width: 900px) { .nav-links { display: none; } }
 
   .wrap { max-width: 1320px; margin: 0 auto; padding: 0 32px; }
@@ -1324,6 +1338,17 @@
     padding: 14px 22px; border-radius: 20px; margin-bottom: 16px;
   }
   footer .footer-logo img { height: 34px; display: block; }
+  footer .footer-roster-link {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: var(--gold); color: var(--navy);
+    padding: 10px 18px; border-radius: 100px;
+    font-size: 12.5px; font-weight: 700;
+    letter-spacing: 0.04em; text-decoration: none;
+    transition: all 0.2s;
+  }
+  footer .footer-roster-link:hover {
+    background: var(--white); color: var(--navy);
+  }
   footer p { margin-top: 6px; }
   footer strong { color: var(--white); font-weight: 700; }
   footer a { color: var(--teal); text-decoration: none; }
@@ -1359,6 +1384,7 @@
       <a href="#hourly">Hourly</a>
       <a href="#checklists">Checklists</a>
       <a href="#rules">Rebuttals</a>
+      <a class="nav-link-external" href="https://alf187.github.io/MaidThis-Pricing/cleaners.html" target="_blank" rel="noopener">Cleaner Roster <span class="ext-icon">&#8599;</span></a>
     </div>
   </div>
 </nav>
@@ -2280,6 +2306,7 @@
   <p><strong>MaidThis Cleaning of Northwest San Antonio</strong></p>
   <p>(210) 880-9541 &middot; <a href="mailto:nwsanantonio@maidthis.com">nwsanantonio@maidthis.com</a></p>
   <p style="margin-top: 14px; font-size: 12px; opacity: 0.7;">Northwest San Antonio &middot; Helotes &middot; Castroville &middot; Stone Oak &middot; Live Oak</p>
+  <p style="margin-top: 18px;"><a class="footer-roster-link" href="https://alf187.github.io/MaidThis-Pricing/cleaners.html" target="_blank" rel="noopener">Open Cleaner Roster <span style="font-size: 14px;">&#8599;</span></a></p>
   <p style="margin-top: 14px; font-size: 12px; opacity: 0.6;">Your field reference. Keep it close, lean on it often. Prices effective 2026.</p>
 </footer>
 
