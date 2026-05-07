@@ -640,7 +640,7 @@
     border-radius: 4px;
     border: 1px solid var(--border);
   }
-  .legend-swatch.on { background: var(--gold); border-color: var(--gold); }
+  .legend-swatch.on { background: var(--blue); border-color: var(--blue); }
   .legend-swatch.ask { background: #FFFBEB; border: 1px dashed var(--gold); }
   .legend-swatch.off {
     background: var(--off);
@@ -659,6 +659,347 @@
   }
   .legend-swatch.off::before { transform: translate(-50%, -50%) rotate(45deg); }
   .legend-swatch.off::after { transform: translate(-50%, -50%) rotate(-45deg); }
+
+  /* ============ DYNAMIC: Week-of pill ============ */
+  .week-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--navy);
+    color: var(--white);
+    padding: 8px 16px;
+    border-radius: 100px;
+    font-size: 12.5px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+  }
+  .week-pill .week-icon {
+    width: 14px;
+    height: 14px;
+    border-radius: 3px;
+    border: 1.5px solid var(--gold);
+    background: transparent;
+    position: relative;
+  }
+  .week-pill .week-icon::after {
+    content: '';
+    position: absolute;
+    inset: 2px 1px 1px 1px;
+    background: var(--gold);
+    border-radius: 1px;
+    height: 2px;
+  }
+
+  /* ============ DYNAMIC: Sync row ============ */
+  .sync-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-top: 18px;
+    padding: 12px 18px;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+  }
+  .sync-row .sync-text {
+    font-size: 12px;
+    color: var(--navy-soft);
+    font-weight: 600;
+  }
+  .sync-row .sync-text strong {
+    color: var(--navy);
+  }
+  .refresh-btn {
+    background: var(--white);
+    border: 1.5px solid var(--navy);
+    color: var(--navy);
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 7px 14px;
+    border-radius: 100px;
+    cursor: pointer;
+    transition: all 0.18s ease;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+  .refresh-btn:hover {
+    background: var(--navy);
+    color: var(--white);
+  }
+  .refresh-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  /* ============ DYNAMIC: Upcoming leave alert ============ */
+  .leave-alert {
+    background: linear-gradient(180deg, rgba(46, 110, 165, 0.06), var(--white));
+    border: 1px solid rgba(46, 110, 165, 0.30);
+    border-left: 4px solid var(--blue);
+    border-radius: 20px;
+    padding: 22px 24px;
+    margin-top: 24px;
+  }
+  .leave-alert-head {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 14px;
+  }
+  .leave-alert-icon {
+    width: 36px;
+    height: 36px;
+    background: var(--blue);
+    border-radius: 10px;
+    display: grid;
+    place-items: center;
+    color: var(--white);
+    font-weight: 800;
+    font-size: 18px;
+  }
+  .leave-alert-title {
+    font-size: 14px;
+    font-weight: 800;
+    color: var(--navy);
+    letter-spacing: 0.01em;
+  }
+  .leave-alert-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .leave-alert-row {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 12px;
+    align-items: center;
+    padding: 10px 14px;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    font-size: 13px;
+  }
+  .leave-alert-row .who {
+    font-weight: 700;
+    color: var(--navy);
+  }
+  .leave-alert-row .when {
+    color: var(--navy-soft);
+    margin-left: 8px;
+  }
+  .leave-alert-row .countdown {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 100px;
+    background: rgba(46, 110, 165, 0.12);
+    color: var(--blue);
+  }
+
+  /* ============ DYNAMIC: Utilization in card ============ */
+  .util-block {
+    background: var(--off);
+    border-radius: 12px;
+    padding: 12px 14px;
+    border: 1px solid var(--border);
+  }
+  .util-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 8px;
+  }
+  .util-bar {
+    flex: 1;
+    height: 8px;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    overflow: hidden;
+  }
+  .util-fill {
+    height: 100%;
+    border-radius: 100px;
+    transition: width 0.6s ease;
+  }
+  .util-fill.t-green { background: var(--green); }
+  .util-fill.t-yellow { background: var(--gold); }
+  .util-fill.t-red { background: #E04E4E; }
+  .util-pct {
+    font-size: 16px;
+    font-weight: 800;
+    min-width: 48px;
+    text-align: right;
+  }
+  .util-pct.t-green { color: #5C9C3F; }
+  .util-pct.t-yellow { color: #8A6200; }
+  .util-pct.t-red { color: #B73838; }
+  .util-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    font-size: 11.5px;
+    color: var(--navy-muted);
+    font-weight: 600;
+  }
+  .util-meta strong {
+    color: var(--navy);
+    font-weight: 800;
+  }
+
+  /* ============ DYNAMIC: This week's bookings ============ */
+  .bookings-block {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  .bookings-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 14px;
+    background: var(--off);
+    border-bottom: 1px solid var(--border);
+  }
+  .bookings-head .label {
+    font-size: 10.5px;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--navy-muted);
+  }
+  .bookings-head .count {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--navy);
+    background: var(--gold-soft);
+    padding: 2px 8px;
+    border-radius: 100px;
+  }
+  .bookings-list {
+    list-style: none;
+    padding: 4px 0;
+  }
+  .bookings-list li {
+    display: grid;
+    grid-template-columns: 38px 70px 1fr auto;
+    gap: 10px;
+    align-items: center;
+    padding: 8px 14px;
+    font-size: 12.5px;
+    border-bottom: 1px solid var(--off);
+  }
+  .bookings-list li:last-child {
+    border-bottom: none;
+  }
+  .bookings-list .b-day {
+    font-size: 11px;
+    font-weight: 800;
+    color: var(--navy);
+    background: var(--off);
+    border-radius: 6px;
+    padding: 3px 0;
+    text-align: center;
+  }
+  .bookings-list .b-time {
+    color: var(--navy-soft);
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+  }
+  .bookings-list .b-client {
+    color: var(--navy);
+    font-weight: 600;
+  }
+  .bookings-list .b-duration {
+    color: var(--navy-muted);
+    font-size: 11px;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+  }
+  .bookings-empty {
+    padding: 14px;
+    text-align: center;
+    font-size: 12px;
+    color: var(--navy-muted);
+    font-style: italic;
+  }
+
+  /* ============ DYNAMIC: Leave warning chip on card ============ */
+  .leave-chip {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    background: rgba(46, 110, 165, 0.08);
+    border-left: 3px solid var(--blue);
+    border-radius: 10px;
+    padding: 10px 12px;
+    font-size: 12px;
+    color: var(--navy);
+  }
+  .leave-chip.current {
+    background: rgba(122, 138, 153, 0.10);
+    border-left-color: var(--navy-muted);
+  }
+  .leave-chip-icon {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: var(--blue);
+    color: var(--white);
+    display: grid;
+    place-items: center;
+    font-size: 11px;
+    font-weight: 800;
+    flex-shrink: 0;
+  }
+  .leave-chip.current .leave-chip-icon {
+    background: var(--navy-muted);
+  }
+  .leave-chip strong {
+    font-weight: 800;
+  }
+
+  /* ============ DYNAMIC: Loading skeleton ============ */
+  .skeleton-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 22px;
+    padding: 22px;
+    height: 380px;
+    position: relative;
+    overflow: hidden;
+  }
+  .skeleton-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, transparent, rgba(46, 110, 165, 0.06), transparent);
+    animation: shimmer 1.4s infinite;
+  }
+  @keyframes shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+  }
+
+  /* ============ DYNAMIC: Error banner ============ */
+  .err-banner {
+    background: rgba(224, 78, 78, 0.08);
+    border: 1px solid rgba(224, 78, 78, 0.30);
+    border-left: 4px solid #E04E4E;
+    border-radius: 14px;
+    padding: 14px 18px;
+    margin-top: 18px;
+    font-size: 13px;
+    color: var(--navy);
+  }
+  .err-banner strong { color: #B73838; display: block; margin-bottom: 4px; }
+  .err-banner code { font-size: 11px; background: var(--white); padding: 2px 6px; border-radius: 4px; }
 
   /* Open role placeholder avatar */
   .avatar-open {
@@ -692,10 +1033,10 @@
     border: 1px solid var(--border);
   }
   .day-cell.on {
-    background: var(--gold);
-    color: var(--navy);
-    border-color: var(--gold);
-    box-shadow: 0 2px 6px rgba(255, 182, 0, 0.25);
+    background: var(--blue);
+    color: var(--white);
+    border-color: var(--blue);
+    box-shadow: 0 2px 6px rgba(46, 110, 165, 0.30);
   }
 
   .info-rows {
@@ -1069,34 +1410,46 @@
     <p class="hero-sub">A quick visual snapshot of the active team and who is in the hiring pipeline. Use this to gauge availability before booking. Final scheduling lives in the CRM.</p>
 
     <div class="hero-meta">
-      <span class="meta-pill"><span class="meta-dot"></span>Last Updated <strong style="color:var(--navy);margin-left:4px;">May 5, 2026</strong></span>
-      <span class="meta-pill" style="background:var(--teal-bg);border-color:transparent;color:var(--navy);"><strong>Roster v15</strong></span>
-      <span class="meta-pill"><span class="meta-dot" style="background:var(--gold);box-shadow:0 0 0 3px rgba(255,182,0,0.18);"></span>Refreshed weekly by Ops</span>
+      <span class="week-pill"><span class="week-icon"></span>Week of <span id="weekRange">loading</span></span>
+      <span class="meta-pill"><span class="meta-dot"></span>Last synced <strong id="lastSynced" style="color:var(--navy);margin-left:4px;">checking</strong></span>
+      <span class="meta-pill" style="background:var(--teal-bg);border-color:transparent;color:var(--navy);"><strong>Roster v16 Live</strong></span>
+      <span class="meta-pill"><span class="meta-dot" style="background:var(--gold);box-shadow:0 0 0 3px rgba(255,182,0,0.18);"></span>Auto refresh every 5 min</span>
     </div>
+
+    <div id="errorBox"></div>
 
     <!-- Stats -->
     <div class="stats">
       <div class="stat-card stat-active">
         <div class="stat-label">Active Cleaners</div>
-        <div class="stat-value">5</div>
+        <div class="stat-value" id="statActive">0</div>
         <div class="stat-note">Bookable this week</div>
       </div>
       <div class="stat-card stat-bilingual">
-        <div class="stat-label">On Leave</div>
-        <div class="stat-value">1</div>
-        <div class="stat-note">Out of rotation right now</div>
+        <div class="stat-label">Team Utilization</div>
+        <div class="stat-value" id="statUtil">0%</div>
+        <div class="stat-note" id="statUtilNote">0h booked of 0h available</div>
       </div>
       <div class="stat-card stat-weekend">
-        <div class="stat-label">Weekend Coverage</div>
-        <div class="stat-value">2</div>
-        <div class="stat-note">Saturday and weekend with notice</div>
+        <div class="stat-label">Open Hours This Week</div>
+        <div class="stat-value" id="statOpen">0h</div>
+        <div class="stat-note">Across the active team</div>
       </div>
       <div class="stat-card stat-interview">
-        <div class="stat-label">Hiring Pipeline</div>
-        <div class="stat-value">1</div>
-        <div class="stat-note">Open role, sourcing now</div>
+        <div class="stat-label">Bookings This Week</div>
+        <div class="stat-value" id="statBookings">0</div>
+        <div class="stat-note">Active jobs in Launch27</div>
       </div>
     </div>
+
+    <!-- Sync row with refresh -->
+    <div class="sync-row">
+      <span class="sync-text">Last synced <strong id="syncTextStamp">checking</strong>. Auto-refreshes every 5 minutes.</span>
+      <button class="refresh-btn" id="refreshBtn">Refresh now</button>
+    </div>
+
+    <!-- Upcoming leave alert, hidden until populated -->
+    <div id="leaveAlertBox"></div>
 
     <!-- Alert banner -->
     <div class="alert">
@@ -1151,183 +1504,20 @@
     <div class="section-header reveal">
       <span class="section-eyebrow">Active Team</span>
       <h2>Active Cleaners <span class="section-count" id="activeCount">5</span></h2>
-      <p class="section-sub">Hover or tap any card for full availability. Solid gold pills are confirmed workdays. Dashed pills mean the cleaner is open but you should confirm before booking. Crossed out pills are not available.</p>
+      <p class="section-sub">Each card shows the cleaner's weekly utilization, available days, this week's confirmed cleans, and any upcoming leave. Use it to spot who has open hours before you book.</p>
     </div>
 
     <div class="day-legend reveal">
-      <span class="legend-item"><span class="legend-swatch on"></span>Confirmed workday</span>
-      <span class="legend-item"><span class="legend-swatch ask"></span>Open, confirm first</span>
-      <span class="legend-item"><span class="legend-swatch off"></span>Not available</span>
+      <span class="legend-item"><span class="legend-swatch on"></span>Has a clean that day</span>
+      <span class="legend-item"><span class="legend-swatch ask"></span>Available, no clean booked</span>
+      <span class="legend-item"><span class="legend-swatch off"></span>Not working that day</span>
     </div>
 
     <div class="roster-grid" id="rosterGrid">
-
-      <!-- Alexis V. -->
-      <div class="cleaner-card reveal" data-name="alexis v vaughn" data-days="mon tue wed thu fri" data-flags="bookable">
-        <div class="cleaner-head">
-          <div class="avatar"></div>
-          <div>
-            <div class="cleaner-name">Alexis V.</div>
-            <div class="cleaner-meta">Active team member</div>
-          </div>
-          <span class="status-pill status-active"><span class="pulse"></span>Active</span>
-        </div>
-        <div class="day-strip">
-          <div class="day-cell on">M</div>
-          <div class="day-cell on">T</div>
-          <div class="day-cell on">W</div>
-          <div class="day-cell on">T</div>
-          <div class="day-cell on">F</div>
-          <div class="day-cell off-day">S</div>
-          <div class="day-cell off-day">S</div>
-        </div>
-        <div class="info-rows">
-          <div class="info-row"><span class="info-key">Hours</span><span class="info-val">8:30am to 4:00pm</span></div>
-          <div class="info-row"><span class="info-key">Weekends</span><span class="info-val">Not available</span></div>
-        </div>
-        <div class="tag-row">
-          <span class="tag tag-blue">Weekday Only</span>
-        </div>
-        <div class="cleaner-note">Solid weekday window with a longer afternoon than most. Good fit for back-to-back morning and early afternoon jobs.</div>
-        <div class="card-footer">
-          <a href="https://app.gohighlevel.com" target="_blank" rel="noopener" class="ghl-btn">Ping on GHL <span class="arrow">&rsaquo;</span></a>
-        </div>
-      </div>
-
-      <!-- Mary A. -->
-      <div class="cleaner-card reveal" data-name="mary a alice" data-days="mon tue wed thu fri sat" data-flags="bookable weekend">
-        <div class="cleaner-head">
-          <div class="avatar mary"></div>
-          <div>
-            <div class="cleaner-name">Mary A.</div>
-            <div class="cleaner-meta">Active team member</div>
-          </div>
-          <span class="status-pill status-active"><span class="pulse"></span>Active</span>
-        </div>
-        <div class="day-strip">
-          <div class="day-cell ask">M</div>
-          <div class="day-cell ask">T</div>
-          <div class="day-cell ask">W</div>
-          <div class="day-cell ask">T</div>
-          <div class="day-cell ask">F</div>
-          <div class="day-cell on">S</div>
-          <div class="day-cell off-day">S</div>
-        </div>
-        <div class="info-rows">
-          <div class="info-row"><span class="info-key">Earliest</span><span class="info-val">8:00am start</span></div>
-          <div class="info-row"><span class="info-key">Capacity</span><span class="info-val">Can sometimes stack 2 standards in a day</span></div>
-          <div class="info-row"><span class="info-key">Saturdays</span><span class="info-val">Confirmed weekend coverage</span></div>
-        </div>
-        <div class="tag-row">
-          <span class="tag tag-navy">Big Team Lead</span>
-          <span class="tag tag-gold">Deep Clean Specialist</span>
-          <span class="tag tag-gold">Weekend Coverage</span>
-        </div>
-        <div class="cleaner-note">Owns her own cleaning business. Send her the deep cleans that need a bigger crew. Always confirm her open slots before booking and ask if she can stack two standards.</div>
-        <div class="card-footer">
-          <a href="https://app.gohighlevel.com" target="_blank" rel="noopener" class="ghl-btn">Ping on GHL <span class="arrow">&rsaquo;</span></a>
-        </div>
-      </div>
-
-      <!-- Gina T. -->
-      <div class="cleaner-card reveal" data-name="gina t thatcher" data-days="wed fri" data-flags="bookable">
-        <div class="cleaner-head">
-          <div class="avatar gina"></div>
-          <div>
-            <div class="cleaner-name">Gina T.</div>
-            <div class="cleaner-meta">Active team member</div>
-          </div>
-          <span class="status-pill status-active"><span class="pulse"></span>Active</span>
-        </div>
-        <div class="day-strip">
-          <div class="day-cell off-day">M</div>
-          <div class="day-cell off-day">T</div>
-          <div class="day-cell on">W</div>
-          <div class="day-cell off-day">T</div>
-          <div class="day-cell on">F</div>
-          <div class="day-cell off-day">S</div>
-          <div class="day-cell off-day">S</div>
-        </div>
-        <div class="info-rows">
-          <div class="info-row"><span class="info-key">Hours</span><span class="info-val">8:30am to 2:00pm</span></div>
-          <div class="info-row"><span class="info-key">Range</span><span class="info-val">Cleans must be close to her home</span></div>
-        </div>
-        <div class="tag-row">
-          <span class="tag tag-blue">Local Only</span>
-          <span class="tag tag-blue">Wed and Fri</span>
-        </div>
-        <div class="cleaner-note">Check the job address against her zone before assigning. Anything outside the nearby radius is a no.</div>
-        <div class="card-footer">
-          <a href="https://app.gohighlevel.com" target="_blank" rel="noopener" class="ghl-btn">Ping on GHL <span class="arrow">&rsaquo;</span></a>
-        </div>
-      </div>
-
-      <!-- Ashland Z. -->
-      <div class="cleaner-card reveal" data-name="ashland z zygulski" data-days="mon tue wed thu fri sat sun" data-flags="bookable weekend">
-        <div class="cleaner-head">
-          <div class="avatar ashland"></div>
-          <div>
-            <div class="cleaner-name">Ashland Z.</div>
-            <div class="cleaner-meta">New to the team, just onboarded</div>
-          </div>
-          <span class="status-pill status-active"><span class="pulse"></span>Active</span>
-        </div>
-        <div class="day-strip">
-          <div class="day-cell on">M</div>
-          <div class="day-cell on">T</div>
-          <div class="day-cell on">W</div>
-          <div class="day-cell on">T</div>
-          <div class="day-cell on">F</div>
-          <div class="day-cell on">S</div>
-          <div class="day-cell on">S</div>
-        </div>
-        <div class="info-rows">
-          <div class="info-row"><span class="info-key">Mon to Sat</span><span class="info-val">9:00am to 9:00pm</span></div>
-          <div class="info-row"><span class="info-key">Sundays</span><span class="info-val">9:00am to 6:00pm</span></div>
-        </div>
-        <div class="tag-row">
-          <span class="tag tag-green">Newly Active</span>
-          <span class="tag tag-gold">Weekend Coverage</span>
-          <span class="tag tag-blue">Wide Hours</span>
-        </div>
-        <div class="cleaner-note">Widest hours on the team and seven days a week. First call for evening slots, weekend jobs, and last minute fills.</div>
-        <div class="card-footer">
-          <a href="https://app.gohighlevel.com" target="_blank" rel="noopener" class="ghl-btn">Ping on GHL <span class="arrow">&rsaquo;</span></a>
-        </div>
-      </div>
-
-      <!-- Richelle K. -->
-      <div class="cleaner-card away reveal" data-name="richelle k kirkwood" data-days="" data-flags="">
-        <div class="cleaner-head">
-          <div class="avatar"></div>
-          <div>
-            <div class="cleaner-name">Richelle K.</div>
-            <div class="cleaner-meta">On the team, not bookable right now</div>
-          </div>
-          <span class="status-pill status-away"><span class="pulse"></span>Away</span>
-        </div>
-        <div class="day-strip">
-          <div class="day-cell off-day">M</div>
-          <div class="day-cell off-day">T</div>
-          <div class="day-cell off-day">W</div>
-          <div class="day-cell off-day">T</div>
-          <div class="day-cell off-day">F</div>
-          <div class="day-cell off-day">S</div>
-          <div class="day-cell off-day">S</div>
-        </div>
-        <div class="info-rows">
-          <div class="info-row"><span class="info-key">Status</span><span class="info-val">Currently away</span></div>
-          <div class="info-row"><span class="info-key">Bookable</span><span class="info-val">No, do not schedule new jobs</span></div>
-        </div>
-        <div class="tag-row">
-          <span class="tag tag-teal">On Leave</span>
-        </div>
-        <div class="cleaner-note">Out of rotation right now. Ops will refresh her status here once she is back on the schedule.</div>
-        <div class="card-footer">
-          <a href="https://app.gohighlevel.com" target="_blank" rel="noopener" class="ghl-btn">Ping on GHL <span class="arrow">&rsaquo;</span></a>
-        </div>
-      </div>
-
+      <!-- Cards rendered dynamically by JavaScript from the live API -->
+      <div class="skeleton-card"></div>
+      <div class="skeleton-card"></div>
+      <div class="skeleton-card"></div>
     </div>
 
     <div id="emptyState" style="display:none;text-align:center;padding:50px 20px;color:var(--navy-muted);font-size:14px;">
@@ -1417,84 +1607,376 @@
 </footer>
 
 <script>
-  // Reveal on scroll
-  const reveals = document.querySelectorAll('.reveal');
-  if ('IntersectionObserver' in window) {
-    const io = new IntersectionObserver((entries) => {
+  // ====================================================================
+  // CONFIG, edit these if anything ever changes
+  // ====================================================================
+  const API_URL = 'https://script.google.com/macros/s/AKfycbwfUL81Ro0XRaMNpz1bC6dlmA_F_V0MPiLS7Zan3wMVmFj6JQGpo175XMAQNWm9b44i3w/exec';
+  const REFRESH_MS = 5 * 60 * 1000;          // auto refresh every 5 minutes
+  const COLOR_THRESHOLDS = { green: 60, yellow: 85 };  // green under 60, yellow 60 to 85, red above
+
+  // Map cleaner display names to their existing avatar CSS class.
+  // Add new cleaners here if a new one joins so they get a styled avatar.
+  // Names are matched by lowercase first word, so "Alexis V." matches "alexis".
+  const AVATAR_MAP = {
+    'alexis': 'alexis',
+    'mary': 'mary',
+    'gina': 'gina',
+    'ashland': 'ashland'
+  };
+
+  // ====================================================================
+  // STATE
+  // ====================================================================
+  let state = {
+    data: null,
+    filterDay: 'all',
+    filterQuick: new Set(),
+    searchTerm: ''
+  };
+
+  // ====================================================================
+  // BOOTSTRAP
+  // ====================================================================
+  document.addEventListener('DOMContentLoaded', () => {
+    initRevealObserver();
+    bindFilters();
+    bindSearch();
+    document.getElementById('refreshBtn').addEventListener('click', () => loadData(true));
+    loadData();
+    setInterval(() => loadData(false), REFRESH_MS);
+  });
+
+  function initRevealObserver() {
+    if (!('IntersectionObserver' in window)) return;
+    window._revealObserver = new IntersectionObserver((entries) => {
       entries.forEach(e => {
         if (e.isIntersecting) {
           e.target.classList.add('in');
-          io.unobserve(e.target);
+          window._revealObserver.unobserve(e.target);
         }
       });
     }, { threshold: 0.08 });
-    reveals.forEach(r => io.observe(r));
-  } else {
-    reveals.forEach(r => r.classList.add('in'));
+    document.querySelectorAll('.reveal').forEach(r => window._revealObserver.observe(r));
   }
 
-  // Filter system
-  const dayFilters = document.querySelectorAll('#dayFilters .filter-pill');
-  const quickFilters = document.querySelectorAll('#quickFilters .filter-pill');
-  const searchInput = document.getElementById('searchInput');
-  const cards = document.querySelectorAll('#rosterGrid .cleaner-card');
-  const activeCount = document.getElementById('activeCount');
-  const emptyState = document.getElementById('emptyState');
+  function attachReveals(scope) {
+    if (!window._revealObserver) {
+      scope.querySelectorAll('.reveal').forEach(r => r.classList.add('in'));
+      return;
+    }
+    scope.querySelectorAll('.reveal').forEach(r => window._revealObserver.observe(r));
+  }
 
-  let activeDay = 'all';
-  const activeQuick = new Set();
-  let searchTerm = '';
-
-  dayFilters.forEach(btn => {
-    btn.addEventListener('click', () => {
-      dayFilters.forEach(b => b.classList.remove('on'));
-      btn.classList.add('on');
-      activeDay = btn.dataset.day;
-      applyFilters();
-    });
-  });
-
-  quickFilters.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const flag = btn.dataset.quick;
-      if (activeQuick.has(flag)) {
-        activeQuick.delete(flag);
-        btn.classList.remove('on');
-      } else {
-        activeQuick.add(flag);
+  function bindFilters() {
+    document.querySelectorAll('#dayFilters .filter-pill').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('#dayFilters .filter-pill').forEach(b => b.classList.remove('on'));
         btn.classList.add('on');
+        state.filterDay = btn.dataset.day;
+        renderCleaners();
+      });
+    });
+    document.querySelectorAll('#quickFilters .filter-pill').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const flag = btn.dataset.quick;
+        if (state.filterQuick.has(flag)) {
+          state.filterQuick.delete(flag);
+          btn.classList.remove('on');
+        } else {
+          state.filterQuick.add(flag);
+          btn.classList.add('on');
+        }
+        renderCleaners();
+      });
+    });
+  }
+
+  function bindSearch() {
+    const input = document.getElementById('searchInput');
+    if (!input) return;
+    input.addEventListener('input', e => {
+      state.searchTerm = e.target.value.toLowerCase().trim();
+      renderCleaners();
+    });
+  }
+
+  // ====================================================================
+  // DATA LOAD
+  // ====================================================================
+  async function loadData(forceFresh) {
+    const btn = document.getElementById('refreshBtn');
+    if (btn) {
+      btn.disabled = true;
+      btn.textContent = 'Refreshing';
+    }
+    try {
+      const url = forceFresh ? API_URL + '?t=' + Date.now() : API_URL;
+      const res = await fetch(url, { method: 'GET', mode: 'cors' });
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      const data = await res.json();
+      if (data.error) throw new Error(data.error);
+      state.data = data;
+      clearError();
+      renderHeroMeta();
+      renderStats();
+      renderLeaveAlert();
+      renderCleaners();
+    } catch (err) {
+      showError(err.message || 'Could not reach the sync API.');
+    } finally {
+      if (btn) {
+        btn.disabled = false;
+        btn.textContent = 'Refresh now';
       }
-      applyFilters();
+    }
+  }
+
+  // ====================================================================
+  // RENDER, top of page
+  // ====================================================================
+  function renderHeroMeta() {
+    const d = state.data;
+    if (!d) return;
+    document.getElementById('weekRange').textContent = d.weekRange || (d.weekStart + ' to ' + d.weekEnd);
+    const synced = d.lastUpdated || '';
+    document.getElementById('lastSynced').textContent = synced;
+    document.getElementById('syncTextStamp').textContent = synced;
+  }
+
+  function renderStats() {
+    const d = state.data;
+    if (!d) return;
+    const team = d.teamTotal || { hoursBooked: 0, hoursAvailable: 0, percent: 0, openHoursLeft: 0, bookingsCount: 0 };
+    const active = d.cleaners.filter(c => c.status === 'Active' && !c.isOnLeave).length;
+
+    document.getElementById('statActive').textContent = active;
+    document.getElementById('statUtil').textContent = team.percent + '%';
+    document.getElementById('statUtilNote').textContent = team.hoursBooked + 'h booked of ' + team.hoursAvailable + 'h available';
+    document.getElementById('statOpen').textContent = team.openHoursLeft + 'h';
+    document.getElementById('statBookings').textContent = team.bookingsCount;
+  }
+
+  function renderLeaveAlert() {
+    const d = state.data;
+    const box = document.getElementById('leaveAlertBox');
+    if (!d || !d.upcomingLeaveAlerts || !d.upcomingLeaveAlerts.length) {
+      box.innerHTML = '';
+      return;
+    }
+    const items = d.upcomingLeaveAlerts.map(a => {
+      const countdown = a.daysUntil === 0
+        ? 'Starts today'
+        : a.daysUntil === 1
+          ? 'Starts tomorrow'
+          : 'In ' + a.daysUntil + ' days';
+      return '<div class="leave-alert-row">'
+        + '<div><span class="who">' + escapeHTML(a.cleanerName) + '</span>'
+        + '<span class="when">on leave ' + escapeHTML(a.startDate) + ' to ' + escapeHTML(a.endDate) + '</span></div>'
+        + '<span class="countdown">' + escapeHTML(countdown) + '</span>'
+        + '</div>';
+    }).join('');
+    box.innerHTML = `
+      <div class="leave-alert reveal in">
+        <div class="leave-alert-head">
+          <div class="leave-alert-icon">!</div>
+          <div class="leave-alert-title">Heads up, upcoming time off in the next 3 weeks</div>
+        </div>
+        <div class="leave-alert-list">${items}</div>
+      </div>`;
+  }
+
+  // ====================================================================
+  // RENDER, cleaner grid
+  // ====================================================================
+  function renderCleaners() {
+    const d = state.data;
+    if (!d) return;
+    const grid = document.getElementById('rosterGrid');
+    const empty = document.getElementById('emptyState');
+    const filtered = filterCleaners(d.cleaners);
+    document.getElementById('activeCount').textContent = filtered.length;
+
+    if (!filtered.length) {
+      grid.innerHTML = '';
+      empty.style.display = 'block';
+      return;
+    }
+    empty.style.display = 'none';
+    grid.innerHTML = filtered.map(cleanerCardHTML).join('');
+    attachReveals(grid);
+  }
+
+  function filterCleaners(cleaners) {
+    return cleaners.filter(c => {
+      if (state.filterDay !== 'all') {
+        if (!c.defaultDays || !c.defaultDays[state.filterDay]) return false;
+      }
+      if (state.filterQuick.has('bookable')) {
+        if (c.isOnLeave) return false;
+        if (c.status !== 'Active') return false;
+        if (!c.utilization || c.utilization.openHoursLeft <= 0) return false;
+      }
+      if (state.filterQuick.has('weekend')) {
+        if (!c.defaultDays || (!c.defaultDays.sat && !c.defaultDays.sun)) return false;
+      }
+      if (state.searchTerm) {
+        const haystack = [c.name, (c.tags || []).join(' '), c.notes || ''].join(' ').toLowerCase();
+        if (!haystack.includes(state.searchTerm)) return false;
+      }
+      return true;
     });
-  });
+  }
 
-  searchInput.addEventListener('input', (e) => {
-    searchTerm = e.target.value.toLowerCase().trim();
-    applyFilters();
-  });
+  function cleanerCardHTML(c) {
+    const isLeave = c.isOnLeave || c.status !== 'Active';
+    const util = c.utilization || { hoursBooked: 0, hoursAvailable: 0, percent: 0, openHoursLeft: 0, bookingsCount: 0 };
+    const tier = isLeave ? 'gray' : tierFor(util.percent);
+    const avatarClass = avatarClassFor(c.name);
+    const statusPill = isLeave
+      ? '<span class="status-pill status-away"><span class="pulse"></span>Away</span>'
+      : '<span class="status-pill status-active"><span class="pulse"></span>Active</span>';
 
-  function applyFilters() {
-    let visible = 0;
-    cards.forEach(card => {
-      const days = (card.dataset.days || '').split(' ');
-      const flags = (card.dataset.flags || '').split(' ');
-      const haystack = [
-        card.dataset.name || '',
-        card.dataset.areas || '',
-        card.dataset.specialty || '',
-        card.dataset.langs || ''
-      ].join(' ');
+    // Day strip
+    const dayKeys = ['mon','tue','wed','thu','fri','sat','sun'];
+    const dayLabels = ['M','T','W','T','F','S','S'];
+    const dayStrip = dayKeys.map((key, idx) => {
+      const works = c.defaultDays && c.defaultDays[key];
+      const has = (c.thisWeekBookings || []).some(b => b.dayOfWeek.toLowerCase().slice(0,3) === key);
+      let cls = 'off-day';
+      if (isLeave) cls = 'off-day';
+      else if (works && has) cls = 'on';
+      else if (works) cls = 'ask';
+      return '<div class="day-cell ' + cls + '">' + dayLabels[idx] + '</div>';
+    }).join('');
 
-      let show = true;
-      if (activeDay !== 'all' && !days.includes(activeDay)) show = false;
-      activeQuick.forEach(f => { if (!flags.includes(f)) show = false; });
-      if (searchTerm && !haystack.includes(searchTerm)) show = false;
+    // Utilization block (skip if on leave)
+    const utilBlock = isLeave ? '' : `
+      <div class="util-block">
+        <div class="util-row">
+          <div class="util-bar"><div class="util-fill t-${tier}" style="width: ${Math.min(util.percent, 100)}%;"></div></div>
+          <div class="util-pct t-${tier}">${util.percent}%</div>
+        </div>
+        <div class="util-meta">
+          <span><strong>${util.hoursBooked}h</strong> booked</span>
+          <span><strong>${util.openHoursLeft}h</strong> open</span>
+          <span><strong>${util.bookingsCount}</strong> ${util.bookingsCount === 1 ? 'job' : 'jobs'} this week</span>
+        </div>
+      </div>`;
 
-      card.classList.toggle('hidden-card', !show);
-      if (show) visible++;
-    });
-    activeCount.textContent = visible;
-    emptyState.style.display = visible === 0 ? 'block' : 'none';
+    // Bookings block
+    let bookingsBlock = '';
+    if (!isLeave) {
+      const bks = c.thisWeekBookings || [];
+      const list = bks.length
+        ? `<ul class="bookings-list">${bks.map(b => `
+            <li>
+              <span class="b-day">${escapeHTML(b.dayOfWeek)}</span>
+              <span class="b-time">${escapeHTML(b.startTime)}</span>
+              <span class="b-client">${escapeHTML(b.clientFirstName) || '<em>Pending name</em>'}</span>
+              <span class="b-duration">${escapeHTML(b.duration)}</span>
+            </li>`).join('')}</ul>`
+        : `<div class="bookings-empty">No bookings yet this week</div>`;
+      bookingsBlock = `
+        <div class="bookings-block">
+          <div class="bookings-head">
+            <span class="label">This Week's Cleans</span>
+            <span class="count">${bks.length}</span>
+          </div>
+          ${list}
+        </div>`;
+    }
+
+    // Leave warning chips
+    let leaveChips = '';
+    if (c.currentLeave) {
+      leaveChips += `<div class="leave-chip current">
+        <div class="leave-chip-icon">i</div>
+        <div><strong>Currently on leave</strong> through ${escapeHTML(c.currentLeave.endDate)}${c.currentLeave.reason ? '. ' + escapeHTML(c.currentLeave.reason) : ''}</div>
+      </div>`;
+    }
+    if (c.upcomingLeave && c.upcomingLeave.length) {
+      const next = c.upcomingLeave[0];
+      const when = next.daysUntil === 0 ? 'today' : next.daysUntil === 1 ? 'tomorrow' : 'in ' + next.daysUntil + ' days';
+      leaveChips += `<div class="leave-chip">
+        <div class="leave-chip-icon">!</div>
+        <div><strong>Will be on leave</strong> ${escapeHTML(next.startDate)} to ${escapeHTML(next.endDate)} (${when})${next.reason ? '. ' + escapeHTML(next.reason) : ''}</div>
+      </div>`;
+    }
+
+    // Hours info row
+    const hoursRow = (c.hoursStart && c.hoursEnd && !isLeave)
+      ? `<div class="info-row"><span class="info-key">Hours</span><span class="info-val">${escapeHTML(c.hoursStart)} to ${escapeHTML(c.hoursEnd)}</span></div>`
+      : '';
+
+    // Tags
+    const tagPalette = ['tag-gold', 'tag-teal', 'tag-blue', 'tag-green'];
+    const tagsHTML = (c.tags || []).filter(Boolean).map((t, i) =>
+      `<span class="tag ${tagPalette[i % tagPalette.length]}">${escapeHTML(t)}</span>`
+    ).join('');
+
+    return `
+      <div class="cleaner-card reveal ${isLeave ? 'away' : ''}">
+        <div class="cleaner-head">
+          <div class="avatar ${avatarClass}"></div>
+          <div>
+            <div class="cleaner-name">${escapeHTML(c.name)}</div>
+            <div class="cleaner-meta">${isLeave ? 'On the team, not bookable right now' : 'Active team member'}</div>
+          </div>
+          ${statusPill}
+        </div>
+
+        <div class="day-strip">${dayStrip}</div>
+
+        ${utilBlock}
+
+        ${leaveChips}
+
+        ${bookingsBlock}
+
+        ${hoursRow ? `<div class="info-rows">${hoursRow}</div>` : ''}
+
+        ${tagsHTML ? `<div class="tag-row">${tagsHTML}</div>` : ''}
+
+        ${c.notes ? `<div class="cleaner-note">${escapeHTML(c.notes)}</div>` : ''}
+
+        <div class="card-footer">
+          <a href="https://app.gohighlevel.com" target="_blank" rel="noopener" class="ghl-btn">Ping on GHL <span class="arrow">&rsaquo;</span></a>
+        </div>
+      </div>
+    `;
+  }
+
+  // ====================================================================
+  // HELPERS
+  // ====================================================================
+  function tierFor(pct) {
+    if (pct < COLOR_THRESHOLDS.green) return 'green';
+    if (pct < COLOR_THRESHOLDS.yellow) return 'yellow';
+    return 'red';
+  }
+
+  function avatarClassFor(name) {
+    if (!name) return '';
+    const first = name.toLowerCase().split(/\s+/)[0].replace(/[^a-z]/g, '');
+    return AVATAR_MAP[first] || '';
+  }
+
+  function escapeHTML(s) {
+    if (s === null || s === undefined) return '';
+    return String(s).replace(/[&<>"']/g, m => ({
+      '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+    }[m]));
+  }
+
+  function showError(msg) {
+    document.getElementById('errorBox').innerHTML = `
+      <div class="err-banner">
+        <strong>Sync issue</strong>
+        <p>The dashboard could not reach the sync API. Showing the last data we have. Error <code>${escapeHTML(msg)}</code></p>
+      </div>`;
+  }
+  function clearError() {
+    document.getElementById('errorBox').innerHTML = '';
   }
 </script>
 
