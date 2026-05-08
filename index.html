@@ -117,6 +117,319 @@
   .hero h1 span.accent { color: var(--teal); }
   .hero p { font-size: 18px; color: var(--navy-soft); max-width: 620px; line-height: 1.6; }
 
+  /* DISCOVERY QUESTIONS CARD */
+  .discovery {
+    margin-top: 42px; background: var(--white);
+    border-radius: 26px;
+    box-shadow: var(--shadow);
+    border: 1.5px solid var(--border);
+    overflow: hidden;
+    position: relative;
+    transition: box-shadow 0.25s ease, border-color 0.25s ease;
+  }
+  .discovery.open {
+    box-shadow: var(--shadow-lg);
+    border-color: var(--teal-light);
+  }
+  .discovery::before {
+    content: ''; position: absolute; top: 0; left: 0;
+    height: 4px; width: 100%;
+    background: linear-gradient(90deg, var(--gold) 0%, var(--teal) 100%);
+    opacity: 0.85;
+  }
+
+  .discovery-header {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 18px; padding: 22px 28px;
+    background: var(--white);
+    border: none; width: 100%;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+    text-align: left;
+    transition: background 0.2s ease;
+  }
+  .discovery-header:hover { background: var(--off); }
+  .discovery.open .discovery-header { border-bottom: 1px solid var(--border-soft); }
+
+  .discovery-header-left {
+    display: flex; align-items: center; gap: 16px; min-width: 0;
+  }
+  .discovery-icon {
+    width: 48px; height: 48px; border-radius: 14px;
+    background: linear-gradient(135deg, var(--teal-bg), rgba(255, 182, 0, 0.18));
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .discovery-icon svg { width: 26px; height: 26px; }
+
+  .discovery-title-block { min-width: 0; }
+  .discovery-kicker {
+    display: inline-block;
+    font-size: 10px; font-weight: 800;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 6px;
+    background: rgba(255, 182, 0, 0.14);
+    padding: 4px 10px;
+    border-radius: 100px;
+  }
+  .discovery-title {
+    font-size: 21px; font-weight: 800; color: var(--navy);
+    line-height: 1.2; margin-bottom: 3px;
+  }
+  .discovery-sub {
+    font-size: 12.5px; color: var(--navy-muted);
+    font-weight: 500; line-height: 1.4;
+  }
+
+  .discovery-header-right {
+    display: flex; align-items: center; gap: 14px; flex-shrink: 0;
+  }
+  .discovery-progress {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 8px 14px; border-radius: 100px;
+    background: var(--teal-bg); color: var(--teal);
+    font-size: 12px; font-weight: 800;
+    letter-spacing: 0.06em;
+  }
+  .discovery-progress.complete {
+    background: rgba(124, 202, 91, 0.18); color: var(--green);
+  }
+  .discovery-progress-dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: currentColor;
+  }
+  .discovery-arrow {
+    display: inline-flex; align-items: center; gap: 7px;
+    padding: 9px 16px 9px 18px;
+    border-radius: 100px;
+    background: var(--teal);
+    color: var(--white);
+    font-size: 12px; font-weight: 800;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    border: 2px solid var(--teal);
+    box-shadow: 0 6px 18px rgba(90, 179, 201, 0.35);
+    transition: all 0.25s ease;
+    flex-shrink: 0;
+    animation: discoveryPulse 2.4s ease-in-out infinite;
+  }
+  .discovery-arrow svg {
+    width: 13px; height: 13px;
+    transition: transform 0.3s ease;
+    color: var(--white);
+  }
+  .discovery-arrow-text { display: inline-block; line-height: 1; }
+  .discovery-arrow:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 10px 24px rgba(90, 179, 201, 0.45);
+  }
+  .discovery.open .discovery-arrow {
+    padding: 9px 9px;
+    background: var(--white);
+    border-color: var(--border);
+    box-shadow: none;
+    animation: none;
+  }
+  .discovery.open .discovery-arrow svg {
+    transform: rotate(180deg); color: var(--navy-soft);
+  }
+  .discovery.open .discovery-arrow-text { display: none; }
+
+  @keyframes discoveryPulse {
+    0%, 100% { box-shadow: 0 6px 18px rgba(90, 179, 201, 0.35), 0 0 0 0 rgba(90, 179, 201, 0.5); }
+    50% { box-shadow: 0 6px 18px rgba(90, 179, 201, 0.35), 0 0 0 10px rgba(90, 179, 201, 0); }
+  }
+
+  .discovery-body {
+    max-height: 0; overflow: hidden;
+    transition: max-height 0.4s ease;
+  }
+  .discovery.open .discovery-body {
+    max-height: 4000px;
+  }
+  .discovery-body-inner { padding: 24px 28px 28px; }
+
+  .discovery-why {
+    background: linear-gradient(135deg, rgba(90, 179, 201, 0.08), rgba(255, 182, 0, 0.06));
+    border-left: 3px solid var(--teal);
+    border-radius: 0 16px 16px 0;
+    padding: 16px 20px; margin-bottom: 22px;
+  }
+  .discovery-why-label {
+    display: block;
+    font-size: 10px; font-weight: 800;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--teal); margin-bottom: 8px;
+  }
+  .discovery-why-text {
+    font-size: 13px; line-height: 1.6;
+    color: var(--navy-soft); font-weight: 500;
+  }
+  .discovery-why-text strong {
+    color: var(--navy); font-weight: 700;
+  }
+
+  .discovery-questions {
+    display: flex; flex-direction: column; gap: 10px;
+  }
+
+  .discovery-q {
+    border: 1.5px solid var(--border);
+    border-radius: 16px; padding: 14px 16px;
+    background: var(--white);
+    transition: all 0.2s ease;
+  }
+  .discovery-q:hover {
+    border-color: var(--teal-light);
+    background: var(--off);
+  }
+  .discovery-q.checked {
+    border-color: var(--teal);
+    background: var(--teal-bg);
+  }
+
+  .discovery-q-row {
+    display: flex; align-items: flex-start; gap: 12px;
+    cursor: pointer; user-select: none;
+  }
+  .discovery-q-checkbox {
+    width: 22px; height: 22px;
+    border: 2px solid var(--border);
+    border-radius: 8px; flex-shrink: 0;
+    background: var(--white); position: relative;
+    transition: all 0.2s ease;
+    margin-top: 1px;
+  }
+  .discovery-q.checked .discovery-q-checkbox {
+    background: var(--teal); border-color: var(--teal);
+  }
+  .discovery-q.checked .discovery-q-checkbox::after {
+    content: ''; position: absolute;
+    left: 5px; top: 1px;
+    width: 7px; height: 12px;
+    border-right: 2.5px solid white;
+    border-bottom: 2.5px solid white;
+    transform: rotate(45deg);
+  }
+
+  .discovery-q-content { flex: 1; min-width: 0; }
+  .discovery-q-num {
+    display: inline-block;
+    font-size: 9.5px; font-weight: 800;
+    letter-spacing: 0.18em; color: var(--teal);
+    background: var(--white);
+    padding: 3px 8px; border-radius: 100px;
+    margin-right: 8px; vertical-align: 1px;
+    border: 1px solid var(--teal-light);
+  }
+  .discovery-q.checked .discovery-q-num {
+    background: var(--teal); color: var(--white);
+    border-color: var(--teal);
+  }
+  .discovery-q-text {
+    font-size: 14px; font-weight: 700; color: var(--navy);
+    line-height: 1.4;
+  }
+  .discovery-q-why {
+    display: block;
+    font-size: 11.5px; font-weight: 500;
+    color: var(--navy-muted); line-height: 1.5;
+    margin-top: 6px; font-style: italic;
+  }
+  .discovery-q-why strong {
+    color: var(--navy-soft); font-style: normal; font-weight: 700;
+  }
+
+  .discovery-q-notes {
+    width: 100%;
+    margin-top: 10px;
+    padding: 10px 14px;
+    border: 1.5px solid var(--border);
+    border-radius: 12px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px; font-weight: 500;
+    color: var(--navy);
+    background: var(--white);
+    resize: vertical;
+    min-height: 38px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    line-height: 1.4;
+  }
+  .discovery-q-notes:focus {
+    outline: none; border-color: var(--teal);
+    box-shadow: 0 0 0 3px rgba(90, 179, 201, 0.14);
+  }
+  .discovery-q-notes::placeholder {
+    color: var(--navy-muted); opacity: 0.6;
+  }
+
+  .discovery-actions {
+    display: flex; gap: 10px;
+    margin-top: 18px;
+    align-items: center; justify-content: flex-end;
+    flex-wrap: wrap;
+  }
+  .discovery-btn {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12.5px; font-weight: 700;
+    padding: 11px 20px; border-radius: 100px;
+    cursor: pointer; border: none;
+    letter-spacing: 0.04em;
+    transition: all 0.2s ease;
+    display: inline-flex; align-items: center; gap: 7px;
+  }
+  .discovery-btn svg { width: 14px; height: 14px; }
+  .discovery-btn-secondary {
+    background: var(--white); color: var(--navy-soft);
+    border: 1.5px solid var(--border);
+  }
+  .discovery-btn-secondary:hover {
+    border-color: var(--navy-soft); color: var(--navy);
+  }
+  .discovery-btn-primary {
+    background: var(--navy); color: var(--white);
+  }
+  .discovery-btn-primary:hover {
+    background: var(--teal);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 18px rgba(90, 179, 201, 0.3);
+  }
+  .discovery-btn-primary.success {
+    background: var(--green);
+  }
+
+  .discovery-toast {
+    position: fixed; bottom: 30px; left: 50%;
+    transform: translateX(-50%) translateY(20px);
+    background: var(--navy); color: var(--white);
+    padding: 14px 26px; border-radius: 100px;
+    font-size: 13px; font-weight: 700;
+    box-shadow: 0 14px 40px rgba(44, 62, 80, 0.3);
+    opacity: 0; pointer-events: none;
+    transition: all 0.3s ease;
+    z-index: 200;
+    display: inline-flex; align-items: center; gap: 8px;
+  }
+  .discovery-toast.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+  .discovery-toast svg { width: 16px; height: 16px; color: var(--green); }
+
+  @media (max-width: 700px) {
+    .discovery-header { padding: 18px 18px; }
+    .discovery-body-inner { padding: 20px 18px 22px; }
+    .discovery-icon { width: 42px; height: 42px; }
+    .discovery-icon svg { width: 22px; height: 22px; }
+    .discovery-title { font-size: 17px; }
+    .discovery-sub { display: none; }
+    .discovery-header-right { gap: 8px; }
+    .discovery-progress { padding: 6px 10px; font-size: 11px; }
+    .discovery-q { padding: 12px 14px; }
+    .discovery-q-text { font-size: 13.5px; }
+    .discovery-actions { justify-content: stretch; }
+    .discovery-btn { flex: 1; justify-content: center; }
+  }
+
   /* CALCULATOR */
   .calc {
     margin-top: 42px; background: var(--white);
@@ -247,24 +560,35 @@
     color: var(--gold); font-weight: 800; font-size: 13px;
   }
   .price-row.tax-row {
-    padding: 8px 0;
-    border-bottom: 1px dashed rgba(255, 255, 255, 0.08);
-    background: rgba(255, 255, 255, 0.02);
-    margin: 0 -4px;
-    padding-left: 4px; padding-right: 4px;
-    border-radius: 6px;
+    padding: 14px 14px;
+    background: rgba(124, 202, 91, 0.12);
+    border: 1px solid rgba(124, 202, 91, 0.3);
+    margin: 8px -4px 4px;
+    border-radius: 14px;
+    position: relative;
+  }
+  .price-row.tax-row::before {
+    content: 'TOTAL';
+    position: absolute;
+    top: -8px; left: 14px;
+    background: var(--green); color: var(--navy);
+    font-size: 9px; font-weight: 800;
+    letter-spacing: 0.15em;
+    padding: 3px 8px; border-radius: 100px;
   }
   .price-row.tax-row .price-row-label {
-    font-size: 10px; color: rgba(255, 255, 255, 0.55);
-    letter-spacing: 0.1em; font-weight: 600;
+    font-size: 12px; color: rgba(255, 255, 255, 0.95);
+    letter-spacing: 0.04em; font-weight: 700;
   }
   .price-row.tax-row .price-row-label small {
-    font-size: 10px; color: rgba(255, 255, 255, 0.4);
+    font-size: 11px; color: rgba(255, 255, 255, 0.7);
     text-transform: none; letter-spacing: 0.02em;
+    font-weight: 500;
   }
   .price-row-amount.tax-amount {
-    font-size: 16px; font-weight: 700;
-    color: rgba(255, 255, 255, 0.85);
+    font-size: 24px; font-weight: 800;
+    color: var(--green);
+    letter-spacing: -0.01em;
   }
 
   /* LEAD PLATFORM SELECTOR */
@@ -827,11 +1151,16 @@
   }
   table.pricing td.price .price-tax,
   table.pricing td.price-best .price-tax {
-    display: block; font-size: 10.5px; font-weight: 600;
-    color: var(--navy-muted); margin-top: 2px;
+    display: inline-block; font-size: 11px; font-weight: 700;
+    color: var(--green); margin-top: 4px;
     letter-spacing: 0.02em;
+    background: rgba(124, 202, 91, 0.12);
+    padding: 2px 8px; border-radius: 100px;
   }
-  table.pricing td.price-best .price-tax { color: var(--blue); opacity: 0.75; }
+  table.pricing td.price-best .price-tax {
+    color: var(--blue); opacity: 1;
+    background: rgba(46, 110, 165, 0.12);
+  }
   table.pricing td.hours {
     text-align: center; color: var(--navy-muted); font-size: 13px;
     font-weight: 600;
@@ -1384,7 +1713,7 @@
       <a href="#hourly">Hourly</a>
       <a href="#checklists">Checklists</a>
       <a href="#rules">Rebuttals</a>
-      <a class="nav-link-external" href="https://alf187.github.io/MaidThis-Pricing/cleaners.html" target="_blank" rel="noopener">Cleaner Roster <span class="ext-icon">&#8599;</span></a>
+      <a class="nav-link-external" href="https://alf187.github.io/MaidThis-Pricing/cleaners.html">Cleaner Roster <span class="ext-icon">&#8594;</span></a>
     </div>
   </div>
 </nav>
@@ -1395,6 +1724,139 @@
       <div class="kicker">Your Pricing Playbook</div>
       <h1>Quote fast. <span class="accent">Sell smarter.</span></h1>
       <p>Everything you need mid-call, one tap away. Pull up a quote, walk a client through a checklist, handle the tough objection. This is the stuff the best closers lean on every day.</p>
+    </div>
+
+    <div class="discovery animate d1" id="discoveryCard">
+      <button type="button" class="discovery-header" onclick="toggleDiscovery()" aria-expanded="false">
+        <div class="discovery-header-left">
+          <div class="discovery-icon">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M9 4H7a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-2" stroke="#5AB3C9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <rect x="9" y="2" width="6" height="4" rx="1" stroke="#FFB600" stroke-width="2"/>
+              <path d="m9 13 2 2 4-4" stroke="#7CCA5B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="discovery-title-block">
+            <span class="discovery-kicker">Step One. Before You Quote</span>
+            <div class="discovery-title">Discovery Questions</div>
+            <div class="discovery-sub">Sixty seconds of rapport that tells you exactly what to sell</div>
+          </div>
+        </div>
+        <div class="discovery-header-right">
+          <span class="discovery-progress" id="discoveryProgress">
+            <span class="discovery-progress-dot"></span>
+            <span id="discoveryProgressText">0 of 5</span>
+          </span>
+          <span class="discovery-arrow">
+            <span class="discovery-arrow-text">Open</span>
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="m6 9 6 6 6-6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </div>
+      </button>
+
+      <div class="discovery-body">
+        <div class="discovery-body-inner">
+          <div class="discovery-why">
+            <span class="discovery-why-label">Why this card lives at the top of every call</span>
+            <div class="discovery-why-text">
+              Asking before quoting does three things at once. <strong>It tailors the price to the actual home</strong> instead of just square footage. <strong>It anchors the client to their own pain</strong> so the price feels like a solution, not an expense. And <strong>it builds rapport in the first sixty seconds</strong>, which every major sales playbook (Pipedrive, Gong, HubSpot) flags as the strongest single predictor of whether a quote turns into a booking. Skip these and you are quoting blind. Hit them and you are halfway to the close before you ever say a number.
+            </div>
+          </div>
+
+          <div class="discovery-questions">
+            <div class="discovery-q" data-q="occasion">
+              <div class="discovery-q-row" onclick="toggleDiscoveryQ(this)">
+                <div class="discovery-q-checkbox"></div>
+                <div class="discovery-q-content">
+                  <div class="discovery-q-text">
+                    <span class="discovery-q-num">01</span>What is the occasion? Deep clean, move in or out, or just regular help around the house?
+                  </div>
+                  <span class="discovery-q-why"><strong>Why ask.</strong> This reveals the service type. Most clients do not know the difference between Standard and Deep, so you frame it for them. Drives the entire quote path.</span>
+                </div>
+              </div>
+              <textarea class="discovery-q-notes" data-field="occasion" placeholder="Example. Move out from a 2 bed apartment, lease ends Friday, needs interior windows and oven." rows="1"></textarea>
+            </div>
+
+            <div class="discovery-q" data-q="pets">
+              <div class="discovery-q-row" onclick="toggleDiscoveryQ(this)">
+                <div class="discovery-q-checkbox"></div>
+                <div class="discovery-q-content">
+                  <div class="discovery-q-text">
+                    <span class="discovery-q-num">02</span>Any pets in the home?
+                  </div>
+                  <span class="discovery-q-why"><strong>Why ask.</strong> Triggers the pet hair add-on and gives you a free rapport win. A quick "aw, what is their name" or "are they a handful" makes you a friend in five seconds. Also flags allergy and safety stuff for the cleaner.</span>
+                </div>
+              </div>
+              <textarea class="discovery-q-notes" data-field="pets" placeholder="Example. Yes, golden retriever named Bailey. Heavy shedder." rows="1"></textarea>
+            </div>
+
+            <div class="discovery-q" data-q="lastdeep">
+              <div class="discovery-q-row" onclick="toggleDiscoveryQ(this)">
+                <div class="discovery-q-checkbox"></div>
+                <div class="discovery-q-content">
+                  <div class="discovery-q-text">
+                    <span class="discovery-q-num">03</span>When was the last time the home had a professional deep clean?
+                  </div>
+                  <span class="discovery-q-why"><strong>Why ask.</strong> Anything past 90 days means a Standard Clean will not get the home back to baseline. This is your anchor for pitching Deep plus Recurring. If they say never, that is a green light.</span>
+                </div>
+              </div>
+              <textarea class="discovery-q-notes" data-field="lastdeep" placeholder="Example. Never had one professionally, just keeps up with light tidying." rows="1"></textarea>
+            </div>
+
+            <div class="discovery-q" data-q="painpoint">
+              <div class="discovery-q-row" onclick="toggleDiscoveryQ(this)">
+                <div class="discovery-q-checkbox"></div>
+                <div class="discovery-q-content">
+                  <div class="discovery-q-text">
+                    <span class="discovery-q-num">04</span>What is the biggest pain point with cleanliness right now?
+                  </div>
+                  <span class="discovery-q-why"><strong>Why ask.</strong> Clients buy solutions to pain they already feel. When they say "the bathrooms" or "I just had a baby and I am drowning," that pain becomes your value prop. Repeat it back when you give the price.</span>
+                </div>
+              </div>
+              <textarea class="discovery-q-notes" data-field="painpoint" placeholder="Example. New baby, no time, kitchen and bathrooms are out of control." rows="1"></textarea>
+            </div>
+
+            <div class="discovery-q" data-q="size">
+              <div class="discovery-q-row" onclick="toggleDiscoveryQ(this)">
+                <div class="discovery-q-checkbox"></div>
+                <div class="discovery-q-content">
+                  <div class="discovery-q-text">
+                    <span class="discovery-q-num">05</span>How big is the home? Beds, baths, and rough square footage?
+                  </div>
+                  <span class="discovery-q-why"><strong>Why ask.</strong> Drives the base quote. Always confirm bed and bath count even if they gave square footage. A 3 bed 2 bath at 1800 sq ft quotes very differently from a 1 bed 3 bath at the same size.</span>
+                </div>
+              </div>
+              <textarea class="discovery-q-notes" data-field="size" placeholder="Example. 3 bed, 2 bath, around 1800 sq ft, single story." rows="1"></textarea>
+            </div>
+          </div>
+
+          <div class="discovery-actions">
+            <button type="button" class="discovery-btn discovery-btn-secondary" onclick="resetDiscovery()">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M3 12a9 9 0 1 0 3-6.7L3 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M3 3v5h5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              Reset
+            </button>
+            <button type="button" class="discovery-btn discovery-btn-primary" id="discoveryCopyBtn" onclick="copyDiscoveryNotes()">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="9" y="9" width="13" height="13" rx="2" stroke="currentColor" stroke-width="2"/>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" stroke="currentColor" stroke-width="2"/>
+              </svg>
+              <span id="discoveryCopyBtnText">Copy notes for CRM</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="discoveryToast" class="discovery-toast">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span id="discoveryToastText">Notes copied. Paste into Launch27 booking notes.</span>
     </div>
 
     <div class="calc animate d2">
@@ -2306,7 +2768,7 @@
   <p><strong>MaidThis Cleaning of Northwest San Antonio</strong></p>
   <p>(210) 880-9541 &middot; <a href="mailto:nwsanantonio@maidthis.com">nwsanantonio@maidthis.com</a></p>
   <p style="margin-top: 14px; font-size: 12px; opacity: 0.7;">Northwest San Antonio &middot; Helotes &middot; Castroville &middot; Stone Oak &middot; Live Oak</p>
-  <p style="margin-top: 18px;"><a class="footer-roster-link" href="https://alf187.github.io/MaidThis-Pricing/cleaners.html" target="_blank" rel="noopener">Open Cleaner Roster <span style="font-size: 14px;">&#8599;</span></a></p>
+  <p style="margin-top: 18px;"><a class="footer-roster-link" href="https://alf187.github.io/MaidThis-Pricing/cleaners.html">Open Cleaner Roster <span style="font-size: 14px;">&#8594;</span></a></p>
   <p style="margin-top: 14px; font-size: 12px; opacity: 0.6;">Your field reference. Keep it close, lean on it often. Prices effective 2026.</p>
 </footer>
 
@@ -3219,6 +3681,142 @@
       clPanels.forEach(p => p.classList.remove('active'));
       tab.classList.add('active');
       document.getElementById(tab.dataset.panel).classList.add('active');
+    });
+  });
+
+  // ============================================================
+  // DISCOVERY QUESTIONS CARD
+  // ============================================================
+  function toggleDiscovery() {
+    const card = document.getElementById('discoveryCard');
+    const header = card.querySelector('.discovery-header');
+    const isOpen = card.classList.toggle('open');
+    header.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  }
+
+  function toggleDiscoveryQ(row) {
+    const qBox = row.closest('.discovery-q');
+    qBox.classList.toggle('checked');
+    updateDiscoveryProgress();
+  }
+
+  function updateDiscoveryProgress() {
+    const total = document.querySelectorAll('.discovery-q').length;
+    const checked = document.querySelectorAll('.discovery-q.checked').length;
+    const progressEl = document.getElementById('discoveryProgress');
+    const progressTextEl = document.getElementById('discoveryProgressText');
+    if (!progressEl || !progressTextEl) return;
+    progressTextEl.textContent = checked + ' of ' + total;
+    if (checked === total) {
+      progressEl.classList.add('complete');
+    } else {
+      progressEl.classList.remove('complete');
+    }
+  }
+
+  function resetDiscovery() {
+    document.querySelectorAll('.discovery-q').forEach(q => q.classList.remove('checked'));
+    document.querySelectorAll('.discovery-q-notes').forEach(t => { t.value = ''; });
+    updateDiscoveryProgress();
+    showDiscoveryToast('Cleared. Ready for the next call.');
+  }
+
+  function copyDiscoveryNotes() {
+    const labels = {
+      occasion: 'OCCASION',
+      pets: 'PETS',
+      lastdeep: 'LAST DEEP CLEAN',
+      painpoint: 'BIGGEST PAIN POINT',
+      size: 'HOME SIZE'
+    };
+    const order = ['occasion', 'pets', 'lastdeep', 'painpoint', 'size'];
+    const today = new Date();
+    const dateStr = (today.getMonth() + 1) + '/' + today.getDate() + '/' + today.getFullYear();
+
+    let out = 'DISCOVERY NOTES   ' + dateStr + '\n';
+    out += '----------------------------------------\n\n';
+
+    order.forEach(key => {
+      const qBox = document.querySelector('.discovery-q[data-q="' + key + '"]');
+      const notesEl = document.querySelector('.discovery-q-notes[data-field="' + key + '"]');
+      const checked = qBox && qBox.classList.contains('checked');
+      const notes = notesEl && notesEl.value.trim() ? notesEl.value.trim() : '(not asked)';
+      const mark = checked ? '[X]' : '[ ]';
+      out += mark + '  ' + labels[key] + '\n';
+      out += '     ' + notes + '\n\n';
+    });
+
+    const btn = document.getElementById('discoveryCopyBtn');
+    const btnText = document.getElementById('discoveryCopyBtnText');
+
+    const onSuccess = () => {
+      btn.classList.add('success');
+      btnText.textContent = 'Copied';
+      showDiscoveryToast('Notes copied. Paste into Launch27 booking notes.');
+      setTimeout(() => {
+        btn.classList.remove('success');
+        btnText.textContent = 'Copy notes for CRM';
+      }, 2200);
+    };
+
+    const onFail = () => {
+      // Fallback. Show notes in a prompt for manual copy
+      window.prompt('Copy the notes below', out);
+    };
+
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(out).then(onSuccess).catch(() => {
+        try {
+          const ta = document.createElement('textarea');
+          ta.value = out;
+          ta.style.position = 'fixed';
+          ta.style.left = '-9999px';
+          document.body.appendChild(ta);
+          ta.select();
+          document.execCommand('copy');
+          document.body.removeChild(ta);
+          onSuccess();
+        } catch (e) {
+          onFail();
+        }
+      });
+    } else {
+      try {
+        const ta = document.createElement('textarea');
+        ta.value = out;
+        ta.style.position = 'fixed';
+        ta.style.left = '-9999px';
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        document.body.removeChild(ta);
+        onSuccess();
+      } catch (e) {
+        onFail();
+      }
+    }
+  }
+
+  function showDiscoveryToast(message) {
+    const toast = document.getElementById('discoveryToast');
+    const toastText = document.getElementById('discoveryToastText');
+    if (!toast) return;
+    if (toastText && message) toastText.textContent = message;
+    toast.classList.add('show');
+    clearTimeout(window._discoveryToastTimer);
+    window._discoveryToastTimer = setTimeout(() => {
+      toast.classList.remove('show');
+    }, 2400);
+  }
+
+  // Auto-check a question when the rep types notes for it
+  document.querySelectorAll('.discovery-q-notes').forEach(ta => {
+    ta.addEventListener('input', () => {
+      const qBox = ta.closest('.discovery-q');
+      if (ta.value.trim().length > 0 && !qBox.classList.contains('checked')) {
+        qBox.classList.add('checked');
+        updateDiscoveryProgress();
+      }
     });
   });
 </script>
