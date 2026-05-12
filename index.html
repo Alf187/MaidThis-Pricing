@@ -117,6 +117,328 @@
   .hero h1 span.accent { color: var(--teal); }
   .hero p { font-size: 18px; color: var(--navy-soft); max-width: 620px; line-height: 1.6; }
 
+  /* ZIP CODE CHECKER CARD */
+  .zip-check {
+    margin-top: 42px; background: var(--white);
+    border-radius: 26px;
+    box-shadow: var(--shadow);
+    border: 1.5px solid var(--border);
+    overflow: hidden;
+    position: relative;
+    transition: box-shadow 0.3s ease, border-color 0.3s ease;
+  }
+  .zip-check::before {
+    content: ''; position: absolute; top: 0; left: 0;
+    height: 4px; width: 100%;
+    background: var(--teal);
+    transition: background 0.4s ease;
+  }
+  .zip-check.state-nwsa::before { background: var(--green); }
+  .zip-check.state-sanantonio::before { background: var(--gold); }
+  .zip-check.state-other::before { background: var(--blue); }
+  .zip-check.state-error::before { background: #E74C3C; }
+  .zip-check.state-nwsa { border-color: rgba(124, 202, 91, 0.4); }
+  .zip-check.state-sanantonio { border-color: rgba(255, 182, 0, 0.5); }
+  .zip-check.state-other { border-color: rgba(12, 133, 194, 0.35); }
+
+  .zip-check-header {
+    display: flex; align-items: center; gap: 16px;
+    padding: 22px 28px 18px;
+  }
+  .zip-check-icon {
+    width: 48px; height: 48px; border-radius: 14px;
+    background: linear-gradient(135deg, var(--teal-bg), rgba(12, 133, 194, 0.12));
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    transition: background 0.3s ease;
+  }
+  .zip-check.state-nwsa .zip-check-icon {
+    background: linear-gradient(135deg, rgba(124, 202, 91, 0.22), rgba(124, 202, 91, 0.08));
+  }
+  .zip-check.state-sanantonio .zip-check-icon {
+    background: linear-gradient(135deg, rgba(255, 182, 0, 0.25), rgba(255, 182, 0, 0.08));
+  }
+  .zip-check.state-other .zip-check-icon {
+    background: linear-gradient(135deg, rgba(12, 133, 194, 0.18), rgba(12, 133, 194, 0.06));
+  }
+  .zip-check-icon svg { width: 26px; height: 26px; }
+
+  .zip-check-title-block { flex: 1; min-width: 0; }
+  .zip-check-kicker {
+    display: inline-block;
+    font-size: 10px; font-weight: 800;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--teal); margin-bottom: 6px;
+    background: var(--teal-bg);
+    padding: 4px 10px;
+    border-radius: 100px;
+  }
+  .zip-check-title {
+    font-size: 21px; font-weight: 800; color: var(--navy);
+    line-height: 1.2; margin-bottom: 3px;
+  }
+  .zip-check-sub {
+    font-size: 12.5px; color: var(--navy-muted);
+    font-weight: 500; line-height: 1.4;
+  }
+
+  .zip-check-badge {
+    display: none;
+    align-items: center; gap: 7px;
+    padding: 8px 14px; border-radius: 100px;
+    background: rgba(124, 202, 91, 0.18);
+    color: var(--green);
+    font-size: 12px; font-weight: 800;
+    letter-spacing: 0.06em;
+    flex-shrink: 0;
+  }
+  .zip-check.state-nwsa .zip-check-badge {
+    display: inline-flex;
+  }
+  .zip-check-badge svg { width: 14px; height: 14px; }
+  .zip-check-badge small {
+    font-size: 10px; font-weight: 600;
+    opacity: 0.75; margin-left: 4px;
+    letter-spacing: 0.02em;
+  }
+
+  .zip-check-body {
+    padding: 4px 28px 26px;
+  }
+
+  .zip-input-row {
+    display: flex; gap: 12px;
+    align-items: stretch;
+  }
+  .zip-input-wrap {
+    flex: 1; position: relative;
+  }
+  .zip-input-icon {
+    position: absolute; left: 18px; top: 50%;
+    transform: translateY(-50%);
+    color: var(--navy-muted);
+    pointer-events: none;
+    transition: color 0.2s ease;
+  }
+  .zip-input-icon svg { width: 18px; height: 18px; display: block; }
+  #zipInput {
+    width: 100%;
+    padding: 18px 20px 18px 48px;
+    border: 2px solid var(--border);
+    border-radius: 18px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 22px; font-weight: 700;
+    color: var(--navy);
+    background: var(--white);
+    letter-spacing: 0.24em;
+    text-align: left;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    -moz-appearance: textfield;
+  }
+  #zipInput::-webkit-outer-spin-button,
+  #zipInput::-webkit-inner-spin-button {
+    -webkit-appearance: none; margin: 0;
+  }
+  #zipInput:focus {
+    outline: none; border-color: var(--teal);
+    box-shadow: 0 0 0 4px rgba(90, 179, 201, 0.14);
+  }
+  #zipInput:focus ~ .zip-input-icon { color: var(--teal); }
+  #zipInput::placeholder {
+    color: var(--navy-muted); opacity: 0.4;
+    letter-spacing: 0.24em; font-weight: 600;
+  }
+
+  .zip-check-btn {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px; font-weight: 800;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    padding: 0 28px;
+    border-radius: 18px;
+    border: none; cursor: pointer;
+    background: var(--navy); color: var(--white);
+    display: inline-flex; align-items: center; gap: 9px;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+    min-width: 120px; justify-content: center;
+  }
+  .zip-check-btn svg { width: 16px; height: 16px; }
+  .zip-check-btn:hover:not(:disabled) {
+    background: var(--teal);
+    transform: translateY(-1px);
+    box-shadow: 0 8px 24px rgba(90, 179, 201, 0.32);
+  }
+  .zip-check-btn:disabled {
+    background: var(--border); color: var(--navy-muted);
+    cursor: not-allowed;
+  }
+  .zip-check-btn.loading {
+    background: var(--teal); color: var(--white);
+    pointer-events: none;
+  }
+  .zip-check-btn .zip-spinner {
+    width: 16px; height: 16px;
+    border: 2.5px solid rgba(255, 255, 255, 0.3);
+    border-top-color: var(--white);
+    border-radius: 50%;
+    animation: zipSpin 0.8s linear infinite;
+    display: none;
+  }
+  .zip-check-btn.loading .zip-search-icon { display: none; }
+  .zip-check-btn.loading .zip-spinner { display: inline-block; }
+  .zip-check-btn.loading .zip-btn-text::after {
+    content: 'ing'; display: inline;
+  }
+
+  @keyframes zipSpin {
+    to { transform: rotate(360deg); }
+  }
+
+  .zip-result {
+    margin-top: 16px;
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: opacity 0.3s ease, max-height 0.4s ease;
+  }
+  .zip-result.visible {
+    opacity: 1;
+    max-height: 800px;
+  }
+
+  .zip-result-card {
+    border-radius: 18px;
+    padding: 20px 22px;
+    border-left: 4px solid var(--teal);
+  }
+  .zip-result-card.success {
+    background: rgba(124, 202, 91, 0.1);
+    border-left-color: var(--green);
+  }
+  .zip-result-card.warn {
+    background: rgba(255, 182, 0, 0.08);
+    border-left-color: var(--gold);
+  }
+  .zip-result-card.info {
+    background: rgba(12, 133, 194, 0.08);
+    border-left-color: var(--blue);
+  }
+  .zip-result-card.error {
+    background: rgba(231, 76, 60, 0.08);
+    border-left-color: #E74C3C;
+  }
+
+  .zip-result-top {
+    display: flex; align-items: flex-start; gap: 14px;
+    margin-bottom: 8px;
+  }
+  .zip-result-status-icon {
+    width: 36px; height: 36px; border-radius: 50%;
+    flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .zip-result-card.success .zip-result-status-icon { background: var(--green); }
+  .zip-result-card.warn .zip-result-status-icon { background: var(--gold); }
+  .zip-result-card.info .zip-result-status-icon { background: var(--blue); }
+  .zip-result-card.error .zip-result-status-icon { background: #E74C3C; }
+  .zip-result-status-icon svg { width: 20px; height: 20px; color: var(--white); }
+
+  .zip-result-headline {
+    font-size: 17px; font-weight: 800; color: var(--navy);
+    line-height: 1.25; margin-bottom: 4px;
+  }
+  .zip-result-detail {
+    font-size: 13px; color: var(--navy-soft);
+    font-weight: 500; line-height: 1.5;
+  }
+  .zip-result-detail strong {
+    color: var(--navy); font-weight: 700;
+  }
+
+  .zip-script-box {
+    background: var(--white);
+    border: 1.5px solid rgba(255, 182, 0, 0.4);
+    border-radius: 14px;
+    padding: 14px 16px;
+    margin-top: 14px;
+    font-size: 13.5px;
+    line-height: 1.55;
+    color: var(--navy);
+    font-style: italic;
+    position: relative;
+  }
+  .zip-script-box::before {
+    content: 'SAY THIS';
+    position: absolute; top: -8px; left: 14px;
+    background: var(--gold); color: var(--navy);
+    font-size: 9px; font-weight: 800;
+    letter-spacing: 0.18em;
+    padding: 3px 9px; border-radius: 100px;
+    font-style: normal;
+  }
+  .zip-script-box strong {
+    color: var(--navy); font-weight: 800;
+    background: rgba(255, 182, 0, 0.22);
+    padding: 1px 6px; border-radius: 4px;
+    font-style: normal;
+  }
+
+  .zip-action-row {
+    display: flex; gap: 10px; flex-wrap: wrap;
+    margin-top: 14px;
+  }
+  .zip-action-btn {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12.5px; font-weight: 700;
+    padding: 11px 18px; border-radius: 100px;
+    border: none; cursor: pointer;
+    display: inline-flex; align-items: center; gap: 7px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    letter-spacing: 0.04em;
+  }
+  .zip-action-btn svg { width: 14px; height: 14px; }
+  .zip-action-btn.primary {
+    background: var(--gold); color: var(--navy);
+  }
+  .zip-action-btn.primary:hover {
+    background: var(--navy); color: var(--gold);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 18px rgba(44, 62, 80, 0.25);
+  }
+  .zip-action-btn.secondary {
+    background: var(--white); color: var(--navy-soft);
+    border: 1.5px solid var(--border);
+  }
+  .zip-action-btn.secondary:hover {
+    border-color: var(--navy-soft); color: var(--navy);
+  }
+  .zip-action-btn.success {
+    background: var(--green); color: var(--white);
+  }
+
+  .zip-check-foot {
+    margin-top: 14px;
+    font-size: 11.5px; color: var(--navy-muted);
+    font-weight: 500;
+    display: flex; align-items: center; gap: 6px;
+  }
+  .zip-check-foot svg { width: 12px; height: 12px; opacity: 0.6; }
+
+  @media (max-width: 600px) {
+    .zip-check-header { padding: 18px 18px 14px; }
+    .zip-check-body { padding: 4px 18px 22px; }
+    .zip-input-row { flex-direction: column; }
+    .zip-check-btn { padding: 14px 20px; min-width: 0; }
+    #zipInput { font-size: 18px; padding: 14px 16px 14px 44px; }
+    .zip-check-icon { width: 42px; height: 42px; }
+    .zip-check-title { font-size: 17px; }
+    .zip-check-sub { display: none; }
+    .zip-check-badge { display: none !important; }
+    .zip-result-card { padding: 16px 16px; }
+    .zip-result-headline { font-size: 15px; }
+  }
+
   /* DISCOVERY QUESTIONS CARD */
   .discovery {
     margin-top: 42px; background: var(--white);
@@ -1726,6 +2048,61 @@
       <p>Everything you need mid-call, one tap away. Pull up a quote, walk a client through a checklist, handle the tough objection. This is the stuff the best closers lean on every day.</p>
     </div>
 
+    <div class="zip-check animate" id="zipCheckCard">
+      <div class="zip-check-header">
+        <div class="zip-check-icon">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 22s-8-7.5-8-13a8 8 0 1 1 16 0c0 5.5-8 13-8 13z" stroke="#0C85C2" stroke-width="2" stroke-linejoin="round"/>
+            <circle cx="12" cy="9" r="2.5" stroke="#5AB3C9" stroke-width="2"/>
+          </svg>
+        </div>
+        <div class="zip-check-title-block">
+          <span class="zip-check-kicker">Step One. Service Area Check</span>
+          <div class="zip-check-title">Verify the zip code first</div>
+          <div class="zip-check-sub">Make sure the lead is in your territory before you spend a second on the quote</div>
+        </div>
+        <span class="zip-check-badge" id="zipBadge">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span>VERIFIED</span>
+          <small id="zipBadgeText"></small>
+        </span>
+      </div>
+
+      <div class="zip-check-body">
+        <div class="zip-input-row">
+          <div class="zip-input-wrap">
+            <input type="text" id="zipInput" maxlength="5" placeholder="78250" inputmode="numeric" autocomplete="postal-code" />
+            <span class="zip-input-icon">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/>
+                <path d="m20 20-4.5-4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </span>
+          </div>
+          <button type="button" id="zipCheckBtn" class="zip-check-btn" disabled onclick="checkZipCode()">
+            <svg class="zip-search-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2.5"/>
+              <path d="m20 20-4.5-4.5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+            </svg>
+            <span class="zip-spinner"></span>
+            <span class="zip-btn-text">Verify</span>
+          </button>
+        </div>
+
+        <div id="zipResult" class="zip-result"></div>
+
+        <div class="zip-check-foot">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+            <path d="M12 8v4M12 16h.01" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+          <span>Live lookup against your franchise territory sheet</span>
+        </div>
+      </div>
+    </div>
+
     <div class="discovery animate d1" id="discoveryCard">
       <button type="button" class="discovery-header" onclick="toggleDiscovery()" aria-expanded="false">
         <div class="discovery-header-left">
@@ -1737,7 +2114,7 @@
             </svg>
           </div>
           <div class="discovery-title-block">
-            <span class="discovery-kicker">Step One. Before You Quote</span>
+            <span class="discovery-kicker">Step Two. Before You Quote</span>
             <div class="discovery-title">Discovery Questions</div>
             <div class="discovery-sub">Sixty seconds of rapport that tells you exactly what to sell</div>
           </div>
@@ -3819,6 +4196,251 @@
       }
     });
   });
+
+  // ============================================================
+  // ZIP CODE CHECKER
+  // ============================================================
+  // Paste your deployed Apps Script Web App URL here after deploying.
+  // The URL looks like https://script.google.com/macros/s/AKfycb.../exec
+  const ZIP_CHECK_URL = 'https://script.google.com/macros/s/AKfycbyPXU8vTaUbz2hiGaWUMpUA5RRggS9jiVJh2EUiNvdgYSlz1sRV8ZupJ1cNmWKd5o-Fog/exec';
+
+  // Phone number for the other territory transfer
+  const OTHER_TERRITORY_PHONE_DISPLAY = '(830) 271-5852';
+  const OTHER_TERRITORY_PHONE_TEL = '+18302715852';
+
+  const TRANSFER_SCRIPT_TEMPLATE = 'Hey, so I checked your zip and unfortunately you are just outside our service area. The good news is we have a sister territory, MaidThis San Antonio, that covers your area. Their number is ' + OTHER_TERRITORY_PHONE_DISPLAY + ' and they will absolutely take care of you. Just let them know MaidThis Northwest sent you over.';
+
+  const zipInput = document.getElementById('zipInput');
+  const zipCheckBtn = document.getElementById('zipCheckBtn');
+  const zipResultEl = document.getElementById('zipResult');
+  const zipCard = document.getElementById('zipCheckCard');
+  const zipBadge = document.getElementById('zipBadge');
+  const zipBadgeText = document.getElementById('zipBadgeText');
+
+  // Digits-only input, max 5
+  zipInput.addEventListener('input', (e) => {
+    const cleaned = e.target.value.replace(/\D/g, '').slice(0, 5);
+    if (cleaned !== e.target.value) {
+      e.target.value = cleaned;
+    }
+    zipCheckBtn.disabled = cleaned.length !== 5;
+    // Clear any previous result state when they type a new zip
+    if (zipCard.classList.contains('state-nwsa') ||
+        zipCard.classList.contains('state-sanantonio') ||
+        zipCard.classList.contains('state-other') ||
+        zipCard.classList.contains('state-error')) {
+      // Soft fade out previous result if zip changed
+      zipResultEl.classList.remove('visible');
+    }
+  });
+
+  // Enter key submits
+  zipInput.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' && !zipCheckBtn.disabled) {
+      e.preventDefault();
+      checkZipCode();
+    }
+  });
+
+  function checkZipCode() {
+    const zip = zipInput.value.trim();
+    if (zip.length !== 5) return;
+
+    // If URL not configured, show friendly notice
+    if (ZIP_CHECK_URL === 'PASTE_YOUR_APPS_SCRIPT_WEB_APP_URL_HERE' || !ZIP_CHECK_URL) {
+      renderZipResult({
+        status: 'error',
+        zip: zip,
+        message: 'Zip checker is not connected yet. Deploy the Apps Script web app and paste the URL into the playbook to activate this feature.'
+      });
+      return;
+    }
+
+    setZipLoading(true);
+    clearZipState();
+
+    const url = ZIP_CHECK_URL + (ZIP_CHECK_URL.indexOf('?') === -1 ? '?' : '&') + 'zip=' + encodeURIComponent(zip);
+
+    fetch(url, { method: 'GET', redirect: 'follow' })
+      .then(r => {
+        if (!r.ok) throw new Error('Network response was not ok');
+        return r.json();
+      })
+      .then(data => {
+        setZipLoading(false);
+        renderZipResult(data);
+      })
+      .catch(err => {
+        setZipLoading(false);
+        renderZipResult({
+          status: 'error',
+          zip: zip,
+          message: 'Could not reach the zip code service. Check your connection and try again. (' + err.message + ')'
+        });
+      });
+  }
+
+  function setZipLoading(isLoading) {
+    if (isLoading) {
+      zipCheckBtn.classList.add('loading');
+      zipCheckBtn.disabled = true;
+    } else {
+      zipCheckBtn.classList.remove('loading');
+      zipCheckBtn.disabled = zipInput.value.length !== 5;
+    }
+  }
+
+  function clearZipState() {
+    zipCard.classList.remove('state-nwsa', 'state-sanantonio', 'state-other', 'state-error');
+  }
+
+  function formatTime() {
+    const d = new Date();
+    let h = d.getHours();
+    const m = String(d.getMinutes()).padStart(2, '0');
+    const ampm = h >= 12 ? 'PM' : 'AM';
+    h = h % 12; if (h === 0) h = 12;
+    return h + ':' + m + ' ' + ampm;
+  }
+
+  function renderZipResult(data) {
+    const zip = data.zip || zipInput.value;
+    let html = '';
+    clearZipState();
+
+    if (data.status === 'nwsa') {
+      zipCard.classList.add('state-nwsa');
+      if (zipBadgeText) zipBadgeText.textContent = zip + ' at ' + formatTime();
+      html =
+        '<div class="zip-result-card success">' +
+          '<div class="zip-result-top">' +
+            '<div class="zip-result-status-icon">' +
+              '<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">' +
+                '<path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>' +
+              '</svg>' +
+            '</div>' +
+            '<div>' +
+              '<div class="zip-result-headline">Service area confirmed</div>' +
+              '<div class="zip-result-detail">ZIP <strong>' + zip + '</strong> is in your Northwest San Antonio territory. Continue with the discovery questions below.</div>' +
+            '</div>' +
+          '</div>' +
+        '</div>';
+    } else if (data.status === 'sanantonio') {
+      zipCard.classList.add('state-sanantonio');
+      html =
+        '<div class="zip-result-card warn">' +
+          '<div class="zip-result-top">' +
+            '<div class="zip-result-status-icon">' +
+              '<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">' +
+                '<path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/>' +
+                '<path d="M12 9v4M12 17h.01" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>' +
+              '</svg>' +
+            '</div>' +
+            '<div>' +
+              '<div class="zip-result-headline">Hand off this lead</div>' +
+              '<div class="zip-result-detail">ZIP <strong>' + zip + '</strong> belongs to the other San Antonio franchise. We cannot service this zip, but a quick warm transfer keeps the relationship friendly.</div>' +
+            '</div>' +
+          '</div>' +
+          '<div class="zip-script-box">' +
+            '"Hey, so I checked your zip and unfortunately you are just outside our service area. The good news is we have a sister territory, MaidThis San Antonio, that covers your area. Their number is <strong>' + OTHER_TERRITORY_PHONE_DISPLAY + '</strong> and they will absolutely take care of you. Just let them know MaidThis Northwest sent you over."' +
+          '</div>' +
+          '<div class="zip-action-row">' +
+            '<a class="zip-action-btn primary" href="tel:' + OTHER_TERRITORY_PHONE_TEL + '">' +
+              '<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">' +
+                '<path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>' +
+              '</svg>' +
+              'Call ' + OTHER_TERRITORY_PHONE_DISPLAY +
+            '</a>' +
+            '<button type="button" class="zip-action-btn secondary" id="zipCopyScriptBtn" onclick="copyTransferScript(this)">' +
+              '<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">' +
+                '<rect x="9" y="9" width="13" height="13" rx="2" stroke="currentColor" stroke-width="2"/>' +
+                '<path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" stroke="currentColor" stroke-width="2"/>' +
+              '</svg>' +
+              '<span class="zip-copy-text">Copy script for text</span>' +
+            '</button>' +
+          '</div>' +
+        '</div>';
+    } else if (data.status === 'other') {
+      zipCard.classList.add('state-other');
+      html =
+        '<div class="zip-result-card info">' +
+          '<div class="zip-result-top">' +
+            '<div class="zip-result-status-icon">' +
+              '<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">' +
+                '<circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2.5"/>' +
+                '<path d="M12 16v-4M12 8h.01" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>' +
+              '</svg>' +
+            '</div>' +
+            '<div>' +
+              '<div class="zip-result-headline">Outside both tracked territories</div>' +
+              '<div class="zip-result-detail">ZIP <strong>' + zip + '</strong> is not in either zip code list. No territory conflict. Continue with the discovery questions below.</div>' +
+            '</div>' +
+          '</div>' +
+        '</div>';
+    } else {
+      zipCard.classList.add('state-error');
+      const msg = data.message || 'Something went wrong checking that zip. Try again.';
+      html =
+        '<div class="zip-result-card error">' +
+          '<div class="zip-result-top">' +
+            '<div class="zip-result-status-icon">' +
+              '<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">' +
+                '<circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2.5"/>' +
+                '<path d="M15 9l-6 6M9 9l6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>' +
+              '</svg>' +
+            '</div>' +
+            '<div>' +
+              '<div class="zip-result-headline">Cannot verify right now</div>' +
+              '<div class="zip-result-detail">' + msg + '</div>' +
+            '</div>' +
+          '</div>' +
+        '</div>';
+    }
+
+    zipResultEl.innerHTML = html;
+    requestAnimationFrame(() => {
+      zipResultEl.classList.add('visible');
+    });
+  }
+
+  function copyTransferScript(btn) {
+    const onSuccess = () => {
+      const span = btn.querySelector('.zip-copy-text');
+      const original = span.textContent;
+      btn.classList.add('success');
+      span.textContent = 'Copied';
+      setTimeout(() => {
+        btn.classList.remove('success');
+        span.textContent = original;
+      }, 2200);
+    };
+
+    const text = TRANSFER_SCRIPT_TEMPLATE;
+
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(onSuccess).catch(() => {
+        fallbackCopy(text, onSuccess);
+      });
+    } else {
+      fallbackCopy(text, onSuccess);
+    }
+  }
+
+  function fallbackCopy(text, cb) {
+    try {
+      const ta = document.createElement('textarea');
+      ta.value = text;
+      ta.style.position = 'fixed';
+      ta.style.left = '-9999px';
+      document.body.appendChild(ta);
+      ta.select();
+      document.execCommand('copy');
+      document.body.removeChild(ta);
+      cb();
+    } catch (e) {
+      window.prompt('Copy the script below', text);
+    }
+  }
 </script>
 </body>
 </html>
