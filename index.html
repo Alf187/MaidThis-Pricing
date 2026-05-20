@@ -117,369 +117,6 @@
   .hero h1 span.accent { color: var(--teal); }
   .hero p { font-size: 18px; color: var(--navy-soft); max-width: 620px; line-height: 1.6; }
 
-  /* CLOSER AI FAB (floating live call decoder teaser) */
-  .closer-fab-wrap {
-    position: fixed;
-    bottom: 24px; right: 24px;
-    z-index: 9999;
-    font-family: 'Montserrat', sans-serif;
-  }
-
-  .closer-fab {
-    display: inline-flex; align-items: center;
-    gap: 12px;
-    padding: 12px 20px 12px 14px;
-    background: linear-gradient(135deg, #8B96A3 0%, #6E7B89 100%);
-    color: rgba(255, 255, 255, 0.88);
-    border: none;
-    border-radius: 100px;
-    box-shadow: 0 12px 32px rgba(44, 62, 80, 0.22),
-                0 4px 12px rgba(44, 62, 80, 0.14);
-    cursor: pointer;
-    transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1),
-                box-shadow 0.25s ease,
-                padding 0.25s ease;
-    position: relative;
-    filter: grayscale(0.5);
-    opacity: 0.92;
-  }
-  .closer-fab:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 18px 40px rgba(44, 62, 80, 0.3),
-                0 6px 16px rgba(44, 62, 80, 0.18);
-    filter: grayscale(0.2);
-    opacity: 1;
-  }
-  .closer-fab:active { transform: translateY(-1px); }
-
-  .closer-fab-icon {
-    width: 40px; height: 40px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.15);
-    border: 1.5px solid rgba(255, 255, 255, 0.25);
-    display: flex; align-items: center; justify-content: center;
-    flex-shrink: 0;
-    position: relative;
-  }
-  .closer-fab-icon svg {
-    width: 20px; height: 20px;
-    color: rgba(255, 255, 255, 0.85);
-  }
-
-  /* Animated soundwave bars on the mic */
-  .closer-wave {
-    display: inline-flex; align-items: center;
-    gap: 2px; height: 14px;
-  }
-  .closer-wave-bar {
-    width: 2.5px; border-radius: 2px;
-    background: rgba(255, 255, 255, 0.85);
-    animation: closerWaveAnim 1.4s ease-in-out infinite;
-  }
-  .closer-wave-bar:nth-child(1) { height: 30%; animation-delay: 0s; }
-  .closer-wave-bar:nth-child(2) { height: 60%; animation-delay: 0.15s; }
-  .closer-wave-bar:nth-child(3) { height: 100%; animation-delay: 0.3s; }
-  .closer-wave-bar:nth-child(4) { height: 60%; animation-delay: 0.45s; }
-  .closer-wave-bar:nth-child(5) { height: 30%; animation-delay: 0.6s; }
-
-  @keyframes closerWaveAnim {
-    0%, 100% { transform: scaleY(0.5); opacity: 0.6; }
-    50% { transform: scaleY(1.2); opacity: 1; }
-  }
-
-  .closer-fab-text {
-    display: flex; flex-direction: column;
-    align-items: flex-start;
-    line-height: 1.1;
-    min-width: 0;
-  }
-  .closer-fab-name {
-    font-size: 13.5px; font-weight: 800;
-    letter-spacing: 0.04em;
-    color: var(--white);
-    margin-bottom: 2px;
-  }
-  .closer-fab-sub {
-    font-size: 9.5px; font-weight: 700;
-    letter-spacing: 0.18em;
-    color: rgba(255, 255, 255, 0.7);
-    text-transform: uppercase;
-  }
-
-  .closer-fab-badge {
-    position: absolute;
-    top: -6px; right: -4px;
-    background: var(--gold); color: var(--navy);
-    font-size: 8.5px; font-weight: 900;
-    letter-spacing: 0.14em;
-    padding: 3px 8px;
-    border-radius: 100px;
-    box-shadow: 0 4px 10px rgba(255, 182, 0, 0.45);
-    text-transform: uppercase;
-  }
-  .closer-fab-badge::before {
-    content: ''; position: absolute;
-    inset: -3px;
-    border-radius: 100px;
-    border: 2px solid var(--gold);
-    opacity: 0;
-    animation: closerBadgePulse 2.4s ease-out infinite;
-  }
-  @keyframes closerBadgePulse {
-    0% { opacity: 0.6; transform: scale(0.9); }
-    100% { opacity: 0; transform: scale(1.25); }
-  }
-
-  /* Collapsed (icon only) state shown on small screens or after dismissal */
-  .closer-fab.collapsed { padding: 14px; }
-  .closer-fab.collapsed .closer-fab-text { display: none; }
-
-  /* Preview panel */
-  .closer-preview {
-    position: absolute;
-    bottom: calc(100% + 14px);
-    right: 0;
-    width: 340px;
-    background: var(--white);
-    border-radius: 22px;
-    box-shadow: 0 24px 60px rgba(44, 62, 80, 0.28),
-                0 8px 20px rgba(44, 62, 80, 0.12);
-    border: 1.5px solid var(--border);
-    overflow: hidden;
-    opacity: 0;
-    transform: translateY(12px) scale(0.96);
-    transform-origin: bottom right;
-    pointer-events: none;
-    transition: opacity 0.28s ease, transform 0.28s cubic-bezier(0.34, 1.56, 0.64, 1);
-  }
-  .closer-preview.open {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-    pointer-events: auto;
-  }
-
-  .closer-preview-header {
-    background: linear-gradient(135deg, var(--navy) 0%, #1f2d3a 100%);
-    padding: 18px 20px 16px;
-    color: var(--white);
-    position: relative;
-    overflow: hidden;
-  }
-  .closer-preview-header::before {
-    content: ''; position: absolute;
-    inset: 0;
-    background: radial-gradient(circle at 80% 20%, rgba(90, 179, 201, 0.25), transparent 60%);
-    pointer-events: none;
-  }
-  .closer-preview-header::after {
-    content: ''; position: absolute;
-    top: 0; left: 0; right: 0; height: 3px;
-    background: linear-gradient(90deg, var(--gold) 0%, var(--teal) 100%);
-  }
-
-  .closer-preview-top {
-    display: flex; align-items: center; gap: 12px;
-    position: relative; z-index: 1;
-    margin-bottom: 10px;
-  }
-  .closer-preview-icon {
-    width: 38px; height: 38px;
-    border-radius: 12px;
-    background: linear-gradient(135deg, var(--teal), rgba(90, 179, 201, 0.6));
-    display: flex; align-items: center; justify-content: center;
-    flex-shrink: 0;
-    box-shadow: 0 6px 14px rgba(90, 179, 201, 0.35);
-  }
-  .closer-preview-icon svg { width: 20px; height: 20px; color: var(--white); }
-  .closer-preview-titles { flex: 1; min-width: 0; }
-  .closer-preview-name {
-    font-size: 17px; font-weight: 800;
-    color: var(--white);
-    line-height: 1.1;
-    margin-bottom: 3px;
-  }
-  .closer-preview-tagline {
-    font-size: 10.5px; font-weight: 700;
-    letter-spacing: 0.16em;
-    color: rgba(255, 255, 255, 0.65);
-    text-transform: uppercase;
-  }
-  .closer-preview-close {
-    position: absolute; top: 12px; right: 12px;
-    width: 26px; height: 26px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.12);
-    border: none; cursor: pointer;
-    display: flex; align-items: center; justify-content: center;
-    color: rgba(255, 255, 255, 0.8);
-    transition: all 0.18s ease;
-    z-index: 2;
-  }
-  .closer-preview-close:hover {
-    background: rgba(255, 255, 255, 0.22);
-    color: var(--white);
-  }
-  .closer-preview-close svg { width: 13px; height: 13px; }
-
-  .closer-status-row {
-    display: flex; align-items: center; gap: 8px;
-    position: relative; z-index: 1;
-    padding-top: 10px;
-    border-top: 1px solid rgba(255, 255, 255, 0.08);
-  }
-  .closer-status-pill {
-    display: inline-flex; align-items: center; gap: 6px;
-    background: var(--gold); color: var(--navy);
-    padding: 5px 11px; border-radius: 100px;
-    font-size: 10px; font-weight: 800;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-  }
-  .closer-status-pill .closer-status-dot {
-    width: 6px; height: 6px; border-radius: 50%;
-    background: var(--navy);
-    animation: closerStatusBlink 1.6s ease-in-out infinite;
-  }
-  @keyframes closerStatusBlink {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.3; }
-  }
-  .closer-status-hint {
-    font-size: 11px; font-weight: 600;
-    color: rgba(255, 255, 255, 0.7);
-  }
-
-  .closer-preview-body {
-    padding: 18px 20px 16px;
-  }
-  .closer-preview-pitch {
-    font-size: 13px; line-height: 1.55;
-    color: var(--navy-soft);
-    font-weight: 500;
-    margin-bottom: 16px;
-  }
-  .closer-preview-pitch strong {
-    color: var(--navy); font-weight: 800;
-  }
-
-  .closer-feature-list {
-    display: flex; flex-direction: column;
-    gap: 10px;
-    margin-bottom: 18px;
-  }
-  .closer-feature {
-    display: flex; align-items: flex-start; gap: 11px;
-    font-size: 12.5px; line-height: 1.4;
-    color: var(--navy-soft);
-    font-weight: 500;
-  }
-  .closer-feature-check {
-    width: 18px; height: 18px;
-    border-radius: 50%;
-    background: var(--teal-bg);
-    color: var(--teal);
-    display: flex; align-items: center; justify-content: center;
-    flex-shrink: 0;
-    margin-top: 1px;
-  }
-  .closer-feature-check svg { width: 10px; height: 10px; }
-  .closer-feature strong { color: var(--navy); font-weight: 700; }
-
-  .closer-preview-foot {
-    padding: 14px 20px 18px;
-    background: var(--off);
-    border-top: 1px solid var(--border-soft);
-  }
-  .closer-notify-btn {
-    width: 100%;
-    background: var(--navy); color: var(--white);
-    border: none; cursor: pointer;
-    padding: 12px 16px;
-    border-radius: 100px;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 12px; font-weight: 800;
-    letter-spacing: 0.12em; text-transform: uppercase;
-    display: inline-flex; align-items: center; justify-content: center;
-    gap: 8px;
-    transition: all 0.2s ease;
-  }
-  .closer-notify-btn:hover {
-    background: var(--teal);
-    transform: translateY(-1px);
-    box-shadow: 0 8px 20px rgba(90, 179, 201, 0.32);
-  }
-  .closer-notify-btn.success { background: var(--green); }
-  .closer-notify-btn svg { width: 14px; height: 14px; }
-
-  .closer-preview-watermark {
-    margin-top: 10px;
-    font-size: 10px; font-weight: 600;
-    color: var(--navy-muted);
-    text-align: center;
-    letter-spacing: 0.08em;
-  }
-
-  /* Live demo strip inside preview */
-  .closer-demo-strip {
-    background: var(--navy);
-    margin: 0 -20px 16px;
-    padding: 14px 20px;
-    position: relative;
-    overflow: hidden;
-  }
-  .closer-demo-strip::before {
-    content: ''; position: absolute;
-    left: 0; top: 0; bottom: 0;
-    width: 3px;
-    background: var(--gold);
-  }
-  .closer-demo-label {
-    display: flex; align-items: center; gap: 6px;
-    font-size: 9px; font-weight: 800;
-    letter-spacing: 0.18em; text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 8px;
-  }
-  .closer-demo-label::before {
-    content: ''; width: 6px; height: 6px;
-    border-radius: 50%; background: var(--gold);
-    animation: closerStatusBlink 1.6s ease-in-out infinite;
-  }
-  .closer-demo-line {
-    font-size: 12px; line-height: 1.45;
-    color: rgba(255, 255, 255, 0.92);
-    font-weight: 500;
-    font-style: italic;
-  }
-  .closer-demo-line strong {
-    color: var(--gold); font-weight: 800;
-    font-style: normal;
-    background: rgba(255, 182, 0, 0.14);
-    padding: 1px 5px; border-radius: 4px;
-  }
-  .closer-demo-attrib {
-    font-size: 9.5px; font-weight: 700;
-    letter-spacing: 0.14em;
-    color: rgba(255, 255, 255, 0.45);
-    margin-top: 8px;
-    text-transform: uppercase;
-  }
-
-  /* Print and mobile */
-  @media print {
-    .closer-fab-wrap { display: none; }
-  }
-  @media (max-width: 700px) {
-    .closer-fab-wrap { bottom: 16px; right: 16px; }
-    .closer-fab { padding: 12px; }
-    .closer-fab-text { display: none; }
-    .closer-preview {
-      width: calc(100vw - 32px);
-      max-width: 340px;
-      right: 0;
-    }
-  }
-
   /* ZIP CODE CHECKER CARD */
   .zip-check {
     margin-top: 42px; background: var(--white);
@@ -1500,6 +1137,102 @@
     margin-bottom: 5px;
   }
 
+  /* WEBSITE POPUP PROMO CHECKBOX (above Home Size, only on Website platform) */
+  .web-promo-wrap {
+    display: none;
+    margin: 0 0 18px;
+  }
+  .web-promo-wrap.visible { display: block; }
+  .web-promo-box {
+    background: #FFFBEB;
+    border: 1px solid rgba(255, 182, 0, 0.35);
+    border-left: 4px solid var(--gold);
+    border-radius: 14px;
+    padding: 14px 16px;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    cursor: pointer;
+    transition: background 0.15s ease, border-color 0.15s ease;
+  }
+  .web-promo-box:hover { background: #FFF6E0; }
+  .web-promo-box.checked {
+    background: #FFF4D6;
+    border-color: var(--gold);
+  }
+  .web-promo-check {
+    width: 22px; height: 22px;
+    border: 2px solid var(--gold);
+    border-radius: 6px;
+    background: var(--white);
+    flex-shrink: 0;
+    margin-top: 1px;
+    position: relative;
+    transition: all 0.15s ease;
+  }
+  .web-promo-box.checked .web-promo-check {
+    background: var(--gold);
+  }
+  .web-promo-box.checked .web-promo-check::after {
+    content: '';
+    position: absolute;
+    left: 5px; top: 1px;
+    width: 6px; height: 11px;
+    border: solid var(--navy);
+    border-width: 0 2.5px 2.5px 0;
+    transform: rotate(45deg);
+  }
+  .web-promo-content { flex: 1; min-width: 0; }
+  .web-promo-title {
+    font-size: 13.5px; font-weight: 800;
+    color: var(--navy); line-height: 1.3;
+    margin-bottom: 2px;
+  }
+  .web-promo-title .promo-amount {
+    color: var(--gold);
+    background: var(--navy);
+    padding: 1px 8px;
+    border-radius: 6px;
+    margin-right: 6px;
+    font-size: 12.5px;
+    display: inline-block;
+    vertical-align: 1px;
+  }
+  .web-promo-sub {
+    font-size: 11.5px; color: var(--navy-soft);
+    font-weight: 500; line-height: 1.4;
+  }
+
+  /* In the result panel, the promo applied notice */
+  .promo-applied-notice {
+    background: linear-gradient(90deg, rgba(255, 182, 0, 0.18), rgba(255, 182, 0, 0.06));
+    border: 1px solid rgba(255, 182, 0, 0.45);
+    border-left: 3px solid var(--gold);
+    border-radius: 0 14px 14px 0;
+    padding: 12px 14px;
+    margin-top: 14px;
+    font-size: 12.5px;
+    color: rgba(255, 255, 255, 0.92);
+    line-height: 1.5;
+    position: relative; z-index: 2;
+  }
+  .promo-applied-notice strong {
+    display: block; color: var(--gold);
+    font-size: 10.5px; font-weight: 700;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .promo-applied-notice .script-line {
+    margin-top: 8px;
+    padding: 9px 12px;
+    background: rgba(0, 0, 0, 0.22);
+    border-left: 3px solid var(--gold);
+    border-radius: 0 10px 10px 0;
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.92);
+    font-weight: 500;
+  }
+
   /* CAUTION SIGN STYLE GOLDEN RULE (for Facebook) */
   .rule-banner.caution {
     background: #FFFBEB;
@@ -2506,12 +2239,25 @@
           </div>
 
           <div class="discovery-questions">
+            <div class="discovery-q" data-q="source">
+              <div class="discovery-q-row" onclick="toggleDiscoveryQ(this)">
+                <div class="discovery-q-checkbox"></div>
+                <div class="discovery-q-content">
+                  <div class="discovery-q-text">
+                    <span class="discovery-q-num">01</span>How did you hear about us?
+                  </div>
+                  <span class="discovery-q-why"><strong>Why ask.</strong> Tags the lead source in GHL so we know what is working. Also gives the rep a natural icebreaker. If they say a referral, ask who, then drop a thank-you to that referrer later. If they say Google or Facebook, that confirms the channel is paying off.</span>
+                </div>
+              </div>
+              <textarea class="discovery-q-notes" data-field="source" placeholder="Example. Saw the Facebook ad, or referred by Jennifer from down the street." rows="1"></textarea>
+            </div>
+
             <div class="discovery-q" data-q="occasion">
               <div class="discovery-q-row" onclick="toggleDiscoveryQ(this)">
                 <div class="discovery-q-checkbox"></div>
                 <div class="discovery-q-content">
                   <div class="discovery-q-text">
-                    <span class="discovery-q-num">01</span>What is the occasion? Deep clean, move in or out, or just regular help around the house?
+                    <span class="discovery-q-num">02</span>What is the occasion? Deep clean, move in or out, or just regular help around the house?
                   </div>
                   <span class="discovery-q-why"><strong>Why ask.</strong> This reveals the service type. Most clients do not know the difference between Standard and Deep, so you frame it for them. Drives the entire quote path.</span>
                 </div>
@@ -2524,7 +2270,7 @@
                 <div class="discovery-q-checkbox"></div>
                 <div class="discovery-q-content">
                   <div class="discovery-q-text">
-                    <span class="discovery-q-num">02</span>Any pets in the home?
+                    <span class="discovery-q-num">03</span>Any pets in the home?
                   </div>
                   <span class="discovery-q-why"><strong>Why ask.</strong> Triggers the pet hair add-on and gives you a free rapport win. A quick "aw, what is their name" or "are they a handful" makes you a friend in five seconds. Also flags allergy and safety stuff for the cleaner.</span>
                 </div>
@@ -2537,7 +2283,7 @@
                 <div class="discovery-q-checkbox"></div>
                 <div class="discovery-q-content">
                   <div class="discovery-q-text">
-                    <span class="discovery-q-num">03</span>When was the last time the home had a professional deep clean?
+                    <span class="discovery-q-num">04</span>When was the last time the home had a professional deep clean?
                   </div>
                   <span class="discovery-q-why"><strong>Why ask.</strong> Anything past 90 days means a Standard Clean will not get the home back to baseline. This is your anchor for pitching Deep plus Recurring. If they say never, that is a green light.</span>
                 </div>
@@ -2550,7 +2296,7 @@
                 <div class="discovery-q-checkbox"></div>
                 <div class="discovery-q-content">
                   <div class="discovery-q-text">
-                    <span class="discovery-q-num">04</span>What is the biggest pain point with cleanliness right now?
+                    <span class="discovery-q-num">05</span>What is the biggest pain point with cleanliness right now?
                   </div>
                   <span class="discovery-q-why"><strong>Why ask.</strong> Clients buy solutions to pain they already feel. When they say "the bathrooms" or "I just had a baby and I am drowning," that pain becomes your value prop. Repeat it back when you give the price.</span>
                 </div>
@@ -2563,7 +2309,7 @@
                 <div class="discovery-q-checkbox"></div>
                 <div class="discovery-q-content">
                   <div class="discovery-q-text">
-                    <span class="discovery-q-num">05</span>How big is the home? Beds, baths, and rough square footage?
+                    <span class="discovery-q-num">06</span>How big is the home? Beds, baths, and rough square footage?
                   </div>
                   <span class="discovery-q-why"><strong>Why ask.</strong> Drives the base quote. Always confirm bed and bath count even if they gave square footage. A 3 bed 2 bath at 1800 sq ft quotes very differently from a 1 bed 3 bath at the same size.</span>
                 </div>
@@ -2674,6 +2420,19 @@
           </div>
 
           <div id="standardInputsWrap">
+
+          <div class="web-promo-wrap" id="webPromoWrap">
+            <div class="web-promo-box" id="webPromoBox" role="checkbox" aria-checked="false" tabindex="0">
+              <div class="web-promo-check"></div>
+              <div class="web-promo-content">
+                <div class="web-promo-title">
+                  <span class="promo-amount">$40 OFF</span>Lead came from the website popup form
+                </div>
+                <div class="web-promo-sub">Check this if you got a Slack message that this lead used the $40 OFF popup on the website. The discount applies to their <strong>NEXT</strong> clean, not the first one, so confirm the first clean at full price then frame the $40 as a thank-you for signing up.</div>
+              </div>
+            </div>
+          </div>
+
           <div>
             <label class="field-label" for="sqft">Home Size</label>
             <div class="select-wrap">
@@ -2745,7 +2504,11 @@
       </div>
 
       <div class="rule-banner">
-        <div class="rule-banner-num">1</div>
+        <div class="rule-banner-num" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2.5l2.94 5.96 6.58.96-4.76 4.64 1.12 6.56L12 17.6l-5.88 3.02 1.12-6.56L2.48 9.42l6.58-.96L12 2.5z"/>
+          </svg>
+        </div>
         <div class="rule-banner-text">
           <span>Golden Rule</span>
           Always pitch Deep Clean plus Recurring. Standard one-time pricing is only for clients who already had a recent deep clean. Try this script. "I would start you off with our one-time deep clean to get the home back to baseline, then lock you into a weekly or bi-weekly plan at 30 to 40 percent off so it stays that way. Most of our clients do it that way."
@@ -3673,6 +3436,7 @@
   let currentFbMode = 'promo';
   let currentPromo = '4hr';
   let extraHours = 0;
+  let webPromoChecked = false;
 
   // Facebook promo configuration
   const fbPromos = {
@@ -3707,6 +3471,20 @@
     const fbWrap = document.getElementById('fbModeWrap');
     const fbPromoWrap = document.getElementById('fbPromoWrap');
     const standardWrap = document.getElementById('standardInputsWrap');
+    const webPromoWrap = document.getElementById('webPromoWrap');
+
+    // Website promo checkbox only on Website platform, and reset its state when leaving
+    if (currentPlatform === 'website') {
+      webPromoWrap.classList.add('visible');
+    } else {
+      webPromoWrap.classList.remove('visible');
+      const webBox = document.getElementById('webPromoBox');
+      if (webBox && webBox.classList.contains('checked')) {
+        webBox.classList.remove('checked');
+        webBox.setAttribute('aria-checked', 'false');
+        webPromoChecked = false;
+      }
+    }
 
     if (currentPlatform === 'facebook') {
       fbWrap.classList.add('visible');
@@ -4078,6 +3856,18 @@
         '</div>';
     }
 
+    // Website popup promo notice: $40 off applies to the NEXT clean, not this one
+    if (currentPlatform === 'website' && webPromoChecked) {
+      html +=
+        '<div class="promo-applied-notice">' +
+          '<strong>$40 Off Next Clean Promo</strong>' +
+          'This lead came from the website popup. The <strong>$40 OFF applies to their NEXT clean</strong>, not the first one quoted above. The first clean stays at the price shown. Make sure the client understands this before you close so there is no confusion when they see the second invoice. Tag the GHL contact with website-popup-promo so we can track the discount through their recurring plan.' +
+          '<div class="script-line">' +
+            '"The price I gave you is for your first clean. Since you signed up through our popup, you also get $40 off your next clean automatically, so the second visit will be even better. The discount kicks in on visit two, not this one. Sound good?"' +
+          '</div>' +
+        '</div>';
+    }
+
     priceBlock.innerHTML = html;
 
     // Deep Clean adds 2 hours of detail work to the standard estimate
@@ -4292,7 +4082,11 @@
     // For non-Facebook platforms, ensure the standard structure exists
     if (!banner.querySelector('.rule-banner-num')) {
       banner.innerHTML =
-        '<div class="rule-banner-num">1</div>' +
+        '<div class="rule-banner-num" aria-hidden="true">' +
+          '<svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor" xmlns="http://www.w3.org/2000/svg">' +
+            '<path d="M12 2.5l2.94 5.96 6.58.96-4.76 4.64 1.12 6.56L12 17.6l-5.88 3.02 1.12-6.56L2.48 9.42l6.58-.96L12 2.5z"/>' +
+          '</svg>' +
+        '</div>' +
         '<div class="rule-banner-text"></div>';
     }
 
@@ -4343,6 +4137,22 @@
       applyInputVisibility();
       updateCalc();
     });
+  });
+
+  // Website popup promo checkbox toggle
+  const webPromoBox = document.getElementById('webPromoBox');
+  function toggleWebPromo() {
+    const isOn = webPromoBox.classList.toggle('checked');
+    webPromoBox.setAttribute('aria-checked', isOn ? 'true' : 'false');
+    webPromoChecked = isOn;
+    updateCalc();
+  }
+  webPromoBox.addEventListener('click', toggleWebPromo);
+  webPromoBox.addEventListener('keydown', e => {
+    if (e.key === ' ' || e.key === 'Enter') {
+      e.preventDefault();
+      toggleWebPromo();
+    }
   });
 
   // Facebook mode tabs (Promotion vs Other Clean)
@@ -4463,13 +4273,14 @@
 
   function copyDiscoveryNotes() {
     const labels = {
+      source: 'HOW THEY HEARD ABOUT US',
       occasion: 'OCCASION',
       pets: 'PETS',
       lastdeep: 'LAST DEEP CLEAN',
       painpoint: 'BIGGEST PAIN POINT',
       size: 'HOME SIZE'
     };
-    const order = ['occasion', 'pets', 'lastdeep', 'painpoint', 'size'];
+    const order = ['source', 'occasion', 'pets', 'lastdeep', 'painpoint', 'size'];
     const today = new Date();
     const dateStr = (today.getMonth() + 1) + '/' + today.getDate() + '/' + today.getFullYear();
 
@@ -4804,149 +4615,6 @@
       window.prompt('Copy the script below', text);
     }
   }
-
-  // ============================================================
-  // CLOSER AI FAB (Coming Soon teaser)
-  // ============================================================
-  function toggleCloserPreview() {
-    const preview = document.getElementById('closerPreview');
-    preview.classList.toggle('open');
-  }
-
-  function closeCloserPreview(e) {
-    if (e) e.stopPropagation();
-    document.getElementById('closerPreview').classList.remove('open');
-  }
-
-  function handleNotifyClick(btn) {
-    btn.classList.add('success');
-    btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg> You will be the first to know';
-    setTimeout(() => {
-      closeCloserPreview();
-    }, 1600);
-  }
-
-  // Close on outside click
-  document.addEventListener('click', (e) => {
-    const wrap = document.getElementById('closerFabWrap');
-    const preview = document.getElementById('closerPreview');
-    if (!wrap || !preview) return;
-    if (preview.classList.contains('open') && !wrap.contains(e.target)) {
-      preview.classList.remove('open');
-    }
-  });
-
-  // Close on Esc
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') closeCloserPreview();
-  });
 </script>
-
-<div class="closer-fab-wrap" id="closerFabWrap">
-  <div class="closer-preview" id="closerPreview" onclick="event.stopPropagation()">
-    <button type="button" class="closer-preview-close" onclick="closeCloserPreview(event)" aria-label="Close">
-      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M18 6 6 18M6 6l12 12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
-      </svg>
-    </button>
-
-    <div class="closer-preview-header">
-      <div class="closer-preview-top">
-        <div class="closer-preview-icon">
-          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
-            <path d="M19 10v2a7 7 0 0 1-14 0v-2M12 19v4M8 23h8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </div>
-        <div class="closer-preview-titles">
-          <div class="closer-preview-name">Closer AI</div>
-          <div class="closer-preview-tagline">Live Call Decoder</div>
-        </div>
-      </div>
-      <div class="closer-status-row">
-        <span class="closer-status-pill">
-          <span class="closer-status-dot"></span>
-          In Development
-        </span>
-        <span class="closer-status-hint">Targeting Q4 release</span>
-      </div>
-    </div>
-
-    <div class="closer-preview-body">
-      <div class="closer-preview-pitch">
-        Imagine an AI that <strong>listens to your call in real time</strong>, pulls live pricing, and feeds you exactly what to say next in our MaidThis voice. No more fumbling for the right rebuttal mid-pitch.
-      </div>
-
-      <div class="closer-demo-strip">
-        <div class="closer-demo-label">Live preview, what it will look like</div>
-        <div class="closer-demo-line">"Tell her the deep clean for a 3 bed 2 bath at 1800 sq ft runs <strong>$385</strong>, then anchor on her pain point about the new baby."</div>
-        <div class="closer-demo-attrib">Closer AI · 0.3s after she finishes speaking</div>
-      </div>
-
-      <div class="closer-feature-list">
-        <div class="closer-feature">
-          <span class="closer-feature-check">
-            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </span>
-          <span><strong>Real time transcription</strong> of every call, no setup, no headset gymnastics</span>
-        </div>
-        <div class="closer-feature">
-          <span class="closer-feature-check">
-            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </span>
-          <span><strong>Live pricing on tap</strong>, pulled from this playbook the moment they give you specs</span>
-        </div>
-        <div class="closer-feature">
-          <span class="closer-feature-check">
-            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </span>
-          <span><strong>Brand voice rebuttals</strong>, MaidThis tone, ready to read straight off the screen</span>
-        </div>
-        <div class="closer-feature">
-          <span class="closer-feature-check">
-            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </span>
-          <span><strong>Post call booking notes</strong>, auto generated and ready to paste into Launch27</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="closer-preview-foot">
-      <button type="button" class="closer-notify-btn" onclick="handleNotifyClick(this)">
-        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9M13.73 21a2 2 0 0 1-3.46 0" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-        Notify me on launch
-      </button>
-      <div class="closer-preview-watermark">A MaidThis Northwest in house build</div>
-    </div>
-  </div>
-
-  <button type="button" class="closer-fab" onclick="toggleCloserPreview()" aria-label="Closer AI, coming soon">
-    <div class="closer-fab-icon">
-      <span class="closer-wave">
-        <span class="closer-wave-bar"></span>
-        <span class="closer-wave-bar"></span>
-        <span class="closer-wave-bar"></span>
-        <span class="closer-wave-bar"></span>
-        <span class="closer-wave-bar"></span>
-      </span>
-    </div>
-    <div class="closer-fab-text">
-      <span class="closer-fab-name">Closer AI</span>
-      <span class="closer-fab-sub">Live Call Decoder</span>
-    </div>
-    <span class="closer-fab-badge">Soon</span>
-  </button>
-</div>
-
 </body>
 </html>
