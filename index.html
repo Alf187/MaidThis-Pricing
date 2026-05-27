@@ -117,362 +117,29 @@
   .hero h1 span.accent { color: var(--teal); }
   .hero p { font-size: 18px; color: var(--navy-soft); max-width: 620px; line-height: 1.6; }
 
-  /* CLOSER AI FAB (floating live call decoder teaser) */
-  .closer-fab-wrap {
-    position: fixed;
-    bottom: 24px; right: 24px;
-    z-index: 9999;
-    font-family: 'Montserrat', sans-serif;
+  /* CALL SETUP ROW (zip + discovery side by side on desktop) */
+  .call-setup-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 18px;
+    margin-top: 32px;
+    align-items: start;
   }
-
-  .closer-fab {
-    display: inline-flex; align-items: center;
-    gap: 12px;
-    padding: 12px 20px 12px 14px;
-    background: linear-gradient(135deg, #8B96A3 0%, #6E7B89 100%);
-    color: rgba(255, 255, 255, 0.88);
-    border: none;
-    border-radius: 100px;
-    box-shadow: 0 12px 32px rgba(44, 62, 80, 0.22),
-                0 4px 12px rgba(44, 62, 80, 0.14);
-    cursor: pointer;
-    transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1),
-                box-shadow 0.25s ease,
-                padding 0.25s ease;
-    position: relative;
-    filter: grayscale(0.5);
-    opacity: 0.92;
+  .call-setup-row > .zip-check,
+  .call-setup-row > .discovery {
+    margin-top: 0;
   }
-  .closer-fab:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 18px 40px rgba(44, 62, 80, 0.3),
-                0 6px 16px rgba(44, 62, 80, 0.18);
-    filter: grayscale(0.2);
-    opacity: 1;
+  /* When discovery expands, span full row width for readable body */
+  .call-setup-row > .discovery.open {
+    grid-column: 1 / -1;
   }
-  .closer-fab:active { transform: translateY(-1px); }
-
-  .closer-fab-icon {
-    width: 40px; height: 40px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.15);
-    border: 1.5px solid rgba(255, 255, 255, 0.25);
-    display: flex; align-items: center; justify-content: center;
-    flex-shrink: 0;
-    position: relative;
-  }
-  .closer-fab-icon svg {
-    width: 20px; height: 20px;
-    color: rgba(255, 255, 255, 0.85);
-  }
-
-  /* Animated soundwave bars on the mic */
-  .closer-wave {
-    display: inline-flex; align-items: center;
-    gap: 2px; height: 14px;
-  }
-  .closer-wave-bar {
-    width: 2.5px; border-radius: 2px;
-    background: rgba(255, 255, 255, 0.85);
-    animation: closerWaveAnim 1.4s ease-in-out infinite;
-  }
-  .closer-wave-bar:nth-child(1) { height: 30%; animation-delay: 0s; }
-  .closer-wave-bar:nth-child(2) { height: 60%; animation-delay: 0.15s; }
-  .closer-wave-bar:nth-child(3) { height: 100%; animation-delay: 0.3s; }
-  .closer-wave-bar:nth-child(4) { height: 60%; animation-delay: 0.45s; }
-  .closer-wave-bar:nth-child(5) { height: 30%; animation-delay: 0.6s; }
-
-  @keyframes closerWaveAnim {
-    0%, 100% { transform: scaleY(0.5); opacity: 0.6; }
-    50% { transform: scaleY(1.2); opacity: 1; }
-  }
-
-  .closer-fab-text {
-    display: flex; flex-direction: column;
-    align-items: flex-start;
-    line-height: 1.1;
-    min-width: 0;
-  }
-  .closer-fab-name {
-    font-size: 13.5px; font-weight: 800;
-    letter-spacing: 0.04em;
-    color: var(--white);
-    margin-bottom: 2px;
-  }
-  .closer-fab-sub {
-    font-size: 9.5px; font-weight: 700;
-    letter-spacing: 0.18em;
-    color: rgba(255, 255, 255, 0.7);
-    text-transform: uppercase;
-  }
-
-  .closer-fab-badge {
-    position: absolute;
-    top: -6px; right: -4px;
-    background: var(--gold); color: var(--navy);
-    font-size: 8.5px; font-weight: 900;
-    letter-spacing: 0.14em;
-    padding: 3px 8px;
-    border-radius: 100px;
-    box-shadow: 0 4px 10px rgba(255, 182, 0, 0.45);
-    text-transform: uppercase;
-  }
-  .closer-fab-badge::before {
-    content: ''; position: absolute;
-    inset: -3px;
-    border-radius: 100px;
-    border: 2px solid var(--gold);
-    opacity: 0;
-    animation: closerBadgePulse 2.4s ease-out infinite;
-  }
-  @keyframes closerBadgePulse {
-    0% { opacity: 0.6; transform: scale(0.9); }
-    100% { opacity: 0; transform: scale(1.25); }
-  }
-
-  .closer-fab.collapsed { padding: 14px; }
-  .closer-fab.collapsed .closer-fab-text { display: none; }
-
-  .closer-preview {
-    position: absolute;
-    bottom: calc(100% + 14px);
-    right: 0;
-    width: 340px;
-    background: var(--white);
-    border-radius: 22px;
-    box-shadow: 0 24px 60px rgba(44, 62, 80, 0.28),
-                0 8px 20px rgba(44, 62, 80, 0.12);
-    border: 1.5px solid var(--border);
-    overflow: hidden;
-    opacity: 0;
-    transform: translateY(12px) scale(0.96);
-    transform-origin: bottom right;
-    pointer-events: none;
-    transition: opacity 0.28s ease, transform 0.28s cubic-bezier(0.34, 1.56, 0.64, 1);
-  }
-  .closer-preview.open {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-    pointer-events: auto;
-  }
-
-  .closer-preview-header {
-    background: linear-gradient(135deg, var(--navy) 0%, #1f2d3a 100%);
-    padding: 18px 20px 16px;
-    color: var(--white);
-    position: relative;
-    overflow: hidden;
-  }
-  .closer-preview-header::before {
-    content: ''; position: absolute;
-    inset: 0;
-    background: radial-gradient(circle at 80% 20%, rgba(90, 179, 201, 0.25), transparent 60%);
-    pointer-events: none;
-  }
-  .closer-preview-header::after {
-    content: ''; position: absolute;
-    top: 0; left: 0; right: 0; height: 3px;
-    background: linear-gradient(90deg, var(--gold) 0%, var(--teal) 100%);
-  }
-
-  .closer-preview-top {
-    display: flex; align-items: center; gap: 12px;
-    position: relative; z-index: 1;
-    margin-bottom: 10px;
-  }
-  .closer-preview-icon {
-    width: 38px; height: 38px;
-    border-radius: 12px;
-    background: linear-gradient(135deg, var(--teal), rgba(90, 179, 201, 0.6));
-    display: flex; align-items: center; justify-content: center;
-    flex-shrink: 0;
-    box-shadow: 0 6px 14px rgba(90, 179, 201, 0.35);
-  }
-  .closer-preview-icon svg { width: 20px; height: 20px; color: var(--white); }
-  .closer-preview-titles { flex: 1; min-width: 0; }
-  .closer-preview-name {
-    font-size: 17px; font-weight: 800;
-    color: var(--white);
-    line-height: 1.1;
-    margin-bottom: 3px;
-  }
-  .closer-preview-tagline {
-    font-size: 10.5px; font-weight: 700;
-    letter-spacing: 0.16em;
-    color: rgba(255, 255, 255, 0.65);
-    text-transform: uppercase;
-  }
-  .closer-preview-close {
-    position: absolute; top: 12px; right: 12px;
-    width: 26px; height: 26px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.12);
-    border: none; cursor: pointer;
-    display: flex; align-items: center; justify-content: center;
-    color: rgba(255, 255, 255, 0.8);
-    transition: all 0.18s ease;
-    z-index: 2;
-  }
-  .closer-preview-close:hover {
-    background: rgba(255, 255, 255, 0.22);
-    color: var(--white);
-  }
-  .closer-preview-close svg { width: 13px; height: 13px; }
-
-  .closer-status-row {
-    display: flex; align-items: center; gap: 8px;
-    position: relative; z-index: 1;
-    padding-top: 10px;
-    border-top: 1px solid rgba(255, 255, 255, 0.08);
-  }
-  .closer-status-pill {
-    display: inline-flex; align-items: center; gap: 6px;
-    background: var(--gold); color: var(--navy);
-    padding: 5px 11px; border-radius: 100px;
-    font-size: 10px; font-weight: 800;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-  }
-  .closer-status-pill .closer-status-dot {
-    width: 6px; height: 6px; border-radius: 50%;
-    background: var(--navy);
-    animation: closerStatusBlink 1.6s ease-in-out infinite;
-  }
-  @keyframes closerStatusBlink {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.3; }
-  }
-  .closer-status-hint {
-    font-size: 11px; font-weight: 600;
-    color: rgba(255, 255, 255, 0.7);
-  }
-
-  .closer-preview-body {
-    padding: 18px 20px 16px;
-  }
-  .closer-preview-pitch {
-    font-size: 13px; line-height: 1.55;
-    color: var(--navy-soft);
-    font-weight: 500;
-    margin-bottom: 16px;
-  }
-  .closer-preview-pitch strong {
-    color: var(--navy); font-weight: 800;
-  }
-
-  .closer-feature-list {
-    display: flex; flex-direction: column;
-    gap: 10px;
-    margin-bottom: 18px;
-  }
-  .closer-feature {
-    display: flex; align-items: flex-start; gap: 11px;
-    font-size: 12.5px; line-height: 1.4;
-    color: var(--navy-soft);
-    font-weight: 500;
-  }
-  .closer-feature-check {
-    width: 18px; height: 18px;
-    border-radius: 50%;
-    background: var(--teal-bg);
-    color: var(--teal);
-    display: flex; align-items: center; justify-content: center;
-    flex-shrink: 0;
-    margin-top: 1px;
-  }
-  .closer-feature-check svg { width: 10px; height: 10px; }
-  .closer-feature strong { color: var(--navy); font-weight: 700; }
-
-  .closer-preview-foot {
-    padding: 14px 20px 18px;
-    background: var(--off);
-    border-top: 1px solid var(--border-soft);
-  }
-  .closer-notify-btn {
-    width: 100%;
-    background: var(--navy); color: var(--white);
-    border: none; cursor: pointer;
-    padding: 12px 16px;
-    border-radius: 100px;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 12px; font-weight: 800;
-    letter-spacing: 0.12em; text-transform: uppercase;
-    display: inline-flex; align-items: center; justify-content: center;
-    gap: 8px;
-    transition: all 0.2s ease;
-  }
-  .closer-notify-btn:hover {
-    background: var(--teal);
-    transform: translateY(-1px);
-    box-shadow: 0 8px 20px rgba(90, 179, 201, 0.32);
-  }
-  .closer-notify-btn.success { background: var(--green); }
-  .closer-notify-btn svg { width: 14px; height: 14px; }
-
-  .closer-preview-watermark {
-    margin-top: 10px;
-    font-size: 10px; font-weight: 600;
-    color: var(--navy-muted);
-    text-align: center;
-    letter-spacing: 0.08em;
-  }
-
-  .closer-demo-strip {
-    background: var(--navy);
-    margin: 0 -20px 16px;
-    padding: 14px 20px;
-    position: relative;
-    overflow: hidden;
-  }
-  .closer-demo-strip::before {
-    content: ''; position: absolute;
-    left: 0; top: 0; bottom: 0;
-    width: 3px;
-    background: var(--gold);
-  }
-  .closer-demo-label {
-    display: flex; align-items: center; gap: 6px;
-    font-size: 9px; font-weight: 800;
-    letter-spacing: 0.18em; text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 8px;
-  }
-  .closer-demo-label::before {
-    content: ''; width: 6px; height: 6px;
-    border-radius: 50%; background: var(--gold);
-    animation: closerStatusBlink 1.6s ease-in-out infinite;
-  }
-  .closer-demo-line {
-    font-size: 12px; line-height: 1.45;
-    color: rgba(255, 255, 255, 0.92);
-    font-weight: 500;
-    font-style: italic;
-  }
-  .closer-demo-line strong {
-    color: var(--gold); font-weight: 800;
-    font-style: normal;
-    background: rgba(255, 182, 0, 0.14);
-    padding: 1px 5px; border-radius: 4px;
-  }
-  .closer-demo-attrib {
-    font-size: 9.5px; font-weight: 700;
-    letter-spacing: 0.14em;
-    color: rgba(255, 255, 255, 0.45);
-    margin-top: 8px;
-    text-transform: uppercase;
-  }
-
-  @media print {
-    .closer-fab-wrap { display: none; }
-  }
-  @media (max-width: 700px) {
-    .closer-fab-wrap { bottom: 16px; right: 16px; }
-    .closer-fab { padding: 12px; }
-    .closer-fab-text { display: none; }
-    .closer-preview {
-      width: calc(100vw - 32px);
-      max-width: 340px;
-      right: 0;
+  @media (max-width: 980px) {
+    .call-setup-row {
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+    .call-setup-row > .discovery.open {
+      grid-column: auto;
     }
   }
 
@@ -821,14 +488,15 @@
 
   .discovery-header {
     display: flex; align-items: center; justify-content: space-between;
-    gap: 18px; padding: 22px 28px;
+    gap: 18px; padding: 18px 22px;
     background: var(--white);
     border: none; width: 100%;
     cursor: pointer;
     font-family: 'Montserrat', sans-serif;
     text-align: left;
-    transition: background 0.2s ease;
+    transition: background 0.2s ease, padding 0.2s ease;
   }
+  .discovery.open .discovery-header { padding: 22px 28px; }
   .discovery-header:hover { background: var(--off); }
   .discovery.open .discovery-header { border-bottom: 1px solid var(--border-soft); }
 
@@ -2502,10 +2170,10 @@
     <div class="nav-links">
       <a href="#calculator">Calculator</a>
       <a href="#residential">Pricing</a>
-      <a href="#addons">Add-Ons</a>
-      <a href="#hourly">Hourly</a>
-      <a href="#checklists">Checklists</a>
       <a href="#rules">Rebuttals</a>
+      <a href="#addons">Add-Ons</a>
+      <a href="#checklists">Checklists</a>
+      <a href="#hourly">Hourly</a>
       <a class="nav-link-external" href="https://alf187.github.io/MaidThis-Pricing/cleaners.html">Cleaner Roster <span class="ext-icon">&#8594;</span></a>
     </div>
   </div>
@@ -2513,12 +2181,12 @@
 
 <div class="wrap">
   <section class="hero" id="calculator">
-    <div class="animate">
+    <div class="animate hero-intro">
       <div class="kicker">Your Pricing Playbook</div>
       <h1>Quote fast. <span class="accent">Sell smarter.</span></h1>
-      <p>Everything you need mid-call, one tap away. Pull up a quote, walk a client through a checklist, handle the tough objection. This is the stuff the best closers lean on every day.</p>
     </div>
 
+    <div class="call-setup-row">
     <div class="zip-check animate" id="zipCheckCard">
       <div class="zip-check-header">
         <div class="zip-check-icon">
@@ -2712,6 +2380,7 @@
         </div>
       </div>
     </div>
+    </div>
 
     <div id="discoveryToast" class="discovery-toast">
       <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -2721,8 +2390,8 @@
     </div>
 
     <div class="calc animate d2">
-      <div class="kicker">Pricing Calculator</div>
-      <h2 style="font-size: 28px; font-weight: 800; color: var(--navy); margin-bottom: 28px;">Get a quote in two clicks</h2>
+      <div class="kicker">Step Three. Build the Quote</div>
+      <h2 style="font-size: 28px; font-weight: 800; color: var(--navy); margin-bottom: 28px;">Pricing Calculator</h2>
 
       <div class="calc-grid">
         <div class="calc-inputs">
@@ -5011,147 +4680,6 @@
       window.prompt('Copy the script below', text);
     }
   }
-
-  // ============================================================
-  // CLOSER AI FAB (Coming Soon teaser)
-  // ============================================================
-  function toggleCloserPreview() {
-    const preview = document.getElementById('closerPreview');
-    preview.classList.toggle('open');
-  }
-
-  function closeCloserPreview(e) {
-    if (e) e.stopPropagation();
-    document.getElementById('closerPreview').classList.remove('open');
-  }
-
-  function handleNotifyClick(btn) {
-    btn.classList.add('success');
-    btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg> You will be the first to know';
-    setTimeout(() => {
-      closeCloserPreview();
-    }, 1600);
-  }
-
-  document.addEventListener('click', (e) => {
-    const wrap = document.getElementById('closerFabWrap');
-    const preview = document.getElementById('closerPreview');
-    if (!wrap || !preview) return;
-    if (preview.classList.contains('open') && !wrap.contains(e.target)) {
-      preview.classList.remove('open');
-    }
-  });
-
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') closeCloserPreview();
-  });
 </script>
-
-<div class="closer-fab-wrap" id="closerFabWrap">
-  <div class="closer-preview" id="closerPreview" onclick="event.stopPropagation()">
-    <button type="button" class="closer-preview-close" onclick="closeCloserPreview(event)" aria-label="Close">
-      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M18 6 6 18M6 6l12 12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
-      </svg>
-    </button>
-
-    <div class="closer-preview-header">
-      <div class="closer-preview-top">
-        <div class="closer-preview-icon">
-          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
-            <path d="M19 10v2a7 7 0 0 1-14 0v-2M12 19v4M8 23h8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </div>
-        <div class="closer-preview-titles">
-          <div class="closer-preview-name">Closer AI</div>
-          <div class="closer-preview-tagline">Live Call Decoder</div>
-        </div>
-      </div>
-      <div class="closer-status-row">
-        <span class="closer-status-pill">
-          <span class="closer-status-dot"></span>
-          In Development
-        </span>
-        <span class="closer-status-hint">Targeting Q4 release</span>
-      </div>
-    </div>
-
-    <div class="closer-preview-body">
-      <div class="closer-preview-pitch">
-        Imagine an AI that <strong>listens to your call in real time</strong>, pulls live pricing, and feeds you exactly what to say next in our MaidThis voice. No more fumbling for the right rebuttal mid-pitch.
-      </div>
-
-      <div class="closer-demo-strip">
-        <div class="closer-demo-label">Live preview, what it will look like</div>
-        <div class="closer-demo-line">"Tell her the deep clean for a 3 bed 2 bath at 1800 sq ft runs <strong>$385</strong>, then anchor on her pain point about the new baby."</div>
-        <div class="closer-demo-attrib">Closer AI · 0.3s after she finishes speaking</div>
-      </div>
-
-      <div class="closer-feature-list">
-        <div class="closer-feature">
-          <span class="closer-feature-check">
-            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </span>
-          <span><strong>Real time transcription</strong> of every call, no setup, no headset gymnastics</span>
-        </div>
-        <div class="closer-feature">
-          <span class="closer-feature-check">
-            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </span>
-          <span><strong>Live pricing on tap</strong>, pulled from this playbook the moment they give you specs</span>
-        </div>
-        <div class="closer-feature">
-          <span class="closer-feature-check">
-            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </span>
-          <span><strong>Brand voice rebuttals</strong>, MaidThis tone, ready to read straight off the screen</span>
-        </div>
-        <div class="closer-feature">
-          <span class="closer-feature-check">
-            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </span>
-          <span><strong>Post call booking notes</strong>, auto generated and ready to paste into Launch27</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="closer-preview-foot">
-      <button type="button" class="closer-notify-btn" onclick="handleNotifyClick(this)">
-        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9M13.73 21a2 2 0 0 1-3.46 0" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-        Notify me on launch
-      </button>
-      <div class="closer-preview-watermark">A MaidThis Northwest in house build</div>
-    </div>
-  </div>
-
-  <button type="button" class="closer-fab" onclick="toggleCloserPreview()" aria-label="Closer AI, coming soon">
-    <div class="closer-fab-icon">
-      <span class="closer-wave">
-        <span class="closer-wave-bar"></span>
-        <span class="closer-wave-bar"></span>
-        <span class="closer-wave-bar"></span>
-        <span class="closer-wave-bar"></span>
-        <span class="closer-wave-bar"></span>
-      </span>
-    </div>
-    <div class="closer-fab-text">
-      <span class="closer-fab-name">Closer AI</span>
-      <span class="closer-fab-sub">Live Call Decoder</span>
-    </div>
-    <span class="closer-fab-badge">Soon</span>
-  </button>
-</div>
-
 </body>
 </html>
