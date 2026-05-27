@@ -1390,6 +1390,804 @@
     .cleaner-card, .interview-card { transition: none; }
     html { scroll-behavior: auto; }
   }
+
+  /* ============ V2: LIVE NOW STRIP ============ */
+  .livenow-strip {
+    background: var(--navy);
+    color: var(--white);
+    padding: 14px 0;
+    border-bottom: 3px solid var(--gold);
+    position: relative;
+    overflow: hidden;
+  }
+  .livenow-strip::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 0% 50%, rgba(255, 182, 0, 0.10) 0%, transparent 40%);
+    pointer-events: none;
+  }
+  .livenow-inner {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    position: relative;
+  }
+  .livenow-label {
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    line-height: 1.1;
+  }
+  .livenow-label .eyebrow {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+  .livenow-label .label-main {
+    font-size: 17px;
+    font-weight: 800;
+    color: var(--white);
+  }
+  .livenow-label .label-date {
+    font-size: 11px;
+    color: rgba(255,255,255,0.6);
+    margin-top: 1px;
+  }
+  .livenow-track {
+    flex: 1;
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 4px 0;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255,255,255,0.25) transparent;
+  }
+  .livenow-track::-webkit-scrollbar { height: 4px; }
+  .livenow-track::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.25); border-radius: 4px; }
+  .livenow-track::-webkit-scrollbar-track { background: transparent; }
+
+  .livenow-chip {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 100px;
+    padding: 6px 14px 6px 6px;
+    transition: all 0.18s ease;
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+  }
+  .livenow-chip:hover {
+    background: rgba(255, 255, 255, 0.12);
+    border-color: var(--gold);
+    transform: translateY(-1px);
+  }
+  .livenow-chip .chip-avatar {
+    width: 30px; height: 30px;
+    border-radius: 50%;
+    background-size: cover;
+    background-position: center 25%;
+    border: 2px solid rgba(255,255,255,0.20);
+    flex-shrink: 0;
+  }
+  .livenow-chip .chip-meta {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.15;
+    min-width: 0;
+  }
+  .livenow-chip .chip-name {
+    font-size: 12.5px;
+    font-weight: 700;
+    color: var(--white);
+    white-space: nowrap;
+  }
+  .livenow-chip .chip-status {
+    font-size: 10.5px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+  }
+  .livenow-chip.s-in-job .chip-status { color: var(--gold); }
+  .livenow-chip.s-in-job .chip-avatar { border-color: var(--gold); box-shadow: 0 0 0 2px rgba(255,182,0,0.20); }
+  .livenow-chip.s-available .chip-status { color: var(--green); }
+  .livenow-chip.s-available .chip-avatar { border-color: var(--green); }
+  .livenow-chip.s-done .chip-status { color: rgba(255,255,255,0.50); }
+  .livenow-chip.s-off .chip-status { color: rgba(255,255,255,0.35); }
+  .livenow-chip.s-off { opacity: 0.6; }
+  .livenow-chip.s-leave .chip-status { color: var(--teal); }
+  .livenow-chip.s-leave { opacity: 0.7; }
+
+  /* ============ V2: COMPACT HERO ============ */
+  .hero-compact {
+    padding: 26px 0 12px;
+    background: var(--off);
+    border-bottom: 1px solid var(--border);
+  }
+  .hero-compact .hero-top {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 24px;
+    margin-bottom: 18px;
+    flex-wrap: wrap;
+  }
+  .hero-compact .hero-title-block h1 {
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--navy);
+    letter-spacing: -0.01em;
+    line-height: 1.1;
+  }
+  .hero-compact .hero-title-block .hero-sub {
+    font-size: 13px;
+    color: var(--navy-muted);
+    font-weight: 500;
+    margin-top: 4px;
+  }
+  .hero-compact .hero-meta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+  }
+  .hero-compact .meta-pill {
+    background: var(--white);
+    border: 1px solid var(--border);
+    color: var(--navy-muted);
+    font-size: 11.5px;
+    font-weight: 600;
+    padding: 6px 12px;
+    border-radius: 100px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .hero-compact .meta-pill strong { color: var(--navy); font-weight: 700; }
+  .hero-compact .meta-pill.week-pill {
+    background: var(--navy);
+    color: var(--white);
+    border-color: var(--navy);
+  }
+  .hero-compact .meta-pill.week-pill strong { color: var(--gold); }
+
+  /* ============ V2: STAT TILES (compact) ============ */
+  .stats-v2 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin-bottom: 6px;
+  }
+  .stat-tile {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 14px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    transition: border-color 0.18s ease;
+  }
+  .stat-tile:hover { border-color: var(--navy-muted); }
+  .stat-tile .tile-left { min-width: 0; }
+  .stat-tile .tile-label {
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+    color: var(--navy-muted);
+    margin-bottom: 2px;
+  }
+  .stat-tile .tile-value {
+    font-size: 26px;
+    font-weight: 800;
+    color: var(--navy);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+  }
+  .stat-tile .tile-note {
+    font-size: 11px;
+    color: var(--navy-muted);
+    margin-top: 2px;
+    line-height: 1.3;
+  }
+  .stat-tile .tile-icon {
+    width: 36px; height: 36px;
+    border-radius: 10px;
+    display: grid;
+    place-items: center;
+    font-weight: 800;
+    font-size: 14px;
+    flex-shrink: 0;
+  }
+  .stat-tile.tile-active .tile-icon { background: rgba(124, 202, 91, 0.16); color: #4F8A30; }
+  .stat-tile.tile-util .tile-icon { background: rgba(255, 182, 0, 0.16); color: #8A6200; }
+  .stat-tile.tile-open .tile-icon { background: rgba(90, 179, 201, 0.16); color: #2E7787; }
+  .stat-tile.tile-jobs .tile-icon { background: rgba(46, 110, 165, 0.14); color: var(--blue); }
+
+  @media (max-width: 800px) {
+    .stats-v2 { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  /* ============ V2: STICKY CONTROL BAR ============ */
+  .control-bar {
+    position: sticky;
+    top: 64px;
+    z-index: 40;
+    background: rgba(248, 250, 251, 0.96);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+    padding: 12px 0;
+    margin-bottom: 22px;
+  }
+  .control-bar-inner {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+  .control-bar .scope-toggle {
+    display: inline-flex;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    padding: 3px;
+    box-shadow: 0 1px 3px rgba(44,62,80,0.04);
+  }
+  .scope-btn {
+    border: none;
+    background: transparent;
+    font: inherit;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 6px 14px;
+    border-radius: 100px;
+    cursor: pointer;
+    color: var(--navy-muted);
+    transition: all 0.18s ease;
+    letter-spacing: 0.02em;
+  }
+  .scope-btn:hover { color: var(--navy); }
+  .scope-btn.on {
+    background: var(--navy);
+    color: var(--white);
+    box-shadow: 0 1px 4px rgba(44,62,80,0.20);
+  }
+  .control-bar .ctrl-divider {
+    width: 1px;
+    height: 22px;
+    background: var(--border);
+    margin: 0 2px;
+  }
+  .control-bar .ctrl-label {
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--navy-muted);
+    margin-right: 2px;
+  }
+  .control-bar .day-pills {
+    display: inline-flex;
+    gap: 4px;
+  }
+  .control-bar .filter-pill {
+    border: 1px solid var(--border);
+    background: var(--white);
+    font: inherit;
+    font-size: 11.5px;
+    font-weight: 600;
+    padding: 5px 11px;
+    border-radius: 100px;
+    cursor: pointer;
+    color: var(--navy-soft);
+    transition: all 0.16s ease;
+  }
+  .control-bar .filter-pill:hover { border-color: var(--navy); color: var(--navy); }
+  .control-bar .filter-pill.on {
+    background: var(--navy);
+    color: var(--white);
+    border-color: var(--navy);
+  }
+  .control-bar .quick-filters {
+    display: inline-flex;
+    gap: 4px;
+  }
+  .control-bar .quick-filter {
+    border: 1px dashed var(--gold);
+    background: rgba(255, 182, 0, 0.06);
+    font: inherit;
+    font-size: 11.5px;
+    font-weight: 700;
+    padding: 5px 11px;
+    border-radius: 100px;
+    cursor: pointer;
+    color: #8A6200;
+    transition: all 0.16s ease;
+  }
+  .control-bar .quick-filter:hover { background: rgba(255,182,0,0.14); }
+  .control-bar .quick-filter.on {
+    background: var(--gold);
+    border-style: solid;
+    color: var(--navy);
+  }
+  .control-bar .search-wrap {
+    margin-left: auto;
+    position: relative;
+  }
+  .control-bar .search-wrap input {
+    border: 1px solid var(--border);
+    background: var(--white);
+    font: inherit;
+    font-size: 12px;
+    padding: 6px 12px 6px 28px;
+    border-radius: 100px;
+    width: 180px;
+    color: var(--navy);
+    transition: all 0.16s ease;
+  }
+  .control-bar .search-wrap input:focus {
+    outline: none;
+    border-color: var(--navy);
+    width: 220px;
+  }
+  .control-bar .search-wrap::before {
+    content: '';
+    position: absolute;
+    left: 11px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 10px; height: 10px;
+    border: 1.6px solid var(--navy-muted);
+    border-radius: 50%;
+    box-shadow: 5px 5px 0 -2.5px var(--navy-muted);
+  }
+  .control-bar .count-chip {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--navy-muted);
+    letter-spacing: 0.04em;
+  }
+  .control-bar .count-chip strong { color: var(--navy); font-size: 13px; }
+
+  @media (max-width: 760px) {
+    .control-bar { padding: 10px 0; }
+    .control-bar .search-wrap { margin-left: 0; }
+    .control-bar .search-wrap input { width: 100%; }
+  }
+
+  /* ============ V2: DENSER CLEANER CARDS ============ */
+  .roster-grid-v2 {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+    gap: 14px;
+  }
+  .cleaner-v2 {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    box-shadow: var(--card-shadow);
+    transition: box-shadow 0.18s ease, transform 0.18s ease, border-color 0.18s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  .cleaner-v2:hover {
+    box-shadow: var(--card-shadow-hover);
+    transform: translateY(-1px);
+    border-color: var(--navy-muted);
+  }
+  .cleaner-v2.is-leave { opacity: 0.78; background: linear-gradient(180deg, var(--white), #FAFBFC); }
+  .cleaner-v2 .strip {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+  }
+  .cleaner-v2.tier-green .strip { background: var(--green); }
+  .cleaner-v2.tier-yellow .strip { background: var(--gold); }
+  .cleaner-v2.tier-red .strip { background: #E04E4E; }
+  .cleaner-v2.tier-gray .strip { background: var(--navy-muted); }
+
+  .v2-head {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .v2-head .v2-avatar {
+    width: 50px; height: 50px;
+    border-radius: 50%;
+    background-size: cover;
+    background-position: center 25%;
+    background-color: var(--teal-bg);
+    border: 2px solid var(--white);
+    box-shadow: 0 0 0 1px var(--border);
+    flex-shrink: 0;
+  }
+  .v2-head .v2-name-block {
+    flex: 1;
+    min-width: 0;
+  }
+  .v2-head .v2-name {
+    font-size: 15px;
+    font-weight: 800;
+    color: var(--navy);
+    line-height: 1.1;
+    letter-spacing: -0.005em;
+  }
+  .v2-head .v2-sub {
+    font-size: 11px;
+    color: var(--navy-muted);
+    font-weight: 600;
+    margin-top: 2px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .v2-status-dot {
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    display: inline-block;
+  }
+  .v2-status-dot.s-active { background: var(--green); box-shadow: 0 0 0 2.5px rgba(124,202,91,0.20); }
+  .v2-status-dot.s-leave { background: var(--navy-muted); }
+
+  .v2-util {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+  }
+  .v2-util .v2-pct {
+    font-size: 18px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 1;
+    min-width: 38px;
+    text-align: right;
+  }
+  .v2-util .v2-pct.t-green { color: #4F8A30; }
+  .v2-util .v2-pct.t-yellow { color: #8A6200; }
+  .v2-util .v2-pct.t-red { color: #B73838; }
+  .v2-util .v2-pct.t-gray { color: var(--navy-muted); }
+  .v2-util .v2-pct-label {
+    font-size: 9.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.10em;
+    font-weight: 700;
+    color: var(--navy-muted);
+    margin-top: 1px;
+  }
+
+  /* Utilization bar */
+  .v2-bar {
+    height: 5px;
+    background: var(--off);
+    border-radius: 100px;
+    overflow: hidden;
+    position: relative;
+  }
+  .v2-bar-fill {
+    height: 100%;
+    border-radius: 100px;
+    transition: width 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .v2-bar-fill.t-green { background: var(--green); }
+  .v2-bar-fill.t-yellow { background: var(--gold); }
+  .v2-bar-fill.t-red { background: #E04E4E; }
+
+  /* Meta line under bar */
+  .v2-meta-line {
+    display: flex;
+    gap: 14px;
+    font-size: 11px;
+    color: var(--navy-muted);
+    font-weight: 600;
+    flex-wrap: wrap;
+  }
+  .v2-meta-line strong {
+    color: var(--navy);
+    font-weight: 800;
+  }
+  .v2-meta-line .dot-sep::before {
+    content: '·';
+    margin-right: 14px;
+    margin-left: -10px;
+    color: var(--border);
+    font-weight: 800;
+  }
+
+  /* ============ V2: TIMELINE STRIP ============ */
+  .v2-timeline {
+    background: var(--off);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 10px;
+    overflow: hidden;
+  }
+  .v2-timeline-head {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 4px;
+    margin-bottom: 6px;
+  }
+  .v2-tl-day {
+    text-align: center;
+    font-size: 9.5px;
+    font-weight: 700;
+    letter-spacing: 0.10em;
+    color: var(--navy-muted);
+    text-transform: uppercase;
+    padding: 2px 0;
+    border-radius: 4px;
+  }
+  .v2-tl-day.today {
+    background: var(--navy);
+    color: var(--white);
+  }
+  .v2-tl-day.weekend { color: var(--navy-soft); }
+
+  .v2-timeline-body {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 4px;
+    min-height: 38px;
+  }
+  .v2-tl-cell {
+    position: relative;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    min-height: 38px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 4px 2px;
+    text-align: center;
+    transition: all 0.15s ease;
+  }
+  .v2-tl-cell.off {
+    background: repeating-linear-gradient(45deg, #F0F4F6, #F0F4F6 3px, #E8EEF1 3px, #E8EEF1 6px);
+    border-color: transparent;
+  }
+  .v2-tl-cell.open {
+    background: var(--white);
+    border-style: dashed;
+    border-color: var(--gold-soft);
+  }
+  .v2-tl-cell.booked {
+    background: linear-gradient(180deg, var(--blue) 0%, #245886 100%);
+    border-color: var(--blue);
+    box-shadow: 0 2px 4px rgba(46,110,165,0.18);
+  }
+  .v2-tl-cell.today-cell {
+    box-shadow: 0 0 0 2px var(--navy);
+  }
+  .v2-tl-cell .tl-time {
+    font-size: 9.5px;
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -0.02em;
+  }
+  .v2-tl-cell .tl-count {
+    font-size: 8px;
+    font-weight: 700;
+    line-height: 1;
+    margin-top: 1px;
+    letter-spacing: 0.04em;
+  }
+  .v2-tl-cell.booked .tl-time { color: var(--white); }
+  .v2-tl-cell.booked .tl-count { color: rgba(255,255,255,0.85); }
+  .v2-tl-cell.open .tl-time { color: var(--navy-muted); }
+  .v2-tl-cell.off .tl-time { color: transparent; }
+
+  /* ============ V2: BOOKING SCHEDULE ============ */
+  .v2-schedule {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    background: var(--off);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .v2-schedule-row {
+    display: grid;
+    grid-template-columns: 56px 64px 1fr auto;
+    gap: 10px;
+    align-items: center;
+    padding: 7px 12px;
+    background: var(--white);
+    font-size: 12px;
+    transition: background 0.15s ease;
+  }
+  .v2-schedule-row:hover { background: #FAFBFC; }
+  .v2-schedule-row.is-today {
+    background: linear-gradient(90deg, rgba(255,182,0,0.08), transparent 80%);
+    border-left: 3px solid var(--gold);
+    padding-left: 9px;
+  }
+  .v2-schedule-row.is-tomorrow {
+    background: linear-gradient(90deg, rgba(46,110,165,0.05), transparent 80%);
+    border-left: 3px solid var(--blue);
+    padding-left: 9px;
+  }
+  .v2-schedule-row .sch-day {
+    font-size: 10px;
+    font-weight: 800;
+    color: var(--navy);
+    text-transform: uppercase;
+    letter-spacing: 0.10em;
+    line-height: 1.2;
+  }
+  .v2-schedule-row .sch-day .sch-date {
+    display: block;
+    font-size: 10.5px;
+    font-weight: 700;
+    color: var(--navy-muted);
+    letter-spacing: 0;
+    text-transform: none;
+    margin-top: 1px;
+  }
+  .v2-schedule-row .sch-time {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--navy);
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.01em;
+  }
+  .v2-schedule-row .sch-client {
+    font-size: 12px;
+    color: var(--navy);
+    font-weight: 600;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .v2-schedule-row .sch-duration {
+    font-size: 11px;
+    color: var(--navy-muted);
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    background: var(--off);
+    padding: 2px 8px;
+    border-radius: 100px;
+  }
+  .v2-schedule-empty {
+    padding: 14px;
+    text-align: center;
+    font-size: 11.5px;
+    color: var(--navy-muted);
+    font-style: italic;
+    background: var(--white);
+  }
+
+  /* ============ V2: NOTES + LEAVE CHIPS (compact) ============ */
+  .v2-leave-chip {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    background: rgba(46, 110, 165, 0.06);
+    border-left: 3px solid var(--blue);
+    border-radius: 6px;
+    padding: 8px 10px;
+    font-size: 11.5px;
+    color: var(--navy);
+    line-height: 1.4;
+  }
+  .v2-leave-chip.current {
+    background: rgba(122, 138, 153, 0.10);
+    border-left-color: var(--navy-muted);
+  }
+  .v2-leave-chip .lc-icon {
+    width: 16px; height: 16px;
+    border-radius: 50%;
+    background: var(--blue);
+    color: var(--white);
+    font-size: 10px;
+    font-weight: 800;
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .v2-leave-chip.current .lc-icon { background: var(--navy-muted); }
+  .v2-leave-chip strong { font-weight: 800; }
+
+  .v2-note {
+    font-size: 11px;
+    color: var(--navy-soft);
+    line-height: 1.45;
+    padding-top: 8px;
+    border-top: 1px dashed var(--border);
+  }
+
+  .v2-foot {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 4px;
+  }
+  .v2-foot .v2-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    flex: 1;
+    min-width: 0;
+  }
+  .v2-foot .v2-tag {
+    font-size: 9.5px;
+    font-weight: 700;
+    padding: 2px 7px;
+    border-radius: 100px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+  .v2-tag.t-0 { background: rgba(255, 182, 0, 0.16); color: #8A6200; }
+  .v2-tag.t-1 { background: rgba(90, 179, 201, 0.16); color: #2E7787; }
+  .v2-tag.t-2 { background: rgba(46, 110, 165, 0.14); color: var(--blue); }
+  .v2-tag.t-3 { background: rgba(124, 202, 91, 0.16); color: #4F8A30; }
+
+  .v2-ghl-btn {
+    text-decoration: none;
+    color: var(--navy);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    padding: 4px 10px;
+    border: 1px solid var(--navy);
+    border-radius: 100px;
+    transition: all 0.16s ease;
+    flex-shrink: 0;
+  }
+  .v2-ghl-btn:hover { background: var(--navy); color: var(--white); }
+
+  /* ============ V2: LEGEND MICRO ============ */
+  .legend-micro {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 10.5px;
+    font-weight: 600;
+    color: var(--navy-muted);
+    margin-top: 2px;
+  }
+  .legend-micro .lg-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+  }
+  .legend-micro .lg-sw {
+    width: 12px;
+    height: 12px;
+    border-radius: 3px;
+    border: 1px solid var(--border);
+  }
+  .legend-micro .lg-sw.booked {
+    background: var(--blue);
+    border-color: var(--blue);
+  }
+  .legend-micro .lg-sw.open {
+    background: var(--white);
+    border-style: dashed;
+    border-color: var(--gold-soft);
+  }
+  .legend-micro .lg-sw.off {
+    background: repeating-linear-gradient(45deg, #F0F4F6, #F0F4F6 2px, #E8EEF1 2px, #E8EEF1 4px);
+    border-color: transparent;
+  }
+
 </style>
 </head>
 <body>
@@ -1408,119 +2206,136 @@
   </div>
 </nav>
 
-<!-- ============ HERO ============ -->
-<section class="hero">
-  <div class="container hero-inner">
-    <span class="eyebrow">Internal Reference</span>
-    <h1>Cleaner Roster</h1>
-    <p class="hero-sub">A quick visual snapshot of the active team and who is in the hiring pipeline. Use this to gauge availability before booking. Final scheduling lives in the CRM.</p>
 
-    <div class="hero-meta">
-      <span class="week-pill"><span class="week-icon"></span>Week of <span id="weekRange">loading</span></span>
-      <span class="meta-pill"><span class="meta-dot"></span>Last synced <strong id="lastSynced" style="color:var(--navy);margin-left:4px;">checking</strong></span>
-      <span class="meta-pill" style="background:var(--teal-bg);border-color:transparent;color:var(--navy);"><strong>Roster v16 Live</strong></span>
-      <span class="meta-pill"><span class="meta-dot" style="background:var(--gold);box-shadow:0 0 0 3px rgba(255,182,0,0.18);"></span>Auto refresh every 5 min</span>
-    </div>
-
-    <div id="errorBox"></div>
-
-    <!-- Stats -->
-    <div class="stats">
-      <div class="stat-card stat-active">
-        <div class="stat-label">Active Cleaners</div>
-        <div class="stat-value" id="statActive">0</div>
-        <div class="stat-note">Bookable this week</div>
+<!-- ============ V2: LIVE NOW STRIP ============ -->
+<div class="livenow-strip" id="liveNowStrip">
+  <div class="container">
+    <div class="livenow-inner">
+      <div class="livenow-label">
+        <span class="eyebrow">Live Now</span>
+        <span class="label-main" id="liveNowMain">Today's Team</span>
+        <span class="label-date" id="liveNowDate">Loading</span>
       </div>
-      <div class="stat-card stat-bilingual">
-        <div class="stat-label">Team Utilization</div>
-        <div class="stat-value" id="statUtil">0%</div>
-        <div class="stat-note" id="statUtilNote">0h booked of 0h available</div>
+      <div class="livenow-track" id="liveNowTrack">
+        <!-- chips injected by JS -->
       </div>
-      <div class="stat-card stat-weekend">
-        <div class="stat-label">Open Hours This Week</div>
-        <div class="stat-value" id="statOpen">0h</div>
-        <div class="stat-note">Across the active team</div>
-      </div>
-      <div class="stat-card stat-interview">
-        <div class="stat-label">Bookings This Week</div>
-        <div class="stat-value" id="statBookings">0</div>
-        <div class="stat-note">Active jobs in Launch27</div>
-      </div>
-    </div>
-
-    <!-- Sync row with refresh -->
-    <div class="sync-row">
-      <span class="sync-text">Last synced <strong id="syncTextStamp">checking</strong>. Auto-refreshes every 5 minutes.</span>
-      <button class="refresh-btn" id="refreshBtn">Refresh now</button>
-    </div>
-
-    <!-- Upcoming leave alert, hidden until populated -->
-    <div id="leaveAlertBox"></div>
-
-    <!-- Alert banner -->
-    <div class="alert">
-      <div class="alert-icon">!</div>
-      <div>
-        <div class="alert-title">This page is reference, not the source of truth</div>
-        <div class="alert-body">Always confirm a cleaner's actual availability in the CRM before locking a job. Schedules shift week to week. If you cannot tell whether a cleaner is open, ping them directly on GoHighLevel and wait for a yes before you commit a time to a client.</div>
-        <div class="alert-trust">
-          <span class="trust-pill"><span class="dot"></span>CRM is final</span>
-          <span class="trust-pill"><span class="dot"></span>GHL for confirmation</span>
-          <span class="trust-pill"><span class="dot"></span>Updated weekly</span>
-          <span class="trust-pill"><span class="dot"></span>Ops keeps the master</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ FILTER BAR ============ -->
-<div class="container">
-  <div class="filter-bar">
-    <div class="filter-group">
-      <span class="filter-label">Day</span>
-      <div class="filter-pills" id="dayFilters">
-        <button class="filter-pill on" data-day="all">All</button>
-        <button class="filter-pill" data-day="mon">Mon</button>
-        <button class="filter-pill" data-day="tue">Tue</button>
-        <button class="filter-pill" data-day="wed">Wed</button>
-        <button class="filter-pill" data-day="thu">Thu</button>
-        <button class="filter-pill" data-day="fri">Fri</button>
-        <button class="filter-pill" data-day="sat">Sat</button>
-        <button class="filter-pill" data-day="sun">Sun</button>
-      </div>
-    </div>
-    <div class="filter-group">
-      <span class="filter-label">Quick</span>
-      <div class="filter-pills" id="quickFilters">
-        <button class="filter-pill" data-quick="bookable">Bookable Now</button>
-        <button class="filter-pill" data-quick="weekend">Weekend</button>
-      </div>
-    </div>
-    <div class="search-wrap">
-      <span class="search-icon"></span>
-      <input type="text" class="search-input" id="searchInput" placeholder="Search by name, area, specialty" autocomplete="off">
     </div>
   </div>
 </div>
 
-<!-- ============ ACTIVE ROSTER ============ -->
-<section class="section" id="roster">
+<!-- ============ V2: COMPACT HERO ============ -->
+<section class="hero-compact">
   <div class="container">
-    <div class="section-header reveal">
-      <span class="section-eyebrow">Active Team</span>
-      <h2>Active Cleaners <span class="section-count" id="activeCount">5</span></h2>
-      <p class="section-sub">Each card shows the cleaner's weekly utilization, available days, this week's confirmed cleans, and any upcoming leave. Use it to spot who has open hours before you book.</p>
+    <div class="hero-top">
+      <div class="hero-title-block">
+        <h1>Cleaner Roster</h1>
+        <div class="hero-sub">Live availability and bookings, synced from the dispatch system.</div>
+      </div>
+      <div class="hero-meta-row">
+        <span class="meta-pill week-pill">Week of <strong id="weekRange" style="margin-left:4px;">loading</strong></span>
+        <span class="meta-pill">Last synced <strong id="lastSynced" style="margin-left:4px;">checking</strong></span>
+        <span class="meta-pill">Auto refresh every 5 min</span>
+        <button class="meta-pill" id="refreshBtn" style="cursor:pointer;border-color:var(--navy);color:var(--navy);font-weight:800;">Refresh now</button>
+      </div>
     </div>
 
-    <div class="day-legend reveal">
-      <span class="legend-item"><span class="legend-swatch on"></span>Has a clean that day</span>
-      <span class="legend-item"><span class="legend-swatch ask"></span>Available, no clean booked</span>
-      <span class="legend-item"><span class="legend-swatch off"></span>Not working that day</span>
+    <div id="errorBox"></div>
+
+    <!-- Stats v2 -->
+    <div class="stats-v2">
+      <div class="stat-tile tile-active">
+        <div class="tile-left">
+          <div class="tile-label">Active Cleaners</div>
+          <div class="tile-value" id="statActive">0</div>
+          <div class="tile-note">Bookable this week</div>
+        </div>
+        <div class="tile-icon">A</div>
+      </div>
+      <div class="stat-tile tile-util">
+        <div class="tile-left">
+          <div class="tile-label">Team Utilization</div>
+          <div class="tile-value" id="statUtil">0%</div>
+          <div class="tile-note" id="statUtilNote">0h booked of 0h available</div>
+        </div>
+        <div class="tile-icon">%</div>
+      </div>
+      <div class="stat-tile tile-open">
+        <div class="tile-left">
+          <div class="tile-label">Open Hours</div>
+          <div class="tile-value" id="statOpen">0h</div>
+          <div class="tile-note">Across the active team</div>
+        </div>
+        <div class="tile-icon">H</div>
+      </div>
+      <div class="stat-tile tile-jobs">
+        <div class="tile-left">
+          <div class="tile-label">Bookings This Week</div>
+          <div class="tile-value" id="statBookings">0</div>
+          <div class="tile-note">Active jobs in dispatch</div>
+        </div>
+        <div class="tile-icon">#</div>
+      </div>
     </div>
 
-    <div class="roster-grid" id="rosterGrid">
-      <!-- Cards rendered dynamically by JavaScript from the live API -->
+    <div id="leaveAlertBox"></div>
+  </div>
+</section>
+
+<!-- ============ V2: STICKY CONTROL BAR ============ -->
+<div class="control-bar">
+  <div class="container">
+    <div class="control-bar-inner">
+      <div class="scope-toggle" id="scopeToggle">
+        <button class="scope-btn" data-scope="today">Today</button>
+        <button class="scope-btn" data-scope="tomorrow">Tomorrow</button>
+        <button class="scope-btn on" data-scope="week">This Week</button>
+      </div>
+
+      <span class="ctrl-divider"></span>
+
+      <div class="day-pills" id="dayFilters">
+        <button class="filter-pill on" data-day="all">All Days</button>
+        <button class="filter-pill" data-day="mon">M</button>
+        <button class="filter-pill" data-day="tue">T</button>
+        <button class="filter-pill" data-day="wed">W</button>
+        <button class="filter-pill" data-day="thu">T</button>
+        <button class="filter-pill" data-day="fri">F</button>
+        <button class="filter-pill" data-day="sat">S</button>
+        <button class="filter-pill" data-day="sun">S</button>
+      </div>
+
+      <span class="ctrl-divider"></span>
+
+      <div class="quick-filters" id="quickFilters">
+        <button class="quick-filter" data-quick="bookable">Bookable Now</button>
+        <button class="quick-filter" data-quick="weekend">Weekend</button>
+      </div>
+
+      <div class="search-wrap">
+        <input id="searchInput" type="search" placeholder="Search cleaners or tags" autocomplete="off" />
+      </div>
+
+      <span class="count-chip"><strong id="activeCount">0</strong> showing</span>
+    </div>
+  </div>
+</div>
+
+<!-- ============ V2: ACTIVE ROSTER ============ -->
+<section class="section" id="roster" style="padding-top:0;">
+  <div class="container">
+    <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:14px;margin-bottom:14px;flex-wrap:wrap;">
+      <div>
+        <div style="font-size:10px;font-weight:800;letter-spacing:0.18em;color:var(--navy-muted);text-transform:uppercase;margin-bottom:3px;">Active Team</div>
+        <h2 style="font-size:20px;font-weight:800;color:var(--navy);letter-spacing:-0.01em;">Cleaner Roster <span style="color:var(--navy-muted);font-weight:600;font-size:14px;">at a glance</span></h2>
+      </div>
+      <div class="legend-micro">
+        <span class="lg-item"><span class="lg-sw booked"></span>Has a clean that day</span>
+        <span class="lg-item"><span class="lg-sw open"></span>Open</span>
+        <span class="lg-item"><span class="lg-sw off"></span>Off</span>
+      </div>
+    </div>
+
+    <div class="roster-grid-v2" id="rosterGrid">
       <div class="skeleton-card"></div>
       <div class="skeleton-card"></div>
       <div class="skeleton-card"></div>
@@ -1614,15 +2429,13 @@
 
 <script>
   // ====================================================================
-  // CONFIG, edit these if anything ever changes
+  // CONFIG
   // ====================================================================
   const API_URL = 'https://script.google.com/macros/s/AKfycbwfUL81Ro0XRaMNpz1bC6dlmA_F_V0MPiLS7Zan3wMVmFj6JQGpo175XMAQNWm9b44i3w/exec';
-  const REFRESH_MS = 5 * 60 * 1000;          // auto refresh every 5 minutes
-  const COLOR_THRESHOLDS = { green: 60, yellow: 85 };  // green under 60, yellow 60 to 85, red above
+  const REFRESH_MS = 5 * 60 * 1000;
+  const COLOR_THRESHOLDS = { green: 60, yellow: 85 };
 
-  // Map cleaner display names to their existing avatar CSS class.
-  // Add new cleaners here if a new one joins so they get a styled avatar.
-  // Names are matched by lowercase first word, so "Alexis V." matches "alexis".
+  // First-name lowercase to avatar class. New cleaners go here.
   const AVATAR_MAP = {
     'alexis': 'alexis',
     'mary': 'mary',
@@ -1637,6 +2450,7 @@
   // ====================================================================
   let state = {
     data: null,
+    scope: 'week',           // 'today' | 'tomorrow' | 'week'
     filterDay: 'all',
     filterQuick: new Set(),
     searchTerm: ''
@@ -1647,11 +2461,16 @@
   // ====================================================================
   document.addEventListener('DOMContentLoaded', () => {
     initRevealObserver();
+    bindScopeToggle();
     bindFilters();
     bindSearch();
     document.getElementById('refreshBtn').addEventListener('click', () => loadData(true));
     loadData();
     setInterval(() => loadData(false), REFRESH_MS);
+
+    // Update live-now date stamp every minute
+    updateLiveNowDate();
+    setInterval(updateLiveNowDate, 60 * 1000);
   });
 
   function initRevealObserver() {
@@ -1675,6 +2494,17 @@
     scope.querySelectorAll('.reveal').forEach(r => window._revealObserver.observe(r));
   }
 
+  function bindScopeToggle() {
+    document.querySelectorAll('#scopeToggle .scope-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('#scopeToggle .scope-btn').forEach(b => b.classList.remove('on'));
+        btn.classList.add('on');
+        state.scope = btn.dataset.scope;
+        renderCleaners();
+      });
+    });
+  }
+
   function bindFilters() {
     document.querySelectorAll('#dayFilters .filter-pill').forEach(btn => {
       btn.addEventListener('click', () => {
@@ -1684,7 +2514,7 @@
         renderCleaners();
       });
     });
-    document.querySelectorAll('#quickFilters .filter-pill').forEach(btn => {
+    document.querySelectorAll('#quickFilters .quick-filter').forEach(btn => {
       btn.addEventListener('click', () => {
         const flag = btn.dataset.quick;
         if (state.filterQuick.has(flag)) {
@@ -1728,6 +2558,7 @@
       renderHeroMeta();
       renderStats();
       renderLeaveAlert();
+      renderLiveNow();
       renderCleaners();
     } catch (err) {
       showError(err.message || 'Could not reach the sync API.');
@@ -1740,7 +2571,7 @@
   }
 
   // ====================================================================
-  // RENDER, top of page
+  // RENDER, top
   // ====================================================================
   function renderHeroMeta() {
     const d = state.data;
@@ -1748,7 +2579,6 @@
     document.getElementById('weekRange').textContent = d.weekRange || (d.weekStart + ' to ' + d.weekEnd);
     const synced = d.lastUpdated || '';
     document.getElementById('lastSynced').textContent = synced;
-    document.getElementById('syncTextStamp').textContent = synced;
   }
 
   function renderStats() {
@@ -1756,7 +2586,6 @@
     if (!d) return;
     const team = d.teamTotal || { hoursBooked: 0, hoursAvailable: 0, percent: 0, openHoursLeft: 0, bookingsCount: 0 };
     const active = d.cleaners.filter(c => c.status === 'Active' && !c.isOnLeave).length;
-
     document.getElementById('statActive').textContent = active;
     document.getElementById('statUtil').textContent = team.percent + '%';
     document.getElementById('statUtilNote').textContent = team.hoursBooked + 'h booked of ' + team.hoursAvailable + 'h available';
@@ -1784,17 +2613,137 @@
         + '</div>';
     }).join('');
     box.innerHTML = `
-      <div class="leave-alert reveal in">
+      <div class="leave-alert reveal in" style="margin-top:14px;">
         <div class="leave-alert-head">
           <div class="leave-alert-icon">!</div>
-          <div class="leave-alert-title">Heads up, upcoming time off in the next 3 weeks</div>
+          <div class="leave-alert-title">Upcoming time off in the next 3 weeks</div>
         </div>
         <div class="leave-alert-list">${items}</div>
       </div>`;
   }
 
   // ====================================================================
-  // RENDER, cleaner grid
+  // LIVE NOW STRIP
+  // ====================================================================
+  function updateLiveNowDate() {
+    const now = new Date();
+    const opts = { weekday: 'long', month: 'short', day: 'numeric' };
+    const dateStr = now.toLocaleDateString('en-US', opts);
+    const timeStr = now.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' });
+    const el = document.getElementById('liveNowDate');
+    if (el) el.textContent = dateStr + ' · ' + timeStr;
+  }
+
+  function renderLiveNow() {
+    const d = state.data;
+    if (!d) return;
+    const track = document.getElementById('liveNowTrack');
+    if (!track) return;
+
+    const now = new Date();
+    const todayName = now.toLocaleDateString('en-US', { weekday: 'short' }); // Mon, Tue, ...
+
+    const chips = d.cleaners.map(c => {
+      // Determine today's status
+      let cls, statusText;
+      if (c.isOnLeave) {
+        cls = 's-leave';
+        statusText = 'On leave';
+      } else if (c.status !== 'Active') {
+        cls = 's-off';
+        statusText = 'Out';
+      } else {
+        const todayBookings = (c.thisWeekBookings || []).filter(b => b.dayOfWeek === todayName);
+        if (todayBookings.length) {
+          // Find current/next based on current time
+          const current = findCurrentOrNextBooking(todayBookings, now);
+          if (current.state === 'in-job') {
+            cls = 's-in-job';
+            statusText = 'Cleaning · ' + current.booking.startTime;
+          } else if (current.state === 'upcoming') {
+            cls = 's-in-job';
+            statusText = 'Next ' + current.booking.startTime;
+          } else {
+            cls = 's-done';
+            statusText = 'Done for today';
+          }
+        } else {
+          // No bookings today, check if they work today
+          const dayKey = todayName.toLowerCase();
+          if (c.defaultDays && c.defaultDays[dayKey]) {
+            cls = 's-available';
+            statusText = 'Available';
+          } else {
+            cls = 's-off';
+            statusText = 'Off today';
+          }
+        }
+      }
+
+      const avatarClass = avatarClassFor(c.name);
+      const avatarStyle = avatarClass
+        ? ''   // CSS class will set the background-image
+        : 'background:linear-gradient(135deg, #FFB600, #2E6EA5);';
+      return `
+        <a class="livenow-chip ${cls}" href="#roster">
+          <span class="chip-avatar avatar ${avatarClass}" style="${avatarStyle}"></span>
+          <span class="chip-meta">
+            <span class="chip-name">${escapeHTML(c.name)}</span>
+            <span class="chip-status">${escapeHTML(statusText)}</span>
+          </span>
+        </a>
+      `;
+    }).join('');
+
+    track.innerHTML = chips;
+  }
+
+  function findCurrentOrNextBooking(bookings, now) {
+    // bookings is sorted by start time already (within day grouping by day-of-week index)
+    // Parse start time strings like "8:00am", "10:30am", "2:15pm"
+    const nowMins = now.getHours() * 60 + now.getMinutes();
+    let upcoming = null;
+    for (const b of bookings) {
+      const startMin = parseTimeStrToMins(b.startTime);
+      const durMin = parseDurationToMins(b.duration);
+      if (startMin === null) continue;
+      const endMin = startMin + (durMin || 180); // assume 3h if duration parse fails
+      if (nowMins >= startMin && nowMins < endMin) {
+        return { state: 'in-job', booking: b };
+      }
+      if (nowMins < startMin && !upcoming) {
+        upcoming = b;
+      }
+    }
+    if (upcoming) return { state: 'upcoming', booking: upcoming };
+    return { state: 'done', booking: null };
+  }
+
+  function parseTimeStrToMins(t) {
+    if (!t) return null;
+    const m = t.toString().toLowerCase().match(/^(\d{1,2})(?::(\d{2}))?\s*(am|pm)/);
+    if (!m) return null;
+    let h = parseInt(m[1], 10);
+    const mins = parseInt(m[2] || '0', 10);
+    const ampm = m[3];
+    if (ampm === 'pm' && h < 12) h += 12;
+    if (ampm === 'am' && h === 12) h = 0;
+    return h * 60 + mins;
+  }
+
+  function parseDurationToMins(d) {
+    if (!d) return null;
+    const str = d.toString();
+    let total = 0;
+    const hMatch = str.match(/(\d+)\s*h/);
+    const mMatch = str.match(/(\d+)\s*m/);
+    if (hMatch) total += parseInt(hMatch[1], 10) * 60;
+    if (mMatch) total += parseInt(mMatch[1], 10);
+    return total || null;
+  }
+
+  // ====================================================================
+  // RENDER, cleaner grid v2
   // ====================================================================
   function renderCleaners() {
     const d = state.data;
@@ -1806,11 +2755,11 @@
 
     if (!filtered.length) {
       grid.innerHTML = '';
-      empty.style.display = 'block';
+      if (empty) empty.style.display = 'block';
       return;
     }
-    empty.style.display = 'none';
-    grid.innerHTML = filtered.map(cleanerCardHTML).join('');
+    if (empty) empty.style.display = 'none';
+    grid.innerHTML = filtered.map(cleanerCardV2).join('');
     attachReveals(grid);
   }
 
@@ -1835,120 +2784,170 @@
     });
   }
 
-  function cleanerCardHTML(c) {
+  function cleanerCardV2(c) {
     const isLeave = c.isOnLeave || c.status !== 'Active';
     const util = c.utilization || { hoursBooked: 0, hoursAvailable: 0, percent: 0, openHoursLeft: 0, bookingsCount: 0 };
     const tier = isLeave ? 'gray' : tierFor(util.percent);
     const avatarClass = avatarClassFor(c.name);
-    const statusPill = isLeave
-      ? '<span class="status-pill status-away"><span class="pulse"></span>Away</span>'
-      : '<span class="status-pill status-active"><span class="pulse"></span>Active</span>';
 
-    // Day strip
+    // ----- 7-DAY TIMELINE -----
     const dayKeys = ['mon','tue','wed','thu','fri','sat','sun'];
-    const dayLabels = ['M','T','W','T','F','S','S'];
-    const dayStrip = dayKeys.map((key, idx) => {
-      const works = c.defaultDays && c.defaultDays[key];
-      const has = (c.thisWeekBookings || []).some(b => b.dayOfWeek.toLowerCase().slice(0,3) === key);
-      let cls = 'off-day';
-      if (isLeave) cls = 'off-day';
-      else if (works && has) cls = 'on';
-      else if (works) cls = 'ask';
-      return '<div class="day-cell ' + cls + '">' + dayLabels[idx] + '</div>';
+    const dayLetters = ['M','T','W','T','F','S','S'];
+
+    const now = new Date();
+    const todayKey = now.toLocaleDateString('en-US', { weekday: 'short' }).toLowerCase();
+
+    // Map bookings to days of week
+    const bookingsByDay = {};
+    (c.thisWeekBookings || []).forEach(b => {
+      const k = b.dayOfWeek.toLowerCase().slice(0,3);
+      if (!bookingsByDay[k]) bookingsByDay[k] = [];
+      bookingsByDay[k].push(b);
+    });
+
+    const headRow = dayKeys.map((k, i) => {
+      const cls = [
+        'v2-tl-day',
+        k === todayKey ? 'today' : '',
+        (k === 'sat' || k === 'sun') ? 'weekend' : ''
+      ].filter(Boolean).join(' ');
+      return `<div class="${cls}">${dayLetters[i]}</div>`;
     }).join('');
 
-    // Utilization block (skip if on leave)
-    const utilBlock = isLeave ? '' : `
-      <div class="util-block">
-        <div class="util-row">
-          <div class="util-bar"><div class="util-fill t-${tier}" style="width: ${Math.min(util.percent, 100)}%;"></div></div>
-          <div class="util-pct t-${tier}">${util.percent}%</div>
-        </div>
-        <div class="util-meta">
-          <span><strong>${util.hoursBooked}h</strong> booked</span>
-          <span><strong>${util.openHoursLeft}h</strong> open</span>
-          <span><strong>${util.bookingsCount}</strong> ${util.bookingsCount === 1 ? 'job' : 'jobs'} this week</span>
-        </div>
-      </div>`;
+    const bodyRow = dayKeys.map(k => {
+      const works = c.defaultDays && c.defaultDays[k];
+      const bks = bookingsByDay[k] || [];
+      const isToday = k === todayKey;
+      let cls = 'v2-tl-cell';
+      let content;
+      if (isLeave || !works) {
+        cls += ' off';
+        content = '<span class="tl-time">·</span>';
+      } else if (bks.length) {
+        cls += ' booked';
+        if (isToday) cls += ' today-cell';
+        content = `<span class="tl-time">${escapeHTML(bks[0].startTime)}</span>`;
+        if (bks.length > 1) {
+          content += `<span class="tl-count">+${bks.length - 1} more</span>`;
+        }
+      } else {
+        cls += ' open';
+        if (isToday) cls += ' today-cell';
+        content = '<span class="tl-time">Open</span>';
+      }
+      return `<div class="${cls}">${content}</div>`;
+    }).join('');
 
-    // Bookings block
-    let bookingsBlock = '';
-    if (!isLeave) {
-      const bks = c.thisWeekBookings || [];
-      const list = bks.length
-        ? `<ul class="bookings-list">${bks.map(b => `
-            <li>
-              <span class="b-day">${escapeHTML(b.dayOfWeek)}</span>
-              <span class="b-time">${escapeHTML(b.startTime)}</span>
-              <span class="b-client">${escapeHTML(b.clientFirstName) || '<em>Pending name</em>'}</span>
-              <span class="b-duration">${escapeHTML(b.duration)}</span>
-            </li>`).join('')}</ul>`
-        : `<div class="bookings-empty">No bookings yet this week</div>`;
-      bookingsBlock = `
-        <div class="bookings-block">
-          <div class="bookings-head">
-            <span class="label">This Week's Cleans</span>
-            <span class="count">${bks.length}</span>
-          </div>
-          ${list}
-        </div>`;
+    // ----- SCHEDULE LIST (filtered by scope) -----
+    const tomorrowDate = new Date(now);
+    tomorrowDate.setDate(tomorrowDate.getDate() + 1);
+    const tomorrowKey = tomorrowDate.toLocaleDateString('en-US', { weekday: 'short' }).toLowerCase();
+
+    let visibleBookings = c.thisWeekBookings || [];
+    if (state.scope === 'today') {
+      visibleBookings = visibleBookings.filter(b => b.dayOfWeek.toLowerCase().slice(0,3) === todayKey);
+    } else if (state.scope === 'tomorrow') {
+      visibleBookings = visibleBookings.filter(b => b.dayOfWeek.toLowerCase().slice(0,3) === tomorrowKey);
     }
 
-    // Leave warning chips
+    let scheduleHTML;
+    if (isLeave) {
+      scheduleHTML = ''; // leave chips will show instead
+    } else if (visibleBookings.length) {
+      const scopeLabel = state.scope === 'today' ? 'today' : state.scope === 'tomorrow' ? 'tomorrow' : 'this week';
+      scheduleHTML = `
+        <div class="v2-schedule">
+          ${visibleBookings.map(b => {
+            const k = b.dayOfWeek.toLowerCase().slice(0,3);
+            let rowCls = 'v2-schedule-row';
+            if (k === todayKey) rowCls += ' is-today';
+            else if (k === tomorrowKey) rowCls += ' is-tomorrow';
+            return `
+              <div class="${rowCls}">
+                <div class="sch-day">${escapeHTML(b.dayOfWeek)}<span class="sch-date">${escapeHTML(b.date)}</span></div>
+                <div class="sch-time">${escapeHTML(b.startTime)}</div>
+                <div class="sch-client">${escapeHTML(b.clientFirstName) || '<em style="color:var(--navy-muted);">Pending</em>'}</div>
+                <div class="sch-duration">${escapeHTML(b.duration)}</div>
+              </div>
+            `;
+          }).join('')}
+        </div>`;
+    } else {
+      const scopeLabel = state.scope === 'today' ? 'today' : state.scope === 'tomorrow' ? 'tomorrow' : 'this week';
+      scheduleHTML = `<div class="v2-schedule"><div class="v2-schedule-empty">No cleans ${scopeLabel}</div></div>`;
+    }
+
+    // ----- LEAVE CHIPS -----
     let leaveChips = '';
     if (c.currentLeave) {
-      leaveChips += `<div class="leave-chip current">
-        <div class="leave-chip-icon">i</div>
-        <div><strong>Currently on leave</strong> through ${escapeHTML(c.currentLeave.endDate)}${c.currentLeave.reason ? '. ' + escapeHTML(c.currentLeave.reason) : ''}</div>
+      leaveChips += `<div class="v2-leave-chip current">
+        <div class="lc-icon">i</div>
+        <div><strong>On leave</strong> through ${escapeHTML(c.currentLeave.endDate)}${c.currentLeave.reason ? '. ' + escapeHTML(c.currentLeave.reason) : ''}</div>
       </div>`;
     }
     if (c.upcomingLeave && c.upcomingLeave.length) {
       const next = c.upcomingLeave[0];
       const when = next.daysUntil === 0 ? 'today' : next.daysUntil === 1 ? 'tomorrow' : 'in ' + next.daysUntil + ' days';
-      leaveChips += `<div class="leave-chip">
-        <div class="leave-chip-icon">!</div>
-        <div><strong>Will be on leave</strong> ${escapeHTML(next.startDate)} to ${escapeHTML(next.endDate)} (${when})${next.reason ? '. ' + escapeHTML(next.reason) : ''}</div>
+      leaveChips += `<div class="v2-leave-chip">
+        <div class="lc-icon">!</div>
+        <div><strong>Upcoming leave</strong> ${escapeHTML(next.startDate)} to ${escapeHTML(next.endDate)} (${when})</div>
       </div>`;
     }
 
-    // Hours info row
-    const hoursRow = (c.hoursStart && c.hoursEnd && !isLeave)
-      ? `<div class="info-row"><span class="info-key">Hours</span><span class="info-val">${escapeHTML(c.hoursStart)} to ${escapeHTML(c.hoursEnd)}</span></div>`
-      : '';
-
-    // Tags
-    const tagPalette = ['tag-gold', 'tag-teal', 'tag-blue', 'tag-green'];
-    const tagsHTML = (c.tags || []).filter(Boolean).map((t, i) =>
-      `<span class="tag ${tagPalette[i % tagPalette.length]}">${escapeHTML(t)}</span>`
+    // ----- TAGS -----
+    const tagsHTML = (c.tags || []).filter(Boolean).slice(0, 4).map((t, i) =>
+      `<span class="v2-tag t-${i % 4}">${escapeHTML(t)}</span>`
     ).join('');
 
+    // ----- META LINE -----
+    const metaLine = isLeave
+      ? `<div class="v2-meta-line"><span><strong>Out of rotation</strong></span></div>`
+      : `<div class="v2-meta-line">
+          <span><strong>${util.hoursBooked}h</strong> booked</span>
+          <span class="dot-sep"><strong>${util.openHoursLeft}h</strong> open</span>
+          <span class="dot-sep"><strong>${util.bookingsCount}</strong> ${util.bookingsCount === 1 ? 'job' : 'jobs'} this week</span>
+          ${(c.hoursStart && c.hoursEnd) ? `<span class="dot-sep">${escapeHTML(c.hoursStart)} to ${escapeHTML(c.hoursEnd)}</span>` : ''}
+        </div>`;
+
     return `
-      <div class="cleaner-card reveal ${isLeave ? 'away' : ''}">
-        <div class="cleaner-head">
-          <div class="avatar ${avatarClass}"></div>
-          <div>
-            <div class="cleaner-name">${escapeHTML(c.name)}</div>
-            <div class="cleaner-meta">${isLeave ? 'On the team, not bookable right now' : 'Active team member'}</div>
+      <div class="cleaner-v2 reveal tier-${tier} ${isLeave ? 'is-leave' : ''}">
+        <div class="strip"></div>
+
+        <div class="v2-head">
+          <div class="v2-avatar avatar ${avatarClass}"></div>
+          <div class="v2-name-block">
+            <div class="v2-name">${escapeHTML(c.name)}</div>
+            <div class="v2-sub">
+              <span class="v2-status-dot ${isLeave ? 's-leave' : 's-active'}"></span>
+              ${isLeave ? 'Not bookable' : 'Active'}
+            </div>
           </div>
-          ${statusPill}
+          <div class="v2-util">
+            <div>
+              <div class="v2-pct t-${tier}">${util.percent}%</div>
+              <div class="v2-pct-label">Booked</div>
+            </div>
+          </div>
         </div>
 
-        <div class="day-strip">${dayStrip}</div>
+        ${!isLeave ? `<div class="v2-bar"><div class="v2-bar-fill t-${tier}" style="width: ${Math.min(util.percent, 100)}%;"></div></div>` : ''}
 
-        ${utilBlock}
+        ${metaLine}
+
+        <div class="v2-timeline">
+          <div class="v2-timeline-head">${headRow}</div>
+          <div class="v2-timeline-body">${bodyRow}</div>
+        </div>
 
         ${leaveChips}
 
-        ${bookingsBlock}
+        ${scheduleHTML}
 
-        ${hoursRow ? `<div class="info-rows">${hoursRow}</div>` : ''}
+        ${c.notes ? `<div class="v2-note">${escapeHTML(c.notes)}</div>` : ''}
 
-        ${tagsHTML ? `<div class="tag-row">${tagsHTML}</div>` : ''}
-
-        ${c.notes ? `<div class="cleaner-note">${escapeHTML(c.notes)}</div>` : ''}
-
-        <div class="card-footer">
-          <a href="https://app.gohighlevel.com" target="_blank" rel="noopener" class="ghl-btn">Ping on GHL <span class="arrow">&rsaquo;</span></a>
+        <div class="v2-foot">
+          <div class="v2-tags">${tagsHTML}</div>
+          <a href="https://app.gohighlevel.com" target="_blank" rel="noopener" class="v2-ghl-btn">Ping on GHL ›</a>
         </div>
       </div>
     `;
@@ -1971,14 +2970,14 @@
 
   function escapeHTML(s) {
     if (s === null || s === undefined) return '';
-    return String(s).replace(/[&<>"']/g, m => ({
+    return String(s).replace(/[&<>"\']/g, m => ({
       '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
     }[m]));
   }
 
   function showError(msg) {
     document.getElementById('errorBox').innerHTML = `
-      <div class="err-banner">
+      <div class="err-banner" style="margin-top:14px;">
         <strong>Sync issue</strong>
         <p>The dashboard could not reach the sync API. Showing the last data we have. Error <code>${escapeHTML(msg)}</code></p>
       </div>`;
