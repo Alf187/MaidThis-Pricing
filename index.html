@@ -1394,7 +1394,7 @@ footer a, .footer-roster-link { color: var(--mt-teal); text-decoration: none; fo
         </div>
           <div class="cl-pitch">
             <div class="cl-pitch-label"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> What to tell the client</div>
-            <p class="cl-pitch-body">"Everything in our standard clean, plus we get into all the detail work that builds up between visits. Baseboards, fan blades, window interiors and tracks, grout scrubbing in the bathrooms, and degreasing the stovetop grates and range hood in the kitchen. It runs about two hours longer than a standard visit. Any first-time client should always start here."</p>
+            <p class="cl-pitch-body">"Everything in our standard clean, plus we get into all the detail work that builds up between visits. Baseboards, fan blades, window sills, grout scrubbing in the bathrooms, and degreasing the stovetop grates and range hood in the kitchen. It runs about two hours longer than a standard visit. Any first-time client should always start here."</p>
           </div>
 
           <div>
@@ -1404,8 +1404,7 @@ footer a, .footer-roster-link { color: var(--mt-teal); text-decoration: none; fo
             <div class="cl-cat-label">Every Room Deep Detail</div>
           <div class="cl-item"><span class="cl-check"></span>Clean all baseboards and door frames</div>
           <div class="cl-item"><span class="cl-check"></span>Detailed dusting of vents, registers, and fan blades</div>
-          <div class="cl-item"><span class="cl-check"></span>Wet-wipe blinds to remove dust buildup</div>
-          <div class="cl-item"><span class="cl-check"></span>Clean interior windows, frames, sills, and tracks</div>
+          <div class="cl-item"><span class="cl-check"></span>Clean window sills</div>
           <div class="cl-item"><span class="cl-check"></span>Detail-clean trim, woodwork, and window frames</div>
           <div class="cl-item"><span class="cl-check"></span>Disinfect light switches, knobs, and high-touch points</div>
           <div class="cl-item"><span class="cl-check"></span>Vacuum corners, edges, and under reachable furniture</div>
@@ -1437,8 +1436,7 @@ footer a, .footer-roster-link { color: var(--mt-teal); text-decoration: none; fo
             <div class="cl-cat-label">Bedrooms Deep Detail</div>
           <div class="cl-item"><span class="cl-check"></span>Clean baseboards and floor edges</div>
           <div class="cl-item"><span class="cl-check"></span>Wet-wipe ceiling fan blades and light fixtures</div>
-          <div class="cl-item"><span class="cl-check"></span>Wet-wipe blinds to remove dust and stains</div>
-          <div class="cl-item"><span class="cl-check"></span>Clean interior windows, frames, sills, and tracks</div>
+          <div class="cl-item"><span class="cl-check"></span>Clean window sills</div>
           <div class="cl-item"><span class="cl-check"></span>Vacuum corners, edges, and under the bed</div>
           <div class="cl-item"><span class="cl-check"></span>Detail-dust headboard, frame, and closet doors</div>
           <div class="cl-item"><span class="cl-check"></span>Disinfect light switches and door handles</div>
@@ -1991,7 +1989,7 @@ footer a, .footer-roster-link { color: var(--mt-teal); text-decoration: none; fo
     { name: 'Move In / Move Out', price: 100, hours: 3.0, recurringDiscount: false, note: 'Includes everything in a deep clean plus windows, oven, fridge, and inside cabinets.', flag: 'BUNDLE' },
     { name: 'Inside Fridge', price: 30, hours: 0.5, recurringDiscount: true, note: 'Client must empty out the fridge AND freezer before we arrive. We clean shelves, drawers, and walls.' },
     { name: 'Inside Oven', price: 35, hours: 0.5, recurringDiscount: true, note: 'Standard baked-on grime. Self-clean cycle excluded.' },
-    { name: 'Clean Interior Windows', price: 45, hours: 1.0, recurringDiscount: true, note: 'Inside windows ONLY. Only what we can reach with a step stool. No ladders, no exterior, no second-story.' },
+    { name: 'Clean Interior Windows', price: 45, hours: 1.0, recurringDiscount: true, note: 'Interior window glass, frames, and dusting blinds. Only what we can reach with a step stool. No ladders, no exterior, no second-story.' },
     { name: 'Dish Washing', price: 25, hours: 0.5, recurringDiscount: true, note: 'Per load. We rinse, load, and run the dishwasher. We do NOT unload it.' },
     { name: 'Baseboards (Standard Cleans)', price: 55, hours: 0.5, recurringDiscount: true, note: 'All baseboards. Already included in deep cleans and move-outs.' },
     { name: 'Inside Cabinet Cleaning', price: 30, hours: 0.5, recurringDiscount: true, note: 'Client must empty cabinets before we arrive for best results. We clean around items left inside.' },
@@ -2112,7 +2110,7 @@ footer a, .footer-roster-link { color: var(--mt-teal); text-decoration: none; fo
   const calcAddons = [
     { id: 'fridge', name: 'Inside Fridge', price: 30, discount: true, repTip: 'Tell the client they must empty out the fridge AND freezer before we arrive. We clean shelves, drawers, and walls. We do not bag up or move their food.' },
     { id: 'oven', name: 'Inside Oven', price: 35, discount: true },
-    { id: 'windows', name: 'Interior Windows', price: 45, discount: true, repTip: 'Inside windows ONLY. We only clean what we can reach with a step stool. No ladders, no exterior, no second-story windows from the outside.' },
+    { id: 'windows', name: 'Interior Windows', price: 45, discount: true, repTip: 'Includes interior window glass, frames, and dusting blinds. We only clean what we can reach with a step stool. No ladders, no exterior, no second-story windows from the outside.' },
     { id: 'dishes', name: 'Dish Washing', price: 25, discount: true, repTip: 'Price is per load. We rinse, load, and run the dishwasher. We do NOT unload it. That eats too much time and is not part of this add-on.' },
     { id: 'cabinets', name: 'Inside Cabinets', price: 30, discount: true, repTip: 'Client must empty cabinets before we arrive for best results. We do NOT empty cabinets ourselves. If items are left inside we just clean around them.' },
     { id: 'baseboards', name: 'Baseboards', price: 55, discount: true, hideOnDeep: true },
